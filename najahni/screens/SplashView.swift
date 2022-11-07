@@ -15,11 +15,11 @@ struct SplashView: View {
             VStack(alignment: .center){
                 Image("Logo-Najahni")
                     .resizable()
-                    .frame(width: 150 , height: 250)
+                    .frame(width: 250.0 , height: 250)
                     .scaledToFit()
                 
                 Text("Najahni")
-                    .font(.body)
+                    .font(.largeTitle)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                 

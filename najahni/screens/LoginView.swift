@@ -11,7 +11,8 @@ struct LoginView: View {
     @State var email = ""
     @State var password = ""
     var body: some View {
-        VStack(alignment: .center){
+        VStack(alignment: .center)
+        {
             Image("Logo-Najahni")
                 .resizable()
                 .padding(.bottom, 0.0)
@@ -49,7 +50,11 @@ struct LoginView: View {
                 .frame(width: 0.0, height: 25.0)
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                     /*@START_MENU_TOKEN@*/Text("Sign in")
-                        .foregroundColor(Color.white)/*@END_MENU_TOKEN@*/
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom, 12.0)
+                        /*@END_MENU_TOKEN@*/
+                    
                         
                 }
                 .padding(.top, 10.0)
@@ -68,7 +73,6 @@ struct LoginView: View {
                                   
                                }
             }
-            Text("Don't have an account ?")
             
             
                 
@@ -81,5 +85,6 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
+            .padding(.all)
     }
 }
