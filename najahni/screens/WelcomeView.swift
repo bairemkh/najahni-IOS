@@ -20,18 +20,17 @@ struct WelcomeView: View {
                 
                 Spacer()
                     .frame(width: 0.0, height: 100.0)
-                Button(action: {}) {
-                        /*@START_MENU_TOKEN@*/Text("Sign in")
-                        .foregroundColor(Color.white)
-                        .multilineTextAlignment(.center)
-                        /*@END_MENU_TOKEN@*/
-                            
-                    }
-                    .padding(.top, 10.0)
-                    .frame(width: 300.0,height: 60.0)
-                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
-                    .cornerRadius(25)
-                    
+                NavigationLink(destination:LoginView()){
+                    Button(action: {}) {
+                            /*@START_MENU_TOKEN@*/Text("Sign in")
+                            .foregroundColor(Color.white)
+                            .multilineTextAlignment(.center)     /*@END_MENU_TOKEN@*/
+                        }
+                        .padding(.top, 10.0)
+                        .frame(width: 300.0,height: 60.0)
+                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
+                        .cornerRadius(25)
+                }
                 Spacer()
                     .frame(width: 0.0, height: 24.0)
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
@@ -48,10 +47,11 @@ struct WelcomeView: View {
                 
                 
                 
-                
             }
         }
+        .navigationBarHidden(false)
     }
+        
 }
 
 struct WelcomeView_Previews: PreviewProvider {
