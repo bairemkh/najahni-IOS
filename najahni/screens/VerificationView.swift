@@ -45,6 +45,7 @@ struct VerificationView: View {
     @StateObject var digitManager = TextBindingManager(limit: 1);
     var body: some View {
         VStack{
+            HStack{
             Text("Type the code To get your Password")
                 .fontWeight(.black)
                 .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
@@ -52,12 +53,14 @@ struct VerificationView: View {
                 .padding(0.0)
                 .frame(width: 303.0, height: 100.0)
                 .font(.system(size: 30))
+                Spacer()
+            }
             Spacer()
-                .frame(width: 0, height:50)
             Image("Logo-Najahni")
                 .resizable()
-                .frame(width: 150 , height: 150)
+                .frame(width: 200 , height: 200)
                 .scaledToFit()
+            Spacer()
             HStack(spacing: 20){
                 TextField("0",text:$digitManager.digit1)
                     .padding(.all)
@@ -94,14 +97,23 @@ struct VerificationView: View {
             }
             .padding(.all)
             HStack{
-                Text("forget password ?")
+                Text("Resend another verification code")
                     .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.848))
                                .multilineTextAlignment(.leading)
                                .padding()
                                .onTapGesture {
-                                  
                                }
+                Spacer()
+                
             }
+            Spacer()
+            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Text("Verify Account")
+                    .foregroundColor(Color.white)
+            }
+            .frame(width: 300.0,height: 60.0)
+            .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
+            .cornerRadius(25)
         }
     }
 }
