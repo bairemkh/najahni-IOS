@@ -14,6 +14,7 @@ struct ForgetPassword: View {
             HStack{
                 Text("Forgot your password ??")
                     .fontWeight(.black)
+                    .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                     .multilineTextAlignment(.leading)
                     .padding(0.0)
                     .frame(width: 300.0, height: 100.0)
@@ -33,11 +34,12 @@ struct ForgetPassword: View {
                 .padding(.leading)
                 .padding(.trailing)
                 .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
-                .cornerRadius(20)
-                .shadow(color: .gray, radius: 3)
+                .cornerRadius(10)
+                .shadow(color: .gray, radius: 3,x: 1,y: 2)
             Spacer()
                 .frame(width: 0.0, height:30)
             Text("If you have your password, you have to type it in and finally you receive an email to retrieve it. First you get a 4 digit pin code and then you put it in the form")
+                .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
             Spacer()
             
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {

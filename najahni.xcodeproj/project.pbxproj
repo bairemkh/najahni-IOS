@@ -20,6 +20,7 @@
 		28CABB2E29191BC600AED109 /* najahniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB2D29191BC600AED109 /* najahniTests.swift */; };
 		28CABB3829191BC600AED109 /* najahniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB3729191BC600AED109 /* najahniUITests.swift */; };
 		28CABB3A29191BC600AED109 /* najahniUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB3929191BC600AED109 /* najahniUITestsLaunchTests.swift */; };
+		28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F322E82919C6FC004DC8C9 /* VerificationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		28CABB3329191BC600AED109 /* najahniUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = najahniUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28CABB3729191BC600AED109 /* najahniUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = najahniUITests.swift; sourceTree = "<group>"; };
 		28CABB3929191BC600AED109 /* najahniUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = najahniUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		28F322E82919C6FC004DC8C9 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				287939582919737500778A5B /* WelcomeView.swift */,
 				2879395A2919824100778A5B /* LoginView.swift */,
 				2879395C2919A57800778A5B /* ForgetPassword.swift */,
+				28F322E82919C6FC004DC8C9 /* VerificationView.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				287939592919737500778A5B /* WelcomeView.swift in Sources */,
 				28CABB2429191BC500AED109 /* najahni.xcdatamodeld in Sources */,
 				28793957291970D300778A5B /* SplashView.swift in Sources */,
+				28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */,
 				28CABB1A29191BC400AED109 /* ContentView.swift in Sources */,
 				28CABB1829191BC400AED109 /* najahniApp.swift in Sources */,
 			);
