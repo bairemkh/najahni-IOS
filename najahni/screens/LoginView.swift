@@ -70,10 +70,13 @@ struct LoginView: View {
              
                 HStack(spacing: -10.0){
                     Text("Don't have an account ?")
-                    Text("create one")
-                        .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.848))
-                                   .multilineTextAlignment(.leading)
-                                   .padding()
+                    NavigationLink(destination:SignupView(),label: {
+                        Text("create one")
+                            .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.848))
+                                       .multilineTextAlignment(.leading)
+                                       .padding()
+                    })
+                    
                 }
                 
                 

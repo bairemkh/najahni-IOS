@@ -22,6 +22,10 @@
 		28CABB3A29191BC600AED109 /* najahniUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB3929191BC600AED109 /* najahniUITestsLaunchTests.swift */; };
 		28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F322E82919C6FC004DC8C9 /* VerificationView.swift */; };
 		8741BAB1291E9116002FBDE8 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB0291E9116002FBDE8 /* SignupView.swift */; };
+		8741BAB4291E9557002FBDE8 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */; };
+		8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB7291E9C77002FBDE8 /* Role.swift */; };
+		8741BABA291E9CC0002FBDE8 /* Fields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB9291E9CC0002FBDE8 /* Fields.swift */; };
+		8741BABC291EA33B002FBDE8 /* Sexe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BABB291EA33B002FBDE8 /* Sexe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,10 @@
 		28CABB3929191BC600AED109 /* najahniUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = najahniUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		28F322E82919C6FC004DC8C9 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		8741BAB0291E9116002FBDE8 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		8741BAB7291E9C77002FBDE8 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		8741BAB9291E9CC0002FBDE8 /* Fields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fields.swift; sourceTree = "<group>"; };
+		8741BABB291EA33B002FBDE8 /* Sexe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sexe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,8 @@
 		28CABB1629191BC400AED109 /* najahni */ = {
 			isa = PBXGroup;
 			children = (
+				8741BAB5291E9C03002FBDE8 /* models */,
+				8741BAB2291E952E002FBDE8 /* viewmodels */,
 				287939552919709700778A5B /* screens */,
 				28CABB1729191BC400AED109 /* najahniApp.swift */,
 				28CABB1929191BC400AED109 /* ContentView.swift */,
@@ -157,6 +167,32 @@
 				28CABB3929191BC600AED109 /* najahniUITestsLaunchTests.swift */,
 			);
 			path = najahniUITests;
+			sourceTree = "<group>";
+		};
+		8741BAB2291E952E002FBDE8 /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */,
+			);
+			path = viewmodels;
+			sourceTree = "<group>";
+		};
+		8741BAB5291E9C03002FBDE8 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				8741BAB6291E9C1B002FBDE8 /* enums */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		8741BAB6291E9C1B002FBDE8 /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				8741BAB7291E9C77002FBDE8 /* Role.swift */,
+				8741BAB9291E9CC0002FBDE8 /* Fields.swift */,
+				8741BABB291EA33B002FBDE8 /* Sexe.swift */,
+			);
+			path = enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,11 +330,15 @@
 				2879395B2919824100778A5B /* LoginView.swift in Sources */,
 				287939592919737500778A5B /* WelcomeView.swift in Sources */,
 				8741BAB1291E9116002FBDE8 /* SignupView.swift in Sources */,
+				8741BAB4291E9557002FBDE8 /* SignupViewModel.swift in Sources */,
 				28CABB2429191BC500AED109 /* najahni.xcdatamodeld in Sources */,
 				28793957291970D300778A5B /* SplashView.swift in Sources */,
+				8741BABC291EA33B002FBDE8 /* Sexe.swift in Sources */,
+				8741BABA291E9CC0002FBDE8 /* Fields.swift in Sources */,
 				28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */,
 				28CABB1A29191BC400AED109 /* ContentView.swift in Sources */,
 				28CABB1829191BC400AED109 /* najahniApp.swift in Sources */,
+				8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
