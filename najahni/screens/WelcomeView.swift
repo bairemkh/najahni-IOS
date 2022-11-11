@@ -49,7 +49,8 @@ struct WelcomeView: View {
                 
             }
         }
-        .navigationBarHidden(false)
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
         
 }

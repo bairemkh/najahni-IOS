@@ -21,6 +21,7 @@
 		28CABB3829191BC600AED109 /* najahniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB3729191BC600AED109 /* najahniUITests.swift */; };
 		28CABB3A29191BC600AED109 /* najahniUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB3929191BC600AED109 /* najahniUITestsLaunchTests.swift */; };
 		28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F322E82919C6FC004DC8C9 /* VerificationView.swift */; };
+		8741BAB1291E9116002FBDE8 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB0291E9116002FBDE8 /* SignupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		28CABB3729191BC600AED109 /* najahniUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = najahniUITests.swift; sourceTree = "<group>"; };
 		28CABB3929191BC600AED109 /* najahniUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = najahniUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		28F322E82919C6FC004DC8C9 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
+		8741BAB0291E9116002FBDE8 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				2879395A2919824100778A5B /* LoginView.swift */,
 				2879395C2919A57800778A5B /* ForgetPassword.swift */,
 				28F322E82919C6FC004DC8C9 /* VerificationView.swift */,
+				8741BAB0291E9116002FBDE8 /* SignupView.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				2879395D2919A57800778A5B /* ForgetPassword.swift in Sources */,
 				2879395B2919824100778A5B /* LoginView.swift in Sources */,
 				287939592919737500778A5B /* WelcomeView.swift in Sources */,
+				8741BAB1291E9116002FBDE8 /* SignupView.swift in Sources */,
 				28CABB2429191BC500AED109 /* najahni.xcdatamodeld in Sources */,
 				28793957291970D300778A5B /* SplashView.swift in Sources */,
 				28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */,
