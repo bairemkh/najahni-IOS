@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28793957291970D300778A5B /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28793956291970D300778A5B /* SplashView.swift */; };
+		287939592919737500778A5B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287939582919737500778A5B /* WelcomeView.swift */; };
+		2879395B2919824100778A5B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879395A2919824100778A5B /* LoginView.swift */; };
+		2879395D2919A57800778A5B /* ForgetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879395C2919A57800778A5B /* ForgetPassword.swift */; };
 		28CABB1829191BC400AED109 /* najahniApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB1729191BC400AED109 /* najahniApp.swift */; };
 		28CABB1A29191BC400AED109 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB1929191BC400AED109 /* ContentView.swift */; };
 		28CABB1C29191BC500AED109 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28CABB1B29191BC500AED109 /* Assets.xcassets */; };
@@ -16,6 +20,7 @@
 		28CABB2E29191BC600AED109 /* najahniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB2D29191BC600AED109 /* najahniTests.swift */; };
 		28CABB3829191BC600AED109 /* najahniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB3729191BC600AED109 /* najahniUITests.swift */; };
 		28CABB3A29191BC600AED109 /* najahniUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB3929191BC600AED109 /* najahniUITestsLaunchTests.swift */; };
+		28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F322E82919C6FC004DC8C9 /* VerificationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28793956291970D300778A5B /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		287939582919737500778A5B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		2879395A2919824100778A5B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2879395C2919A57800778A5B /* ForgetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPassword.swift; sourceTree = "<group>"; };
 		28CABB1429191BC400AED109 /* najahni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = najahni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28CABB1729191BC400AED109 /* najahniApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = najahniApp.swift; sourceTree = "<group>"; };
 		28CABB1929191BC400AED109 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +57,7 @@
 		28CABB3329191BC600AED109 /* najahniUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = najahniUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28CABB3729191BC600AED109 /* najahniUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = najahniUITests.swift; sourceTree = "<group>"; };
 		28CABB3929191BC600AED109 /* najahniUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = najahniUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		28F322E82919C6FC004DC8C9 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		287939552919709700778A5B /* screens */ = {
+			isa = PBXGroup;
+			children = (
+				28793956291970D300778A5B /* SplashView.swift */,
+				287939582919737500778A5B /* WelcomeView.swift */,
+				2879395A2919824100778A5B /* LoginView.swift */,
+				2879395C2919A57800778A5B /* ForgetPassword.swift */,
+				28F322E82919C6FC004DC8C9 /* VerificationView.swift */,
+			);
+			path = screens;
+			sourceTree = "<group>";
+		};
 		28CABB0B29191BC400AED109 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +120,7 @@
 		28CABB1629191BC400AED109 /* najahni */ = {
 			isa = PBXGroup;
 			children = (
+				287939552919709700778A5B /* screens */,
 				28CABB1729191BC400AED109 /* najahniApp.swift */,
 				28CABB1929191BC400AED109 /* ContentView.swift */,
 				28CABB1B29191BC500AED109 /* Assets.xcassets */,
@@ -264,7 +287,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				28CABB2129191BC500AED109 /* Persistence.swift in Sources */,
+				2879395D2919A57800778A5B /* ForgetPassword.swift in Sources */,
+				2879395B2919824100778A5B /* LoginView.swift in Sources */,
+				287939592919737500778A5B /* WelcomeView.swift in Sources */,
 				28CABB2429191BC500AED109 /* najahni.xcdatamodeld in Sources */,
+				28793957291970D300778A5B /* SplashView.swift in Sources */,
+				28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */,
 				28CABB1A29191BC400AED109 /* ContentView.swift in Sources */,
 				28CABB1829191BC400AED109 /* najahniApp.swift in Sources */,
 			);
