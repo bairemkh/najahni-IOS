@@ -15,6 +15,7 @@ class SignupViewModel: ObservableObject {
     @Published  var roleList=["Trainer","Student"]
     @Published  var role=0
     @Published  var fields: [Fields] = Fields.allCases
+    @Published var ibaction=0
     @Published  var sexeList = ["Female", "Male"]
     @Published  var sexe=0
         

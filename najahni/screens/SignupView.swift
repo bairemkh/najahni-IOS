@@ -82,7 +82,7 @@ struct SignupView: View {
                 }
                 .pickerStyle(.segmented)
                 .foregroundColor(/*@START_MENU_TOKEN@*/.purple/*@END_MENU_TOKEN@*/)
-                Picker("test", selection: $signUpVM.fields)
+                Picker("test", selection: $signUpVM.ibaction)
                 {
                     // Picker's items
                     ForEach(0..<signUpVM.fields.count)
