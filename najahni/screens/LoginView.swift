@@ -51,7 +51,9 @@ struct LoginView: View {
                 
                 Spacer()
                     .frame(width: 0.0, height: 25.0)
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Button(action: {
+                    viewModel.login(email: viewModel.email, password: viewModel.password)
+                }) {
                         /*@START_MENU_TOKEN@*/Text("Sign in")
                             .foregroundColor(Color.white)
                             .multilineTextAlignment(.center)
