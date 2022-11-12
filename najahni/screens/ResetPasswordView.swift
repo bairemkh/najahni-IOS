@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ResetPasswordView: View {
-    @State var email = ""
+    @StateObject var viewModel = ResetPasswordViewModel()
     var body: some View {
         NavigationView(){
             VStack{
@@ -24,7 +24,7 @@ struct ResetPasswordView: View {
                         .frame(width: 100, height:0.0)
                 }
                 Spacer()
-                SecureField("Password", text: $email)
+                SecureField("Password", text: $viewModel.newPassword)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
@@ -33,7 +33,7 @@ struct ResetPasswordView: View {
                     .shadow(color: .gray, radius: 3,x: 1,y: 2)
                 Spacer()
                     .frame(width: 0.0, height:30)
-                SecureField("Confirm Password", text: $email)
+                SecureField("Confirm Password", text: $viewModel.confirmPassword)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)

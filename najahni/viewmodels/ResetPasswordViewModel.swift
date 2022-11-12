@@ -6,4 +6,19 @@
 //
 
 import Foundation
+class ResetPasswordViewModel: ObservableObject {
+    @Published  var oldPassword=""
+    @Published  var newPassword=""
+    @Published  var confirmPassword=""
+    
+    func onChangePassword(password:String,confirmation:String)->Bool{
+        if password.elementsEqual(confirmation){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+        
+}
 

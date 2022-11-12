@@ -36,6 +36,8 @@
 		8743D057291FDC2200C1781C /* EditAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743D056291FDC2200C1781C /* EditAccountViewModel.swift */; };
 		8743D059291FE16300C1781C /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743D058291FE16300C1781C /* ResetPasswordView.swift */; };
 		8743D05B291FE3FB00C1781C /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743D05A291FE3FB00C1781C /* ResetPasswordViewModel.swift */; };
+		8743D05E291FE49300C1781C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8743D05D291FE49300C1781C /* Alamofire */; };
+		8743D060291FE5F800C1781C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743D05F291FE5F800C1781C /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,7 @@
 		8743D056291FDC2200C1781C /* EditAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewModel.swift; sourceTree = "<group>"; };
 		8743D058291FE16300C1781C /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		8743D05A291FE3FB00C1781C /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		8743D05F291FE5F800C1781C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8743D05E291FE49300C1781C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +207,7 @@
 				8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */,
 				8743D056291FDC2200C1781C /* EditAccountViewModel.swift */,
 				8743D05A291FE3FB00C1781C /* ResetPasswordViewModel.swift */,
+				8743D05F291FE5F800C1781C /* LoginViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -249,6 +254,9 @@
 			dependencies = (
 			);
 			name = najahni;
+			packageProductDependencies = (
+				8743D05D291FE49300C1781C /* Alamofire */,
+			);
 			productName = najahni;
 			productReference = 28CABB1429191BC400AED109 /* najahni.app */;
 			productType = "com.apple.product-type.application";
@@ -321,6 +329,9 @@
 				Base,
 			);
 			mainGroup = 28CABB0B29191BC400AED109;
+			packageReferences = (
+				8743D05C291FE49300C1781C /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 28CABB1529191BC400AED109 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -376,6 +387,7 @@
 				8741BAB4291E9557002FBDE8 /* SignupViewModel.swift in Sources */,
 				28CABB2429191BC500AED109 /* najahni.xcdatamodeld in Sources */,
 				28793957291970D300778A5B /* SplashView.swift in Sources */,
+				8743D060291FE5F800C1781C /* LoginViewModel.swift in Sources */,
 				8741BABC291EA33B002FBDE8 /* Sexe.swift in Sources */,
 				8741BABA291E9CC0002FBDE8 /* Fields.swift in Sources */,
 				28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */,
@@ -729,6 +741,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8743D05C291FE49300C1781C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8743D05D291FE49300C1781C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8743D05C291FE49300C1781C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		28CABB2229191BC500AED109 /* najahni.xcdatamodeld */ = {

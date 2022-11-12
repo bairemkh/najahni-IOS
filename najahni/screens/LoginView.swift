@@ -6,10 +6,8 @@
 //
 
 import SwiftUI
-
 struct LoginView: View {
-    @State var email = ""
-    @State var password = ""
+    @StateObject var viewModel = LoginViewModel()
     var body: some View {
         
         NavigationView {
@@ -24,7 +22,7 @@ struct LoginView: View {
                 Text("Login")
                 Spacer()
                     .frame(height: 15.0)
-                TextField("email", text: $email)
+                TextField("email", text: $viewModel.email)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
@@ -33,7 +31,7 @@ struct LoginView: View {
                     .shadow(color: .gray, radius: 3)
                 Spacer()
                     .frame(height: 15.0)
-                TextField("password", text: $password)
+                TextField("password", text: $viewModel.password)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
