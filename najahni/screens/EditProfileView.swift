@@ -18,6 +18,7 @@ struct EditProfileView: View {
                     .clipShape(Circle())
                         .shadow(radius: 10)
                 Spacer()
+                    .frame(width: 0.0, height:30)
                 TextField("Name", text: $viewModel.name)
                     .padding(.all)
                     .padding(.leading)
@@ -26,6 +27,7 @@ struct EditProfileView: View {
                     .cornerRadius(20)
                     .shadow(color: .gray, radius: 3)
                 Spacer()
+                    .frame(width: 0.0, height:30)
                 TextField("Last name", text: $viewModel.lastName)
                     .padding(.all)
                     .padding(.leading)
@@ -34,6 +36,15 @@ struct EditProfileView: View {
                     .cornerRadius(20)
                     .shadow(color: .gray, radius: 3)
                 Spacer()
+                    .frame(width: 0.0, height:30)
+                NavigationLink(destination:ChangePasswordView(),label: {
+                    Text("Change password ?")
+                            .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.848))
+                                       .multilineTextAlignment(
+                                        .leading)
+                                       .padding()
+                                       
+                })
                 Button(action: {}){
                     Text("Update Profile")
                         .foregroundColor(.white)

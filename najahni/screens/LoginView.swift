@@ -51,21 +51,23 @@ struct LoginView: View {
                 
                 Spacer()
                     .frame(width: 0.0, height: 25.0)
-                Button(action: {
-                    viewModel.login(email: viewModel.email, password: viewModel.password)
-                }) {
-                        /*@START_MENU_TOKEN@*/Text("Sign in")
-                            .foregroundColor(Color.white)
-                            .multilineTextAlignment(.center)
-                            .padding(.bottom, 12.0)
-                            /*@END_MENU_TOKEN@*/
-                        
+                NavigationLink(destination:HostingTabBarView()){
+                    Button(action: {
+                        viewModel.login(email: viewModel.email, password: viewModel.password)
+                    }) {
+                            /*@START_MENU_TOKEN@*/Text("Sign in")
+                                .foregroundColor(Color.white)
+                                .multilineTextAlignment(.center)
+                                .padding(.bottom, 12.0)
+                                /*@END_MENU_TOKEN@*/
                             
-                    }
-                    .padding(.top, 10.0)
-                    .frame(width: 300.0,height: 60.0)
-                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
-                    .cornerRadius(25)
+                                
+                        }
+                        .padding(.top, 10.0)
+                        .frame(width: 300.0,height: 60.0)
+                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
+                        .cornerRadius(25)
+                }
                 
              
                 HStack(spacing: -10.0){

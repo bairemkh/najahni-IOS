@@ -80,7 +80,13 @@ struct CustomPickerView: View {
                                         presentPicker = false
                                     }
                                 }) {
-                                    Text(item)
+                                    HStack {
+                                        Text(item)
+                                        Spacer()
+                                        Image(systemName: "heart")
+                                            .foregroundColor(Color("primaryColor"))
+                                    }
+                                    
                                 }
                             }
                         }
@@ -120,7 +126,7 @@ struct CustomPickerView_Previews: PreviewProvider {
         }
 }
 
-struct Ingredient{
+struct ListData{
         var id = UUID()
         var name: String
         var isSelected: Bool = false

@@ -40,6 +40,7 @@
 		8743D060291FE5F800C1781C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743D05F291FE5F800C1781C /* LoginViewModel.swift */; };
 		8743D062291FF61000C1781C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743D061291FF61000C1781C /* User.swift */; };
 		8743D066291FFD9800C1781C /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743D065291FFD9800C1781C /* CustomPickerView.swift */; };
+		87AA86002922354F009536CA /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AA85FF2922354F009536CA /* ChangePasswordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		8743D05F291FE5F800C1781C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8743D061291FF61000C1781C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8743D065291FFD9800C1781C /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
+		87AA85FF2922354F009536CA /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				8741BAC5291EC517002FBDE8 /* ProfileView.swift */,
 				8743D054291FD9CC00C1781C /* EditProfileView.swift */,
 				8743D058291FE16300C1781C /* ResetPasswordView.swift */,
+				87AA85FF2922354F009536CA /* ChangePasswordView.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				28CABB2429191BC500AED109 /* najahni.xcdatamodeld in Sources */,
 				28793957291970D300778A5B /* SplashView.swift in Sources */,
 				8743D060291FE5F800C1781C /* LoginViewModel.swift in Sources */,
+				87AA86002922354F009536CA /* ChangePasswordView.swift in Sources */,
 				8741BABC291EA33B002FBDE8 /* Sexe.swift in Sources */,
 				8741BABA291E9CC0002FBDE8 /* Fields.swift in Sources */,
 				28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */,

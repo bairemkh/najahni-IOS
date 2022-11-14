@@ -43,13 +43,15 @@ struct ForgetPassword: View {
                     .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                 Spacer()
                 
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Text("Send Email")
-                        .foregroundColor(Color.white)
+                NavigationLink(destination:VerificationView()){
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        Text("Send Email")
+                            .foregroundColor(Color.white)
+                    }
+                    .frame(width: 300.0,height: 60.0)
+                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
+                    .cornerRadius(25)
                 }
-                .frame(width: 300.0,height: 60.0)
-                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
-                .cornerRadius(25)
             }
             .padding(.all)
             
