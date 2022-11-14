@@ -12,10 +12,10 @@ protocol CustomPicker {
 }
 
 struct CustomPickerView: View {
-    var items: [ListData]
-        @State private var frameHeight: CGFloat = 400
-        @State private var inFocus: Bool?
-    @Binding var presentPicker : Bool?
+        let label: LabelView
+        let options: [Selectable]
+        let optionToString: (Selectable) -> String
+        var selected: Binding<Set<Selectable>>
     var body: some View {
             return ZStack {
                 Color.black.opacity(0.4)
@@ -40,24 +40,28 @@ struct CustomPickerView: View {
                             .padding(.leading,10)
                         
                         List {
-                            ForEach(items, id: \.name) { item in
+                            ForEach(0..<items.count) {  index in
                                 Button(action: {
-                                    item.select()
+                                    items[index].isSelected=true
+                                    print(items[index].isSelected)
                                 }){
                                     HStack {
-                                        Text(item.name)
+                                        Text(items[index].isSelected.description)
                                         Spacer()
-                                        if(item.isSelected){
+                                        if(items[index].isSelected){
                                             Image(systemName: "heart.fill")
                                              .foregroundColor(Color("primaryColor"))
+                                             .animation(.easeIn)
                                         }
                                         else{
                                             Image(systemName: "heart")
                                              .foregroundColor(Color("primaryColor"))
+                                             .animation(.easeIn)
                                         }
                                        }
                                  }
                             }
+                            
                         }
                         .listStyle(.plain)
                     }
@@ -78,8 +82,7 @@ struct CustomPickerView: View {
 
 
 struct CustomPickerView_Previews: PreviewProvider {
-    /*static let sampleData = ["Milk", "Apples", "Sugar", "Eggs", "Oranges", "Potatoes", "Corn", "Bread"].sorted()*/
-    static let sampleData=[ListData(name: "Milk"),ListData(name: "Apples"),ListData(name: "Sugar"),ListData(name: "Eggs"),ListData(name: "Oranges"),ListData(name: "Potatoes"),ListData(name: "Corn")]
+    static var sampleData = [ListData(name: "Milk"),ListData(name: "Apples"),ListData(name: "Sugar"),ListData(name: "Eggs"),ListData(name: "Oranges"),ListData(name: "Potatoes"),ListData(name: "Corn")]
         static var previews: some View {
             CustomPickerView(items: sampleData, presentPicker: .constant(true))
         }
@@ -89,8 +92,5 @@ struct ListData: Identifiable{
         var id = UUID()
         var name: String
         var isSelected: Bool = false
-    
-    func select() -> Bool {
-        return !self.isSelected
-    }
+      
 }

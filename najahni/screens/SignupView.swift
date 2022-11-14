@@ -82,18 +82,17 @@ struct SignupView: View {
                 }
                 .pickerStyle(.segmented)
                 .foregroundColor(/*@START_MENU_TOKEN@*/.purple/*@END_MENU_TOKEN@*/)
-                Picker("test", selection: $signUpVM.ibaction)
-                {
-                    // Picker's items
-                    ForEach(0..<signUpVM.fields.count)
-                        {
-                            Text(self.signUpVM.fields[$0].rawValue)
-                        }
-                    
-                }
-                .pickerStyle(.menu)
-                .foregroundColor(/*@START_MENU_TOKEN@*/.purple/*@END_MENU_TOKEN@*/)
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                /*MultiSelector(label: Text("Fields"), options: signUpVM.fields, optionToString: signUpVM.fields, selected: signUpVM.fields[0])*/
+               /* NavigationLink()) {
+                    HStack {
+                        Text("Select Your Fields")
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.trailing)
+                    }
+                }*/
+                 
+                
+            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                     Text("Next")
                         .foregroundColor(Color.white)
                 }

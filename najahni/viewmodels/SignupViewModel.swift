@@ -14,7 +14,10 @@ class SignupViewModel: ObservableObject {
     @Published  var verifPassword=""
     @Published  var roleList=["Trainer","Student"]
     @Published  var role=0
-    @Published  var fields: [Fields] = Fields.allCases
+    @Published  var fieldsList: [ListData] = Fields.allCases.map { feild in
+        return ListData(name: feild.rawValue)
+    }
+    @Published var selectedFields : [ListData]=[]
     @Published var ibaction=0
     @Published  var sexeList = ["Female", "Male"]
     @Published  var sexe=0
