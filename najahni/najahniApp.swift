@@ -13,8 +13,7 @@ struct najahniApp: App {
 
     var body: some Scene {
         WindowGroup {
-            //SplashView()
-            CustomPicker2View(items: [ListData(name: "Milk"),ListData(name: "Apples"),ListData(name: "Sugar"),ListData(name: "Eggs"),ListData(name: "Oranges"),ListData(name: "Potatoes"),ListData(name: "Corn")], selected: [], presentPicker: .constant(true))
+            SplashView()            
         }
     }
 }
