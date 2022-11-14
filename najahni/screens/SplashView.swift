@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SplashView: View {
     @State var isActive:Bool = false
-    let welcome = WelcomeView()
+    let welcome = LoginView()
     var body: some View {
         NavigationView {
             VStack(alignment: .center){
@@ -27,7 +27,7 @@ struct SplashView: View {
             }
             .onAppear(perform: {self.gotoWelcomeScreen(time: 2.0)})
         }
-            
+        
         
     }
     func gotoWelcomeScreen(time: Double) {
