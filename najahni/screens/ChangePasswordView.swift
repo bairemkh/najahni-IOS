@@ -24,6 +24,7 @@ struct ChangePasswordView: View {
                         .frame(width: 100, height:0.0)
                 }
                 Spacer()
+                    .frame(width: 0.0, height:50)
                 SecureField("Password", text: $viewModel.oldPassword)
                     .padding(.all)
                     .padding(.leading)
@@ -50,7 +51,7 @@ struct ChangePasswordView: View {
                     .cornerRadius(10)
                     .shadow(color: .gray, radius: 3,x: 1,y: 2)
                 Spacer()
-                
+                    .frame(width: 0.0, height:30)
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                     Text("Change password")
                         .foregroundColor(Color.white)
@@ -58,9 +59,12 @@ struct ChangePasswordView: View {
                 .frame(width: 300.0,height: 60.0)
                 .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
                 .cornerRadius(25)
+                Spacer()
             }
             .padding(.all)
         }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

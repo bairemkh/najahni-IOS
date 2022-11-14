@@ -12,27 +12,12 @@ protocol CustomPicker {
 }
 
 struct CustomPickerView: View {
-    var items: [String]
-        @State private var filteredItems: [String] = []
-        @State private var filterString: String = ""
+    var items: [ListData]
         @State private var frameHeight: CGFloat = 400
         @State private var inFocus: Bool?
         @Binding var pickerField: String
         @Binding var presentPicker: Bool
-        var saveUpdates: ((String) -> Void)?
     var body: some View {
-            let filterBinding = Binding<String> (
-                get: { filterString },
-                set: {
-                    filterString = $0
-                    if filterString != "" {
-                        filteredItems = items.filter{$0.lowercased().contains(filterString.lowercased())}
-                    } else {
-                        filteredItems = items
-                    }
-                    setHeight()
-                }
-            )
             return ZStack {
                 Color.black.opacity(0.4)
                 VStack {
@@ -47,47 +32,32 @@ struct CustomPickerView: View {
                             }
                             .padding(10)
                             Spacer()
-                            if let saveUpdates = saveUpdates {
-                                Button(action: {
-                                    if !items.contains(filterString) {
-                                        saveUpdates(filterString)
-                                    }
-                                    pickerField = filterString
-                                    withAnimation {
-                                        presentPicker = false
-                                    }
-                                }) {
-                                    Image(systemName: "plus.circle")
-                                        .frame(width: 44, height: 44)
-                                }
-                                .disabled(filterString.isEmpty)
-                            }
+                           
                         }
                         .background(Color("primaryColor"))
                         .foregroundColor(.white)
                         Text("Tap an entry to select it, or type in a new entry.")
                             .font(.caption)
                             .padding(.leading,10)
-                            TextField("Filter by entering text", text: filterBinding)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .padding()
                         
                         List {
-                            ForEach(filteredItems, id: \.self) { item in
+                            ForEach(items, id: \.name) { item in
                                 Button(action: {
-                                    pickerField = item
-                                    withAnimation {
-                                        presentPicker = false
-                                    }
-                                }) {
+                                    item.select()
+                                }){
                                     HStack {
-                                        Text(item)
+                                        Text(item.name)
                                         Spacer()
-                                        Image(systemName: "heart")
-                                            .foregroundColor(Color("primaryColor"))
-                                    }
-                                    
-                                }
+                                        if(item.isSelected){
+                                            Image(systemName: "heart.fill")
+                                             .foregroundColor(Color("primaryColor"))
+                                        }
+                                        else{
+                                            Image(systemName: "heart")
+                                             .foregroundColor(Color("primaryColor"))
+                                        }
+                                       }
+                                 }
                             }
                         }
                         .listStyle(.plain)
@@ -104,30 +74,24 @@ struct CustomPickerView: View {
             .edgesIgnoringSafeArea(.all)
         }
         
-        fileprivate func setHeight() {
-            withAnimation {
-                if filteredItems.count > 5 {
-                    frameHeight = 400
-                } else if filteredItems.count == 0 {
-                    frameHeight = 130
-                } else {
-                    frameHeight = CGFloat(filteredItems.count * 45 + 130)
-                }
-            }
-        }
         
 }
 
 
 struct CustomPickerView_Previews: PreviewProvider {
-    static let sampleData = ["Milk", "Apples", "Sugar", "Eggs", "Oranges", "Potatoes", "Corn", "Bread"].sorted()
+    /*static let sampleData = ["Milk", "Apples", "Sugar", "Eggs", "Oranges", "Potatoes", "Corn", "Bread"].sorted()*/
+    static let sampleData=[ListData(name: "Milk"),ListData(name: "Apples"),ListData(name: "Sugar"),ListData(name: "Eggs"),ListData(name: "Oranges"),ListData(name: "Potatoes"),ListData(name: "Corn")]
         static var previews: some View {
             CustomPickerView(items: sampleData, pickerField: .constant(""), presentPicker: .constant(true))
         }
 }
 
-struct ListData{
+struct ListData: Identifiable{
         var id = UUID()
         var name: String
         var isSelected: Bool = false
+    
+    func select() -> Bool {
+        return !self.isSelected
+    }
 }
