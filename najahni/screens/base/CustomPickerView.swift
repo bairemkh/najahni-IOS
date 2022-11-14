@@ -15,8 +15,7 @@ struct CustomPickerView: View {
     var items: [ListData]
         @State private var frameHeight: CGFloat = 400
         @State private var inFocus: Bool?
-        @Binding var pickerField: String
-        @Binding var presentPicker: Bool
+    @Binding var presentPicker : Bool?
     var body: some View {
             return ZStack {
                 Color.black.opacity(0.4)
@@ -82,7 +81,7 @@ struct CustomPickerView_Previews: PreviewProvider {
     /*static let sampleData = ["Milk", "Apples", "Sugar", "Eggs", "Oranges", "Potatoes", "Corn", "Bread"].sorted()*/
     static let sampleData=[ListData(name: "Milk"),ListData(name: "Apples"),ListData(name: "Sugar"),ListData(name: "Eggs"),ListData(name: "Oranges"),ListData(name: "Potatoes"),ListData(name: "Corn")]
         static var previews: some View {
-            CustomPickerView(items: sampleData, pickerField: .constant(""), presentPicker: .constant(true))
+            CustomPickerView(items: sampleData, presentPicker: .constant(true))
         }
 }
 
