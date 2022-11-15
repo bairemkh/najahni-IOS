@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 class SignupViewModel: ObservableObject {
     @Published  var email=""
     @Published  var name=""
@@ -28,10 +30,36 @@ class SignupViewModel: ObservableObject {
     @Published  var sexeList = ["Female", "Male"]
     @Published  var sexe=0
     
-    func onSignUp() {
+    
+    func signup(firstname: String, lastname: String, email: String, password: String, role: Role, fields: [Fields], image: String, isVerified: Bool)  {
         
-        UserService.signup(firstname: name, lastname: lastName, email: email, password: password, role: Role(rawValue: roleList[role])!, fields: selectedFields.map({ listData in
-            return Fields(rawValue: listData.name)!
-        }), image: "", isVerified: false)
-    }
+        let body : [String : Any] = [
+            "firstname": firstname,
+            "lastname": lastname,
+            "email": email,
+            "password": password,
+            "role": role.rawValue,
+            "fields": fields.map({ f in
+                return f.rawValue
+            })
+        ]
+        print(body)
+        
+        AF.request(URL_BASE_APP + "/user/signup", method: .post, parameters: body,
+                   encoding: JSONEncoding.default)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseData { response in
+                print(response)
+                switch response.result{
+                case .success(let data):
+                    print("testing")
+                    let json = JSON(data)
+                    
+                case .failure(let error):
+                    print(error.errorDescription!)
+                }
+            }
+        
+     }
 }

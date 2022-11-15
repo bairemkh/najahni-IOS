@@ -45,7 +45,7 @@ struct SignupView: View {
                             .shadow(color: .gray, radius: 3)
                     }
                     
-                    TextField("Email", text: $signUpVM.lastName)
+                    TextField("Email", text: $signUpVM.email)
                         .padding(.all)
                         .padding(.leading)
                         .padding(.trailing)
@@ -97,7 +97,9 @@ struct SignupView: View {
                                 .multilineTextAlignment(.trailing)
                         }
                     }
-                    Button(action: {print(signUpVM.selectedFields)}) {
+                    Button(action: {signUpVM.signup(firstname: signUpVM.name, lastname: signUpVM.lastName, email: signUpVM.email, password: signUpVM.password, role: Role(rawValue: signUpVM.roleList[signUpVM.role])!, fields: signUpVM.selectedFields.map({ listData in
+                        return Fields(rawValue: listData.name)!
+                    }), image: "", isVerified: false) } ){
                         Text("Next")
                             .foregroundColor(Color.white)
                     }
