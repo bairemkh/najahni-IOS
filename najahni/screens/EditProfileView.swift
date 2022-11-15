@@ -6,20 +6,28 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct EditProfileView: View {
-    @StateObject var viewModel = EditAccountViewModel()
+    @StateObject var viewModel = LoginViewModel()
+   @State var firstname: String
+   @State var lastname: String
+   @State var image: String
+    
+
     var body: some View {
         NavigationView(){
             VStack{
-                Image("user")
-                    .padding()
-                    .frame(width: 200.0, height: 200.0)
+                WebImage(url: URL(string: image))
+                    .resizable()
                     .clipShape(Circle())
                         .shadow(radius: 10)
+                    .padding()
+                    .frame(width: 150.0, height: 150.0)
+                    .aspectRatio(contentMode: .fill)
                 Spacer()
                     .frame(width: 0.0, height:30)
-                TextField("Name", text: $viewModel.name)
+                TextField("Name", text: $firstname)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
@@ -28,13 +36,14 @@ struct EditProfileView: View {
                     .shadow(color: .gray, radius: 3)
                 Spacer()
                     .frame(width: 0.0, height:30)
-                TextField("Last name", text: $viewModel.lastName)
+                TextField("Last name", text: $lastname)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
                     .cornerRadius(20)
                     .shadow(color: .gray, radius: 3)
+
                 Spacer()
                     .frame(width: 0.0, height:30)
                 NavigationLink(destination:ChangePasswordView(),label: {
@@ -45,7 +54,10 @@ struct EditProfileView: View {
                                        .padding()
                                        
                 })
-                Button(action: {}){
+                Button(action: {
+                    print("test edit")
+                    viewModel.editprofile(firstname: firstname, lastname: lastname)
+                }){
                     Text("Update Profile")
                         .foregroundColor(.white)
                                    .multilineTextAlignment(
@@ -64,6 +76,6 @@ struct EditProfileView: View {
 
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileView()
+        EditProfileView(firstname: String(), lastname: String(), image: String())
     }
 }
