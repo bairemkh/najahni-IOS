@@ -44,7 +44,7 @@ struct ForgetPassword: View {
                 Spacer()
                 
                 NavigationLink(destination:VerificationView()){
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                    Button(action: {UserService.forgetPassword(email: email)}) {
                         Text("Send Email")
                             .foregroundColor(Color.white)
                     }

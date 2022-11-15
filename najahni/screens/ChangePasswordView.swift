@@ -52,7 +52,9 @@ struct ChangePasswordView: View {
                     .shadow(color: .gray, radius: 3,x: 1,y: 2)
                 Spacer()
                     .frame(width: 0.0, height:30)
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Button(action: {
+                    viewModel.editpassword(password: viewModel.oldPassword, newpassword: viewModel.newPassword)
+                }) {
                     Text("Change password")
                         .foregroundColor(Color.white)
                 }

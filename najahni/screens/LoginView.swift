@@ -8,7 +8,7 @@
 import SwiftUI
 struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
-    @State var isLogin:Bool = false
+    @State  var isLogin :Bool = false
     var body: some View {
         
         NavigationView {
@@ -60,22 +60,19 @@ struct LoginView: View {
                                 isLogin = true
                             } else {
                                 print("not logged in")
+                                isLogin = false
                             }
                             
                         })
                     }) {
-                            /*@START_MENU_TOKEN@*/Text("Sign in")
-                                .foregroundColor(Color.white)
-                                .multilineTextAlignment(.center)
-                                .padding(.bottom, 12.0)
-                                /*@END_MENU_TOKEN@*/
-                            
-                                
-                        }
-                        .padding(.top, 10.0)
-                        .frame(width: 300.0,height: 60.0)
-                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
-                        .cornerRadius(25)
+                      Text("Sign in")
+                            .foregroundColor(Color.white)
+                            .multilineTextAlignment(.center)
+                            .frame(width: 300.0,height: 60.0)
+                            .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
+                            .cornerRadius(25)
+                    }
+                    
                 }
                 
              
