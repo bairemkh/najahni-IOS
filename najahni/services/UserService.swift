@@ -7,7 +7,7 @@
 
 import Foundation
 class UserService {
-    func signUp(user:User)  {
-        
+   static func signup(firstname: String, lastname: String, email: String, password: String, role: Role, fields: [Fields], image: String, isVerified: Bool) -> Bool {
+      return true
     }
 }

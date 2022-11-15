@@ -28,7 +28,10 @@ class SignupViewModel: ObservableObject {
     @Published  var sexeList = ["Female", "Male"]
     @Published  var sexe=0
     
-    func onSignUp() -> User {
-        return User(firstname: name, lastname: lastName, email: email, password: password, role: <#T##Role#>, fields: <#T##[Fields?]#>, image: <#T##String#>, isVerified: <#T##Bool#>, otp: <#T##String#>,);
+    func onSignUp() {
+        
+        UserService.signup(firstname: name, lastname: lastName, email: email, password: password, role: Role(rawValue: roleList[role])!, fields: selectedFields.map({ listData in
+            return Fields(rawValue: listData.name)!
+        }), image: "", isVerified: false)
     }
 }

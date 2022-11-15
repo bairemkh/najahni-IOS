@@ -6,8 +6,8 @@
 //
 
 import Foundation
-enum Role {
-    case Trainer,Student
-    
+enum Role: String,CaseIterable {
+    case Trainer = "Trainer"
+    case Student = "Student"    
     }
 
