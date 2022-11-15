@@ -45,7 +45,7 @@ class LoginViewModel: ObservableObject {
         
     }
     
-    func profile () {
+    func profile (completed: @escaping (Bool,User?)-> Void) {
         let token = UserDefaults.standard.string(forKey: "token")
         let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
         AF.request(PROFILE_URL,
@@ -58,8 +58,10 @@ class LoginViewModel: ObservableObject {
                 let json = JSON(data)
                 let user = self.makeItem(jsonItem: json["user"])
                 print(user)
+                completed(true,user)
             case .failure(let error):
                 print(error)
+                completed(false,nil)
                 
             }
         }
@@ -73,7 +75,9 @@ class LoginViewModel: ObservableObject {
             email: jsonItem["email"].stringValue,
             password: jsonItem["password"].stringValue,
             role: Role(rawValue: jsonItem["role"].stringValue)!,
-            fields: jsonItem["fields"].rawValue as! [Fields?],
+            fields: jsonItem["fields"].arrayValue.map({ json in
+                return Fields(rawValue: json.stringValue)!
+            }),
             image: jsonItem["image"].stringValue,
             isVerified: jsonItem["isVerified"].boolValue,
             otp: jsonItem["otp"].stringValue)

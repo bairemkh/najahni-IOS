@@ -6,17 +6,24 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct EditProfileView: View {
     @StateObject var viewModel = EditAccountViewModel()
+    let firstname: String
+    let lastname: String
+    let image: String
+
     var body: some View {
         NavigationView(){
             VStack{
-                Image("user")
-                    .padding()
-                    .frame(width: 200.0, height: 200.0)
+                WebImage(url: URL(string: image))
+                    .resizable()
                     .clipShape(Circle())
                         .shadow(radius: 10)
+                    .padding()
+                    .frame(width: 150.0, height: 150.0)
+                    .aspectRatio(contentMode: .fill)
                 Spacer()
                     .frame(width: 0.0, height:30)
                 TextField("Name", text: $viewModel.name)
@@ -35,6 +42,7 @@ struct EditProfileView: View {
                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
                     .cornerRadius(20)
                     .shadow(color: .gray, radius: 3)
+
                 Spacer()
                     .frame(width: 0.0, height:30)
                 NavigationLink(destination:ChangePasswordView(),label: {
@@ -64,6 +72,6 @@ struct EditProfileView: View {
 
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileView()
+        EditProfileView(firstname: String(), lastname: String(), image: String())
     }
 }

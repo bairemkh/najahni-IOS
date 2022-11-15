@@ -9,13 +9,17 @@ import SwiftUI
 import SDWebImageSwiftUI
 struct ProfileView: View {
     @StateObject var viewModel = LoginViewModel()
+    @State var firstname : String = ""
+    @State var lastname : String = ""
+    @State var image : String = ""
+
     var username = UserDefaults.standard.string(forKey: "token")
     var body: some View {
         NavigationView(){
             VStack(alignment: .center){
                 Spacer()
                 /*Image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvaBdtJ4GaN7m79jU-Y47NqT3Grvxd7qIZ9VKUZKyU1ynYKxoNdlQCixTRDnliBE62os&usqp=CAU")*/
-                WebImage(url: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbrvOZf5zaHg_9a8upGltfVtObFu_0QH1rcw&usqp=CAU"))
+                WebImage(url: URL(string: image))
                     .resizable()
                     .clipShape(Circle())
                         .shadow(radius: 10)
@@ -24,12 +28,12 @@ struct ProfileView: View {
                     .aspectRatio(contentMode: .fill)
                     
                       
-                Text(username ?? "username")
+                Text(firstname  + " " + lastname)
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.black)
                 Spacer()
-                NavigationLink(destination:EditProfileView(),label:{
+                NavigationLink(destination:EditProfileView(firstname: firstname, lastname: lastname, image: image),label:{
                     CustomButtonView(icon: "highlighter",buttonText: "Edit profile")
                 } )
                
@@ -38,7 +42,7 @@ struct ProfileView: View {
                 
                 Button(action:{
                     print("wish")
-                    viewModel.profile()
+                    //viewModel.profile()
                 },
                        label:{
                     CustomButtonView(icon: "heart.fill",buttonText: "My wishlist")
@@ -58,6 +62,21 @@ struct ProfileView: View {
                 
             }
             .padding(.all)
+        }.onAppear{
+         print("profile view")
+            viewModel.profile(completed: {
+                (success,result) in
+                if success {
+                    let user = result
+                    print(user!.firstname)
+                    firstname = user!.firstname
+                    lastname = user!.lastname
+                    image = user!.image
+                }else {
+                    print("not logged in")
+                    
+                }
+            })
         }
 
     }

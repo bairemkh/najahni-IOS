@@ -9,6 +9,7 @@ import Foundation
 enum Fields : String, CaseIterable{
     case Science = "Science"
     case Programmer = "Programmer"
+    case Language = "Language"
 }
 /*,Programming,Business,SoftSkills,Languages,Arts,Multimedia
 }*/
