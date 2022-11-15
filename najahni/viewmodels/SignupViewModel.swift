@@ -43,7 +43,6 @@ class SignupViewModel: ObservableObject {
                 return f.rawValue
             })
         ]
-        print(body)
         
         AF.request(URL_BASE_APP + "/user/signup", method: .post, parameters: body,
                    encoding: JSONEncoding.default)
@@ -53,7 +52,6 @@ class SignupViewModel: ObservableObject {
                 print(response)
                 switch response.result{
                 case .success(let data):
-                    print("testing")
                     let json = JSON(data)
                     
                 case .failure(let error):
