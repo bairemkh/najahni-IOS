@@ -56,13 +56,27 @@ class LoginViewModel: ObservableObject {
             switch res.result {
             case .success(let data):
                 let json = JSON(data)
-                let user = json["user"]
+                let user = self.makeItem(jsonItem: json["user"])
                 print(user)
             case .failure(let error):
                 print(error)
                 
             }
         }
+    }
+    
+    func makeItem(jsonItem: JSON) -> User {
+        return User(
+            _id: jsonItem["_id"].stringValue,
+            firstname: jsonItem["firstname"].stringValue,
+            lastname: jsonItem["lastname"].stringValue,
+            email: jsonItem["email"].stringValue,
+            password: jsonItem["password"].stringValue,
+            role: Role(rawValue: jsonItem["role"].stringValue)!,
+            fields: jsonItem["fields"].rawValue as! [Fields?],
+            image: jsonItem["image"].stringValue,
+            isVerified: jsonItem["isVerified"].boolValue,
+            otp: jsonItem["otp"].stringValue)
     }
         
 }
