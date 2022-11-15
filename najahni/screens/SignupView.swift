@@ -90,9 +90,19 @@ struct SignupView: View {
                             .multilineTextAlignment(.trailing)
                     }
                 }*/
-                 
+                NavigationLink(destination: CustomPicker2View(items: signUpVM.fieldsList,selected: signUpVM.selectedFields)){
+                    HStack {
+                        Text("Select")
+                            .foregroundColor(Color("primaryColor"))
+                        Spacer()
+                            .frame(width: 50,height: 0)
+                        Text()
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.trailing)
+                    }
+                }
                 
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+            Button(action: {print(signUpVM.selectedFields)}) {
                     Text("Next")
                         .foregroundColor(Color.white)
                 }
