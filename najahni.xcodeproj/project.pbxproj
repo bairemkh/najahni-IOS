@@ -42,6 +42,8 @@
 		87A4E85929229F1A00E2A505 /* MultiSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4E85829229F1A00E2A505 /* MultiSelectionView.swift */; };
 		87A4E85B29229F7200E2A505 /* MultiSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4E85A29229F7200E2A505 /* MultiSelector.swift */; };
 		87A4E85D2922A3CF00E2A505 /* CustomPicker2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4E85C2922A3CF00E2A505 /* CustomPicker2View.swift */; };
+		87A4E8612922B30E00E2A505 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4E8602922B30E00E2A505 /* constant.swift */; };
+		87A4E8642922B85500E2A505 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 87A4E8632922B85500E2A505 /* SwiftyJSON */; };
 		87AA86002922354F009536CA /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AA85FF2922354F009536CA /* ChangePasswordView.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,7 @@
 		87A4E85829229F1A00E2A505 /* MultiSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionView.swift; sourceTree = "<group>"; };
 		87A4E85A29229F7200E2A505 /* MultiSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelector.swift; sourceTree = "<group>"; };
 		87A4E85C2922A3CF00E2A505 /* CustomPicker2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker2View.swift; sourceTree = "<group>"; };
+		87A4E8602922B30E00E2A505 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		87AA85FF2922354F009536CA /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A4E8642922B85500E2A505 /* SwiftyJSON in Frameworks */,
 				8743D05E291FE49300C1781C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +178,7 @@
 		28CABB1629191BC400AED109 /* najahni */ = {
 			isa = PBXGroup;
 			children = (
+				87A4E85F2922B2FB00E2A505 /* utils */,
 				8741BAB5291E9C03002FBDE8 /* models */,
 				8741BAB2291E952E002FBDE8 /* viewmodels */,
 				287939552919709700778A5B /* screens */,
@@ -253,6 +258,14 @@
 			path = base;
 			sourceTree = "<group>";
 		};
+		87A4E85F2922B2FB00E2A505 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				87A4E8602922B30E00E2A505 /* constant.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -271,6 +284,7 @@
 			name = najahni;
 			packageProductDependencies = (
 				8743D05D291FE49300C1781C /* Alamofire */,
+				87A4E8632922B85500E2A505 /* SwiftyJSON */,
 			);
 			productName = najahni;
 			productReference = 28CABB1429191BC400AED109 /* najahni.app */;
@@ -346,6 +360,7 @@
 			mainGroup = 28CABB0B29191BC400AED109;
 			packageReferences = (
 				8743D05C291FE49300C1781C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				87A4E8622922B85500E2A505 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 28CABB1529191BC400AED109 /* Products */;
 			projectDirPath = "";
@@ -397,6 +412,7 @@
 				8741BAC2291EC4DF002FBDE8 /* CoursesView.swift in Sources */,
 				8743D057291FDC2200C1781C /* EditAccountViewModel.swift in Sources */,
 				8741BABE291EC44E002FBDE8 /* HostingTabBarView.swift in Sources */,
+				87A4E8612922B30E00E2A505 /* constant.swift in Sources */,
 				87A4E85929229F1A00E2A505 /* MultiSelectionView.swift in Sources */,
 				2879395D2919A57800778A5B /* ForgetPassword.swift in Sources */,
 				2879395B2919824100778A5B /* LoginView.swift in Sources */,
@@ -771,6 +787,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		87A4E8622922B85500E2A505 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -778,6 +802,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8743D05C291FE49300C1781C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		87A4E8632922B85500E2A505 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87A4E8622922B85500E2A505 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 

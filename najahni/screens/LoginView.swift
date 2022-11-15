@@ -8,6 +8,7 @@
 import SwiftUI
 struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
+    @State var isLogin:Bool = false
     var body: some View {
         
         NavigationView {
@@ -51,9 +52,17 @@ struct LoginView: View {
                 
                 Spacer()
                     .frame(width: 0.0, height: 25.0)
-                NavigationLink(destination:HostingTabBarView()){
+                NavigationLink(destination:HostingTabBarView(),isActive: $isLogin){
                     Button(action: {
-                        viewModel.login(email: viewModel.email, password: viewModel.password)
+                        viewModel.login(email: viewModel.email, password: viewModel.password,completed: {(success) in
+                            if success {
+                                print("logged in")
+                                isLogin = true
+                            } else {
+                                print("not logged in")
+                            }
+                            
+                        })
                     }) {
                             /*@START_MENU_TOKEN@*/Text("Sign in")
                                 .foregroundColor(Color.white)
