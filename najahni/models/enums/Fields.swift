@@ -11,7 +11,7 @@ enum Fields : String, CaseIterable{
     case Programming = "Programming"
     case Business = "Business"
     case SoftSkills = "SoftSkills"
-    case Languages = "Languages"
+    case Language = "Language"
     case Arts = "Arts"
     case Multimedia = "Multimedia"
     
