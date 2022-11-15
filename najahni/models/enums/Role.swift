@@ -9,5 +9,6 @@ import Foundation
 enum Role: String,CaseIterable {
     case Trainer = "Trainer"
     case Student = "Student"    
+
     }
 
