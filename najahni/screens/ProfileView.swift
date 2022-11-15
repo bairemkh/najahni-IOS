@@ -6,19 +6,25 @@
 //
 
 import SwiftUI
-
+import SDWebImageSwiftUI
 struct ProfileView: View {
+    @StateObject var viewModel = LoginViewModel()
+    var username = UserDefaults.standard.string(forKey: "token")
     var body: some View {
         NavigationView(){
             VStack(alignment: .center){
                 Spacer()
-                Image("user")
-                    .padding()
-                    .frame(width: 120.0, height: 120.0)
+                /*Image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvaBdtJ4GaN7m79jU-Y47NqT3Grvxd7qIZ9VKUZKyU1ynYKxoNdlQCixTRDnliBE62os&usqp=CAU")*/
+                WebImage(url: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbrvOZf5zaHg_9a8upGltfVtObFu_0QH1rcw&usqp=CAU"))
+                    .resizable()
                     .clipShape(Circle())
                         .shadow(radius: 10)
+                    .padding()
+                    .frame(width: 150.0, height: 150.0)
+                    .aspectRatio(contentMode: .fill)
+                    
                       
-                Text("username")
+                Text(username ?? "username")
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.black)
@@ -32,6 +38,7 @@ struct ProfileView: View {
                 
                 Button(action:{
                     print("wish")
+                    viewModel.profile()
                 },
                        label:{
                     CustomButtonView(icon: "heart.fill",buttonText: "My wishlist")
