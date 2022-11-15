@@ -27,5 +27,8 @@ class SignupViewModel: ObservableObject {
     @Published var ibaction=0
     @Published  var sexeList = ["Female", "Male"]
     @Published  var sexe=0
-        
+    
+    func onSignUp() -> User {
+        return User(firstname: name, lastname: lastName, email: email, password: password, role: <#T##Role#>, fields: <#T##[Fields?]#>, image: <#T##String#>, isVerified: <#T##Bool#>, otp: <#T##String#>,);
+    }
 }

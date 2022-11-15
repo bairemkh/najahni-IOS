@@ -6,4 +6,8 @@
 //
 
 import Foundation
-
+class UserService {
+    func signUp(user:User)  {
+        
+    }
+}
