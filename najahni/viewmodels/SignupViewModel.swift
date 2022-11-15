@@ -19,11 +19,10 @@ class SignupViewModel: ObservableObject {
     }
     @Published var selectedFields : [ListData] = []
     func getListString() -> String {
-        var output = ""
-        selectedFields.forEach { listData in
-            output =  listData.name + " ,"
+        if(selectedFields.count == 1){
+            return selectedFields[0].name
         }
-        return output
+        return selectedFields.count.description + " Items"
     }
     @Published var ibaction=0
     @Published  var sexeList = ["Female", "Male"]
