@@ -67,6 +67,34 @@ class LoginViewModel: ObservableObject {
         }
     }
     
+    func editprofile(firstname: String,lastname: String){
+        let token = UserDefaults.standard.string(forKey: "token")
+        let parmetres : [String : Any] = [
+            "firstname": firstname,
+            "lastname": lastname
+        ]
+        let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
+        AF.request(EDIT_PROFILE,
+                   method: .put,
+                   parameters: parmetres,
+        headers: headers)
+        .responseJSON{
+            (res) in
+            switch res.result {
+            case .success(let data):
+                let json = JSON(data)
+                print(json)
+                //completed(true,user)
+            case .failure(let error):
+                print(error)
+                //completed(false,nil)
+                
+            }
+        }
+    }
+    
+
+    
     func makeItem(jsonItem: JSON) -> User {
         return User(
             _id: jsonItem["_id"].stringValue,

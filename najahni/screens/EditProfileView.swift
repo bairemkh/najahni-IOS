@@ -9,10 +9,11 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct EditProfileView: View {
-    @StateObject var viewModel = EditAccountViewModel()
-    let firstname: String
-    let lastname: String
-    let image: String
+    @StateObject var viewModel = LoginViewModel()
+   @State var firstname: String
+   @State var lastname: String
+   @State var image: String
+    
 
     var body: some View {
         NavigationView(){
@@ -26,7 +27,7 @@ struct EditProfileView: View {
                     .aspectRatio(contentMode: .fill)
                 Spacer()
                     .frame(width: 0.0, height:30)
-                TextField("Name", text: $viewModel.name)
+                TextField("Name", text: $firstname)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
@@ -35,7 +36,7 @@ struct EditProfileView: View {
                     .shadow(color: .gray, radius: 3)
                 Spacer()
                     .frame(width: 0.0, height:30)
-                TextField("Last name", text: $viewModel.lastName)
+                TextField("Last name", text: $lastname)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
@@ -53,7 +54,10 @@ struct EditProfileView: View {
                                        .padding()
                                        
                 })
-                Button(action: {}){
+                Button(action: {
+                    print("test edit")
+                    viewModel.editprofile(firstname: firstname, lastname: lastname)
+                }){
                     Text("Update Profile")
                         .foregroundColor(.white)
                                    .multilineTextAlignment(
