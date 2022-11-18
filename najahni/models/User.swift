@@ -29,6 +29,7 @@ struct User {
         self.isVerified = isVerified
         self.otp = otp
     }
+
     init(firstname: String, lastname: String, email: String, password: String, role: Role, fields: [Fields], image: String, isVerified: Bool, otp: String){
         self._id = "0"
         self.firstname = firstname
@@ -39,6 +40,6 @@ struct User {
         self.fields = fields
         self.image = image
         self.isVerified = isVerified
-        self.otp = otp
+        self.otp = ""
     }
 }

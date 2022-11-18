@@ -21,6 +21,7 @@
 		28CABB3829191BC600AED109 /* najahniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB3729191BC600AED109 /* najahniUITests.swift */; };
 		28CABB3A29191BC600AED109 /* najahniUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB3929191BC600AED109 /* najahniUITestsLaunchTests.swift */; };
 		28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F322E82919C6FC004DC8C9 /* VerificationView.swift */; };
+		41353FAC2923D51500DAA6C5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41353FAB2923D51500DAA6C5 /* UserService.swift */; };
 		8741BAB1291E9116002FBDE8 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB0291E9116002FBDE8 /* SignupView.swift */; };
 		8741BAB4291E9557002FBDE8 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */; };
 		8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB7291E9C77002FBDE8 /* Role.swift */; };
@@ -83,6 +84,7 @@
 		28CABB3729191BC600AED109 /* najahniUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = najahniUITests.swift; sourceTree = "<group>"; };
 		28CABB3929191BC600AED109 /* najahniUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = najahniUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		28F322E82919C6FC004DC8C9 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
+		41353FAB2923D51500DAA6C5 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		8741BAB0291E9116002FBDE8 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		8741BAB7291E9C77002FBDE8 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		28CABB1629191BC400AED109 /* najahni */ = {
 			isa = PBXGroup;
 			children = (
+				41353FAA2923D4F500DAA6C5 /* services */,
 				87A4E85F2922B2FB00E2A505 /* utils */,
 				8741BAB5291E9C03002FBDE8 /* models */,
 				8741BAB2291E952E002FBDE8 /* viewmodels */,
@@ -217,6 +220,14 @@
 				28CABB3929191BC600AED109 /* najahniUITestsLaunchTests.swift */,
 			);
 			path = najahniUITests;
+			sourceTree = "<group>";
+		};
+		41353FAA2923D4F500DAA6C5 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				41353FAB2923D51500DAA6C5 /* UserService.swift */,
+			);
+			path = services;
 			sourceTree = "<group>";
 		};
 		8741BAB2291E952E002FBDE8 /* viewmodels */ = {
@@ -436,6 +447,7 @@
 				87A4E85D2922A3CF00E2A505 /* CustomPicker2View.swift in Sources */,
 				8741BAC0291EC4B8002FBDE8 /* HomeView.swift in Sources */,
 				8741BAC6291EC517002FBDE8 /* ProfileView.swift in Sources */,
+				41353FAC2923D51500DAA6C5 /* UserService.swift in Sources */,
 				8743D059291FE16300C1781C /* ResetPasswordView.swift in Sources */,
 				28CABB1829191BC400AED109 /* najahniApp.swift in Sources */,
 				8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */,

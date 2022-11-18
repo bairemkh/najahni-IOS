@@ -6,18 +6,9 @@
 //
 
 import Foundation
-enum Role :String, CaseIterable{
+enum Role: String,CaseIterable {
     case Trainer = "Trainer"
-    case Student = "Student"
-    /*func toString(role:Role) -> String {
-        if(role==Role.Student)
-            {
-                return "Student"
-            }
-        else
-            {
-                return "Trainer"
-            }
-    }*/
+    case Student = "Student"    
+
     }
 
