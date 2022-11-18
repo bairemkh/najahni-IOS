@@ -14,7 +14,7 @@ class LoginViewModel: ObservableObject {
     @Published  var password=""
     
     
-    func login(email:String,password:String, completed: @escaping (Bool
+    func login(email:String,password:String, completed: @escaping (Bool , Int
 ) -> Void) {
         let parmetres : [String : Any] = [
             "email": email,
@@ -31,10 +31,11 @@ class LoginViewModel: ObservableObject {
                     let token = json["data"].stringValue
                     UserDefaults.standard.setValue(token, forKey: "token")
                     print(token)
-                    completed(true)
+                    completed(true,200)
                 case .failure(let error):
                     print("request failed")
-                    completed(false)
+                    print(res.error?.responseCode)
+                    completed(false,res.error?.responseCode ?? 500)
                 /*case .success(let json):
                     print("sucess \(json)")
                 case .failure(let error):
@@ -56,7 +57,7 @@ class LoginViewModel: ObservableObject {
             switch res.result {
             case .success(let data):
                 let json = JSON(data)
-                let user = self.makeItem(jsonItem: json["user"])
+                let user = self.makeItem(jsonItem: json["data"])
                 print(user)
                 completed(true,user)
             case .failure(let error):
