@@ -13,6 +13,7 @@ class SignupViewModel: ObservableObject {
     @Published  var name=""
     @Published  var lastName=""
     @Published  var password=""
+    @Published var isSignedUp=false
     @Published  var verifPassword=""
     @Published  var roleList=["Trainer","Student"]
     @Published  var role = 0
@@ -53,9 +54,10 @@ class SignupViewModel: ObservableObject {
                 switch response.result{
                 case .success(let data):
                     let json = JSON(data)
-                    
+                    self.isSignedUp=true
                 case .failure(let error):
                     print(error.errorDescription!)
+                    self.isSignedUp=false
                 }
             }
         

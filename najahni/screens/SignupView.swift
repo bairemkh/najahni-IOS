@@ -11,12 +11,11 @@ struct SignupView: View {
     @StateObject var signUpVM = SignupViewModel()
     @State private var sexType = 0
     @State private var selectedItems : [ListData] = []
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView{
-            ZStack {
-                
-                VStack(spacing: 25){
+                VStack(spacing: 20){
                     HStack {
                         Text("Let's Create A new Account")
                             .fontWeight(.black)
@@ -25,8 +24,6 @@ struct SignupView: View {
                             .padding(0.0)
                             .frame(width: 300.0, height: 100.0)
                         .font(.system(size: 40))
-                        Spacer()
-                            .frame(width: 50,height: 00)
                     }
                     HStack {
                         TextField("Name", text: $signUpVM.name)
@@ -99,19 +96,27 @@ struct SignupView: View {
                     }
                     Button(action: {signUpVM.signup(firstname: signUpVM.name, lastname: signUpVM.lastName, email: signUpVM.email, password: signUpVM.password, role: Role(rawValue: signUpVM.roleList[signUpVM.role])!, fields: signUpVM.selectedFields.map({ listData in
                         return Fields(rawValue: listData.name)!
-                    }), image: "", isVerified: false) } ){
+                    }), image: "", isVerified: false)
+                        if signUpVM.isSignedUp{
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                    } ){
                         Text("Next")
                             .foregroundColor(Color.white)
                     }
                     .frame(width: 300.0,height: 60.0)
                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
                     .cornerRadius(25)
-                    
+                    Text("Already have an account ?")
+                        .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
+                        .onTapGesture {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                    //CustomPicker2View(items: signUpVM.fieldsList, selected: signUpVM.selectedFields)
                 }
                 .padding([.top, .leading, .trailing])
-            }
-            //CustomPicker2View(items: signUpVM.fieldsList, selected: signUpVM.selectedFields)
-            Spacer()
+            
+            
             
         }.navigationBarBackButtonHidden(true)
     }
