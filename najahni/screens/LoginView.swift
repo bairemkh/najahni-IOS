@@ -32,7 +32,7 @@ struct LoginView: View {
                     .shadow(color: .gray, radius: 3)
                 Spacer()
                     .frame(height: 15.0)
-                TextField("password", text: $viewModel.password)
+                SecureField("password", text: $viewModel.password)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
