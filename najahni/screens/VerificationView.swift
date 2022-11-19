@@ -6,43 +6,10 @@
 //
 
 import SwiftUI
-class TextBindingManager: ObservableObject {
-    @Published var digit1 = "" {
-        didSet {
-            if digit1.count > 1 && oldValue.count <= 1 {
-                digit1 = oldValue
-            }
-        }
-    }
-    @Published var digit2 = "" {
-        didSet {
-            if digit2.count > 1 && oldValue.count <= 1 {
-                digit2 = oldValue
-            }
-        }
-    }
-    @Published var digit3 = "" {
-        didSet {
-            if digit3.count > 1 && oldValue.count <= 1 {
-                digit3 = oldValue
-            }
-        }
-    }
-    @Published var digit4 = "" {
-        didSet {
-            if digit4.count > 1 && oldValue.count <= 1 {
-                digit4 = oldValue
-            }
-        }
-    }
-    let characterLimit: Int
 
-    init(limit: Int = 1){
-        characterLimit = limit
-    }
-}
 struct VerificationView: View {
-    @StateObject var digitManager = TextBindingManager(limit: 1);
+    @StateObject private var digitManager = TextBindingManager(limit: 1);
+    @State var id: String
     var body: some View {
         NavigationView {
             VStack{
@@ -110,6 +77,8 @@ struct VerificationView: View {
                 Spacer()
                 Button(action: {
                    print("reset")
+                    print(digitManager.getDigits())
+                    print(id)
                 }) {
                     Text("Verify Account")
                         .foregroundColor(Color.white)
@@ -119,13 +88,15 @@ struct VerificationView: View {
                 .cornerRadius(25)
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 
 
 struct VerificationView_Previews: PreviewProvider {
+    static var sampleData = "500"
     static var previews: some View {
-        VerificationView()
+        VerificationView(id: sampleData)
     }
 }

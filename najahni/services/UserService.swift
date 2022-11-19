@@ -10,24 +10,27 @@ import Alamofire
 import SwiftyJSON
 class UserService {
     
-    static func forgetPassword(email:String) -> Int{
+    static func forgetPassword(email:String, onAction: @escaping (Int , String)-> Void){
         let body : [String : Any] = [
             "email": email,
         ]
-        var code = 0
         AF.request(URL_BASE_APP + "/user/forget-password",method: .post,parameters: body,encoding: JSONEncoding.default )
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
         .responseData { response in
             switch response.result{
             case .success(let data):
-                print(data)
+                print("Success")
+                let json = JSON(data)
+                print(json["_id"])
+                onAction(response.response?.statusCode ?? 500, json["_id"].stringValue)
             case .failure(let error):
+                print("failed")
+                onAction(response.response?.statusCode ?? 500,"no id")
                 print(error.errorDescription!)
             }
-            code = response.response?.statusCode ?? 0
+            
         }
-        return code
     }
     
 }

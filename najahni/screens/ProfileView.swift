@@ -13,6 +13,7 @@ struct ProfileView: View {
     @State var lastname : String = ""
     @State var image : String = ""
     @State private var onLogOut = false
+    @Environment(\.presentationMode) var presentationMode
 
     var username = UserDefaults.standard.string(forKey: "token")
     var body: some View {

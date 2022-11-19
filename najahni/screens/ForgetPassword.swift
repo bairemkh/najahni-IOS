@@ -43,8 +43,9 @@ struct ForgetPassword: View {
                     .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                 Spacer()
                 
-                NavigationLink(destination:VerificationView(), isActive: $viewModel.canPass){
+                NavigationLink(destination:VerificationView(id: viewModel.idUser), isActive: $viewModel.canPass){
                     Button(action: {viewModel.onClickForget(email: viewModel.email) { errorMsg  in
+                        print("\(errorMsg) \(viewModel.onError)")
                         viewModel.onError = true
                         viewModel.msgError = errorMsg
                     }}) {
