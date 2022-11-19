@@ -33,4 +33,28 @@ class UserService {
         }
     }
     
+    static func verifyOtp(userId : String ,otp : String , action: @escaping(String)-> Void){
+        let body : [String : Any] = [
+            "id" : userId,
+            "otp" : otp
+        ]
+        AF.request(URL_BASE_APP + "/user/reset-password",method: .post,parameters: body,encoding: JSONEncoding.default )
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseData { response in
+                switch response.result{                    
+                case .success(let data):
+                    print(JSON(data)["data"].stringValue)
+                    UserDefaults.standard.setValue(JSON(data)["data"].stringValue, forKey: "token")
+                case .failure(let error):
+                    print(error.errorDescription!)
+                    if error.responseCode == 403{
+                        action("Wrong password")
+                    }else{
+                        action("Check your connection please")
+                    }
+                }
+            }
+    }
+    
 }
