@@ -88,7 +88,8 @@ struct ProfileView: View {
                     CustomButtonView(icon: "rectangle.portrait.and.arrow.forward",buttonText: "Logout")
                         .onTapGesture {
                             print(UserDefaults.standard.object(forKey: "token")!)
-                            UserDefaults.standard.removeObject(forKey: "token")
+                            UserDefaults.standard.removeObject(forKey: "token");                     UserDefaults.standard.removeObject(forKey: "role")
+                            
                             onLogOut = true
                             print(UserDefaults.standard.object(forKey: "token"))
                         }

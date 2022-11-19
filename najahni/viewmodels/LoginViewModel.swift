@@ -31,8 +31,11 @@ class LoginViewModel: ObservableObject {
                 case .success(let data):
                     let json = JSON(data)
                     let token = json["data"].stringValue
+                    let role = json["role"].stringValue
                     UserDefaults.standard.setValue(token, forKey: "token")
+                    UserDefaults.standard.setValue(role, forKey: "role")
                     print(token)
+                    print(role)
                     completed(true,200)
                 case .failure(let error):
                     print("request failed")
