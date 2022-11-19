@@ -11,6 +11,7 @@ struct VerificationView: View {
     @StateObject private var digitManager = TextBindingManager(limit: 1);
     @State var id: String
     @State var email: String = ""
+    @State var canPass = false
     @State private var errorMsg: String = ""
     @State private var isError = false
     var body: some View {
@@ -81,21 +82,28 @@ struct VerificationView: View {
                         
                     }
                     Spacer()
+                NavigationLink(destination: ResetPasswordView(),isActive: $canPass) {
                     Button(action: {
-                        UserService.verifyOtp(userId: id, otp: digitManager.getDigits()){ message in
-                            errorMsg = message
-                            isError = true
+                            UserService.verifyOtp(userId: id, otp: digitManager.getDigits()){ message , good in
+                                if(!good)
+                                {
+                                    errorMsg = message
+                                    isError = true
+                                }
+                                canPass = good
+                            }
+                        }) {
+                            Text("Next")
+                                .foregroundColor(Color.white)
+                                .frame(width: 300.0,height: 60.0)
+                                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
+                                .cornerRadius(25)
                         }
-                    }) {
-                        Text("Reset my password")
-                            .foregroundColor(Color.white)
-                    }
-                    .frame(width: 300.0,height: 60.0)
-                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
-                    .cornerRadius(25)
-                    .alert(isPresented: $isError){
-                        Alert(title: Text("Error"), message: Text(errorMsg), dismissButton: .default(Text("Got it")))
-                    }
+                        
+                }
+                .alert(isPresented: $isError){
+                    Alert(title: Text("Error"), message: Text(errorMsg), dismissButton: .default(Text("Got it")))
+            }
             }
         }.navigationBarBackButtonHidden(true)
        

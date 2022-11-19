@@ -39,15 +39,17 @@ class ResetPasswordViewModel: ObservableObject {
             }
         }
     }
-   /* func onChangePassword(password:String,confirmation:String)->Bool{
-        if password.elementsEqual(confirmation){
-            return true
+    func resetPassword(password:String,confirmPassword:String, action:(String,Bool)->Void) {
+        if(password.isEmpty || confirmPassword.isEmpty){
+            action("Please fill the fields above", false)
+            return
         }
-        else{
-            return false
+        if(!password.elementsEqual(confirmPassword)){
+            action("The passwords are not the same", true)
+            return
         }
-    }*/
-    
+        UserService.resetPassword(password: password)
+    }
     
         
 }

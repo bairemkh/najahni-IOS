@@ -44,4 +44,3 @@ class TextBindingManager: ObservableObject {
         return "\(self.digit1)\(self.digit2)\(self.digit3)\(self.digit4)"
     }
 }
-
