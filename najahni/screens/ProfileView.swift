@@ -12,6 +12,7 @@ struct ProfileView: View {
     @State var firstname : String = ""
     @State var lastname : String = ""
     @State var image : String = ""
+    @State private var onLogOut = false
 
     var username = UserDefaults.standard.string(forKey: "token")
     var body: some View {
@@ -52,10 +53,17 @@ struct ProfileView: View {
                     CustomButtonView(icon: "trash.fill",buttonText: "Delete account")
                 })
                 
-                Button(action:{},
-                       label:{
+                
+                NavigationLink(destination: LoginView(), isActive: $onLogOut){
                     CustomButtonView(icon: "rectangle.portrait.and.arrow.forward",buttonText: "Logout")
-                })
+                        .onTapGesture {
+                            print(UserDefaults.standard.object(forKey: "token")!)
+                            UserDefaults.standard.removeObject(forKey: "token")
+                            onLogOut = true
+                            print(UserDefaults.standard.object(forKey: "token"))
+                        }
+                }
+                
                 Spacer()
                 
                 

@@ -94,9 +94,14 @@ struct SignupView: View {
                                 .multilineTextAlignment(.trailing)
                         }
                     }
-                    Button(action: {signUpVM.signup(firstname: signUpVM.name, lastname: signUpVM.lastName, email: signUpVM.email, password: signUpVM.password, role: Role(rawValue: signUpVM.roleList[signUpVM.role])!, fields: signUpVM.selectedFields.map({ listData in
+                    Button(action: {signUpVM.signup(firstname: signUpVM.name, lastname: signUpVM.lastName, email: signUpVM.email, password: signUpVM.password, verifPass: signUpVM.verifPassword, role: Role(rawValue: signUpVM.roleList[signUpVM.role])!, fields: signUpVM.selectedFields.map({ listData in
                         return Fields(rawValue: listData.name)!
-                    }), image: "", isVerified: false)
+                    }), image: "", isVerified: false){ error in
+                        print( error )
+                        signUpVM.errorMsg = error
+                        signUpVM.isSignedUp = false
+                        signUpVM.isError = true
+                    }
                         if signUpVM.isSignedUp{
                             self.presentationMode.wrappedValue.dismiss()
                         }
@@ -107,6 +112,9 @@ struct SignupView: View {
                     .frame(width: 300.0,height: 60.0)
                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
                     .cornerRadius(25)
+                    .alert(isPresented: $signUpVM.isError) {
+                        Alert(title: Text(signUpVM.errorMsg),dismissButton: .default(Text("Okay")) )
+                    }
                     Text("Already have an account ?")
                         .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                         .onTapGesture {

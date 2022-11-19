@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ForgetPassword: View {
-    @State var email = ""
+    @StateObject var viewModel = ForgetPasswordViewModel()
     var body: some View {
         NavigationView{
             VStack{
@@ -30,7 +30,7 @@ struct ForgetPassword: View {
                     .scaledToFit()
                 Spacer()
                     .frame(width: 0.0, height:30)
-                TextField("Email", text: $email)
+                TextField("Email", text: $viewModel.email)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
@@ -43,14 +43,22 @@ struct ForgetPassword: View {
                     .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                 Spacer()
                 
-                NavigationLink(destination:VerificationView()){
-                    Button(action: {UserService.forgetPassword(email: email)}) {
+                NavigationLink(destination:VerificationView(), isActive: $viewModel.canPass){
+                    Button(action: {viewModel.onClickForget(email: viewModel.email) { errorMsg  in
+                        viewModel.onError = true
+                        viewModel.msgError = errorMsg
+                    }}) {
                         Text("Send Email")
                             .foregroundColor(Color.white)
+                            .frame(width: 300.0,height: 60.0)
+                            .cornerRadius(25)
                     }
                     .frame(width: 300.0,height: 60.0)
                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
                     .cornerRadius(25)
+                }
+                .alert(isPresented: $viewModel.onError) {
+                    Alert(title: Text("Error"), message: Text(viewModel.msgError), dismissButton:.default(Text("Okay")))
                 }
             }
             .padding(.all)

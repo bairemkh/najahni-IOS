@@ -13,10 +13,12 @@ class SignupViewModel: ObservableObject {
     @Published  var name=""
     @Published  var lastName=""
     @Published  var password=""
-    @Published var isSignedUp=false
+    @Published  var isSignedUp=false
     @Published  var verifPassword=""
     @Published  var roleList=["Trainer","Student"]
     @Published  var role = 0
+    @Published  var errorMsg = ""
+    @Published  var isError = false
     @Published  var fieldsList: [ListData] = Fields.allCases.map { feild in
         return ListData(name: feild.rawValue)
     }
@@ -32,8 +34,16 @@ class SignupViewModel: ObservableObject {
     @Published  var sexe=0
     
     
-    func signup(firstname: String, lastname: String, email: String, password: String, role: Role, fields: [Fields], image: String, isVerified: Bool)  {
+    func signup(firstname: String, lastname: String, email: String, password: String,verifPass:String, role: Role, fields: [Fields], image: String, isVerified: Bool, onError: (String)-> Void)  {
         
+        if((firstname.isEmpty)||(lastname.isEmpty)||(password.isEmpty)||(verifPassword.isEmpty)||(email.isEmpty)){
+            onError("Empty fields")
+            return
+        }
+        if(!password.elementsEqual(verifPassword)){
+            onError("Please verify your password")
+            return
+        }
         let body : [String : Any] = [
             "firstname": firstname,
             "lastname": lastname,
