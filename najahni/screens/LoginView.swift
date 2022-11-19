@@ -9,6 +9,8 @@ import SwiftUI
 struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
     @State  var isLogin :Bool = false
+    @State  var showAlert :Bool = false
+    @State  var errorMsg :String = ""
     var body: some View {
         
         NavigationView {
@@ -54,13 +56,22 @@ struct LoginView: View {
                     .frame(width: 0.0, height: 25.0)
                 NavigationLink(destination:HostingTabBarView(),isActive: $isLogin){
                     Button(action: {
-                        viewModel.login(email: viewModel.email, password: viewModel.password,completed: {(success) in
+                        viewModel.login(email: viewModel.email, password: viewModel.password,completed: {(success , code) in
+                            print(code)
                             if success {
                                 print("logged in")
                                 isLogin = true
                             } else {
                                 print("not logged in")
                                 isLogin = false
+                                showAlert = true
+                                if(400 ... 499).contains(code){
+                                    errorMsg = "Email or password are incorrect"
+                                }
+                                if(500 ... 599).contains(code){
+                                    errorMsg = "Connectivity error, please check !"
+                                }
+                                
                             }
                             
                         })
@@ -74,7 +85,9 @@ struct LoginView: View {
                     }
                     
                 }
-                
+                .alert(isPresented: $showAlert){
+                    Alert(title: Text ("Error") , message: Text(errorMsg), dismissButton: .default(Text("close")))
+                }
              
                 HStack(spacing: -10.0){
                     Text("Don't have an account ?")
