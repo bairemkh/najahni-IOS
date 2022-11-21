@@ -50,6 +50,7 @@
 		87A4E85D2922A3CF00E2A505 /* CustomPicker2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4E85C2922A3CF00E2A505 /* CustomPicker2View.swift */; };
 		87A4E8612922B30E00E2A505 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4E8602922B30E00E2A505 /* constant.swift */; };
 		87A4E8642922B85500E2A505 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 87A4E8632922B85500E2A505 /* SwiftyJSON */; };
+		87A5AEDB2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A5AEDA2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift */; };
 		87AA86002922354F009536CA /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AA85FF2922354F009536CA /* ChangePasswordView.swift */; };
 		87C5CB192923C5050049814E /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 87C5CB182923C5050049814E /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
@@ -116,6 +117,7 @@
 		87A4E85A29229F7200E2A505 /* MultiSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelector.swift; sourceTree = "<group>"; };
 		87A4E85C2922A3CF00E2A505 /* CustomPicker2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker2View.swift; sourceTree = "<group>"; };
 		87A4E8602922B30E00E2A505 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
+		87A5AEDA2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVerificationModelView.swift; sourceTree = "<group>"; };
 		87AA85FF2922354F009536CA /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -249,6 +251,7 @@
 				8743D05A291FE3FB00C1781C /* ResetPasswordViewModel.swift */,
 				8743D05F291FE5F800C1781C /* LoginViewModel.swift */,
 				879B2F9E2927A68B00249774 /* ForgetPasswordViewModel.swift */,
+				87A5AEDA2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				287939592919737500778A5B /* WelcomeView.swift in Sources */,
 				8741BAB1291E9116002FBDE8 /* SignupView.swift in Sources */,
 				8741BAB4291E9557002FBDE8 /* SignupViewModel.swift in Sources */,
+				87A5AEDB2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift in Sources */,
 				28CABB2429191BC500AED109 /* najahni.xcdatamodeld in Sources */,
 				879B2F9F2927A68B00249774 /* ForgetPasswordViewModel.swift in Sources */,
 				28793957291970D300778A5B /* SplashView.swift in Sources */,

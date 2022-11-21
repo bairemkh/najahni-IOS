@@ -35,41 +35,41 @@ class SignupViewModel: ObservableObject {
     
     
     func signup(firstname: String, lastname: String, email: String, password: String,verifPass:String, role: Role, fields: [Fields], image: String, isVerified: Bool, onError: (String)-> Void)  {
-        
-        if((firstname.isEmpty)||(lastname.isEmpty)||(password.isEmpty)||(verifPassword.isEmpty)||(email.isEmpty)){
-            onError("Empty fields")
-            return
-        }
-        if(!password.elementsEqual(verifPassword)){
-            onError("Please verify your password")
-            return
-        }
-        let body : [String : Any] = [
-            "firstname": firstname,
-            "lastname": lastname,
-            "email": email,
-            "password": password,
-            "role": role.rawValue,
-            "fields": fields.map({ f in
-                return f.rawValue
-            })
-        ]
-        
-        AF.request(URL_BASE_APP + "/user/signup", method: .post, parameters: body,
-                   encoding: JSONEncoding.default)
-            .validate(statusCode: 200..<300)
-            .validate(contentType: ["application/json"])
-            .responseData { response in
-                print(response)
-                switch response.result{
-                case .success(let data):
-                    let json = JSON(data)
-                    self.isSignedUp=true
-                case .failure(let error):
-                    print(error.errorDescription!)
-                    self.isSignedUp=false
-                }
+            
+            if((firstname.isEmpty)||(lastname.isEmpty)||(password.isEmpty)||(verifPassword.isEmpty)||(email.isEmpty)){
+                onError("Empty fields")
+                return
             }
-        
-     }
+            if(!password.elementsEqual(verifPassword)){
+                onError("Please verify your password")
+                return
+            }
+            let body : [String : Any] = [
+                "firstname": firstname,
+                "lastname": lastname,
+                "email": email,
+                "password": password,
+                "role": role.rawValue,
+                "fields": fields.map({ f in
+                    return f.rawValue
+                })
+            ]
+            
+            AF.request(URL_BASE_APP + "/user/signup", method: .post, parameters: body,
+                       encoding: JSONEncoding.default)
+                .validate(statusCode: 200..<300)
+                .validate(contentType: ["application/json"])
+                .responseData { response in
+                    print(response)
+                    switch response.result{
+                    case .success(let data):
+                        let json = JSON(data)
+                        self.isSignedUp=true
+                    case .failure(let error):
+                        print(error.errorDescription!)
+                        self.isSignedUp=false
+                    }
+                }
+            
+         }
 }
