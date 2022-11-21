@@ -22,10 +22,12 @@
 		28CABB3A29191BC600AED109 /* najahniUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CABB3929191BC600AED109 /* najahniUITestsLaunchTests.swift */; };
 		28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F322E82919C6FC004DC8C9 /* VerificationView.swift */; };
 		41353FAC2923D51500DAA6C5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41353FAB2923D51500DAA6C5 /* UserService.swift */; };
+
 		4194EE442929147E001D20D0 /* ProfileTrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194EE432929147E001D20D0 /* ProfileTrainerView.swift */; };
 		4194EE4629291A4A001D20D0 /* CustomBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194EE4529291A4A001D20D0 /* CustomBoxView.swift */; };
 		419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B350A292BB49200A8EEA1 /* CustomCardView.swift */; };
 		419E7C3B2928E023007E7D87 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E7C3A2928E023007E7D87 /* ImagePicker.swift */; };
+
 		8741BAB1291E9116002FBDE8 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB0291E9116002FBDE8 /* SignupView.swift */; };
 		8741BAB4291E9557002FBDE8 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */; };
 		8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB7291E9C77002FBDE8 /* Role.swift */; };
@@ -52,6 +54,7 @@
 		87A4E8642922B85500E2A505 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 87A4E8632922B85500E2A505 /* SwiftyJSON */; };
 		87A5AEDB2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A5AEDA2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift */; };
 		87AA86002922354F009536CA /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AA85FF2922354F009536CA /* ChangePasswordView.swift */; };
+		87BFC34A292B85A70019BDE2 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BFC349292B85A70019BDE2 /* SessionManager.swift */; };
 		87C5CB192923C5050049814E /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 87C5CB182923C5050049814E /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
@@ -91,10 +94,12 @@
 		28CABB3929191BC600AED109 /* najahniUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = najahniUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		28F322E82919C6FC004DC8C9 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		41353FAB2923D51500DAA6C5 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+
 		4194EE432929147E001D20D0 /* ProfileTrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerView.swift; sourceTree = "<group>"; };
 		4194EE4529291A4A001D20D0 /* CustomBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBoxView.swift; sourceTree = "<group>"; };
 		419B350A292BB49200A8EEA1 /* CustomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardView.swift; sourceTree = "<group>"; };
 		419E7C3A2928E023007E7D87 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+
 		8741BAB0291E9116002FBDE8 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		8741BAB7291E9C77002FBDE8 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
@@ -119,6 +124,7 @@
 		87A4E8602922B30E00E2A505 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		87A5AEDA2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVerificationModelView.swift; sourceTree = "<group>"; };
 		87AA85FF2922354F009536CA /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		87BFC349292B85A70019BDE2 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +173,6 @@
 				8743D054291FD9CC00C1781C /* EditProfileView.swift */,
 				8743D058291FE16300C1781C /* ResetPasswordView.swift */,
 				87AA85FF2922354F009536CA /* ChangePasswordView.swift */,
-				4194EE432929147E001D20D0 /* ProfileTrainerView.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -282,8 +287,10 @@
 				87A4E85829229F1A00E2A505 /* MultiSelectionView.swift */,
 				87A4E85A29229F7200E2A505 /* MultiSelector.swift */,
 				87A4E85C2922A3CF00E2A505 /* CustomPicker2View.swift */,
+
 				4194EE4529291A4A001D20D0 /* CustomBoxView.swift */,
 				419B350A292BB49200A8EEA1 /* CustomCardView.swift */,
+
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -292,7 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				87A4E8602922B30E00E2A505 /* constant.swift */,
-				419E7C3A2928E023007E7D87 /* ImagePicker.swift */,
+				87BFC349292B85A70019BDE2 /* SessionManager.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -439,20 +446,18 @@
 			files = (
 				8743D062291FF61000C1781C /* User.swift in Sources */,
 				8743D055291FD9CD00C1781C /* EditProfileView.swift in Sources */,
-				4194EE442929147E001D20D0 /* ProfileTrainerView.swift in Sources */,
 				87A4E85B29229F7200E2A505 /* MultiSelector.swift in Sources */,
-				419E7C3B2928E023007E7D87 /* ImagePicker.swift in Sources */,
 				8741BAC4291EC4FD002FBDE8 /* CartView.swift in Sources */,
 				28CABB2129191BC500AED109 /* Persistence.swift in Sources */,
 				8741BAC2291EC4DF002FBDE8 /* CoursesView.swift in Sources */,
 				8743D057291FDC2200C1781C /* EditAccountViewModel.swift in Sources */,
-				4194EE4629291A4A001D20D0 /* CustomBoxView.swift in Sources */,
 				8741BABE291EC44E002FBDE8 /* HostingTabBarView.swift in Sources */,
 				87A4E8612922B30E00E2A505 /* constant.swift in Sources */,
 				87A4E85929229F1A00E2A505 /* MultiSelectionView.swift in Sources */,
 				2879395D2919A57800778A5B /* ForgetPassword.swift in Sources */,
 				2879395B2919824100778A5B /* LoginView.swift in Sources */,
 				287939592919737500778A5B /* WelcomeView.swift in Sources */,
+				87BFC34A292B85A70019BDE2 /* SessionManager.swift in Sources */,
 				8741BAB1291E9116002FBDE8 /* SignupView.swift in Sources */,
 				8741BAB4291E9557002FBDE8 /* SignupViewModel.swift in Sources */,
 				87A5AEDB2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift in Sources */,

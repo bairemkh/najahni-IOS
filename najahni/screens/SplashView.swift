@@ -11,6 +11,35 @@ struct SplashView: View {
     @State var isActive:Bool = false
     let welcome = LoginView()
     var body: some View {
+        /*ZStack{
+            if SessionManager.token != nil {
+                toProfile()
+            }
+            else
+            {
+                toLogin()
+            }
+        }*/
+        toLogin()
+    }
+    func gotoWelcomeScreen(time: Double) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double(time)) {
+            self.isActive = true
+        }
+    }    
+}
+
+
+
+struct SplashView_Previews: PreviewProvider {
+    static var previews: some View {
+        SplashView()
+    }
+}
+struct toProfile: View {
+    @State var isActive:Bool = false
+    let welcome = HostingTabBarView()
+    var body: some View {
         NavigationView {
             VStack(alignment: .center){
                 Image("Logo-Najahni")
@@ -23,7 +52,7 @@ struct SplashView: View {
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                 
-                NavigationLink(destination: welcome, isActive:$isActive,label: {EmptyView()})
+                NavigationLink(destination: welcome , isActive:$isActive,label: {EmptyView()})
             }
             .onAppear(perform: {self.gotoWelcomeScreen(time: 2.0)})
         }
@@ -37,10 +66,37 @@ struct SplashView: View {
     }
 }
 
-
-
-struct SplashView_Previews: PreviewProvider {
-    static var previews: some View {
-        SplashView()
+struct toLogin: View {
+    @State var isActive:Bool = false
+    let welcome = LoginView()
+    var body: some View {
+        NavigationView {
+            VStack(alignment: .center){
+                Image("Logo-Najahni")
+                    .resizable()
+                    .frame(width: 250.0 , height: 250)
+                    .scaledToFit()
+                
+                Text("Najahni")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                
+                NavigationLink(destination: welcome , isActive:$isActive,label: {EmptyView()})
+            }
+            .onAppear(perform: {self.gotoWelcomeScreen(time: 2.0)
+                print(SessionManager.token)
+            })
+        }
+        
+        
+    }
+    func gotoWelcomeScreen(time: Double) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double(time)) {
+            self.isActive = true
+        }
     }
 }
+
+
+

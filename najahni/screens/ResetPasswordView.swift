@@ -11,7 +11,7 @@ struct ResetPasswordView: View {
     @StateObject var viewModel = ResetPasswordViewModel()
     @State var next = false
     @State var showAlert = false
-    @State var msgError = false
+    @State var msgError = ""
     var body: some View {
         NavigationView(){
             VStack{
@@ -45,10 +45,13 @@ struct ResetPasswordView: View {
                     .shadow(color: .gray, radius: 3,x: 1,y: 2)
                 Spacer()
                 
-                NavigationLink(destination: ProfileView()) {
+                NavigationLink(destination: HostingTabBarView(), isActive: $next) {
                     Button(action:  {
-                        viewModel.resetPassword(password: viewModel.newPassword, confirmPassword: viewModel.confirmPassword){msg,isError in
-                            print("\(msg) \(isError)")
+                        viewModel.resetPassword(password: viewModel.newPassword, confirmPassword: viewModel.confirmPassword){msg,canPass in
+                            print("\(msg) \(canPass)")
+                            msgError = msg
+                            showAlert = !canPass
+                            next = canPass
                         }
                     }) {
                         Text("Change password")
