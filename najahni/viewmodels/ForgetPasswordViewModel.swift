@@ -11,29 +11,31 @@ class ForgetPasswordViewModel: ObservableObject {
     @Published  var onError = false
     @Published  var canPass = false
     @Published  var msgError = ""
-    func onClickForget(email: String, onError:(String)-> Void){
+    @Published  var idUser:String = ""
+    func onClickForget(email: String, onError: @escaping (String)-> Void){
         if(email.isEmpty){
             onError("Put an email")
             return
         }
-       var code = UserService.forgetPassword(email: email)
-        print(code)
-        if (400 ... 499).contains(code) {
-            onError("Mail not found")
-            canPass = false
+        UserService.forgetPassword(email: email){ code,id in
+            print(code)
+            if (400 ... 499).contains(code) {
+                onError("Mail not found")
+                self.canPass = false
+            }
+            if(500 ... 599).contains(code){
+                onError("Server error")
+                self.canPass = false
+            }
+            
+            if(200...299).contains(code){
+                self.idUser = id
+                self.canPass = true
+                print("Passed")
+            }
         }
-        if(500 ... 599).contains(code){
-            onError("Server error")
-            canPass = false
-        }
-        if code == 0 {
-            onError("Check your connection")
-            canPass = false
-        }
-        if(200...299).contains(code){
-            self.canPass = true
-            print("Passed")
-        }
+        
+        
     }
     
 }

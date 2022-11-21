@@ -16,6 +16,7 @@ struct ProfileView: View {
     
     @State var images : UIImage = UIImage.init(named:"") ?? UIImage()
     @State private var showSheet = false
+    @Environment(\.presentationMode) var presentationMode
 
     var username = UserDefaults.standard.string(forKey: "token")
     var body: some View {
