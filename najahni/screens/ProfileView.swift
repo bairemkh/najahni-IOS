@@ -93,7 +93,7 @@ struct ProfileView: View {
                             
                             onLogOut = true
                             
-                            print(UserDefaults.standard.object(forKey: "token"))
+
                         }
                 }
                 

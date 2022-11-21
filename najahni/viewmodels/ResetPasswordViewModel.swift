@@ -39,7 +39,7 @@ class ResetPasswordViewModel: ObservableObject {
             }
         }
     }
-    func resetPassword(password:String,confirmPassword:String, action:(String,Bool)->Void) {
+    func resetPassword(password:String,confirmPassword:String, action: @escaping(String,Bool)->Void) {
         if(password.isEmpty || confirmPassword.isEmpty){
             action("Please fill the fields above", false)
             return
@@ -48,7 +48,9 @@ class ResetPasswordViewModel: ObservableObject {
             action("The passwords are not the same", true)
             return
         }
-        UserService.resetPassword(password: password)
+        UserService.resetPassword(password: password) { msg, pass in
+            action(msg,pass)
+        }
     }
     
         
