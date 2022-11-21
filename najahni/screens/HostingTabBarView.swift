@@ -46,6 +46,9 @@ struct HostingTabBarView: View {
             }.accentColor(Color(red: 0.356, green: 0.315, blue: 0.848))
         }
         .navigationBarHidden(true)
+        .onAppear(){
+            print(" is logged in -> \(SessionManager.isLoggedIn())")
+        }
         
     }
 }

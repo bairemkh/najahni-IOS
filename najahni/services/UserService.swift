@@ -45,7 +45,7 @@ class UserService {
                 switch response.result{                    
                 case .success(let data):
                     let json = JSON(data)
-                    let token = json["Token"].stringValue ?? "token"
+                    let token = json["Token"].stringValue
                     print(token)
                     UserDefaults.standard.setValue(token, forKey: "token")
                     action("next please",true)

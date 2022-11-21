@@ -12,6 +12,7 @@ import SwiftyJSON
 class LoginViewModel: ObservableObject {
     @Published  var email=""
     @Published  var password=""
+    @Published  var isLogin :Bool = false
     
     
     func login(email:String,password:String, completed: @escaping (Bool , Int
@@ -31,9 +32,11 @@ class LoginViewModel: ObservableObject {
                     let token = json["data"].stringValue
                     UserDefaults.standard.setValue(token, forKey: "token")
                     print(token)
+                    self.isLogin = true
                     completed(true,200)
                 case .failure(let error):
                     print("request failed")
+                    self.isLogin = false
                     print(res.error?.responseCode)
                     completed(false,res.error?.responseCode ?? 500)
                 /*case .success(let json):

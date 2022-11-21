@@ -48,6 +48,7 @@
 		87A4E8642922B85500E2A505 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 87A4E8632922B85500E2A505 /* SwiftyJSON */; };
 		87A5AEDB2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A5AEDA2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift */; };
 		87AA86002922354F009536CA /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AA85FF2922354F009536CA /* ChangePasswordView.swift */; };
+		87BFC34A292B85A70019BDE2 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BFC349292B85A70019BDE2 /* SessionManager.swift */; };
 		87C5CB192923C5050049814E /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 87C5CB182923C5050049814E /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,7 @@
 		87A4E8602922B30E00E2A505 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		87A5AEDA2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVerificationModelView.swift; sourceTree = "<group>"; };
 		87AA85FF2922354F009536CA /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		87BFC349292B85A70019BDE2 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				87A4E8602922B30E00E2A505 /* constant.swift */,
+				87BFC349292B85A70019BDE2 /* SessionManager.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				2879395D2919A57800778A5B /* ForgetPassword.swift in Sources */,
 				2879395B2919824100778A5B /* LoginView.swift in Sources */,
 				287939592919737500778A5B /* WelcomeView.swift in Sources */,
+				87BFC34A292B85A70019BDE2 /* SessionManager.swift in Sources */,
 				8741BAB1291E9116002FBDE8 /* SignupView.swift in Sources */,
 				8741BAB4291E9557002FBDE8 /* SignupViewModel.swift in Sources */,
 				87A5AEDB2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift in Sources */,
