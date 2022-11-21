@@ -45,6 +45,7 @@
 		8743D060291FE5F800C1781C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743D05F291FE5F800C1781C /* LoginViewModel.swift */; };
 		8743D062291FF61000C1781C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743D061291FF61000C1781C /* User.swift */; };
 		879B2F9F2927A68B00249774 /* ForgetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B2F9E2927A68B00249774 /* ForgetPasswordViewModel.swift */; };
+		879E5C81292BE19600573969 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E5C80292BE19600573969 /* SessionManager.swift */; };
 		87A4E85929229F1A00E2A505 /* MultiSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4E85829229F1A00E2A505 /* MultiSelectionView.swift */; };
 		87A4E85B29229F7200E2A505 /* MultiSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4E85A29229F7200E2A505 /* MultiSelector.swift */; };
 		87A4E85D2922A3CF00E2A505 /* CustomPicker2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4E85C2922A3CF00E2A505 /* CustomPicker2View.swift */; };
@@ -113,6 +114,7 @@
 		8743D05F291FE5F800C1781C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8743D061291FF61000C1781C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		879B2F9E2927A68B00249774 /* ForgetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewModel.swift; sourceTree = "<group>"; };
+		879E5C80292BE19600573969 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		87A4E85829229F1A00E2A505 /* MultiSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionView.swift; sourceTree = "<group>"; };
 		87A4E85A29229F7200E2A505 /* MultiSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelector.swift; sourceTree = "<group>"; };
 		87A4E85C2922A3CF00E2A505 /* CustomPicker2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker2View.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			children = (
 				87A4E8602922B30E00E2A505 /* constant.swift */,
 				419E7C3A2928E023007E7D87 /* ImagePicker.swift */,
+				879E5C80292BE19600573969 /* SessionManager.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				8743D059291FE16300C1781C /* ResetPasswordView.swift in Sources */,
 				28CABB1829191BC400AED109 /* najahniApp.swift in Sources */,
 				8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */,
+				879E5C81292BE19600573969 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
