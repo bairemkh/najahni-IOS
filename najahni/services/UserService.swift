@@ -59,29 +59,28 @@ class UserService {
                 }
             }
     }
-    static func resetPassword(password:String){
-        let body : [String : Any] = [
-            "password" : password
-        ]
-        let token = UserDefaults.standard.string(forKey: "token")
-        print(token)
-        let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
-        AF.request(EDIT_PROFILE,
-                   method: .put,
-                   parameters: body,
-        headers: headers)
-            .validate(statusCode: 200..<500)
-            .validate(contentType: ["application/json"])
-            .responseData { response in
-                switch response.result{
-                    
-                case .success(let data):
-                    print(JSON(data))
-                case .failure(let error):
-                    print(error.errorDescription!)
-                    print(error)
+    static func resetPassword(password:String, action :@escaping(String,Bool)->Void){
+            let body : [String : Any] = [
+                "password" : password
+            ]
+            print("Token = \(SessionManager.token)")
+            let headers : HTTPHeaders = [.authorization(bearerToken: SessionManager.token!)]
+            AF.request(EDIT_PROFILE,
+                       method: .put,
+                       parameters: body,
+            headers: headers)
+                .validate(statusCode: 200..<500)
+                .validate(contentType: ["application/json"])
+                .responseData { response in
+                    switch response.result{
+                        
+                    case .success(let data):
+                        print(JSON(data))
+                        action("You shall pass",true)
+                    case .failure(let error):
+                        print(error.errorDescription!)
+                        action("Connectivity error",true)
+                    }
                 }
-            }
-        
-    }
-}
+            
+        }}
