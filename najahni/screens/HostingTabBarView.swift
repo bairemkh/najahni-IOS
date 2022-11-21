@@ -16,6 +16,7 @@ struct HostingTabBarView: View {
     }
     
     @State private var selectedTab: Tab = .home
+    let role = UserDefaults.standard.string(forKey: "role")
     var body: some View {
         NavigationView(){
             TabView(selection: $selectedTab) {
@@ -37,12 +38,23 @@ struct HostingTabBarView: View {
                                 Text("Cart")
                                 Image(systemName: "cart.fill")
                             }
-                ProfileView()
-                    .tag(3)
-                    .tabItem {
-                            Text("Profile")
-                            Image(systemName: "person.fill")
-                            }
+                if (role == "Student"){
+                    ProfileView()
+                        .tag(3)
+                        .tabItem {
+                                Text("Profile")
+                                Image(systemName: "person.fill")
+                                }
+                } else {
+                    ProfileTrainerView()
+                        .tag(3)
+                        .tabItem {
+                                Text("Profile")
+                                Image(systemName: "person.fill")
+                                }
+                }
+                    
+
             }.accentColor(Color(red: 0.356, green: 0.315, blue: 0.848))
         }
         .navigationBarHidden(true)

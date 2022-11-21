@@ -8,6 +8,8 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import UIKit
+
 
 class LoginViewModel: ObservableObject {
     @Published  var email=""
@@ -30,9 +32,12 @@ class LoginViewModel: ObservableObject {
                 case .success(let data):
                     let json = JSON(data)
                     let token = json["data"].stringValue
+                    let role = json["role"].stringValue
                     UserDefaults.standard.setValue(token, forKey: "token")
+                    UserDefaults.standard.setValue(role, forKey: "role")
                     print(token)
                     self.isLogin = true
+
                     completed(true,200)
                 case .failure(let error):
                     print("request failed")
@@ -95,6 +100,29 @@ class LoginViewModel: ObservableObject {
                 
             }
         }
+    }
+    
+    func editPhoto(image: UIImage? ,completed: @escaping (Bool)-> Void) {
+        let token = UserDefaults.standard.string(forKey: "token")
+        let headers : HTTPHeaders = [.authorization(bearerToken: token!),.contentType("multipart/form-data")]
+        
+        AF.upload(multipartFormData: {multipartFormData in
+            multipartFormData.append(image!.jpegData(compressionQuality: 0.5)!, withName: "image",fileName: "file.jpg", mimeType: "image/jpg")
+        },
+                  to: UPLOAD_IMAGE, method: .post, headers: headers)
+        .responseData { response in
+            switch response.result {
+            case .success:
+                print("upload")
+                completed(true)
+            case let .failure(error):
+                print(error)
+                completed(false)
+            }
+        }
+        
+        
+        
     }
     
 
