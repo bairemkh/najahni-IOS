@@ -16,7 +16,7 @@ struct CustomCardView: View {
                 //.aspectRatio(contentMode: .fit)
                 .cornerRadius(8.0)
                 .frame(width: 140,height: 120)
-                //.padding(.all,0)
+                .padding(.leading,-12)
             
             VStack(alignment: .leading,spacing: 4.0) {
                 Text("title")
@@ -40,7 +40,8 @@ struct CustomCardView: View {
                         .padding(.top, 8)
                 }
             }
-            .padding(.trailing)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal)
             Spacer()
         }
         .frame(maxWidth: .infinity, alignment: .center)
