@@ -13,6 +13,9 @@ struct ProfileView: View {
     @State var lastname : String = ""
     @State var image : String = ""
     @State private var onLogOut = false
+    
+    @State var images : UIImage = UIImage.init(named:"") ?? UIImage()
+    @State private var showSheet = false
     @Environment(\.presentationMode) var presentationMode
 
     var username = UserDefaults.standard.string(forKey: "token")
@@ -26,14 +29,41 @@ struct ProfileView: View {
                     .clipShape(Circle())
                         .shadow(radius: 10)
                     .padding()
-                    .frame(width: 150.0, height: 150.0)
+                    .frame(width: 120.0, height: 120.0)
                     .aspectRatio(contentMode: .fill)
+                
                     
-                      
                 Text(firstname  + " " + lastname)
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.black)
+                Spacer()
+                    .frame(height: 15.0)
+                Text("Change photo")
+                        .font(.headline)
+                        .foregroundColor(Color("primaryColor"))
+                        .onTapGesture {
+                            print("click to pick")
+                            showSheet = true
+                        }
+                        .padding(.horizontal, 20)
+                        .sheet(isPresented: $showSheet,onDismiss: {
+                            viewModel.editPhoto(image: images){
+                                
+                                    (success) in
+                                    if success {
+                                        print("jawha nice")
+                                    }else {
+                                        print("not logged in")
+                                        
+                                    }
+                                
+                            }
+                        }) {
+                            // Pick an image from the photo library:
+                            ImagePicker(sourceType: .photoLibrary, selectedImage: $images)}
+
+                       
                 Spacer()
                 NavigationLink(destination:EditProfileView(firstname: firstname, lastname: lastname, image: image),label:{
                     CustomButtonView(icon: "highlighter",buttonText: "Edit profile")
@@ -59,13 +89,14 @@ struct ProfileView: View {
                     CustomButtonView(icon: "rectangle.portrait.and.arrow.forward",buttonText: "Logout")
                         .onTapGesture {
                             print(UserDefaults.standard.object(forKey: "token")!)
-                            UserDefaults.standard.removeObject(forKey: "token")
+                            UserDefaults.standard.removeObject(forKey: "token");                     UserDefaults.standard.removeObject(forKey: "role")
+                            
                             onLogOut = true
                             print(UserDefaults.standard.object(forKey: "token"))
                         }
                 }
                 
-                Spacer()
+               // Spacer()
                 
                 
                 
