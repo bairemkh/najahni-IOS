@@ -20,7 +20,7 @@ struct ProfileView: View {
 
     var username = UserDefaults.standard.string(forKey: "token")
     var body: some View {
-        NavigationView(){
+        //NavigationView(){
             VStack(alignment: .center){
                 Spacer()
                 /*Image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvaBdtJ4GaN7m79jU-Y47NqT3Grvxd7qIZ9VKUZKyU1ynYKxoNdlQCixTRDnliBE62os&usqp=CAU")*/
@@ -102,7 +102,8 @@ struct ProfileView: View {
                 
             }
             .padding(.all)
-        }.onAppear{
+        //}
+        .onAppear{
          print("profile view")
             viewModel.profile(completed: {
                 (success,result) in
