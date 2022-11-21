@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 struct ProfileTrainerView: View {
     var body: some View {
-        VStack(alignment: .center){
+        VStack(alignment: .leading){
             HStack(alignment: .center){
                 WebImage(url: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvaBdtJ4GaN7m79jU-Y47NqT3Grvxd7qIZ9VKUZKyU1ynYKxoNdlQCixTRDnliBE62os&usqp=CAU"))
                     .resizable()
@@ -36,7 +36,7 @@ struct ProfileTrainerView: View {
             }
             
 
-            HStack(alignment: .top){
+            HStack{
                 CustomBoxView()
                 CustomBoxView()
                 Spacer()
@@ -45,7 +45,11 @@ struct ProfileTrainerView: View {
             Text("My courses")
                 .fontWeight(.medium)
                 .foregroundColor(Color.black)
+                .padding(.leading)
             Spacer()
+            
+            
+            
         }
         .padding(.horizontal)
         
