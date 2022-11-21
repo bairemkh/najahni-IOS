@@ -18,9 +18,9 @@ struct CustomCardView: View {
                 .frame(width: 140,height: 120)
                 .padding(.leading,-12)
             
-            VStack(alignment: .leading,spacing: 4.0) {
-                Text("title")
-                    .font(.system(size: 26, weight: .bold, design: .default))
+            VStack(alignment: .leading,spacing: 15.0) {
+                Text("UX/UI course")
+                    .font(.system(size: 18, weight: .bold, design: .default))
                     .foregroundColor(.black)
                 HStack{
                     Image("user")
@@ -28,27 +28,43 @@ struct CustomCardView: View {
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(12.0)
                         .frame(width: 25)
-                    Text("type")
-                        .font(.system(size: 16, weight: .bold, design: .default))
+                    Text("username")
+                        .font(.system(size: 12, weight: .bold, design: .default))
                         .foregroundColor(.gray)
                 }
                 HStack {
-                    Text("$" + String.init(format: "%0.2f","price"))
+                    Text("1h42")
                         .font(.system(size: 12, weight: .bold, design: .default))
                         .fontWeight(.medium)
                         .foregroundColor(.black)
-                        .padding(.top, 8)
+                    Text(".")
+                        .font(.system(size: 12, weight: .bold, design: .default))
+                        .fontWeight(.medium)
+                        .foregroundColor(.black)
+                    Text("12 Lessons")
+                        .font(.system(size: 12, weight: .bold, design: .default))
+                        .fontWeight(.medium)
+                        .foregroundColor(.black)
+                        
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal)
+            .padding(.horizontal, -6.0)
+           // Spacer()
+            
+            Image(systemName:"chevron.right")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 10)
+            
             Spacer()
+                
         }
         .frame(maxWidth: .infinity, alignment: .center)
         .background(Color.white)
         .cornerRadius(8.0)
         .shadow(color: .gray, radius: 2)
-        .padding(.horizontal)
+        .padding([.top, .leading, .trailing])
     }
 }
 
