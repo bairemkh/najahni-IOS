@@ -45,9 +45,9 @@ class UserService {
                 switch response.result{                    
                 case .success(let data):
                     let json = JSON(data)
-                    let token = json["Token"].stringValue
+                    let token = json["data"].stringValue
                     print(token)
-                    UserDefaults.standard.setValue(token, forKey: "token")
+                    SessionManager.login(token: token)
                     action("next please",true)
                 case .failure(let error):
                     print(error.errorDescription!)
@@ -59,13 +59,12 @@ class UserService {
                 }
             }
     }
-    static func resetPassword(password:String){
+    static func resetPassword(password:String, action :@escaping(String,Bool)->Void){
         let body : [String : Any] = [
             "password" : password
         ]
-        let token = UserDefaults.standard.string(forKey: "token")
-        print(token)
-        let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
+        print("Token = \(SessionManager.token)")
+        let headers : HTTPHeaders = [.authorization(bearerToken: SessionManager.token!)]
         AF.request(EDIT_PROFILE,
                    method: .put,
                    parameters: body,
@@ -77,9 +76,10 @@ class UserService {
                     
                 case .success(let data):
                     print(JSON(data))
+                    action("You shall pass",true)
                 case .failure(let error):
                     print(error.errorDescription!)
-                    print(error)
+                    action("Connectivity error",true)
                 }
             }
         

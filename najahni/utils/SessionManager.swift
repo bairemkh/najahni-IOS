@@ -14,6 +14,10 @@ final class SessionManager: ObservableObject {
     }
     static var userState : UserState = .NotLogged
     static let token = UserDefaults.standard.string(forKey: "token")
+    static func login(token:String){
+        UserDefaults.standard.setValue(token, forKey: "token")
+        userState = .LoggedIn
+    }
     static func logOut() {
         UserDefaults.standard.removeObject(forKey: "token")
         userState = .NotLogged

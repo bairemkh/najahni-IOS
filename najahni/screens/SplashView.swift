@@ -11,7 +11,7 @@ struct SplashView: View {
     @State var isActive:Bool = false
     let welcome = LoginView()
     var body: some View {
-        ZStack{
+        /*ZStack{
             if SessionManager.token != nil {
                 toProfile()
             }
@@ -19,7 +19,8 @@ struct SplashView: View {
             {
                 toLogin()
             }
-        }
+        }*/
+        toLogin()
     }
     func gotoWelcomeScreen(time: Double) {
         DispatchQueue.main.asyncAfter(deadline: .now() + Double(time)) {
