@@ -16,3 +16,5 @@ let EDIT_PROFILE = URL_BASE_APP + "/user/editprofile"
 let DELETE_PROFILE = URL_BASE_APP + "/user/delete-account"
 let EDIT_PASSWORD = URL_BASE_APP + "/user/change-password"
 let UPLOAD_IMAGE = URL_BASE_APP + "/user/change-photo"
+
+let ALL_COURSE = URL_BASE_APP + "/course/getall"
