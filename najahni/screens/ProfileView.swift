@@ -20,7 +20,7 @@ struct ProfileView: View {
 
     var username = UserDefaults.standard.string(forKey: "token")
     var body: some View {
-        NavigationView(){
+        //NavigationView(){
             VStack(alignment: .center){
                 Spacer()
                 /*Image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvaBdtJ4GaN7m79jU-Y47NqT3Grvxd7qIZ9VKUZKyU1ynYKxoNdlQCixTRDnliBE62os&usqp=CAU")*/
@@ -79,11 +79,16 @@ struct ProfileView: View {
                        label:{
                     CustomButtonView(icon: "heart.fill",buttonText: "My wishlist")
                 })
-                Button(action:{},
-                       label:{
-                    CustomButtonView(icon: "trash.fill",buttonText: "Delete account")
-                })
                 
+                NavigationLink(destination: LoginView(), isActive: $onLogOut){
+                    CustomButtonView(icon: "trash.fill",buttonText: "Delete account").onTapGesture {
+                        UserService.deleteAccount { msg, logout in
+                            print(msg)
+                            SessionManager.logOut()
+                            onLogOut = !logout
+                        }
+                    }
+                }
                 
                 NavigationLink(destination: LoginView(), isActive: $onLogOut){
                     CustomButtonView(icon: "rectangle.portrait.and.arrow.forward",buttonText: "Logout")
@@ -102,7 +107,8 @@ struct ProfileView: View {
                 
             }
             .padding(.all)
-        }.onAppear{
+        //}
+        .onAppear{
          print("profile view")
             viewModel.profile(completed: {
                 (success,result) in
