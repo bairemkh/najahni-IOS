@@ -79,11 +79,16 @@ struct ProfileView: View {
                        label:{
                     CustomButtonView(icon: "heart.fill",buttonText: "My wishlist")
                 })
-                Button(action:{},
-                       label:{
-                    CustomButtonView(icon: "trash.fill",buttonText: "Delete account")
-                })
                 
+                NavigationLink(destination: LoginView(), isActive: $onLogOut){
+                    CustomButtonView(icon: "trash.fill",buttonText: "Delete account").onTapGesture {
+                        UserService.deleteAccount { msg, logout in
+                            print(msg)
+                            SessionManager.logOut()
+                            onLogOut = !logout
+                        }
+                    }
+                }
                 
                 NavigationLink(destination: LoginView(), isActive: $onLogOut){
                     CustomButtonView(icon: "rectangle.portrait.and.arrow.forward",buttonText: "Logout")

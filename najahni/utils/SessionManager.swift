@@ -23,6 +23,6 @@ final class SessionManager: ObservableObject {
     }
     static func isLoggedIn() -> Bool{
         return SessionManager.token != nil
-        
     }
+    static var currentUser : User? = nil
 }

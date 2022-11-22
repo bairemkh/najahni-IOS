@@ -75,7 +75,6 @@ class UserService {
                     switch response.result{
                         
                     case .success(let data):
-                        print(JSON(data))
                         action("You shall pass",true)
                     case .failure(let error):
                         print(error.errorDescription!)
@@ -83,4 +82,64 @@ class UserService {
                     }
                 }
             
-        }}
+        }
+    static func deleteAccount(action: @escaping (String,Bool)-> Void){
+        print("Token = \(SessionManager.token)")
+        let headers : HTTPHeaders = [.authorization(bearerToken: SessionManager.token!)]
+        AF.request(DELETE_PROFILE,
+                   method: .delete,
+        headers: headers)
+            .validate(statusCode: 200..<500)
+            .validate(contentType: ["application/json"])
+            .responseData { response in
+                switch response.result{
+                    
+                case .success(let data):
+                    print(JSON(data))
+                    action("User deleted",true)
+                case .failure(let error):
+                    print(error.errorDescription!)
+                    action("Connectivity error",false)
+                }
+            }
+    }
+    static func profile (completed: @escaping (Bool,User?)-> Void) {
+        if(!SessionManager.isLoggedIn()){
+            return
+        }
+        let token = UserDefaults.standard.string(forKey: "token")
+        let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
+        AF.request(PROFILE_URL,
+                   method: .get,
+                headers: headers)
+        .responseJSON{
+            (res) in
+            switch res.result {
+            case .success(let data):
+                let json = JSON(data)
+                let user = self.makeItem(jsonItem: json["data"])
+                completed(true,user)
+            case .failure(let error):
+                print(error)
+                completed(false,nil)
+                
+            }
+        }
+    }
+    static func makeItem(jsonItem: JSON) -> User {
+        return User(
+            _id: jsonItem["_id"].stringValue,
+            firstname: jsonItem["firstname"].stringValue,
+            lastname: jsonItem["lastname"].stringValue,
+            email: jsonItem["email"].stringValue,
+            password: jsonItem["password"].stringValue,
+            role: Role(rawValue: jsonItem["role"].stringValue)!,
+            fields: jsonItem["fields"].arrayValue.map({ json in
+                return Fields(rawValue: json.stringValue)!
+            }),
+            image: jsonItem["image"].stringValue,
+            isVerified: jsonItem["isVerified"].boolValue,
+            otp: jsonItem["otp"].stringValue)
+    }
+}
+
