@@ -71,7 +71,7 @@ struct ProfileTrainerView: View {
                     .padding(.leading)
                 ScrollView(showsIndicators: false) {
                     ForEach(0..<20) {_ in
-                            CustomCardView()
+                            //CustomCardView()
                         }
                     }
                 Spacer()

@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 let URL_BASE_APP = "http://172.17.6.56:9090"
 //let URL_BASE_APP = "http://localhost:9090"
 
