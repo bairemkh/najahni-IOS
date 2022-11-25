@@ -97,7 +97,8 @@ struct ProfileView: View {
                             UserDefaults.standard.removeObject(forKey: "token");                     UserDefaults.standard.removeObject(forKey: "role")
                             
                             onLogOut = true
-                            print(UserDefaults.standard.object(forKey: "token"))
+                            
+
                         }
                 }
                 

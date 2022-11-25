@@ -14,6 +14,7 @@ import UIKit
 class LoginViewModel: ObservableObject {
     @Published  var email=""
     @Published  var password=""
+    @Published  var isLogin :Bool = false
     
     
     func login(email:String,password:String, completed: @escaping (Bool , Int
@@ -38,10 +39,12 @@ class LoginViewModel: ObservableObject {
                     }
                     UserDefaults.standard.setValue(role, forKey: "role")
                     print(token)
-                    print(role)
+                    self.isLogin = true
+
                     completed(true,200)
                 case .failure(let error):
                     print("request failed")
+                    self.isLogin = false
                     print(res.error?.responseCode)
                     completed(false,res.error?.responseCode ?? 500)
                 /*case .success(let json):

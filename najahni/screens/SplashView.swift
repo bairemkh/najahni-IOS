@@ -7,42 +7,11 @@
 
 import SwiftUI
 
-import SwiftUI
-
-/*struct SplashView: View {
-    @State var isActive:Bool = false
-    let welcome = LoginView()
-    var body: some View {
-        NavigationView {
-            VStack(alignment: .center){
-                Image("Logo-Najahni")
-                    .resizable()
-                    .frame(width: 250.0 , height: 250)
-                    .scaledToFit()
-                
-                Text("Najahni")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                
-                NavigationLink(destination: welcome, isActive:$isActive,label: {EmptyView()})
-            }
-            .onAppear(perform: {self.gotoWelcomeScreen(time: 2.0)})
-        }
-        
-        
-    }
-    func gotoWelcomeScreen(time: Double) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + Double(time)) {
-            self.isActive = true
-        }
-    }
-}*/
 struct SplashView: View {
     @State var isActive:Bool = false
     let welcome = LoginView()
     var body: some View {
-        ZStack{
+        /*ZStack{
             if SessionManager.token != nil {
                 toProfile()
             }
@@ -50,18 +19,14 @@ struct SplashView: View {
             {
                 toLogin()
             }
-        }.onAppear{
-            UserService.profile(){isTrue,user in
-                SessionManager.currentUser = user
-            }
-        }
-        //toLogin()
+        }*/
+        toLogin()
     }
     func gotoWelcomeScreen(time: Double) {
         DispatchQueue.main.asyncAfter(deadline: .now() + Double(time)) {
             self.isActive = true
         }
-    }
+    }    
 }
 
 
@@ -132,3 +97,6 @@ struct toLogin: View {
         }
     }
 }
+
+
+
