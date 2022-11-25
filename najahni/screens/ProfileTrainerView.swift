@@ -15,7 +15,7 @@ struct ProfileTrainerView: View {
     @State var image : String = ""
     @State private var onLogOut = false
     var body: some View {
-        NavigationView(){
+        //NavigationView(){
             VStack(alignment: .leading){
                 HStack(alignment: .center){
                     WebImage(url: URL(string:image))
@@ -71,7 +71,7 @@ struct ProfileTrainerView: View {
                     .padding(.leading)
                 ScrollView(showsIndicators: false) {
                     ForEach(0..<20) {_ in
-                            CustomCardView()
+                            //CustomCardView()
                         }
                     }
                 Spacer()
@@ -80,7 +80,8 @@ struct ProfileTrainerView: View {
                 
             }
             .padding(.horizontal)
-        }.onAppear{
+        //}
+        .onAppear{
             print("profile view")
                viewModel.profile(completed: {
                    (success,result) in
