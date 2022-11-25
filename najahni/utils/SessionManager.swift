@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 final class SessionManager: ObservableObject {
     enum UserState{
         case LoggedIn
@@ -24,6 +23,6 @@ final class SessionManager: ObservableObject {
     }
     static func isLoggedIn() -> Bool{
         return SessionManager.token != nil
-        
     }
+    static var currentUser : User? = nil
 }

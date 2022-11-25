@@ -39,7 +39,7 @@ class ResetPasswordViewModel: ObservableObject {
             }
         }
     }
-    func resetPassword(password:String,confirmPassword:String, action: @escaping(String,Bool)->Void) {
+    func resetPassword(password:String,confirmPassword:String, action: @escaping (String,Bool)->Void) {
         if(password.isEmpty || confirmPassword.isEmpty){
             action("Please fill the fields above", false)
             return
@@ -49,8 +49,8 @@ class ResetPasswordViewModel: ObservableObject {
             return
         }
         UserService.resetPassword(password: password) { msg, pass in
-            action(msg,pass)
-        }
+                    action(msg,pass)
+                }
     }
     
         

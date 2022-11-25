@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct HostingTabBarView: View {
     private enum Tab: Hashable {
         case home
@@ -45,7 +47,7 @@ struct HostingTabBarView: View {
                                 Text("Profile")
                                 Image(systemName: "person.fill")
                                 }
-                } else {
+                } else  {
                     ProfileTrainerView()
                         .tag(3)
                         .tabItem {
@@ -58,8 +60,10 @@ struct HostingTabBarView: View {
             }.accentColor(Color(red: 0.356, green: 0.315, blue: 0.848))
         }
         .navigationBarHidden(true)
-        .onAppear(){
-            print(" is logged in -> \(SessionManager.isLoggedIn())")
+        .onAppear{
+            print(UserDefaults.standard.string(forKey: "role"))
+            print(SessionManager.currentUser?.role)
+            print(UserDefaults.standard.string(forKey: "token"))
         }
         
     }
