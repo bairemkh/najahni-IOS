@@ -25,59 +25,60 @@ struct HostingTabBarView: View {
                 HomeView()
                     .tag(0)
                     .tabItem {
-                                Text("Home")
-                                Image(systemName: "house.fill")
+                        Text("Home")
+                        Image(systemName: "house.fill")
                     }
                 CoursesView()
                     .tag(1)
                     .tabItem {
-                                Text("My courses")
-                                Image(systemName: "list.clipboard.fill")
-                            }
+                        Text("My courses")
+                        Image(systemName: "list.clipboard.fill")
+                    }
                 CartView()
                     .tag(2)
                     .tabItem {
-                                Text("Cart")
-                                Image(systemName: "cart.fill")
-                            }
-
-
+                        Text("Cart")
+                        Image(systemName: "cart.fill")
+                    }
+                
+                
                 WishListView()
                     .tag(3)
                     .tabItem {
-                                Text("wish")
-                                Image(systemName: "heart.fill")
-                            }
+                        Text("wish")
+                        Image(systemName: "heart.fill")
+                    }
                 if (role == "Student"){
-
-
+                    
+                    
                     ProfileView()
                         .tag(4)
                         .tabItem {
-                                Text("Profile")
-                                Image(systemName: "person.fill")
-
-                } else  {
-                    ProfileTrainerView()
-                        .tag(4)
-                        .tabItem {
-                                Text("Profile")
-                                Image(systemName: "person.fill")
+                            Text("Profile")
+                            Image(systemName: "person.fill")
+                            
+                        }
+                } else {
+                            ProfileTrainerView()
+                                .tag(4)
+                                .tabItem {
+                                    Text("Profile")
+                                    Image(systemName: "person.fill")
                                 }
-                }
+                        }
                     
-
-            }.accentColor(Color(red: 0.356, green: 0.315, blue: 0.848))
+                    
+                }.accentColor(Color(red: 0.356, green: 0.315, blue: 0.848))
+            }
+            .navigationBarHidden(true)
+            .onAppear{
+                print(UserDefaults.standard.string(forKey: "role"))
+                print(SessionManager.currentUser?.role)
+                print(UserDefaults.standard.string(forKey: "token"))
+            }
+            
         }
-        .navigationBarHidden(true)
-        .onAppear{
-            print(UserDefaults.standard.string(forKey: "role"))
-            print(SessionManager.currentUser?.role)
-            print(UserDefaults.standard.string(forKey: "token"))
-        }
-        
     }
-}
 
 struct HostingTabBarView_Previews: PreviewProvider {
     static var previews: some View {
