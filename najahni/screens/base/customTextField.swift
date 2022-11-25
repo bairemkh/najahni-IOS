@@ -30,39 +30,11 @@ struct CustomTextField: View {
                      }else{
                          icon = "eye.fill"
                      }
-                 }
+                 }.foregroundColor(/*@START_MENU_TOKEN@*/Color.gray/*@END_MENU_TOKEN@*/)
              }
         }
         .groupBoxStyle(TransparentGroupBox())
         .shadow(radius: 3)
-        
-           /* HStack {
-                if isHidden
-                {
-                    SecureField("password", text: $text)
-                        .padding(.all)
-                        .padding(.leading)
-                        .padding(.trailing)
-                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
-                        .cornerRadius(20)
-                }
-                else{
-                    TextField("password", text: $text)
-                        .padding(.all)
-                        .padding(.leading)
-                        .padding(.trailing)
-                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
-                        .cornerRadius(20)
-                }
-                Image(systemName:icon).onTapGesture {
-                    isHidden = !isHidden
-                    if isHidden{
-                        icon = "eye.slash.fill"
-                    }else{
-                        icon = "eye.fill"
-                    }
-                }
-            }*/
         
     }
 }
