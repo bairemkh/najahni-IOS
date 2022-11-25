@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct HostingTabBarView: View {
     private enum Tab: Hashable {
         case home
@@ -16,7 +18,7 @@ struct HostingTabBarView: View {
     }
     
     @State private var selectedTab: Tab = .home
-    let role = SessionManager.currentUser?.role ?? Role.Trainer
+    let role = UserDefaults.standard.string(forKey: "role")
     var body: some View {
         NavigationView(){
             TabView(selection: $selectedTab) {
@@ -38,14 +40,14 @@ struct HostingTabBarView: View {
                                 Text("Cart")
                                 Image(systemName: "cart.fill")
                             }
-                if (SessionManager.currentUser?.role == Role.Student){
+                if (role == "Student"){
                     ProfileView()
                         .tag(3)
                         .tabItem {
                                 Text("Profile")
                                 Image(systemName: "person.fill")
                                 }
-                } else if(SessionManager.currentUser?.role == Role.Trainer) {
+                } else  {
                     ProfileTrainerView()
                         .tag(3)
                         .tabItem {

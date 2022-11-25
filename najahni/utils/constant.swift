@@ -7,7 +7,7 @@
 
 import Foundation
 
-let URL_BASE_APP = "http://172.17.4.29:9090"
+let URL_BASE_APP = "http://172.17.6.56:9090"
 //let URL_BASE_APP = "http://localhost:9090"
 
 let LOGIN_URL = URL_BASE_APP + "/user/signin"
