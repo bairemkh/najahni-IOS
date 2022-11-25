@@ -106,6 +106,10 @@ struct ProfileView: View {
                 
                 
             }
+            .navigationTitle(
+                Text("Profile")
+            )
+            .navigationBarTitleDisplayMode(.inline)
             .padding(.all)
         //}
         .onAppear{
