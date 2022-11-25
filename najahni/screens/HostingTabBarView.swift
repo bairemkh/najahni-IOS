@@ -16,7 +16,7 @@ struct HostingTabBarView: View {
     }
     
     @State private var selectedTab: Tab = .home
-    let role = UserDefaults.standard.string(forKey: "role")
+    let role = SessionManager.currentUser?.role ?? Role.Trainer
     var body: some View {
         NavigationView(){
             TabView(selection: $selectedTab) {
@@ -38,6 +38,7 @@ struct HostingTabBarView: View {
                                 Text("Cart")
                                 Image(systemName: "cart.fill")
                             }
+
                 WishListView()
                     .tag(3)
                     .tabItem {
@@ -45,13 +46,14 @@ struct HostingTabBarView: View {
                                 Image(systemName: "heart.fill")
                             }
                 if (role == "Student"){
+
                     ProfileView()
                         .tag(4)
                         .tabItem {
                                 Text("Profile")
                                 Image(systemName: "person.fill")
                                 }
-                } else {
+                } else{
                     ProfileTrainerView()
                         .tag(4)
                         .tabItem {
@@ -64,6 +66,11 @@ struct HostingTabBarView: View {
             }.accentColor(Color(red: 0.356, green: 0.315, blue: 0.848))
         }
         .navigationBarHidden(true)
+        .onAppear{
+            print(UserDefaults.standard.string(forKey: "role"))
+            print(SessionManager.currentUser?.role)
+            print(UserDefaults.standard.string(forKey: "token"))
+        }
         
     }
 }
