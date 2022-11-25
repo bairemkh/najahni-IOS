@@ -128,7 +128,7 @@ struct HomeView: View {
         .onAppear{
             viewModel.getallcourses { success, result in
                 if success {
-                    
+                    self.courses = []
                     self.courses.append(contentsOf: result!)
                     print(courses)
                 }

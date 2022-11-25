@@ -16,7 +16,7 @@ struct HostingTabBarView: View {
     }
     
     @State private var selectedTab: Tab = .home
-    let role = SessionManager.currentUser?.role ?? Role.Trainer
+    let role = UserDefaults.standard.string(forKey:"role")
     var body: some View {
         NavigationView(){
             TabView(selection: $selectedTab) {
