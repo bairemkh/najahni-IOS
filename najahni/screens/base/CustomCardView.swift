@@ -6,22 +6,23 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CustomCardView: View {
     var course : Course
     var body: some View {
         HStack{
-            Image("user")
+            WebImage(url: URL(string: course.image))
                 .resizable()
                 .scaledToFit()
-                //.aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fit)
                 .cornerRadius(8.0)
-                .frame(width: 140,height: 120)
+                .frame(width: 140,height: 140)
                 .padding(.leading,-12)
             
             VStack(alignment: .leading,spacing: 15.0) {
                 Text(course.title)
-                    .font(.system(size: 18, weight: .bold, design: .default))
+                    .font(.system(size: 16, weight: .bold, design: .default))
                     .foregroundColor(.black)
                 HStack{
                     Image("user")

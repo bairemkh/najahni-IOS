@@ -95,7 +95,7 @@ struct HomeView: View {
                 //print("s",courses.count)
                 Text("Courses").font(.title2).padding(.all)
                 VStack{
-                    ScrollView(.horizontal,showsIndicators: false) {
+                    ScrollView(.vertical,showsIndicators: false) {
                         ForEach(courses) { course in
                             CustomCardView(course: course)
                         }
