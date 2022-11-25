@@ -29,7 +29,7 @@ struct HostingTabBarView: View {
                 CoursesView()
                     .tag(1)
                     .tabItem {
-                                Text("Home")
+                                Text("My courses")
                                 Image(systemName: "list.clipboard.fill")
                             }
                 CartView()
@@ -38,16 +38,22 @@ struct HostingTabBarView: View {
                                 Text("Cart")
                                 Image(systemName: "cart.fill")
                             }
+                WishListView()
+                    .tag(3)
+                    .tabItem {
+                                Text("wish")
+                                Image(systemName: "heart.fill")
+                            }
                 if (role == "Student"){
                     ProfileView()
-                        .tag(3)
+                        .tag(4)
                         .tabItem {
                                 Text("Profile")
                                 Image(systemName: "person.fill")
                                 }
                 } else {
                     ProfileTrainerView()
-                        .tag(3)
+                        .tag(4)
                         .tabItem {
                                 Text("Profile")
                                 Image(systemName: "person.fill")

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct Course  {
+struct Course  : Identifiable{
     let id, title: String
     let fields: [Fields]
     let level, description: String
@@ -16,6 +16,8 @@ struct Course  {
     let idowner: User?
     let isArchived: Bool
     let createdAt, updatedAt: String
+    
+    
     
     init(id: String, title: String, fields: [Fields], level: String, description: String, isPaid: Bool, image: String, price: Int, /*idowner: User,*/ isArchived: Bool, createdAt: String, updatedAt: String) {
         self.id = id

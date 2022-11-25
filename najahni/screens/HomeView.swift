@@ -16,6 +16,7 @@ struct HomeView: View {
     @State private var currentIndex: Int = 0
     @Namespace private var ns
     @State var text = ""
+    @State var courses : [Course] = []
     @StateObject var viewModel = HomeViewModel()
     var body: some View {
         ScrollView (showsIndicators: false){
@@ -82,29 +83,55 @@ struct HomeView: View {
                 }
                 
                 Text("Recommanded").font(.title2)
-                /*HStack{
+                
                     ScrollView(.horizontal,showsIndicators: false) {
-                        ForEach(0..<2) {_ in
-                            HStack{
-                                CustomCard2View()
-                            }
+                        ForEach(courses) {item in
+                           // CustomCardView(course: item)
+                            
                             }
                     }
                     
-                }*/
+                
+                //print("s",courses.count)
                 Text("Courses").font(.title2).padding(.all)
-                ScrollView(showsIndicators: false) {
+                VStack{
+                    ScrollView(.horizontal,showsIndicators: false) {
+                        ForEach(courses) { course in
+                            CustomCardView(course: course)
+                        }
+                    }}
+                /*List(courses) { item in
+                    Text(item.title)
+                           //CustomCardView(course: item)
+                       }*/
+               /* List{
+                    ForEach(courses,id: \.title) { course in
+                        Text(course.title)
+                    }
+                }*/
+                /*List {
+                    Text("Hello")
+                    Text("gtyty")
+                    Text("Helefeflo")
+                    Text("ikik")
+                }*/
+                /*ScrollView(showsIndicators: false) {
                     ForEach(0..<20) {_ in
                         CustomCardView()
                     }
-                }
+                }*/
                 Spacer()
                 
             }
             .padding(.horizontal)
         }
         .onAppear{
-            viewModel.getallcourses { _, _ in
+            viewModel.getallcourses { success, result in
+                if success {
+                    
+                    self.courses.append(contentsOf: result!)
+                    print(courses)
+                }
                 
             }
         }

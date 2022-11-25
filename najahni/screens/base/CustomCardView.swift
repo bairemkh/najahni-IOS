@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CustomCardView: View {
+    var course : Course
     var body: some View {
         HStack{
             Image("user")
@@ -19,7 +20,7 @@ struct CustomCardView: View {
                 .padding(.leading,-12)
             
             VStack(alignment: .leading,spacing: 15.0) {
-                Text("UX/UI course")
+                Text(course.title)
                     .font(.system(size: 18, weight: .bold, design: .default))
                     .foregroundColor(.black)
                 HStack{
@@ -69,7 +70,8 @@ struct CustomCardView: View {
 }
 
 struct CustomCardView_Previews: PreviewProvider {
+    static var course: Course = Course(id: "", title: "", fields: Fields.allCases, level: "", description: "", isPaid: false, image: "", price: 0, isArchived: false, createdAt: "", updatedAt: "")
     static var previews: some View {
-        CustomCardView()
+        CustomCardView(course: course)
     }
 }
