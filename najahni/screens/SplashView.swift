@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import SwiftUI
+
 /*struct SplashView: View {
     @State var isActive:Bool = false
     let welcome = LoginView()
@@ -130,4 +132,3 @@ struct toLogin: View {
         }
     }
 }
-

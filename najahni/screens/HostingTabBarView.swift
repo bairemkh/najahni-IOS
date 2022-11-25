@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct HostingTabBarView: View {
     private enum Tab: Hashable {
         case home
@@ -39,6 +41,7 @@ struct HostingTabBarView: View {
                                 Image(systemName: "cart.fill")
                             }
 
+
                 WishListView()
                     .tag(3)
                     .tabItem {
@@ -47,13 +50,14 @@ struct HostingTabBarView: View {
                             }
                 if (role == "Student"){
 
+
                     ProfileView()
                         .tag(4)
                         .tabItem {
                                 Text("Profile")
                                 Image(systemName: "person.fill")
-                                }
-                } else{
+
+                } else  {
                     ProfileTrainerView()
                         .tag(4)
                         .tabItem {
