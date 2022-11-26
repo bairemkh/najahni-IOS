@@ -15,22 +15,24 @@ struct CustomCardView: View {
             WebImage(url: URL(string: course.image))
                 .resizable()
                 .scaledToFit()
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fill)
                 .cornerRadius(8.0)
                 .frame(width: 140,height: 140)
                 .padding(.leading,-12)
+                .clipped()
+                .clipShape(Rectangle())
             
             VStack(alignment: .leading,spacing: 15.0) {
                 Text(course.title)
                     .font(.system(size: 16, weight: .bold, design: .default))
                     .foregroundColor(.black)
                 HStack{
-                    Image("user")
+                    WebImage(url: URL(string: URL_BASE_APP + course.idowner!.image))
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(12.0)
-                        .frame(width: 25)
-                    Text("username")
+                        .frame(width: 22)
+                    Text(course.idowner!.firstname)
                         .font(.system(size: 12, weight: .bold, design: .default))
                         .foregroundColor(.gray)
                 }
@@ -51,7 +53,7 @@ struct CustomCardView: View {
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, -6.0)
+            .padding(.horizontal, -5.0)
            // Spacer()
             
             Image(systemName:"chevron.right")
@@ -71,7 +73,8 @@ struct CustomCardView: View {
 }
 
 struct CustomCardView_Previews: PreviewProvider {
-    static var course: Course = Course(id: "", title: "", fields: Fields.allCases, level: "", description: "", isPaid: false, image: "", price: 0, isArchived: false, createdAt: "", updatedAt: "")
+    
+    static var course: Course = Course(id: "", title: "", fields: Fields.allCases, level: "", description: "", isPaid: false, image: "", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
     static var previews: some View {
         CustomCardView(course: course)
     }
