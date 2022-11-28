@@ -15,10 +15,27 @@ struct AddCourseView: View {
     })
     @State var selectedList:[ListData] = []
     @State var description = ""
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        NavigationView {
             ScrollView {
                 VStack (spacing: 30){
+                    HStack{
+                        Text("Cancel")
+                            .fontWeight(.black)
+                            .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
+                            .multilineTextAlignment(.leading)
+                            .onTapGesture {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
+                        Spacer()
+                        Text("+")
+                            .fontWeight(.black)
+                            .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
+                            .multilineTextAlignment(.leading)
+                            .font(.system(size: 35))
+                            .onTapGesture {
+                            }
+                    }
                     HStack {
                         Text("Create a new Course")
                             .fontWeight(.black)
@@ -98,7 +115,7 @@ struct AddCourseView: View {
             }
             
             
-        }
+        
         
         
     }
