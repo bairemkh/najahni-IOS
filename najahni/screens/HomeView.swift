@@ -62,7 +62,21 @@ struct HomeView: View {
                     
                 }
                 CustomSelectionView(list: $selectionArray,itemSelected: selectedFilter){ sel in
-                    print(selectionArray[sel].name)
+                    if sel == 0 {
+                        viewModel.getallcourses { success, result in
+                            if success {
+                                self.courses = []
+                                self.courses.append(contentsOf: result!)
+                            }
+                        }
+                    }else
+                    {
+                        var filtredCourses = courses.filter { course in
+                            return course.fields.contains(Fields(rawValue: selectionArray[sel].name) ?? Fields.Arts)
+                        }
+                        print(filtredCourses)
+                        self.courses = filtredCourses
+                    }
                 }
                 Text("Recommanded")
                     .font(.title2)
@@ -87,26 +101,6 @@ struct HomeView: View {
                             CustomCardView(course: course)
                         }
                     }}
-                /*List(courses) { item in
-                    Text(item.title)
-                           //CustomCardView(course: item)
-                       }*/
-               /* List{
-                    ForEach(courses,id: \.title) { course in
-                        Text(course.title)
-                    }
-                }*/
-                /*List {
-                    Text("Hello")
-                    Text("gtyty")
-                    Text("Helefeflo")
-                    Text("ikik")
-                }*/
-                /*ScrollView(showsIndicators: false) {
-                    ForEach(0..<20) {_ in
-                        CustomCardView()
-                    }
-                }*/
                 Spacer()
                 
             }
