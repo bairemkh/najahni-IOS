@@ -31,6 +31,8 @@
 		419509A82934C4E300E417FF /* googlesigninViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419509A72934C4E300E417FF /* googlesigninViewModel.swift */; };
 		4196FA6E292D33500095AD16 /* CustomCard2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196FA6D292D33500095AD16 /* CustomCard2View.swift */; };
 		419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B350A292BB49200A8EEA1 /* CustomCardView.swift */; };
+		419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */; };
+		419DF04E29353701004BB54E /* ProfileTrainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */; };
 		419E7C3B2928E023007E7D87 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E7C3A2928E023007E7D87 /* ImagePicker.swift */; };
 		419FAD1B293106FD00FA6A49 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419FAD1A293106FD00FA6A49 /* WishListView.swift */; };
 		8741BAB1291E9116002FBDE8 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB0291E9116002FBDE8 /* SignupView.swift */; };
@@ -111,6 +113,8 @@
 		419509A72934C4E300E417FF /* googlesigninViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = googlesigninViewModel.swift; sourceTree = "<group>"; };
 		4196FA6D292D33500095AD16 /* CustomCard2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCard2View.swift; sourceTree = "<group>"; };
 		419B350A292BB49200A8EEA1 /* CustomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardView.swift; sourceTree = "<group>"; };
+		419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardTrainerView.swift; sourceTree = "<group>"; };
+		419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerViewModel.swift; sourceTree = "<group>"; };
 		419E7C3A2928E023007E7D87 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		419FAD1A293106FD00FA6A49 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		8741BAB0291E9116002FBDE8 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
@@ -283,6 +287,7 @@
 				414248CD292D4D8F00D35692 /* HomeViewModel.swift */,
 				8774D6FB292D1DEA00FCC1BE /* DetailPageViewModel.swift */,
 				419509A72934C4E300E417FF /* googlesigninViewModel.swift */,
+				419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				4196FA6D292D33500095AD16 /* CustomCard2View.swift */,
 				8774D6FD292D20CB00FCC1BE /* CustomSelectionView.swift */,
 				87A371D72930F6E500685486 /* customTextField.swift */,
+				419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -508,11 +514,13 @@
 				8743D060291FE5F800C1781C /* LoginViewModel.swift in Sources */,
 				419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */,
 				87AA86002922354F009536CA /* ChangePasswordView.swift in Sources */,
+				419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */,
 				8741BABC291EA33B002FBDE8 /* Sexe.swift in Sources */,
 				8741BABA291E9CC0002FBDE8 /* Fields.swift in Sources */,
 				419FAD1B293106FD00FA6A49 /* WishListView.swift in Sources */,
 				28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */,
 				28CABB1A29191BC400AED109 /* ContentView.swift in Sources */,
+				419DF04E29353701004BB54E /* ProfileTrainerViewModel.swift in Sources */,
 				8743D05B291FE3FB00C1781C /* ResetPasswordViewModel.swift in Sources */,
 				8743D053291F9EA300C1781C /* CustomButtonView.swift in Sources */,
 				414248CC292D4CF800D35692 /* Course.swift in Sources */,

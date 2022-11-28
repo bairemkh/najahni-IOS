@@ -18,7 +18,7 @@ struct ProfileTrainerView: View {
         //NavigationView(){
             VStack(alignment: .leading){
                 HStack(alignment: .center){
-                    WebImage(url: URL(string:image))
+                    WebImage(url: URL(string:image ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvaBdtJ4GaN7m79jU-Y47NqT3Grvxd7qIZ9VKUZKyU1ynYKxoNdlQCixTRDnliBE62os&usqp=CAU"))
                         .resizable()
                         .clipShape(Circle())
                             .shadow(radius: 10)
@@ -26,7 +26,7 @@ struct ProfileTrainerView: View {
                         .frame(width: 120.0, height: 120.0)
                         .aspectRatio(contentMode: .fill)
                     VStack{
-                        Text(firstname  + " " + lastname)
+                        Text(firstname ?? "test" + " " + lastname ?? "test")
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.leading)
                             .foregroundColor(.black)

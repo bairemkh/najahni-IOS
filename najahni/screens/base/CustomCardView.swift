@@ -67,7 +67,7 @@ struct CustomCardView: View {
         .frame(maxWidth: .infinity, alignment: .center)
         .background(Color.white)
         .cornerRadius(8.0)
-        .shadow(color: .gray, radius: 2)
+        .shadow(color: Color(hue: 1.0, saturation: 0.0, brightness: 0.906), radius: 10)
         .padding([.top, .leading, .trailing])
     }
 }

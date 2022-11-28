@@ -83,11 +83,12 @@ class GoogleAuth : ObservableObject {
                         case .success(let data):
                             let json = JSON(data)
                             let token = json["token"].stringValue
-                            //let role = json["role"].stringValue
+                            let role = json["role"].stringValue
                             UserDefaults.standard.setValue(token, forKey: "token")
                             UserService.profile { _, user in
                                 SessionManager.currentUser = user
                             }
+                            UserDefaults.standard.setValue(role, forKey: "role")
                             completed(true,200)
                         case .failure(let error):
                             print("request failed")
