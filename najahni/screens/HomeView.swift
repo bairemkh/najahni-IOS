@@ -9,11 +9,11 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct HomeView: View {
-    @State var Categories: [ListData] = Fields.allCases.map { f in
-        return ListData(name: f.rawValue)
-    }
+    
     //@Binding var selectedIndex: Int
     @State private var currentIndex: Int = 0
+    @State var selectedFilter = 0
+    @State var selectionArray : [ListData] = []
     @Namespace private var ns
     @State var text = ""
     @State var courses : [Course] = []
@@ -24,7 +24,7 @@ struct HomeView: View {
                 HStack{
                     VStack{
                         Text("Welcome")
-                        Text("Med oues")
+                        Text("\(SessionManager.currentUser?.firstname ?? "User")")
                     }
                     Spacer()
                     Image(systemName: "bell")
@@ -61,28 +61,13 @@ struct HomeView: View {
                     
                     
                 }
-                
-                
-                ScrollView(.horizontal,showsIndicators: false) {
-                    
-                    ScrollViewReader { scrollView in
-                        
-                        HStack {
-                            
-                            ForEach(Categories, id: \.self) { item in
-                                Text(item.name)
-                                    .padding(8.0)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 24)
-                                            .stroke(lineWidth: 2))
-                            }
-                        }
-                        .padding(.leading, 10)
-                        // .padding(.trailing, 20)
-                    }
+                CustomSelectionView(list: $selectionArray,itemSelected: selectedFilter){ sel in
+                    print(selectionArray[sel].name)
                 }
-                
-                Text("Recommanded").font(.title2)
+                Text("Recommanded")
+                    .font(.title2)
+                    .foregroundColor(Color("primaryColor"))
+                    .fontWeight(.black)
                 
                     ScrollView(.horizontal,showsIndicators: false) {
                         ForEach(courses) {item in
@@ -93,7 +78,9 @@ struct HomeView: View {
                     
                 
                 //print("s",courses.count)
-                Text("Courses").font(.title2).padding(.all)
+                Text("Courses").font(.title2)
+                    .foregroundColor(Color("primaryColor"))
+                    .fontWeight(.black).padding(.all)
                 VStack{
                     ScrollView(.vertical,showsIndicators: false) {
                         ForEach(courses) { course in
@@ -128,6 +115,10 @@ struct HomeView: View {
         .onAppear{
             viewModel.getallcourses { success, result in
                 if success {
+                    self.selectionArray = Fields.allCases.map({ f in
+                        return ListData(name: f.rawValue)
+                    })
+                    self.selectionArray.insert(ListData(name: "All"), at: 0)
                     self.courses = []
                     self.courses.append(contentsOf: result!)
                     print(courses)
