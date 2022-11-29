@@ -11,7 +11,7 @@ struct CustomButtonView: View {
     var icon = "house.fill"
     var buttonText = "Delete account"
     var body: some View {
-        HStack{
+        /*HStack{
             RoundedRectangle(cornerRadius: 5)
                 .frame(width: 50,height: 50)
                 .foregroundColor(Color("forgroundColor"))
@@ -30,10 +30,23 @@ struct CustomButtonView: View {
                 .frame(maxWidth: .infinity)
                 .background(Color.white)
                 .cornerRadius(8.0)
-                .shadow(color: .gray, radius: 3)
+                .shadow(color: .gray, radius: 3)*/
         
 
-      
+        HStack {
+            Image(systemName: icon)
+                .foregroundColor(Color("primaryColor"))
+            Text(buttonText)
+                .padding(.leading)
+            Spacer()
+            Image(systemName: "chevron.right")
+                .foregroundColor(Color(.systemGray3))
+        }
+    
+        .padding(.all, 12.0)
+        //.padding()
+     
+        Divider()
         
         
     }

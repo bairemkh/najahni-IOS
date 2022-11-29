@@ -98,7 +98,12 @@ struct HomeView: View {
                 VStack{
                     ScrollView(.vertical,showsIndicators: false) {
                         ForEach(courses) { course in
-                            CustomCardView(course: course)
+                            NavigationLink{
+                                CourseDetailView(course: course)
+                            } label: {
+                                CustomCardView(course: course)
+                            }
+                            
                         }
                     }}
                 Spacer()

@@ -10,6 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 class HomeViewModel : ObservableObject {
+    var userViewModel = LoginViewModel()
     func getallcourses (completed: @escaping (Bool,[Course]?)-> Void) {
 
         AF.request(ALL_COURSE,
@@ -45,7 +46,7 @@ class HomeViewModel : ObservableObject {
                       isPaid: jsonItem["isPaid"].boolValue,
                       image: jsonItem["image"].stringValue,
                       price: jsonItem["price"].intValue,
-                      //idowner: jsonItem["idowner"].arrayObject,
+                      idowner: userViewModel.makeItem(jsonItem: jsonItem["idowner"]),
                       isArchived: jsonItem["isArchived"].boolValue,
                       createdAt: jsonItem["createdAt"].stringValue,
                       updatedAt: jsonItem["updatedAt"].stringValue)

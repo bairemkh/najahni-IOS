@@ -19,7 +19,7 @@ struct Course  : Identifiable{
     
     
     
-    init(id: String, title: String, fields: [Fields], level: String, description: String, isPaid: Bool, image: String, price: Int, /*idowner: User,*/ isArchived: Bool, createdAt: String, updatedAt: String) {
+    init(id: String, title: String, fields: [Fields], level: String, description: String, isPaid: Bool, image: String, price: Int, idowner: User, isArchived: Bool, createdAt: String, updatedAt: String) {
         self.id = id
         self.title = title
         self.fields = fields
@@ -28,7 +28,7 @@ struct Course  : Identifiable{
         self.isPaid = isPaid
         self.image = image
         self.price = price
-        self.idowner = nil
+        self.idowner = idowner
         self.isArchived = isArchived
         self.createdAt = createdAt
         self.updatedAt = updatedAt
