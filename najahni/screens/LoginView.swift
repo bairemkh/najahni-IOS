@@ -34,13 +34,14 @@ struct LoginView: View {
                     .shadow(color: .gray, radius: 3)
                 Spacer()
                     .frame(height: 15.0)
-                SecureField("password", text: $viewModel.password)
+                customTextField(text: $viewModel.password)
+                /*SecureField("password", text: $viewModel.password)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
                     .cornerRadius(20)
-                    .shadow(color: .gray, radius: 3)
+                    .shadow(color: .gray, radius: 3)*/
                 
                 NavigationLink(destination:ForgetPassword(),label: {
                     Text("forget password ?")

@@ -64,6 +64,7 @@
 		87AA86002922354F009536CA /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AA85FF2922354F009536CA /* ChangePasswordView.swift */; };
 		87B21C6E29325A1E000FD964 /* AddCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B21C6D29325A1E000FD964 /* AddCourseView.swift */; };
 		87B21C7029326353000FD964 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B21C6F29326353000FD964 /* Level.swift */; };
+		87B9266A293607C200F7A082 /* TrainerVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B92669293607C200F7A082 /* TrainerVerificationView.swift */; };
 		87C5CB192923C5050049814E /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 87C5CB182923C5050049814E /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +144,7 @@
 		87AA85FF2922354F009536CA /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		87B21C6D29325A1E000FD964 /* AddCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseView.swift; sourceTree = "<group>"; };
 		87B21C6F29326353000FD964 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		87B92669293607C200F7A082 /* TrainerVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerVerificationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 				879E5C82292BE53400573969 /* CourseDetailView.swift */,
 				87B21C6D29325A1E000FD964 /* AddCourseView.swift */,
 				87425FAE2934CF0A000961E2 /* NewSectionView.swift */,
+				87B92669293607C200F7A082 /* TrainerVerificationView.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				8743D059291FE16300C1781C /* ResetPasswordView.swift in Sources */,
 				28CABB1829191BC400AED109 /* najahniApp.swift in Sources */,
 				8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */,
+				87B9266A293607C200F7A082 /* TrainerVerificationView.swift in Sources */,
 				879E5C81292BE19600573969 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
