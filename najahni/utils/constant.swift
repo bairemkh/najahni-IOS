@@ -8,7 +8,7 @@
 import Foundation
 
 
-let URL_BASE_APP = "http://172.17.1.156:9090"
+let URL_BASE_APP = "http://172.17.0.248:9090"
 //let URL_BASE_APP = "http://localhost:9090"
 
 let LOGIN_URL = URL_BASE_APP + "/user/signin"
@@ -20,6 +20,8 @@ let UPLOAD_IMAGE = URL_BASE_APP + "/user/change-photo"
 let GOOGLE_SIGNIN = URL_BASE_APP + "/user/google-signin"
 
 let ALL_COURSE = URL_BASE_APP + "/course/getall"
+let ALL_MY_COURSE = URL_BASE_APP + "/course/mycourses"
+
 
 
 

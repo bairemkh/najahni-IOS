@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 
 class ProfileTrainerViewModel : ObservableObject {
-    func getOwnerCourse (completed: @escaping (Bool,User?)-> Void) {
+    var homeviewModel = HomeViewModel()
+    func getMyCourses (completed: @escaping (Bool,[Course]?)-> Void) {
         let token = UserDefaults.standard.string(forKey: "token")
         let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
-        AF.request(PROFILE_URL,
+        AF.request(ALL_MY_COURSE,
                    method: .get,
                 headers: headers)
         .responseJSON{
@@ -19,9 +22,13 @@ class ProfileTrainerViewModel : ObservableObject {
             switch res.result {
             case .success(let data):
                 let json = JSON(data)
-                let user = self.makeItem(jsonItem: json["data"])
-                print(user)
-                completed(true,user)
+                //print(json)
+                var courses :[Course]? = []
+                for singleJsonItem in json["courses"]{
+                    courses!.append(self.homeviewModel.makeItem(jsonItem: singleJsonItem.1))
+                }
+                //print(courses)
+                completed(true,courses)
             case .failure(let error):
                 print(error)
                 completed(false,nil)

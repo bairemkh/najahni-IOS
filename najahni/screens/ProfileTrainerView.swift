@@ -10,9 +10,11 @@ import SDWebImageSwiftUI
 
 struct ProfileTrainerView: View {
     @StateObject var viewModel = LoginViewModel()
+    @StateObject var viewModelCourseTrainer = ProfileTrainerViewModel()
     @State var firstname : String = ""
     @State var lastname : String = ""
     @State var image : String = ""
+    @State var courses : [Course] = []
     @State private var onLogOut = false
     var body: some View {
         //NavigationView(){
@@ -69,11 +71,17 @@ struct ProfileTrainerView: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color.black)
                     .padding(.leading)
-                ScrollView(showsIndicators: false) {
-                    ForEach(0..<20) {_ in
-                            //CustomCardView()
+                VStack{
+                    ScrollView(.vertical,showsIndicators: false) {
+                        ForEach(courses) { course in
+                            NavigationLink{
+                                CourseDetailView(course: course)
+                            } label: {
+                                CustomCardTrainerView(course: course)
+                            }
+                            
                         }
-                    }
+                    }}
                 Spacer()
                 
                 
@@ -96,6 +104,17 @@ struct ProfileTrainerView: View {
                        
                    }
                })
+            
+            viewModelCourseTrainer.getMyCourses{ success, result in
+                if success {
+                    self.courses = []
+                    self.courses.append(contentsOf: result!)
+                    print(courses)
+                }
+                
+            }
+            
+            
            }
         
     }

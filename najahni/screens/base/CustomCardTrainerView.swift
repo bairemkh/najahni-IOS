@@ -9,9 +9,10 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct CustomCardTrainerView: View {
+    var course : Course
     var body: some View {
         HStack{
-            WebImage(url: URL(string: "https://static.skillshare.com/uploads/video/thumbnails/834794770ff679500bdc8863cabbb983/original"))
+            WebImage(url: URL(string: course.image))
                 .resizable()
                 .frame(width: 120,height: 140)
                 .aspectRatio(contentMode: .fit)
@@ -23,7 +24,7 @@ struct CustomCardTrainerView: View {
                 .clipShape(Rectangle())
           
             VStack(alignment: .leading,spacing: 15.0) {
-                Text("course.title")
+                Text(course.title)
                     .font(.system(size: 16, weight: .bold, design: .default))
                     .foregroundColor(.black)
                     .padding(.leading)
@@ -39,14 +40,16 @@ struct CustomCardTrainerView: View {
                 }
                 HStack {
                     Text("1h42")
+                    
                         .font(.system(size: 15, weight: .bold, design: .default))
                         .fontWeight(.bold)
-                        .foregroundColor(.black)
                         .overlay (
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(.green,lineWidth: 1)
                         )
-                        .padding(.leading)
+                        .foregroundColor(.black)
+                        
+                        .padding(EdgeInsets(top: 8, leading: 18, bottom: 8, trailing: 8))
                         
                 }
             }
@@ -54,10 +57,10 @@ struct CustomCardTrainerView: View {
             .padding(.horizontal, -5.0)
            // Spacer()
             
-            Image(systemName:"chevron.right")
+            Image(systemName:"trash.fill")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 10)
+                .frame(width: 20)
             
             Spacer()
                 
@@ -71,7 +74,8 @@ struct CustomCardTrainerView: View {
 }
 
 struct CustomCardTrainerView_Previews: PreviewProvider {
+    static var course: Course = Course(id: "", title: "", fields: Fields.allCases, level: "", description: "", isPaid: false, image: "", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
     static var previews: some View {
-        CustomCardTrainerView()
+        CustomCardTrainerView(course: course)
     }
 }
