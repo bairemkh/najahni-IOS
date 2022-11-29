@@ -9,11 +9,11 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct HomeView: View {
-    @State var Categories: [ListData] = Fields.allCases.map { f in
-        return ListData(name: f.rawValue)
-    }
+    
     //@Binding var selectedIndex: Int
     @State private var currentIndex: Int = 0
+    @State var selectedFilter = 0
+    @State var selectionArray : [ListData] = []
     @Namespace private var ns
     @State var text = ""
     @State var courses : [Course] = []
@@ -24,7 +24,7 @@ struct HomeView: View {
                 HStack{
                     VStack{
                         Text("Welcome")
-                        Text("Med oues")
+                        Text("\(SessionManager.currentUser?.firstname ?? "User")")
                     }
                     Spacer()
                     Image(systemName: "bell")
@@ -61,28 +61,27 @@ struct HomeView: View {
                     
                     
                 }
-                
-                
-                ScrollView(.horizontal,showsIndicators: false) {
-                    
-                    ScrollViewReader { scrollView in
-                        
-                        HStack {
-                            
-                            ForEach(Categories, id: \.self) { item in
-                                Text(item.name)
-                                    .padding(8.0)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 24)
-                                            .stroke(lineWidth: 2))
+                CustomSelectionView(list: $selectionArray,itemSelected: selectedFilter){ sel in
+                    if sel == 0 {
+                        viewModel.getallcourses { success, result in
+                            if success {
+                                self.courses = []
+                                self.courses.append(contentsOf: result!)
                             }
                         }
-                        .padding(.leading, 10)
-                        // .padding(.trailing, 20)
+                    }else
+                    {
+                        var filtredCourses = courses.filter { course in
+                            return course.fields.contains(Fields(rawValue: selectionArray[sel].name) ?? Fields.Arts)
+                        }
+                        print(filtredCourses)
+                        self.courses = filtredCourses
                     }
                 }
-                
-                Text("Recommanded").font(.title2)
+                Text("Recommanded")
+                    .font(.title2)
+                    .foregroundColor(Color("primaryColor"))
+                    .fontWeight(.black)
                 
                     ScrollView(.horizontal,showsIndicators: false) {
                         ForEach(courses) {item in
@@ -93,7 +92,9 @@ struct HomeView: View {
                     
                 
                 //print("s",courses.count)
-                Text("Courses").font(.title2).padding(.all)
+                Text("Courses").font(.title2)
+                    .foregroundColor(Color("primaryColor"))
+                    .fontWeight(.black).padding(.all)
                 VStack{
                     ScrollView(.vertical,showsIndicators: false) {
                         ForEach(courses) { course in
@@ -105,26 +106,6 @@ struct HomeView: View {
                             
                         }
                     }}
-                /*List(courses) { item in
-                    Text(item.title)
-                           //CustomCardView(course: item)
-                       }*/
-               /* List{
-                    ForEach(courses,id: \.title) { course in
-                        Text(course.title)
-                    }
-                }*/
-                /*List {
-                    Text("Hello")
-                    Text("gtyty")
-                    Text("Helefeflo")
-                    Text("ikik")
-                }*/
-                /*ScrollView(showsIndicators: false) {
-                    ForEach(0..<20) {_ in
-                        CustomCardView()
-                    }
-                }*/
                 Spacer()
                 
             }
@@ -133,6 +114,10 @@ struct HomeView: View {
         .onAppear{
             viewModel.getallcourses { success, result in
                 if success {
+                    self.selectionArray = Fields.allCases.map({ f in
+                        return ListData(name: f.rawValue)
+                    })
+                    self.selectionArray.insert(ListData(name: "All"), at: 0)
                     self.courses = []
                     self.courses.append(contentsOf: result!)
                     print(courses)

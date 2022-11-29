@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct CustomSelectionView: View {
-    @State var list = Fields.allCases.map { f in
-        return ListData(name: f.rawValue)
-    }
-    @State var itemSelected = -1
+    @Binding var list : [ListData]
+    @State var itemSelected : Int = 0
+    @State var onSelect : (Int) -> Void
     var body: some View {
         ScrollView(.horizontal,showsIndicators: false){
             ScrollViewReader { scroll in
@@ -24,8 +23,8 @@ struct CustomSelectionView: View {
                             }
                             return false
                         }.onTapGesture {
-                            print("\(itemSelected)")
                             itemSelected = list.firstIndex(of: item) ?? -1
+                            onSelect(itemSelected)
                         }
                     }
                 }
@@ -36,9 +35,14 @@ struct CustomSelectionView: View {
 }
 
 struct CustomSelectionView_Previews: PreviewProvider {
-    
+    @State static var selectedFilter = 0
+    @State static var selectionArray : [ListData] = Fields.allCases.map { f in
+        return ListData(name: f.rawValue)
+    }
     static var previews: some View {
-        CustomSelectionView()
+        CustomSelectionView(list: $selectionArray,itemSelected: selectedFilter, onSelect: {_ in
+            print("ok")
+        })
     }
 }
 
@@ -49,20 +53,24 @@ struct CustomSelectionElement: View {
         if #available(iOS 15.0, *) {
             if onSelection() {
                 Text(element.name)
-                    .font(.system(size: 30))
-                    .padding(20.0)
+                    .font(.system(size: 20))
+                    .padding(10.0)
+                    .foregroundColor(.white)
+                    .background(Color("secondaryColor"))
                     .overlay (
-                        RoundedRectangle(cornerRadius: 40)
-                            .stroke(.blue,lineWidth: 5)
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(Color("secondaryColor"),lineWidth: 2)
                     )
+                    .cornerRadius(40)
             }else
             {
                 Text(element.name)
-                    .padding(20.0)
-                    .font(.system(size: 30))
+                    .foregroundColor(Color("secondaryColor"))
+                    .padding(10.0)
+                    .font(.system(size: 20))
                     .overlay (
-                        RoundedRectangle(cornerRadius: 40)
-                            .stroke(.green,lineWidth: 5)
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(Color("secondaryColor"),lineWidth: 2)
                     )
             }
             
