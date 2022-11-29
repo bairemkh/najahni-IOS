@@ -10,15 +10,17 @@ import SDWebImageSwiftUI
 
 struct ProfileTrainerView: View {
     @StateObject var viewModel = LoginViewModel()
+    @StateObject var viewModelCourseTrainer = ProfileTrainerViewModel()
     @State var firstname : String = ""
     @State var lastname : String = ""
     @State var image : String = ""
+    @State var courses : [Course] = []
     @State private var onLogOut = false
     var body: some View {
         //NavigationView(){
             VStack(alignment: .leading){
                 HStack(alignment: .center){
-                    WebImage(url: URL(string:image))
+                    WebImage(url: URL(string:image ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvaBdtJ4GaN7m79jU-Y47NqT3Grvxd7qIZ9VKUZKyU1ynYKxoNdlQCixTRDnliBE62os&usqp=CAU"))
                         .resizable()
                         .clipShape(Circle())
                             .shadow(radius: 10)
@@ -26,7 +28,7 @@ struct ProfileTrainerView: View {
                         .frame(width: 120.0, height: 120.0)
                         .aspectRatio(contentMode: .fill)
                     VStack{
-                        Text(firstname  + " " + lastname)
+                        Text(firstname ?? "test" + " " + lastname ?? "test")
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.leading)
                             .foregroundColor(.black)
@@ -69,11 +71,17 @@ struct ProfileTrainerView: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color.black)
                     .padding(.leading)
-                ScrollView(showsIndicators: false) {
-                    ForEach(0..<20) {_ in
-                            //CustomCardView()
+                VStack{
+                    ScrollView(.vertical,showsIndicators: false) {
+                        ForEach(courses) { course in
+                            NavigationLink{
+                                CourseDetailView(course: course)
+                            } label: {
+                                CustomCardTrainerView(course: course)
+                            }
+                            
                         }
-                    }
+                    }}
                 Spacer()
                 
                 
@@ -96,6 +104,17 @@ struct ProfileTrainerView: View {
                        
                    }
                })
+            
+            viewModelCourseTrainer.getMyCourses{ success, result in
+                if success {
+                    self.courses = []
+                    self.courses.append(contentsOf: result!)
+                    print(courses)
+                }
+                
+            }
+            
+            
            }
         
     }

@@ -20,7 +20,7 @@ struct HostingTabBarView: View {
     @State private var selectedTab: Tab = .home
     let role = UserDefaults.standard.string(forKey:"role")
     var body: some View {
-        NavigationView(){
+        VStack(){
             TabView(selection: $selectedTab) {
                 HomeView()
                     .tag(0)
@@ -71,11 +71,14 @@ struct HostingTabBarView: View {
                 }.accentColor(Color(red: 0.356, green: 0.315, blue: 0.848))
             }
             .navigationBarHidden(true)
+            
             .onAppear{
                 print(UserDefaults.standard.string(forKey: "role"))
                 print(SessionManager.currentUser?.role)
                 print(UserDefaults.standard.string(forKey: "token"))
             }
+            .onDisappear()
+            //.onDisappear()
             
         }
     }

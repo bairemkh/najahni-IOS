@@ -16,4 +16,12 @@ let EDIT_PROFILE = URL_BASE_APP + "/user/editprofile"
 let DELETE_PROFILE = URL_BASE_APP + "/user/delete-account"
 let EDIT_PASSWORD = URL_BASE_APP + "/user/change-password"
 let UPLOAD_IMAGE = URL_BASE_APP + "/user/change-photo"
+let GOOGLE_SIGNIN = URL_BASE_APP + "/user/google-signin"
+
 let ALL_COURSE = URL_BASE_APP + "/course/getall"
+let ALL_MY_COURSE = URL_BASE_APP + "/course/mycourses"
+
+
+
+
+var UserFix = User(firstname: "", lastname: "", email: "", password: "", role: Role.Student, fields: Fields.allCases, image: "", isVerified: false, otp: "")

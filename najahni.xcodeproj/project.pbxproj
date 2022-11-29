@@ -26,8 +26,13 @@
 		414248CE292D4D8F00D35692 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414248CD292D4D8F00D35692 /* HomeViewModel.swift */; };
 		4194EE442929147E001D20D0 /* ProfileTrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194EE432929147E001D20D0 /* ProfileTrainerView.swift */; };
 		4194EE4629291A4A001D20D0 /* CustomBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194EE4529291A4A001D20D0 /* CustomBoxView.swift */; };
+		419509A32934BFD400E417FF /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 419509A22934BFD400E417FF /* GoogleSignIn */; };
+		419509A52934BFD400E417FF /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 419509A42934BFD400E417FF /* GoogleSignInSwift */; };
+		419509A82934C4E300E417FF /* googlesigninViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419509A72934C4E300E417FF /* googlesigninViewModel.swift */; };
 		4196FA6E292D33500095AD16 /* CustomCard2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196FA6D292D33500095AD16 /* CustomCard2View.swift */; };
 		419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B350A292BB49200A8EEA1 /* CustomCardView.swift */; };
+		419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */; };
+		419DF04E29353701004BB54E /* ProfileTrainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */; };
 		419E7C3B2928E023007E7D87 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E7C3A2928E023007E7D87 /* ImagePicker.swift */; };
 		419FAD1B293106FD00FA6A49 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419FAD1A293106FD00FA6A49 /* WishListView.swift */; };
 		8741BAB1291E9116002FBDE8 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB0291E9116002FBDE8 /* SignupView.swift */; };
@@ -108,8 +113,12 @@
 		414248CD292D4D8F00D35692 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		4194EE432929147E001D20D0 /* ProfileTrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerView.swift; sourceTree = "<group>"; };
 		4194EE4529291A4A001D20D0 /* CustomBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBoxView.swift; sourceTree = "<group>"; };
+		419509A62934C2EC00E417FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		419509A72934C4E300E417FF /* googlesigninViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = googlesigninViewModel.swift; sourceTree = "<group>"; };
 		4196FA6D292D33500095AD16 /* CustomCard2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCard2View.swift; sourceTree = "<group>"; };
 		419B350A292BB49200A8EEA1 /* CustomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardView.swift; sourceTree = "<group>"; };
+		419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardTrainerView.swift; sourceTree = "<group>"; };
+		419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerViewModel.swift; sourceTree = "<group>"; };
 		419E7C3A2928E023007E7D87 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		419FAD1A293106FD00FA6A49 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		8741BAB0291E9116002FBDE8 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
@@ -152,7 +161,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				419509A52934BFD400E417FF /* GoogleSignInSwift in Frameworks */,
 				87C5CB192923C5050049814E /* SDWebImageSwiftUI in Frameworks */,
+				419509A32934BFD400E417FF /* GoogleSignIn in Frameworks */,
 				87A4E8642922B85500E2A505 /* SwiftyJSON in Frameworks */,
 				8743D05E291FE49300C1781C /* Alamofire in Frameworks */,
 			);
@@ -226,6 +237,7 @@
 		28CABB1629191BC400AED109 /* najahni */ = {
 			isa = PBXGroup;
 			children = (
+				419509A62934C2EC00E417FF /* Info.plist */,
 				41353FAA2923D4F500DAA6C5 /* services */,
 				87A4E85F2922B2FB00E2A505 /* utils */,
 				8741BAB5291E9C03002FBDE8 /* models */,
@@ -285,6 +297,8 @@
 				87A5AEDA2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift */,
 				414248CD292D4D8F00D35692 /* HomeViewModel.swift */,
 				8774D6FB292D1DEA00FCC1BE /* DetailPageViewModel.swift */,
+				419509A72934C4E300E417FF /* googlesigninViewModel.swift */,
+				419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -322,6 +336,7 @@
 				4196FA6D292D33500095AD16 /* CustomCard2View.swift */,
 				8774D6FD292D20CB00FCC1BE /* CustomSelectionView.swift */,
 				87A371D72930F6E500685486 /* customTextField.swift */,
+				419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -356,6 +371,8 @@
 				8743D05D291FE49300C1781C /* Alamofire */,
 				87A4E8632922B85500E2A505 /* SwiftyJSON */,
 				87C5CB182923C5050049814E /* SDWebImageSwiftUI */,
+				419509A22934BFD400E417FF /* GoogleSignIn */,
+				419509A42934BFD400E417FF /* GoogleSignInSwift */,
 			);
 			productName = najahni;
 			productReference = 28CABB1429191BC400AED109 /* najahni.app */;
@@ -433,6 +450,7 @@
 				8743D05C291FE49300C1781C /* XCRemoteSwiftPackageReference "Alamofire" */,
 				87A4E8622922B85500E2A505 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				87C5CB172923C5050049814E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				419509A12934BFD400E417FF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 28CABB1529191BC400AED109 /* Products */;
 			projectDirPath = "";
@@ -483,6 +501,7 @@
 				87A4E85B29229F7200E2A505 /* MultiSelector.swift in Sources */,
 				419E7C3B2928E023007E7D87 /* ImagePicker.swift in Sources */,
 				8741BAC4291EC4FD002FBDE8 /* CartView.swift in Sources */,
+				419509A82934C4E300E417FF /* googlesigninViewModel.swift in Sources */,
 				28CABB2129191BC500AED109 /* Persistence.swift in Sources */,
 				87A371D82930F6E500685486 /* customTextField.swift in Sources */,
 				8741BAC2291EC4DF002FBDE8 /* CoursesView.swift in Sources */,
@@ -509,12 +528,14 @@
 				87B21C7029326353000FD964 /* Level.swift in Sources */,
 				419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */,
 				87AA86002922354F009536CA /* ChangePasswordView.swift in Sources */,
+				419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */,
 				8741BABC291EA33B002FBDE8 /* Sexe.swift in Sources */,
 				8741BABA291E9CC0002FBDE8 /* Fields.swift in Sources */,
 				419FAD1B293106FD00FA6A49 /* WishListView.swift in Sources */,
 				28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */,
 				87B21C6E29325A1E000FD964 /* AddCourseView.swift in Sources */,
 				28CABB1A29191BC400AED109 /* ContentView.swift in Sources */,
+				419DF04E29353701004BB54E /* ProfileTrainerViewModel.swift in Sources */,
 				8743D05B291FE3FB00C1781C /* ResetPasswordViewModel.swift in Sources */,
 				8743D053291F9EA300C1781C /* CustomButtonView.swift in Sources */,
 				414248CC292D4CF800D35692 /* Course.swift in Sources */,
@@ -689,6 +710,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"najahni/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = najahni/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -718,6 +740,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"najahni/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = najahni/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -871,6 +894,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		419509A12934BFD400E417FF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		8743D05C291FE49300C1781C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -898,6 +929,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		419509A22934BFD400E417FF /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 419509A12934BFD400E417FF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		419509A42934BFD400E417FF /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 419509A12934BFD400E417FF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
 		8743D05D291FE49300C1781C /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8743D05C291FE49300C1781C /* XCRemoteSwiftPackageReference "Alamofire" */;

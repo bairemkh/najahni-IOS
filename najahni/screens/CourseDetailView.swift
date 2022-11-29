@@ -6,29 +6,31 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CourseDetailView: View {
     @StateObject var viewModel = DetailPageViewModel()
+    var course : Course
     var body: some View {
         VStack {
             ScrollView{
-                Image("Logo-Najahni")
+                WebImage(url:URL(string: course.image))
                     .resizable()
                     .clipShape(Rectangle())
                     .frame(width: 200,height: 200)
                 HStack {
-                    Text("Title")
+                    Text(course.title)
                         .fontWeight(.black)
                         .multilineTextAlignment(.leading)
                     .font(.system(size: 30))
                     Spacer()
                 }
                 HStack{
-                    Image("user")
+                    WebImage(url:URL(string: course.idowner!.image))
                         .resizable()
                         .clipShape(Circle())
                         .frame(width: 50,height: 50)
-                    Text("flen ben foulen")
+                    Text(course.idowner!.firstname + " " + course.idowner!.lastname)
                     Spacer()
                 }
                 Spacer()
@@ -39,7 +41,7 @@ struct CourseDetailView: View {
                         .multilineTextAlignment(.leading)
                     .font(.system(size: 23))
                     Spacer()
-                    Text("Free")
+                    Text(" Free")
                         .multilineTextAlignment(.leading)
                     .font(.system(size: 20))
                     Spacer()
@@ -47,7 +49,7 @@ struct CourseDetailView: View {
                 }
                 Spacer()
                 HStack {
-                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+                    Text(course.description)
                         .fontWeight(.medium)
                         .multilineTextAlignment(.leading)
                     .font(.system(size: 15))
@@ -69,7 +71,7 @@ struct CourseDetailView: View {
                         .frame(height: 50)
                 }
                 Button(action: {}) {
-                    Text("Sign in")
+                    Text("Enroll now")
                           .foregroundColor(Color.white)
                           .multilineTextAlignment(.center)
                           .frame(width: 300.0,height: 60.0)
@@ -85,7 +87,8 @@ struct CourseDetailView: View {
 }
 
 struct CourseDetailView_Previews: PreviewProvider {
+    static var course: Course = Course(id: "", title: "", fields: Fields.allCases, level: "", description: "", isPaid: false, image: "", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
     static var previews: some View {
-        CourseDetailView()
+        CourseDetailView(course: course)
     }
 }
