@@ -71,7 +71,7 @@ struct ProfileView: View {
                         CustomButtonView(icon: "pencil.fill",buttonText: "Edit profile")
                     }
                     NavigationLink{
-                       EmptyView()
+                       SettingsView()
                     } label: {
                         CustomButtonView(icon: "person.fill",buttonText: "Setting")
                     }
