@@ -28,7 +28,7 @@ struct CustomCardView: View {
                     .foregroundColor(.black)
                 HStack{
                     WebImage(url: URL(string: URL_BASE_APP + course.idowner!.image))
-                        .resizable()
+                    .resizable()
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(12.0)
                         .frame(width: 22)
@@ -74,7 +74,7 @@ struct CustomCardView: View {
 
 struct CustomCardView_Previews: PreviewProvider {
     
-    static var course: Course = Course(id: "", title: "", fields: Fields.allCases, level: "", description: "", isPaid: false, image: "", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
+    static var course: Course = Course(id: "", title: "Learn kotlin", fields: Fields.allCases, level: "", description: "", isPaid: false, image: "https://repository-images.githubusercontent.com/3432266/7e79bf80-7aa6-11eb-9cbd-d7bda7eaf1aa", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
     static var previews: some View {
         CustomCardView(course: course)
     }

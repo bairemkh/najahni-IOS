@@ -38,6 +38,12 @@ struct VerifyTrainerView: View {
                 .cornerRadius(25)
                    
             .fileImporter(isPresented: $showFileUpload, allowedContentTypes: [.image,.pdf]) { result in
+                do {
+                    try FileName = result.get().lastPathComponent
+               }
+                catch  {
+                    print(error)
+                }
                 }
         }
         .padding(.all)

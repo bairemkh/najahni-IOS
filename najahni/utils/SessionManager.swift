@@ -25,4 +25,11 @@ final class SessionManager: ObservableObject {
         return SessionManager.token != nil
     }
     static var currentUser : User? = nil
+    static func initLists(){
+        let wishList:[String] = []
+        UserDefaults.standard.set(wishList, forKey: WISHLIST)
+    }
+    static func getWishlist() -> [String] {
+        return UserDefaults.standard.object(forKey: WISHLIST) as! [String]
+    }
 }

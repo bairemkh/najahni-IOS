@@ -120,7 +120,6 @@ struct HomeView: View {
                     self.selectionArray.insert(ListData(name: "All"), at: 0)
                     self.courses = []
                     self.courses.append(contentsOf: result!)
-                    print(courses)
                 }
                 
             }

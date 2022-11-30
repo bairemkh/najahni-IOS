@@ -12,4 +12,5 @@ class DetailPageViewModel : ObservableObject
     @Published var title = "Title"
     @Published var Description = ""
     @Published var free = "free"
+    @Published var isLiked = false
 }
