@@ -33,6 +33,7 @@ class LoginViewModel: ObservableObject {
                     let token = json["data"].stringValue
                     let role = json["role"].stringValue
                     UserDefaults.standard.setValue(token, forKey: "token")
+                    SessionManager.initLists()
                     UserService.profile { _, user in
                         SessionManager.currentUser = user
                     }

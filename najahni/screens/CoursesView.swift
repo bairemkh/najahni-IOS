@@ -8,8 +8,37 @@
 import SwiftUI
 
 struct CoursesView: View {
+    @State var courses : [Course] = []
+    @StateObject var courseviewModel = MyCoursesViewModel()
     var body: some View {
-        Text("my courses")
+        NavigationView {
+            VStack{
+                ScrollView(.vertical,showsIndicators: false) {
+                    ForEach(courses) { course in
+                        NavigationLink{
+                            CourseDetailView(course: course)
+                        } label: {
+                            CustomCardView(course: course)
+                        }
+                        
+                    }
+                }
+                
+            }
+                .navigationTitle(
+                    Text("My courses")
+                )
+                .navigationBarTitleDisplayMode(.inline)
+        }.onAppear{ courseviewModel.getMyCoursesList {
+            success, result in
+                if success {
+                    self.courses = []
+                    self.courses.append(contentsOf: result!)
+                    print(courses)
+                }
+        }
+            }
+
     }
 }
 
