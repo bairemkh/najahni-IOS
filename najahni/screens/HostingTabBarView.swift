@@ -19,6 +19,7 @@ struct HostingTabBarView: View {
     
     @State private var selectedTab: Tab = .home
     let role = UserDefaults.standard.string(forKey:"role")
+    
     var body: some View {
         VStack(){
             TabView(selection: $selectedTab) {
@@ -73,6 +74,7 @@ struct HostingTabBarView: View {
             .navigationBarHidden(true)
             
             .onAppear{
+                print(role)
             }
             .onDisappear()
             //.onDisappear()

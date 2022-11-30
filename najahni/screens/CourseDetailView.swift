@@ -10,6 +10,7 @@ import SDWebImageSwiftUI
 
 struct CourseDetailView: View {
     @StateObject var viewModel = DetailPageViewModel()
+    
     var course : Course
     var body: some View {
         VStack {
@@ -88,7 +89,9 @@ struct CourseDetailView: View {
                     ContainerRelativeShape()
                         .frame(height: 50)
                 }
-                Button(action: {}) {
+                Button(action: {
+                    viewModel.enrollNow(id: course.id)
+                }) {
                     Text("Enroll now")
                           .foregroundColor(Color.white)
                           .multilineTextAlignment(.center)
