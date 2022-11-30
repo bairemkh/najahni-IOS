@@ -13,8 +13,8 @@ struct najahniApp: App {
 
     var body: some Scene {
         WindowGroup {
-            //SplashView()
-            VerifyTrainerView()
+            SplashView()
+           // VerifyTrainerView()
         }
     }
 }
