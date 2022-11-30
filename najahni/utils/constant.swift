@@ -19,6 +19,7 @@ let UPLOAD_IMAGE = URL_BASE_APP + "/user/change-photo"
 let GOOGLE_SIGNIN = URL_BASE_APP + "/user/google-signin"
 let ALL_COURSE = URL_BASE_APP + "/course/getall"
 let ALL_MY_COURSE = URL_BASE_APP + "/course/mycourses"
+let MY_COURSES_LIST = URL_BASE_APP + "/course/mycourseslist"
 
 let WISHLIST = "wishlist"
 let CART = "cart"

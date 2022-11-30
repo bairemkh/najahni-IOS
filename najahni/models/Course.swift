@@ -15,6 +15,7 @@ struct Course  : Identifiable{
     let price: Int
     let idowner: User?
     let isArchived: Bool
+    //let students:[User]
     let createdAt, updatedAt: String
     
     
