@@ -68,7 +68,7 @@ struct ProfileView: View {
                         EditProfileView(firstname: firstname, lastname: lastname, image: image)
                             .padding(0.0)
                     } label: {
-                        CustomButtonView(icon: "person.fill",buttonText: "Edit profile")
+                        CustomButtonView(icon: "pencil.fill",buttonText: "Edit profile")
                     }
                     NavigationLink{
                        EmptyView()

@@ -21,6 +21,7 @@ let ALL_COURSE = URL_BASE_APP + "/course/getall"
 let ALL_MY_COURSE = URL_BASE_APP + "/course/mycourses"
 
 let WISHLIST = "wishlist"
+let CART = "cart"
 
 
 

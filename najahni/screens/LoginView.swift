@@ -37,14 +37,16 @@ struct LoginView: View {
                         .frame(height: 15.0)
                     customTextField(text: $viewModel.password)
                     
-                    NavigationLink(destination: ForgetPassword()){
-                        Text("forget password ?")
-                        .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.848))
-                        .padding(.leading, -170.0)
-                        .frame(height: 30.0)
-                                           
-                    }
-
+                    
+                    NavigationLink(destination:ForgetPassword(),label: {
+                        HStack {
+                            Text("Forgot my password")
+                                .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.848))
+                                           .multilineTextAlignment(.leading)
+                                       .padding()
+                            Spacer()
+                        }
+                    })
                 
                     
                     Spacer()
