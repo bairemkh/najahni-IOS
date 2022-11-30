@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import SlidingTabView
 
 struct ProfileTrainerView: View {
     @StateObject var viewModel = LoginViewModel()
@@ -16,6 +17,7 @@ struct ProfileTrainerView: View {
     @State var image : String = ""
     @State var courses : [Course] = []
     @State private var onLogOut = false
+    @State private var selectedTabIndex = 0
     var body: some View {
         //NavigationView(){
             VStack(alignment: .leading){
@@ -67,21 +69,34 @@ struct ProfileTrainerView: View {
                     Spacer()
                 }
                 .padding()
-                Text("My courses")
+                VStack(alignment: .leading) {
+                            SlidingTabView(selection: self.$selectedTabIndex, tabs: ["Courses", "Archived"])
+                    if(selectedTabIndex == 0){
+                        VStack{
+                            ScrollView(.vertical,showsIndicators: false) {
+                                ForEach(courses) { course in
+                                    NavigationLink{
+                                        CourseDetailView(course: course)
+                                    } label: {
+                                        CustomCardTrainerView(course: course)
+                                    }
+                                    
+                                }
+                            }} .padding()
+                    } else {
+                        Text("Second View")
+                            .padding()
+                    }
+                       
+                            Spacer()
+                        }
+                            .padding(.top, 50)
+                            .animation(.none)
+               /* Text("My courses")
                     .fontWeight(.bold)
                     .foregroundColor(Color.black)
-                    .padding(.leading)
-                VStack{
-                    ScrollView(.vertical,showsIndicators: false) {
-                        ForEach(courses) { course in
-                            NavigationLink{
-                                CourseDetailView(course: course)
-                            } label: {
-                                CustomCardTrainerView(course: course)
-                            }
-                            
-                        }
-                    }}
+                    .padding(.leading)*/
+
                 Spacer()
                 
                 

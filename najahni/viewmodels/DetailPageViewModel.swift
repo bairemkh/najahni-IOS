@@ -9,9 +9,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-
-class DetailPageViewModel : ObservableObject
-{
+class DetailPageViewModel : ObservableObject {
     @Published var title = "Title"
     @Published var Description = ""
     @Published var free = "free"

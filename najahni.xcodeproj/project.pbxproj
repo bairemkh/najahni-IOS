@@ -25,6 +25,8 @@
 		414248CC292D4CF800D35692 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414248CB292D4CF800D35692 /* Course.swift */; };
 		414248CE292D4D8F00D35692 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414248CD292D4D8F00D35692 /* HomeViewModel.swift */; };
 		419495F92936B9A300349A24 /* MyCoursesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419495F82936B9A300349A24 /* MyCoursesViewModel.swift */; };
+		419495FB2937025300349A24 /* SlidingTabCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419495FA2937025300349A24 /* SlidingTabCustomView.swift */; };
+		419495FE293702DE00349A24 /* SlidingTabView in Frameworks */ = {isa = PBXBuildFile; productRef = 419495FD293702DE00349A24 /* SlidingTabView */; };
 		4194EE442929147E001D20D0 /* ProfileTrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194EE432929147E001D20D0 /* ProfileTrainerView.swift */; };
 		4194EE4629291A4A001D20D0 /* CustomBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194EE4529291A4A001D20D0 /* CustomBoxView.swift */; };
 		419509A32934BFD400E417FF /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 419509A22934BFD400E417FF /* GoogleSignIn */; };
@@ -116,6 +118,7 @@
 		414248CB292D4CF800D35692 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		414248CD292D4D8F00D35692 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		419495F82936B9A300349A24 /* MyCoursesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoursesViewModel.swift; sourceTree = "<group>"; };
+		419495FA2937025300349A24 /* SlidingTabCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingTabCustomView.swift; sourceTree = "<group>"; };
 		4194EE432929147E001D20D0 /* ProfileTrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerView.swift; sourceTree = "<group>"; };
 		4194EE4529291A4A001D20D0 /* CustomBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBoxView.swift; sourceTree = "<group>"; };
 		419509A62934C2EC00E417FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				419495FE293702DE00349A24 /* SlidingTabView in Frameworks */,
 				419509A52934BFD400E417FF /* GoogleSignInSwift in Frameworks */,
 				87C5CB192923C5050049814E /* SDWebImageSwiftUI in Frameworks */,
 				419509A32934BFD400E417FF /* GoogleSignIn in Frameworks */,
@@ -219,6 +223,7 @@
 				87425FAE2934CF0A000961E2 /* NewSectionView.swift */,
 				87B92669293607C200F7A082 /* TrainerVerificationView.swift */,
 				87B9266F2936DF7000F7A082 /* SettingsView.swift */,
+				419495FA2937025300349A24 /* SlidingTabCustomView.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				87C5CB182923C5050049814E /* SDWebImageSwiftUI */,
 				419509A22934BFD400E417FF /* GoogleSignIn */,
 				419509A42934BFD400E417FF /* GoogleSignInSwift */,
+				419495FD293702DE00349A24 /* SlidingTabView */,
 			);
 			productName = najahni;
 			productReference = 28CABB1429191BC400AED109 /* najahni.app */;
@@ -463,6 +469,7 @@
 				87A4E8622922B85500E2A505 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				87C5CB172923C5050049814E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				419509A12934BFD400E417FF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				419495FC293702DE00349A24 /* XCRemoteSwiftPackageReference "SlidingTabView" */,
 			);
 			productRefGroup = 28CABB1529191BC400AED109 /* Products */;
 			projectDirPath = "";
@@ -542,6 +549,7 @@
 				8743D060291FE5F800C1781C /* LoginViewModel.swift in Sources */,
 				87B21C7029326353000FD964 /* Level.swift in Sources */,
 				419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */,
+				419495FB2937025300349A24 /* SlidingTabCustomView.swift in Sources */,
 				87AA86002922354F009536CA /* ChangePasswordView.swift in Sources */,
 				419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */,
 				8741BABC291EA33B002FBDE8 /* Sexe.swift in Sources */,
@@ -910,6 +918,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		419495FC293702DE00349A24 /* XCRemoteSwiftPackageReference "SlidingTabView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/QuynhNguyen/SlidingTabView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		419509A12934BFD400E417FF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -945,6 +961,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		419495FD293702DE00349A24 /* SlidingTabView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 419495FC293702DE00349A24 /* XCRemoteSwiftPackageReference "SlidingTabView" */;
+			productName = SlidingTabView;
+		};
 		419509A22934BFD400E417FF /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 419509A12934BFD400E417FF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;

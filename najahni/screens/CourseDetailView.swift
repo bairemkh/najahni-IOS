@@ -90,6 +90,7 @@ struct CourseDetailView: View {
                         .frame(height: 50)
                 }
                 Button(action: {
+
                     viewModel.enrollNow(id: course.id)
                 }) {
                     Text("Enroll now")
