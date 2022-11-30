@@ -88,7 +88,10 @@ struct CourseDetailView: View {
                     ContainerRelativeShape()
                         .frame(height: 50)
                 }
-                Button(action: {}) {
+                Button(action: {
+                    print("test enroll")
+                    viewModel.enrollNow(id: course.id)
+                }) {
                     Text("Enroll now")
                           .foregroundColor(Color.white)
                           .multilineTextAlignment(.center)
