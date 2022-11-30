@@ -1,4 +1,4 @@
-<h1 align="center">This is Najahni Backend app</h1>
+<h1 align="center">This is Najahni Mobile app</h1>
 <h2 align="center">Created by bairem khedhri and mohamed oueslati</h3>
 
 - 🔭 What is the Najahni application? **It is an online learning platform where you can share your knowledge using videos and other resources.**
