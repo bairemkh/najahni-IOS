@@ -73,9 +73,6 @@ struct HostingTabBarView: View {
             .navigationBarHidden(true)
             
             .onAppear{
-                print(UserDefaults.standard.string(forKey: "role"))
-                print(SessionManager.currentUser?.role)
-                print(UserDefaults.standard.string(forKey: "token"))
             }
             .onDisappear()
             //.onDisappear()

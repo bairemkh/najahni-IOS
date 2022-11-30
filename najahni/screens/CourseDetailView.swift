@@ -24,6 +24,24 @@ struct CourseDetailView: View {
                         .multilineTextAlignment(.leading)
                     .font(.system(size: 30))
                     Spacer()
+                    btnIcon(isSelected: $viewModel.isLiked){ isLiked in
+                        print(isLiked)
+                        var wishlist = SessionManager.getWishlist()
+                        if(isLiked){
+                            if(!wishlist.contains(where: { c in
+                                return c.elementsEqual(self.course.id)
+                            })){
+                                wishlist.append(self.course.id)
+                                UserDefaults.standard.removeObject(forKey: WISHLIST)
+                                UserDefaults.standard.set(wishlist, forKey: WISHLIST)
+                            }
+                        }else{
+                            wishlist.remove(at: wishlist.firstIndex(where: { c in
+                                return c.elementsEqual(self.course.id)
+                            }) ?? -1)
+                            UserDefaults.standard.set(wishlist, forKey: WISHLIST)
+                        }
+                    }
                 }
                 HStack{
                     WebImage(url:URL(string: course.idowner!.image))
@@ -82,13 +100,47 @@ struct CourseDetailView: View {
                 
             }
             .padding(.all)
+        }.navigationTitle(
+            Text("Detail")
+          )
+    .navigationBarTitleDisplayMode(.inline)
+    .onAppear(){
+        let wishlist = SessionManager.getWishlist()
+        if(wishlist.contains(where: { c in
+            return c.elementsEqual(self.course.id)
+        })){
+            print("-----------------------------------is liked---------------------\n \(wishlist)")
+            viewModel.isLiked = true
         }
+    }
     }
 }
 
 struct CourseDetailView_Previews: PreviewProvider {
-    static var course: Course = Course(id: "", title: "", fields: Fields.allCases, level: "", description: "", isPaid: false, image: "", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
+    static var course: Course = Course(id: "", title: "Title course", fields: Fields.allCases, level: "", description: "", isPaid: false, image: "", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
     static var previews: some View {
         CourseDetailView(course: course)
+    }
+}
+struct btnIcon:View {
+    @Binding var isSelected : Bool
+    @State var iconSelected = "heart.fill"
+    @State var iconDeSelected = "heart"
+    @State var select : (Bool)->Void
+    var body: some View{
+        if(isSelected){
+            Image(systemName: iconSelected)
+                .foregroundColor(Color("secondaryColor"))
+             .onTapGesture {
+                 isSelected = false
+                  select(false)
+             }
+        }else{
+            Image(systemName: iconDeSelected)
+                .foregroundColor(Color("secondaryColor")).onTapGesture {
+                    isSelected = true
+                     select(true)
+                }
+        }
     }
 }

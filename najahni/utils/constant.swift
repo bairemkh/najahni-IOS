@@ -17,12 +17,14 @@ let DELETE_PROFILE = URL_BASE_APP + "/user/delete-account"
 let EDIT_PASSWORD = URL_BASE_APP + "/user/change-password"
 let UPLOAD_IMAGE = URL_BASE_APP + "/user/change-photo"
 let GOOGLE_SIGNIN = URL_BASE_APP + "/user/google-signin"
-
 let ALL_COURSE = URL_BASE_APP + "/course/getall"
 let ALL_MY_COURSE = URL_BASE_APP + "/course/mycourses"
 let MY_COURSES_LIST = URL_BASE_APP + "/course/mycourseslist"
 
+let WISHLIST = "wishlist"
+let CART = "cart"
 
 
 
-var UserFix = User(firstname: "", lastname: "", email: "", password: "", role: Role.Student, fields: Fields.allCases, image: "", isVerified: false, otp: "")
+
+var UserFix = User(firstname: "User", lastname: "Test", email: "", password: "", role: Role.Trainer, fields: Fields.allCases, image: "https://cdn-icons-png.flaticon.com/512/147/147144.png", isVerified: false, otp: "")
