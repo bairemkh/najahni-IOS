@@ -165,7 +165,7 @@ struct ProfileTrainerView: View {
         //}
         .onAppear{
             print("profile view")
-               viewModel.profile(completed: {
+               /*viewModel.profile(completed: {
                    (success,result) in
                    if success {
                        let user = result
@@ -177,9 +177,18 @@ struct ProfileTrainerView: View {
                        print("not logged in")
                        
                    }
+
                })
             
           viewModelCourseTrainer.getMyCourses{ success, result in
+
+               })*/
+            let user = SessionManager.currentUser
+            print(user!.firstname)
+            firstname = user!.firstname
+            lastname = user!.lastname
+            image = user!.image
+            viewModelCourseTrainer.getMyCourses{ success, result in
                 if success {
                     self.courses = []
                     self.courses.append(contentsOf: result!)

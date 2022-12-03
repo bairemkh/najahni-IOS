@@ -40,16 +40,11 @@ struct CustomCardTrainerView: View {
                 }
                 HStack {
                     Text("1h42")
-                    
-                        .font(.system(size: 15, weight: .bold, design: .default))
-                        .fontWeight(.bold)
-                        .overlay (
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.green,lineWidth: 1)
-                        )
-                        .foregroundColor(.black)
+                        .padding(.horizontal, 8.0)
+                        .background(Color("secondaryColor"))
+                        .foregroundColor(.white)
+                        .cornerRadius(5 )
                         
-                        .padding(EdgeInsets(top: 8, leading: 18, bottom: 8, trailing: 8))
                         
                 }
             }

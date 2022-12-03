@@ -126,6 +126,28 @@ class UserService {
             }
         }
     }
+    static func profile() async{
+        let token = UserDefaults.standard.string(forKey: "token")
+        let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
+        do{
+            var data = try await AF.request(PROFILE_URL,method: .get, headers: headers).serializingData(emptyResponseCodes: [200]).result
+            
+            switch (data){
+                
+            case .success(let data):
+                let json = JSON(data)
+                let user = self.makeItem(jsonItem: json["data"])
+                SessionManager.currentUser = user
+                print(SessionManager.currentUser)
+            case .failure(let err):
+                print(err)
+            }
+        }catch{
+            print(error)
+        }
+        //print(output.data)
+        //return "\(output)"
+    }
     static func makeItem(jsonItem: JSON) -> User {
         return User(
             _id: jsonItem["_id"].stringValue,

@@ -23,7 +23,7 @@ struct HomeView: View {
             VStack(alignment: .leading){
                 HStack{
                     VStack{
-                        Text("Welcome")
+                        Text("\(SessionManager.currentUser?.role.rawValue ?? "Role")")
                         Text("\(SessionManager.currentUser?.firstname ?? "User")")
                     }
                     Spacer()
