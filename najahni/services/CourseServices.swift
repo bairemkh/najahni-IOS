@@ -50,4 +50,14 @@ class CourseService {
                       updatedAt: jsonItem["updatedAt"].stringValue)
     }
     
+    static func addCourse(course : Course){
+        let body : [String : Any] = [
+            "title" : course.title
+            "level" : course.level
+            "isPaid": course.isPaid
+            "isArchived" : "false"
+            
+        ]
+    }
+    
 }

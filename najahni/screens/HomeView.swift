@@ -36,7 +36,7 @@ struct HomeView: View {
                     
                     //.frame(width: 50.0, height: 50.0)
                         .aspectRatio(contentMode: .fill)
-                    WebImage(url: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvaBdtJ4GaN7m79jU-Y47NqT3Grvxd7qIZ9VKUZKyU1ynYKxoNdlQCixTRDnliBE62os&usqp=CAU"))
+                    WebImage(url: URL(string:"\(URL_BASE_APP)\(SessionManager.currentUser?.image ?? "")"))
                         .resizable()
                         .clipShape(Circle())
                         .shadow(radius: 10)
@@ -112,6 +112,7 @@ struct HomeView: View {
             .padding(.horizontal)
         }
         .onAppear{
+            print("\(URL_BASE_APP)\(SessionManager.currentUser?.image ?? "")")
             viewModel.getallcourses { success, result in
                 if success {
                     self.selectionArray = Fields.allCases.map({ f in

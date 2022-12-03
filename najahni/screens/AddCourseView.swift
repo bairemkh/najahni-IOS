@@ -23,13 +23,6 @@ struct AddCourseView: View {
                                     self.presentationMode.wrappedValue.dismiss()
                                 }
                             Spacer()
-                            Text("+ Add a section")
-                                .fontWeight(.black)
-                                .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
-                                .multilineTextAlignment(.leading)
-                                .font(.system(size: 20))
-                                .onTapGesture {
-                                }
                         }
                         HStack {
                             Text("Create a new Course")
@@ -102,7 +95,7 @@ struct AddCourseView: View {
                             .lineLimit(/*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)
                             .frame(height: 100)
                         Button(action: {}) {
-                            Text("Create")
+                            Text("Next")
                                 .foregroundColor(Color.white)
                         }
                         .frame(width: 300.0,height: 60.0)

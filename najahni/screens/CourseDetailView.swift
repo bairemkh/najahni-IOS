@@ -19,6 +19,9 @@ struct CourseDetailView: View {
                     .resizable()
                     .frame(width:.infinity ,height: 400)
                     .clipShape(Rectangle())
+                    .aspectRatio(contentMode: .fill)
+                    .scaledToFit()
+                    .clipped()
                     
                 HStack {
                     Text(course.title)
@@ -55,6 +58,21 @@ struct CourseDetailView: View {
                 }
                 Spacer()
                     .frame(width: 0,height: 30)
+                ScrollView(.horizontal,showsIndicators: false){
+                    HStack(spacing: 10) {
+                        ForEach(course.fields .map({ f in
+                            return ListData(name: f.rawValue)
+                        })){ element in
+                            Text(element.name)
+                                .padding(.horizontal, 8.0)
+                                .background(Color("secondaryColor"))
+                                .foregroundColor(.white)
+                                .cornerRadius(5)
+                        }
+                    }
+                }
+                Spacer()
+                    .frame(width: 0,height: 30)
                 HStack {
                     Text("Description")
                         .fontWeight(.medium)
@@ -62,6 +80,7 @@ struct CourseDetailView: View {
                     .font(.system(size: 23))
                     Spacer()
                     Text(" Free")
+                        .foregroundColor(Color("secondaryColor"))
                         .multilineTextAlignment(.leading)
                     .font(.system(size: 20))
                     Spacer()
@@ -77,30 +96,37 @@ struct CourseDetailView: View {
                 }
                 /*Spacer()
                     .frame(height: 50)*/
-                HStack {
-                    Text("Lessons")
-                        .fontWeight(.medium)
-                        .multilineTextAlignment(.leading)
-                    .font(.system(size: 23))
-                    Spacer()
-                }
-                VStack(spacing: 15) {
-                    ContainerRelativeShape()
-                        .frame(height: 50)
-                    ContainerRelativeShape()
-                        .frame(height: 50)
-                }
-                Button(action: {
+                
+                
+                Group{
+                    HStack {
+                        Text("Lessons")
+                            .fontWeight(.medium)
+                            .multilineTextAlignment(.leading)
+                        .font(.system(size: 23))
+                        Spacer()
+                        Text(course.level)
+                            .bold()
+                    }
+                    VStack(spacing: 15) {
+                        ContainerRelativeShape()
+                            .frame(height: 50)
+                        ContainerRelativeShape()
+                            .frame(height: 50)
+                    }
+                    Button(action: {
 
-                    viewModel.enrollNow(id: course.id)
-                }) {
-                    Text("Enroll now")
-                          .foregroundColor(Color.white)
-                          .multilineTextAlignment(.center)
-                          .frame(width: 300.0,height: 60.0)
-                          .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
-                          .cornerRadius(25)
+                        viewModel.enrollNow(id: course.id)
+                    }) {
+                        Text("Enroll now")
+                              .foregroundColor(Color.white)
+                              .multilineTextAlignment(.center)
+                              .frame(width: 300.0,height: 60.0)
+                              .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
+                              .cornerRadius(25)
+                    }
                 }
+                
                 
                 
             }
@@ -122,7 +148,7 @@ struct CourseDetailView: View {
 }
 
 struct CourseDetailView_Previews: PreviewProvider {
-    static var course: Course = Course(id: "", title: "Title course", fields: Fields.allCases, level: "", description: "", isPaid: false, image: "", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
+    static var course: Course = Course(id: "", title: "Title course", fields: Fields.allCases, level: Level.Beginner.rawValue, description: "", isPaid: false, image: "/img/pexels-supreet-7559057.jpg1668674151911.jpg", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
     static var previews: some View {
         CourseDetailView(course: course)
     }

@@ -14,9 +14,6 @@ struct najahniApp: App {
     var body: some Scene {
         WindowGroup {
             SplashView()
-                .onAppear{
-                    print("run session \(SessionManager.currentUser)")
-                }
 
         }
     }
