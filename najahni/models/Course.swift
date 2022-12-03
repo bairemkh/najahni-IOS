@@ -34,6 +34,20 @@ struct Course  : Identifiable{
         self.createdAt = createdAt
         self.updatedAt = updatedAt
     }
+    init(title: String, fields: [Fields], level: String, description: String, isPaid: Bool, price: Int, isArchived: Bool) {
+        self.id = "id"
+        self.title = title
+        self.fields = fields
+        self.level = level
+        self.description = description
+        self.isPaid = isPaid
+        self.image = "image"
+        self.price = price
+        self.idowner = UserFix
+        self.isArchived = isArchived
+        self.createdAt = "createdAt"
+        self.updatedAt = "updatedAt"
+    }
 
     /*enum CodingKeys: String, CodingKey {
         case id = "_id"

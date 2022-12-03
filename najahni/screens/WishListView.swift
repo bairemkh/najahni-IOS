@@ -11,21 +11,7 @@ struct WishListView: View {
     @State var wishlist : [Course] = []
     var body: some View {
         NavigationView {
-            /*List{
-                ForEach(wishlist.map({ c in
-                    return c.title
-                }),id: \.self){ element in
-                     //WishListCard(course: element)
-                     Text(element)
-                }.onDelete(perform: delete)
-            }*/
-               /*List{
-                   ForEach(wishlist){ element in
-                        WishListCard(course: element)
-                        //Text(element)
-                    }
-                    
-                }*/
+            
             if #available(iOS 16.0, *) {
                 List{
                     ForEach(wishlist) { course in
