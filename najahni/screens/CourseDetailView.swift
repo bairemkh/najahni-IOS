@@ -15,10 +15,11 @@ struct CourseDetailView: View {
     var body: some View {
         VStack {
             ScrollView{
-                WebImage(url:URL(string: course.image))
+                WebImage(url:URL(string: URL_BASE_APP + course.image))
                     .resizable()
+                    .frame(width:.infinity ,height: 400)
                     .clipShape(Rectangle())
-                    .frame(width: 200,height: 200)
+                    
                 HStack {
                     Text(course.title)
                         .fontWeight(.black)
