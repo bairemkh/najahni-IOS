@@ -14,10 +14,11 @@ struct CourseDetailView: View {
     var body: some View {
         VStack {
             ScrollView{
-                WebImage(url:URL(string: course.image))
+                WebImage(url:URL(string: URL_BASE_APP + course.image))
                     .resizable()
+                    .frame(width:.infinity ,height: 400)
                     .clipShape(Rectangle())
-                    .frame(width: 200,height: 200)
+                    
                 HStack {
                     Text(course.title)
                         .fontWeight(.black)
@@ -88,7 +89,10 @@ struct CourseDetailView: View {
                     ContainerRelativeShape()
                         .frame(height: 50)
                 }
-                Button(action: {}) {
+                Button(action: {
+                    print("test enroll")
+                    viewModel.enrollNow(id: course.id)
+                }) {
                     Text("Enroll now")
                           .foregroundColor(Color.white)
                           .multilineTextAlignment(.center)
