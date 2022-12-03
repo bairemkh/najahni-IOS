@@ -63,6 +63,9 @@ struct CourseDetailTrainerView: View {
                                     .frame(height: 50)
                                 ContainerRelativeShape()
                                     .frame(height: 50)
+                                ContainerRelativeShape()
+                                    .frame(height: 50)
+                                
                             }
                         }
                     }else{

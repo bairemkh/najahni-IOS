@@ -25,6 +25,9 @@
 		414248CC292D4CF800D35692 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414248CB292D4CF800D35692 /* Course.swift */; };
 		414248CE292D4D8F00D35692 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414248CD292D4D8F00D35692 /* HomeViewModel.swift */; };
 		4194137C293B7B8800306B28 /* CourseDetailTrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194137B293B7B8800306B28 /* CourseDetailTrainerView.swift */; };
+		4194137E293B9D9C00306B28 /* CustomCardCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194137D293B9D9C00306B28 /* CustomCardCourseView.swift */; };
+		41941380293BA06700306B28 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194137F293BA06700306B28 /* ProgressBarView.swift */; };
+		41941382293BA90400306B28 /* VideoPlayerCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41941381293BA90400306B28 /* VideoPlayerCourseView.swift */; };
 		419495F92936B9A300349A24 /* MyCoursesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419495F82936B9A300349A24 /* MyCoursesViewModel.swift */; };
 		419495FB2937025300349A24 /* SlidingTabCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419495FA2937025300349A24 /* SlidingTabCustomView.swift */; };
 		419495FE293702DE00349A24 /* SlidingTabView in Frameworks */ = {isa = PBXBuildFile; productRef = 419495FD293702DE00349A24 /* SlidingTabView */; };
@@ -119,6 +122,9 @@
 		414248CB292D4CF800D35692 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		414248CD292D4D8F00D35692 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		4194137B293B7B8800306B28 /* CourseDetailTrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailTrainerView.swift; sourceTree = "<group>"; };
+		4194137D293B9D9C00306B28 /* CustomCardCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardCourseView.swift; sourceTree = "<group>"; };
+		4194137F293BA06700306B28 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		41941381293BA90400306B28 /* VideoPlayerCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerCourseView.swift; sourceTree = "<group>"; };
 		419495F82936B9A300349A24 /* MyCoursesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoursesViewModel.swift; sourceTree = "<group>"; };
 		419495FA2937025300349A24 /* SlidingTabCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingTabCustomView.swift; sourceTree = "<group>"; };
 		4194EE432929147E001D20D0 /* ProfileTrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerView.swift; sourceTree = "<group>"; };
@@ -357,6 +363,9 @@
 				87A371D72930F6E500685486 /* customTextField.swift */,
 				419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */,
 				87B9266D2936AA5B00F7A082 /* WishListCard.swift */,
+				4194137D293B9D9C00306B28 /* CustomCardCourseView.swift */,
+				4194137F293BA06700306B28 /* ProgressBarView.swift */,
+				41941381293BA90400306B28 /* VideoPlayerCourseView.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -530,6 +539,7 @@
 				8743D057291FDC2200C1781C /* EditAccountViewModel.swift in Sources */,
 				4194EE4629291A4A001D20D0 /* CustomBoxView.swift in Sources */,
 				8741BABE291EC44E002FBDE8 /* HostingTabBarView.swift in Sources */,
+				4194137E293B9D9C00306B28 /* CustomCardCourseView.swift in Sources */,
 				4196FA6E292D33500095AD16 /* CustomCard2View.swift in Sources */,
 				87A4E8612922B30E00E2A505 /* constant.swift in Sources */,
 				87A4E85929229F1A00E2A505 /* MultiSelectionView.swift in Sources */,
@@ -556,6 +566,7 @@
 				419495FB2937025300349A24 /* SlidingTabCustomView.swift in Sources */,
 				87AA86002922354F009536CA /* ChangePasswordView.swift in Sources */,
 				419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */,
+				41941380293BA06700306B28 /* ProgressBarView.swift in Sources */,
 				8741BABC291EA33B002FBDE8 /* Sexe.swift in Sources */,
 				8741BABA291E9CC0002FBDE8 /* Fields.swift in Sources */,
 				419FAD1B293106FD00FA6A49 /* WishListView.swift in Sources */,
@@ -575,6 +586,7 @@
 				28CABB1829191BC400AED109 /* najahniApp.swift in Sources */,
 				8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */,
 				87B9266A293607C200F7A082 /* TrainerVerificationView.swift in Sources */,
+				41941382293BA90400306B28 /* VideoPlayerCourseView.swift in Sources */,
 				879E5C81292BE19600573969 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

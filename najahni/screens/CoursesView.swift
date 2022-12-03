@@ -18,7 +18,7 @@ struct CoursesView: View {
                         NavigationLink{
                             CourseDetailView(course: course)
                         } label: {
-                            CustomCardView(course: course)
+                            CustomCardCourseView(course: course)
                         }
                         
                     }
