@@ -17,6 +17,7 @@ struct najahniApp: App {
                 .onAppear{
                     print("run session \(SessionManager.currentUser)")
                 }
+
         }
     }
 }

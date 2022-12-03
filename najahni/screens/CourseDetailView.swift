@@ -10,6 +10,7 @@ import SDWebImageSwiftUI
 
 struct CourseDetailView: View {
     @StateObject var viewModel = DetailPageViewModel()
+    
     var course : Course
     var body: some View {
         VStack {
@@ -90,7 +91,7 @@ struct CourseDetailView: View {
                         .frame(height: 50)
                 }
                 Button(action: {
-                    print("test enroll")
+
                     viewModel.enrollNow(id: course.id)
                 }) {
                     Text("Enroll now")
