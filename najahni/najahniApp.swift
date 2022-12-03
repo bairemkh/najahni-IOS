@@ -14,6 +14,7 @@ struct najahniApp: App {
     var body: some Scene {
         WindowGroup {
             SplashView()
+            //AddCourseView()
         }
     }
 }

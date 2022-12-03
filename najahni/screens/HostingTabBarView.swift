@@ -18,7 +18,7 @@ struct HostingTabBarView: View {
     }
     
     @State private var selectedTab: Tab = .home
-    let role = UserDefaults.standard.string(forKey:"role")
+    @State private var role : String = ""
     
     var body: some View {
         VStack(){
@@ -59,7 +59,8 @@ struct HostingTabBarView: View {
                             Image(systemName: "person.fill")
                             
                         }
-                } else {
+                } else if (role == "Trainer"){
+                //} else{
                             ProfileTrainerView()
                                 .tag(4)
                                 .tabItem {
@@ -74,7 +75,10 @@ struct HostingTabBarView: View {
             .navigationBarHidden(true)
             
             .onAppear{
-                print(role)
+                print("user =====> \(SessionManager.currentUser)")
+                print("user role =====> \(SessionManager.currentUser?.role)")
+                print("user role 2 =====> \(SessionManager.currentUser?.role)")
+                role = UserDefaults.standard.string(forKey: "role")!
             }
             .onDisappear()
             //.onDisappear()
