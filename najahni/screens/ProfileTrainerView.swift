@@ -16,6 +16,7 @@ struct ProfileTrainerView: View {
     @State var lastname : String = ""
     @State var image : String = ""
     @State var courses : [Course] = []
+    @State var coursesArchived : [Course] = []
     @State private var onLogOut = false
     @State private var selectedTabIndex = 0
     @State private var pass = false
@@ -71,7 +72,7 @@ struct ProfileTrainerView: View {
                 }
                 .padding()
                 VStack(alignment: .leading) {
-                            SlidingTabView(selection: self.$selectedTabIndex, tabs: ["Courses", "Archived"])
+                    SlidingTabView(selection: self.$selectedTabIndex, tabs: ["Courses", "Archived"],activeAccentColor: Color("primaryColor"),selectionBarColor: Color("primaryColor"))
                     if(selectedTabIndex == 0){
                         //kkkk
                         ZStack {
@@ -79,7 +80,7 @@ struct ProfileTrainerView: View {
                                 ScrollView(.vertical,showsIndicators: false) {
                                     ForEach(courses) { course in
                                         NavigationLink{
-                                            CourseDetailView(course: course)
+                                            CourseDetailTrainerView(course: course)
                                         } label: {
                                             CustomCardTrainerView(course: course)
                                         }
@@ -113,8 +114,17 @@ struct ProfileTrainerView: View {
                            }
                         }
                     } else {
-                        Text("Second View")
-                            .padding()
+                        VStack{
+                            ScrollView(.vertical,showsIndicators: false) {
+                                ForEach(coursesArchived) { courseArch in
+                                    NavigationLink{
+                                        CourseDetailView(course: courseArch)
+                                    } label: {
+                                        CustomCardTrainerView(course: courseArch)
+                                    }
+                                    
+                                }
+                        }} .padding()
                     }
                        
                             //Spacer()
@@ -169,6 +179,11 @@ struct ProfileTrainerView: View {
                        print("not logged in")
                        
                    }
+
+               })
+            
+          viewModelCourseTrainer.getMyCourses{ success, result in
+
                })*/
             let user = SessionManager.currentUser
             print(user!.firstname)
@@ -180,6 +195,16 @@ struct ProfileTrainerView: View {
                     self.courses = []
                     self.courses.append(contentsOf: result!)
                     print(courses)
+                }
+                
+            }
+            
+            
+            viewModelCourseTrainer.getMyCoursesArchived{ success, result in
+                if success {
+                    self.coursesArchived = []
+                    self.coursesArchived.append(contentsOf: result!)
+                   //print(courses)
                 }
                 
             }
