@@ -45,7 +45,7 @@ struct CourseDetailView: View {
                     }
                 }
                 HStack{
-                    WebImage(url:URL(string: course.idowner!.image))
+                    WebImage(url:URL(string: URL_BASE_APP + course.idowner!.image))
                         .resizable()
                         .clipShape(Circle())
                         .frame(width: 50,height: 50)

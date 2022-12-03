@@ -24,6 +24,7 @@
 		41353FAC2923D51500DAA6C5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41353FAB2923D51500DAA6C5 /* UserService.swift */; };
 		414248CC292D4CF800D35692 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414248CB292D4CF800D35692 /* Course.swift */; };
 		414248CE292D4D8F00D35692 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414248CD292D4D8F00D35692 /* HomeViewModel.swift */; };
+		4194137C293B7B8800306B28 /* CourseDetailTrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194137B293B7B8800306B28 /* CourseDetailTrainerView.swift */; };
 		419495F92936B9A300349A24 /* MyCoursesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419495F82936B9A300349A24 /* MyCoursesViewModel.swift */; };
 		419495FB2937025300349A24 /* SlidingTabCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419495FA2937025300349A24 /* SlidingTabCustomView.swift */; };
 		419495FE293702DE00349A24 /* SlidingTabView in Frameworks */ = {isa = PBXBuildFile; productRef = 419495FD293702DE00349A24 /* SlidingTabView */; };
@@ -117,6 +118,7 @@
 		41353FAB2923D51500DAA6C5 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		414248CB292D4CF800D35692 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		414248CD292D4D8F00D35692 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		4194137B293B7B8800306B28 /* CourseDetailTrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailTrainerView.swift; sourceTree = "<group>"; };
 		419495F82936B9A300349A24 /* MyCoursesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoursesViewModel.swift; sourceTree = "<group>"; };
 		419495FA2937025300349A24 /* SlidingTabCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingTabCustomView.swift; sourceTree = "<group>"; };
 		4194EE432929147E001D20D0 /* ProfileTrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerView.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				87B92669293607C200F7A082 /* TrainerVerificationView.swift */,
 				87B9266F2936DF7000F7A082 /* SettingsView.swift */,
 				419495FA2937025300349A24 /* SlidingTabCustomView.swift */,
+				4194137B293B7B8800306B28 /* CourseDetailTrainerView.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				87B9266C29369B4000F7A082 /* CourseServices.swift in Sources */,
 				87B926702936DF7000F7A082 /* SettingsView.swift in Sources */,
 				2879395D2919A57800778A5B /* ForgetPassword.swift in Sources */,
+				4194137C293B7B8800306B28 /* CourseDetailTrainerView.swift in Sources */,
 				2879395B2919824100778A5B /* LoginView.swift in Sources */,
 				287939592919737500778A5B /* WelcomeView.swift in Sources */,
 				8774D6FC292D1DEA00FCC1BE /* DetailPageViewModel.swift in Sources */,

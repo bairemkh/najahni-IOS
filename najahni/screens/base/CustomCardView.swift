@@ -12,7 +12,7 @@ struct CustomCardView: View {
     var course : Course
     var body: some View {
         HStack{
-            WebImage(url: URL(string: course.image))
+            WebImage(url: URL(string: URL_BASE_APP + course.image))
                 .resizable()
                 .scaledToFit()
                 .aspectRatio(contentMode: .fill)

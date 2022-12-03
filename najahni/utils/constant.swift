@@ -8,7 +8,7 @@
 import Foundation
 
 
-let URL_BASE_APP = "http://172.17.5.63:9090"
+let URL_BASE_APP = "http://172.17.0.120:9090"
 //let URL_BASE_APP = "http://localhost:9090"
 let LOGIN_URL = URL_BASE_APP + "/user/signin"
 let PROFILE_URL = URL_BASE_APP + "/user/profile"
@@ -19,6 +19,7 @@ let UPLOAD_IMAGE = URL_BASE_APP + "/user/change-photo"
 let GOOGLE_SIGNIN = URL_BASE_APP + "/user/google-signin"
 let ALL_COURSE = URL_BASE_APP + "/course/getall"
 let ALL_MY_COURSE = URL_BASE_APP + "/course/mycourses"
+let ALL_MY_COURSE_ARCHIVED = URL_BASE_APP + "/course/mycourses-archived"
 let MY_COURSES_LIST = URL_BASE_APP + "/course/mycourseslist"
 let ENROLL_NOW = URL_BASE_APP + "/course/enrollnow/"
 
@@ -29,3 +30,4 @@ let CART = "cart"
 
 
 var UserFix = User(firstname: "User", lastname: "Test", email: "", password: "", role: Role.Trainer, fields: Fields.allCases, image: "https://cdn-icons-png.flaticon.com/512/147/147144.png", isVerified: false, otp: "")
+var CourseFix = Course(id: "", title: "Title course", fields: Fields.allCases, level: "", description: "", isPaid: false, image: "", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
