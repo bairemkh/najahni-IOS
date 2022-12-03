@@ -8,6 +8,8 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import UIKit
+import SwiftUI
 class CourseService {
    static func getallcourses (completed: @escaping (Bool,[Course]?)-> Void) {
         
@@ -49,5 +51,35 @@ class CourseService {
                       createdAt: jsonItem["createdAt"].stringValue,
                       updatedAt: jsonItem["updatedAt"].stringValue)
     }
+    
+    static func addCourse(course : Course , image :UIImage , completed:@escaping(Bool,Int)->Void){
+        let token = UserDefaults.standard.string(forKey: "token")
+        let headers : HTTPHeaders = [.authorization(bearerToken: token!),.contentType("multipart/form-data")]
+        AF.upload(
+            multipartFormData: { multipartFormData in
+                multipartFormData.append(image.jpegData(compressionQuality: 0.5)!, withName: "image",fileName: "course.jpg",mimeType: "image/jpg")
+                multipartFormData.append(course.title.data(using: String.Encoding.utf8)!, withName: "title")
+                multipartFormData.append(course.description.data(using: String.Encoding.utf8)!, withName: "description")
+                multipartFormData.append(course.isArchived.description.data(using: String.Encoding.utf8)!, withName: "isArchived")
+                multipartFormData.append(course.isPaid.description.data(using: String.Encoding.utf8)!, withName: "isPaid")
+                multipartFormData.append(course.level.data(using: String.Encoding.utf8)!, withName: "level")
+                multipartFormData.append(course.price.description.data(using: String.Encoding.utf8)!, withName: "price")
+                for field in course.fields{
+                    multipartFormData.append(field.rawValue.data(using: String.Encoding.utf8)!, withName: "fields")
+                }
+            },to: URL_BASE_APP+"/course/add-course",method: .post, headers: headers)
+        .validate(statusCode: 200..<300)
+        .responseData { response in
+            switch(response.result){
+                
+            case .success(let data):
+                print(data)
+                completed(true,200)
+            case .failure(let error):
+                print(error)
+                completed(false,error.responseCode!)
+            }
+        }
+        }
     
 }

@@ -19,6 +19,7 @@ struct ProfileTrainerView: View {
     @State var coursesArchived : [Course] = []
     @State private var onLogOut = false
     @State private var selectedTabIndex = 0
+    @State private var pass = false
     var body: some View {
         //NavigationView(){
             VStack(alignment: .leading){
@@ -89,27 +90,28 @@ struct ProfileTrainerView: View {
                             
                             VStack {
                                 Spacer()
-                                HStack {
-                                    Spacer()
-                                    Button(action: {
-                                        print ("test float")
-                                    }, label: {
-                                        Text("+")
-                                            .font(.system(.largeTitle))
-                                            .frame(width: 77, height: 70)
-                                            .foregroundColor(Color.white)
-                                            .padding(.bottom, 7)
-                                    })
-                                    .background(Color.blue)
-                                    .cornerRadius(38.5)
-                                    .padding()
-                                    .shadow(color: Color.black.opacity(0.3),
-                                            radius: 3,
-                                            x: 3,
-                                            y: 3)
-                                }
-                                
-                            }
+                                NavigationLink(destination: AddCourseView(),isActive: $pass,label: {
+                                    HStack {
+                                        Spacer()
+                                        Button(action: {
+                                            pass = true
+                                        }, label: {
+                                            Text("+")
+                                                .font(.system(.largeTitle))
+                                                .frame(width: 77, height: 70)
+                                                .foregroundColor(Color.white)
+                                                .padding(.bottom, 7)
+                                        })
+                                        .background(Color("primaryColor"))
+                                        .cornerRadius(38.5)
+                                        .padding()
+                                        .shadow(color: Color.black.opacity(0.3),
+                                                radius: 3,
+                                                x: 3,
+                                                y: 3)
+                                    }
+                                })
+                           }
                         }
                     } else {
                         VStack{

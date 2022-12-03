@@ -155,7 +155,7 @@ struct ProfileView: View {
                     print(user!.firstname)
                     firstname = user!.firstname
                     lastname = user!.lastname
-                    image = user!.image
+                    image = "\(URL_BASE_APP)\(user!.image ?? "")"
                 }else {
                     print("not logged in")
                     

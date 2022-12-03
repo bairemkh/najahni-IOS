@@ -12,6 +12,7 @@ import UIKit
 
 class AddCourseViewModel : ObservableObject{
     @Published var file = "Import"
+    @Published var price = ""
     @Published var name = ""
     @Published var selection = 0
     @Published var list = Level.allCases.map({ lvl in
@@ -24,4 +25,23 @@ class AddCourseViewModel : ObservableObject{
     @Published var showFileUpload = false
     @Published var description = ""
     @Published var image : UIImage = UIImage.init(named:"empty") ?? UIImage()
+    @Published var canPass = false
+    @Published var errorMsg = ""
+    @Published var showAlert = false
+    
+    func addCourse(action:@escaping(String,Bool)->Void){
+        if(name.isEmpty || description.isEmpty){
+            action("Some fields aren't filled , please check",false)
+            return
+        }
+        CourseService.addCourse(course: Course(title: name, fields: selectedList.map({ ld in
+            return Fields(rawValue: ld.name)!
+        }), level: list[selection].name, description: description, isPaid: !price.isEmpty, price: Int(price) ?? 0 , isArchived: true), image: image) { passed, statusCode in
+            if(passed == true){
+                action("Course created !",true)
+            }else{
+                action("There was an error",false)
+            }
+        }
+    }
 }
