@@ -57,14 +57,8 @@ struct CourseDetailTrainerView: View {
                     if(selectedTabIndex == 0){
                         ScrollView(.vertical){
                             VStack(spacing: 15) {
-                                ContainerRelativeShape()
-                                    .frame(height: 50)
-                                ContainerRelativeShape()
-                                    .frame(height: 50)
-                                ContainerRelativeShape()
-                                    .frame(height: 50)
-                                ContainerRelativeShape()
-                                    .frame(height: 50)
+                                SectionCardView()
+                                SectionCardView()
                                 
                             }
                         }
