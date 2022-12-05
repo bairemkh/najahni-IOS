@@ -11,13 +11,14 @@ struct WelcomeView: View {
     @StateObject var viewmodel = test()
     @State var text = ""
     var body: some View {
-        Text(text)
-            .onAppear{
-                Task{
-                    let req = await UserService.profile()
-                    text = "req ====> \(req)"
-                }
+        ScrollView {
+            Text(text)
+                .onAppear{
+                    CourseService.getallcourses { isgod, list in
+                        text = "\(list)"
+                    }
             }
+        }
         
     }
 }

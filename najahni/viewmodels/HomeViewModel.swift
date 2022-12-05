@@ -20,7 +20,7 @@ class HomeViewModel : ObservableObject {
             switch res.result {
             case .success(let data):
                 let json = JSON(data)
-                //print(json)
+                print("json --------> \(json)")
                 var courses :[Course]? = []
                 for singleJsonItem in json["courses"]{
                     courses!.append(self.makeItem(jsonItem: singleJsonItem.1))
@@ -28,7 +28,6 @@ class HomeViewModel : ObservableObject {
                 //print(courses)
                 completed(true,courses)
             case .failure(let error):
-                print(error)
                 completed(false,nil)
                 
             }

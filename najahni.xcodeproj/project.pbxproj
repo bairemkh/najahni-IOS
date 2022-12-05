@@ -43,6 +43,8 @@
 		419DF04E29353701004BB54E /* ProfileTrainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */; };
 		419E7C3B2928E023007E7D87 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E7C3A2928E023007E7D87 /* ImagePicker.swift */; };
 		419FAD1B293106FD00FA6A49 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419FAD1A293106FD00FA6A49 /* WishListView.swift */; };
+		41BAA2FD293E504E008FEC06 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FC293E504E008FEC06 /* Section.swift */; };
+		41BAA2FF293E5433008FEC06 /* SectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FE293E5433008FEC06 /* SectionService.swift */; };
 		8741BAB1291E9116002FBDE8 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB0291E9116002FBDE8 /* SignupView.swift */; };
 		8741BAB4291E9557002FBDE8 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */; };
 		8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB7291E9C77002FBDE8 /* Role.swift */; };
@@ -140,6 +142,8 @@
 		419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerViewModel.swift; sourceTree = "<group>"; };
 		419E7C3A2928E023007E7D87 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		419FAD1A293106FD00FA6A49 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
+		41BAA2FC293E504E008FEC06 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		41BAA2FE293E5433008FEC06 /* SectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionService.swift; sourceTree = "<group>"; };
 		8741BAB0291E9116002FBDE8 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		8741BAB7291E9C77002FBDE8 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
@@ -310,6 +314,7 @@
 			children = (
 				41353FAB2923D51500DAA6C5 /* UserService.swift */,
 				87B9266B29369B4000F7A082 /* CourseServices.swift */,
+				41BAA2FE293E5433008FEC06 /* SectionService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				8741BAB6291E9C1B002FBDE8 /* enums */,
 				8743D061291FF61000C1781C /* User.swift */,
 				414248CB292D4CF800D35692 /* Course.swift */,
+				41BAA2FC293E504E008FEC06 /* Section.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -534,6 +540,7 @@
 				879E5C83292BE53400573969 /* CourseDetailView.swift in Sources */,
 				8743D062291FF61000C1781C /* User.swift in Sources */,
 				8743D055291FD9CD00C1781C /* EditProfileView.swift in Sources */,
+				41BAA2FF293E5433008FEC06 /* SectionService.swift in Sources */,
 				879BC95F293B4EF700FA2E44 /* AddCourseViewModel.swift in Sources */,
 				4194EE442929147E001D20D0 /* ProfileTrainerView.swift in Sources */,
 				87A4E85B29229F7200E2A505 /* MultiSelector.swift in Sources */,
@@ -546,6 +553,7 @@
 				8743D057291FDC2200C1781C /* EditAccountViewModel.swift in Sources */,
 				4194EE4629291A4A001D20D0 /* CustomBoxView.swift in Sources */,
 				8741BABE291EC44E002FBDE8 /* HostingTabBarView.swift in Sources */,
+				41BAA2FD293E504E008FEC06 /* Section.swift in Sources */,
 				4194137E293B9D9C00306B28 /* CustomCardCourseView.swift in Sources */,
 				4196FA6E292D33500095AD16 /* CustomCard2View.swift in Sources */,
 				87A4E8612922B30E00E2A505 /* constant.swift in Sources */,
