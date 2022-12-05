@@ -9,10 +9,12 @@ import SwiftUI
 import AVKit
 
 struct VideoPlayerCourseView: View {
-    var course : Course
-    /*@State var player = AVPlayer(url: URL(string:URL_BASE_APP + course.image)!)*/ // 1
+    
+    @State var video: String
+    // 1
        var body: some View {
-              /* VideoPlayer(player: player)
+               VideoPlayer(player: AVPlayer(url: URL(string: URL_BASE_APP + video)!))
+
                    .frame(width: 400,
                           height: 300,
                           alignment: .center)*/
@@ -23,6 +25,6 @@ struct VideoPlayerCourseView: View {
 
 struct VideoPlayerCourseView_Previews: PreviewProvider {
     static var previews: some View {
-        VideoPlayerCourseView(course: CourseFix)
+        VideoPlayerCourseView(video: videofix)
     }
 }

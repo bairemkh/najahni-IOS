@@ -38,10 +38,15 @@
 		419509A82934C4E300E417FF /* googlesigninViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419509A72934C4E300E417FF /* googlesigninViewModel.swift */; };
 		4196FA6E292D33500095AD16 /* CustomCard2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196FA6D292D33500095AD16 /* CustomCard2View.swift */; };
 		419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B350A292BB49200A8EEA1 /* CustomCardView.swift */; };
+		419B69D8293DFBF000B2CF81 /* SectionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B69D7293DFBF000B2CF81 /* SectionCardView.swift */; };
 		419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */; };
 		419DF04E29353701004BB54E /* ProfileTrainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */; };
 		419E7C3B2928E023007E7D87 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E7C3A2928E023007E7D87 /* ImagePicker.swift */; };
 		419FAD1B293106FD00FA6A49 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419FAD1A293106FD00FA6A49 /* WishListView.swift */; };
+		41BAA2FD293E504E008FEC06 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FC293E504E008FEC06 /* Section.swift */; };
+		41BAA2FF293E5433008FEC06 /* SectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FE293E5433008FEC06 /* SectionService.swift */; };
+		41BAA301293E615B008FEC06 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA300293E615B008FEC06 /* Lesson.swift */; };
+		41BAA303293E62A8008FEC06 /* LessonServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA302293E62A8008FEC06 /* LessonServices.swift */; };
 		8741BAB1291E9116002FBDE8 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB0291E9116002FBDE8 /* SignupView.swift */; };
 		8741BAB4291E9557002FBDE8 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */; };
 		8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB7291E9C77002FBDE8 /* Role.swift */; };
@@ -136,10 +141,15 @@
 		419509A72934C4E300E417FF /* googlesigninViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = googlesigninViewModel.swift; sourceTree = "<group>"; };
 		4196FA6D292D33500095AD16 /* CustomCard2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCard2View.swift; sourceTree = "<group>"; };
 		419B350A292BB49200A8EEA1 /* CustomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardView.swift; sourceTree = "<group>"; };
+		419B69D7293DFBF000B2CF81 /* SectionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCardView.swift; sourceTree = "<group>"; };
 		419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardTrainerView.swift; sourceTree = "<group>"; };
 		419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerViewModel.swift; sourceTree = "<group>"; };
 		419E7C3A2928E023007E7D87 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		419FAD1A293106FD00FA6A49 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
+		41BAA2FC293E504E008FEC06 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		41BAA2FE293E5433008FEC06 /* SectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionService.swift; sourceTree = "<group>"; };
+		41BAA300293E615B008FEC06 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		41BAA302293E62A8008FEC06 /* LessonServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonServices.swift; sourceTree = "<group>"; };
 		8741BAB0291E9116002FBDE8 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		8741BAB7291E9C77002FBDE8 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
@@ -313,6 +323,8 @@
 			children = (
 				41353FAB2923D51500DAA6C5 /* UserService.swift */,
 				87B9266B29369B4000F7A082 /* CourseServices.swift */,
+				41BAA2FE293E5433008FEC06 /* SectionService.swift */,
+				41BAA302293E62A8008FEC06 /* LessonServices.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -343,6 +355,8 @@
 				8741BAB6291E9C1B002FBDE8 /* enums */,
 				8743D061291FF61000C1781C /* User.swift */,
 				414248CB292D4CF800D35692 /* Course.swift */,
+				41BAA2FC293E504E008FEC06 /* Section.swift */,
+				41BAA300293E615B008FEC06 /* Lesson.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -375,6 +389,7 @@
 				4194137D293B9D9C00306B28 /* CustomCardCourseView.swift */,
 				4194137F293BA06700306B28 /* ProgressBarView.swift */,
 				41941381293BA90400306B28 /* VideoPlayerCourseView.swift */,
+				419B69D7293DFBF000B2CF81 /* SectionCardView.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -537,6 +552,7 @@
 				879E5C83292BE53400573969 /* CourseDetailView.swift in Sources */,
 				8743D062291FF61000C1781C /* User.swift in Sources */,
 				8743D055291FD9CD00C1781C /* EditProfileView.swift in Sources */,
+				41BAA2FF293E5433008FEC06 /* SectionService.swift in Sources */,
 				879BC95F293B4EF700FA2E44 /* AddCourseViewModel.swift in Sources */,
 				4194EE442929147E001D20D0 /* ProfileTrainerView.swift in Sources */,
 				87A4E85B29229F7200E2A505 /* MultiSelector.swift in Sources */,
@@ -549,6 +565,7 @@
 				8743D057291FDC2200C1781C /* EditAccountViewModel.swift in Sources */,
 				4194EE4629291A4A001D20D0 /* CustomBoxView.swift in Sources */,
 				8741BABE291EC44E002FBDE8 /* HostingTabBarView.swift in Sources */,
+				41BAA2FD293E504E008FEC06 /* Section.swift in Sources */,
 				4194137E293B9D9C00306B28 /* CustomCardCourseView.swift in Sources */,
 				4196FA6E292D33500095AD16 /* CustomCard2View.swift in Sources */,
 				87A4E8612922B30E00E2A505 /* constant.swift in Sources */,
@@ -580,10 +597,13 @@
 				419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */,
 				41941380293BA06700306B28 /* ProgressBarView.swift in Sources */,
 				8741BABC291EA33B002FBDE8 /* Sexe.swift in Sources */,
+				419B69D8293DFBF000B2CF81 /* SectionCardView.swift in Sources */,
+				41BAA301293E615B008FEC06 /* Lesson.swift in Sources */,
 				8741BABA291E9CC0002FBDE8 /* Fields.swift in Sources */,
 				419FAD1B293106FD00FA6A49 /* WishListView.swift in Sources */,
 				28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */,
 				87B21C6E29325A1E000FD964 /* AddCourseView.swift in Sources */,
+				41BAA303293E62A8008FEC06 /* LessonServices.swift in Sources */,
 				28CABB1A29191BC400AED109 /* ContentView.swift in Sources */,
 				419DF04E29353701004BB54E /* ProfileTrainerViewModel.swift in Sources */,
 				8743D05B291FE3FB00C1781C /* ResetPasswordViewModel.swift in Sources */,

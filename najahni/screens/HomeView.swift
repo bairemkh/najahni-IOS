@@ -80,6 +80,7 @@ struct HomeView: View {
                         var filtredCourses = displayedCourses.filter { course in
                             return course.fields.contains(Fields(rawValue: selectionArray[sel].name) ?? Fields.Arts)
                         }
+
                         print(filtredCourses)
                         self.displayedCourses = filtredCourses
                     }
@@ -118,7 +119,7 @@ struct HomeView: View {
             .padding(.horizontal)
         }
         .onAppear{
-            print("\(URL_BASE_APP)\(SessionManager.currentUser?.image ?? "")")
+            
             viewModel.getallcourses { success, result in
                 if success {
                     self.selectionArray = Fields.allCases.map({ f in
