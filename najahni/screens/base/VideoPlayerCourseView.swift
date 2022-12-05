@@ -10,12 +10,13 @@ import AVKit
 
 struct VideoPlayerCourseView: View {
     var course : Course
-    @State var player = AVPlayer(url: URL(string:URL_BASE_APP + course.image)!) // 1
+    /*@State var player = AVPlayer(url: URL(string:URL_BASE_APP + course.image)!)*/ // 1
        var body: some View {
-               VideoPlayer(player: player)
+              /* VideoPlayer(player: player)
                    .frame(width: 400,
                           height: 300,
-                          alignment: .center)
+                          alignment: .center)*/
+           Text("ff")
          
        }
 }
