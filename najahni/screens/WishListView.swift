@@ -32,9 +32,14 @@ struct WishListView: View {
             }
             
         }
+        .navigationTitle(Text("title"))
         .alert(isPresented: $showAlert) {
                 
-            Alert(title: Text("Confirm"), primaryButton: .destructive(Text("Delete")), secondaryButton: .cancel (Text("Cancel")))
+            Alert(title: Text("Confirm"), primaryButton: .destructive(Text("Delete")){
+                onDelete = true
+            }, secondaryButton: .cancel (Text("Cancel")){
+                onDelete = false
+            })
         }
         .onAppear(){
             let list = SessionManager.getWishlist()

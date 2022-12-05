@@ -14,6 +14,7 @@ struct HostingTabBarView: View {
         case home
         case courses
         case cart
+        case wish
         case profile
     }
     
@@ -21,57 +22,61 @@ struct HostingTabBarView: View {
     @State private var role : String = ""
     
     var body: some View {
-        VStack(){
-            TabView(selection: $selectedTab) {
-                HomeView()
-                    .tag(0)
-                    .tabItem {
-                        Text("Home")
-                        Image(systemName: "house.fill")
-                    }
-                CoursesView()
-                    .tag(1)
-                    .tabItem {
-                        Text("My courses")
-                        Image(systemName: "list.clipboard.fill")
-                    }
-                CartView()
-                    .tag(2)
-                    .tabItem {
-                        Text("Cart")
-                        Image(systemName: "cart.fill")
-                    }
+        NavigationView {
+            VStack{
                 
-                
-                WishListView()
-                    .tag(3)
-                    .tabItem {
-                        Text("wish")
-                        Image(systemName: "heart.fill")
-                    }
-                if (role == "Student"){
-                    
-                    
-                    ProfileView()
-                        .tag(4)
-                        .tabItem {
-                            Text("Profile")
-                            Image(systemName: "person.fill")
+                    TabView(selection: $selectedTab) {
+                        HomeView()
+                            .tag(0)
+                            .tabItem {
+                                Text("Home")
+                                Image(systemName: "house.fill")
+                            }
+                        CoursesView()
+                            .tag(1)
+                            .tabItem {
+                                Text("My courses")
+                                Image(systemName: "list.clipboard.fill")
+                            }
+                        CartView()
+                            .tag(2)
+                            .tabItem {
+                                Text("Cart")
+                                Image(systemName: "cart.fill")
+                            }
+                        
+                        
+                        WishListView()
+                            .tag(3)
+                            .tabItem {
+                                Text("wish")
+                                Image(systemName: "heart.fill")
+                            }
+                        if (role == "Student"){
                             
-                        }
-                } else if (role == "Trainer"){
-                //} else{
-                            ProfileTrainerView()
+                            
+                            ProfileView()
                                 .tag(4)
                                 .tabItem {
                                     Text("Profile")
                                     Image(systemName: "person.fill")
+                                    
                                 }
-                        }
-                    
-                    
-                }.accentColor(Color(red: 0.356, green: 0.315, blue: 0.848))
-            }
+                        } else if (role == "Trainer"){
+                        //} else{
+                                    ProfileTrainerView()
+                                        .tag(4)
+                                        .tabItem {
+                                            Text("Profile")
+                                            Image(systemName: "person.fill")
+                                        }
+                                }
+                            
+                            
+                        }.accentColor(Color(red: 0.356, green: 0.315, blue: 0.848))
+                    }
+            
+        }
             .navigationBarHidden(true)
             
             .onAppear{

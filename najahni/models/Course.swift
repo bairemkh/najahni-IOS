@@ -7,16 +7,17 @@
 
 import Foundation
 struct Course  : Identifiable{
-    let id, title: String
-    let fields: [Fields]
-    let level, description: String
-    let isPaid: Bool
-    let image: String
-    let price: Int
-    let idowner: User?
-    let isArchived: Bool
+    let id: String
+    var title: String
+    var fields: [Fields]
+    var level, description: String
+    var isPaid: Bool
+    var image: String
+    var price: Int
+    var idowner: User?
+    var isArchived: Bool
     //let students:[User]
-    let createdAt, updatedAt: String
+    var createdAt, updatedAt: String
     
     
     
