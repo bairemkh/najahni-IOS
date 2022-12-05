@@ -9,28 +9,40 @@ import SwiftUI
 
 struct WishListView: View {
     @State var wishlist : [Course] = []
+    @State var showAlert = false
+    @State var onDelete = false
     var body: some View {
         NavigationView {
-            
             if #available(iOS 16.0, *) {
                 List{
                     ForEach(wishlist) { course in
                         WishListCard(course: course)
                     }.onDelete { io in
-                        wishlist.remove(atOffsets: io)
-                        UserDefaults.standard.removeObject(forKey: WISHLIST)
-                        UserDefaults.standard.set(wishlist.map({ c in
-                            return c.id
-                        }), forKey: WISHLIST)
+                        showAlert = true
+                        if(onDelete){
+                            wishlist.remove(atOffsets: io)
+                            UserDefaults.standard.removeObject(forKey: WISHLIST)
+                            UserDefaults.standard.set(wishlist.map({ c in
+                                return c.id
+                            }), forKey: WISHLIST)
+                        }
                     }
                 }.scrollContentBackground(.hidden)
             } else {
-                // Fallback on earlier versions
             }
             
-            
-        }.onAppear(){
-            var list = SessionManager.getWishlist()
+        }
+        .navigationTitle(Text("title"))
+        .alert(isPresented: $showAlert) {
+                
+            Alert(title: Text("Confirm"), primaryButton: .destructive(Text("Delete")){
+                onDelete = true
+            }, secondaryButton: .cancel (Text("Cancel")){
+                onDelete = false
+            })
+        }
+        .onAppear(){
+            let list = SessionManager.getWishlist()
             CourseService.getallcourses { isGood, listOfCourses in
                 if(isGood){
                     wishlist = listOfCourses?.filter({ course in

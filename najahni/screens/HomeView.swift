@@ -17,14 +17,15 @@ struct HomeView: View {
     @Namespace private var ns
     @State var text = ""
     @State var courses : [Course] = []
+    @State var displayedCourses : [Course] = []
     @StateObject var viewModel = HomeViewModel()
     var body: some View {
         ScrollView (showsIndicators: false){
             VStack(alignment: .leading){
                 HStack{
                     VStack{
-                        Text("\(SessionManager.currentUser?.role.rawValue ?? "Role")")
-                        Text("\(SessionManager.currentUser?.firstname ?? "User")")
+                        Text("\(SessionManager.currentUser?.firstname ?? "First name")")
+                        Text("\(SessionManager.currentUser?.lastname ?? "Last name")")
                     }
                     Spacer()
                     Image(systemName: "bell")
@@ -51,7 +52,16 @@ struct HomeView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Image(systemName: "magnifyingglass")
-                        TextField("Search any course ...", text: $text)
+                        TextField("Search any course ...", text: $text).onChange(of: text) { newValue in
+                                var filtredCourses = displayedCourses.filter { course in
+                                    return course.title.contains(newValue)
+                                }
+                                if(newValue.isEmpty){
+                                    displayedCourses = courses
+                                }else{
+                                    displayedCourses = filtredCourses
+                                }
+                        }
                         
                     }.padding(10)
                     
@@ -62,19 +72,17 @@ struct HomeView: View {
                     
                 }
                 CustomSelectionView(list: $selectionArray,itemSelected: selectedFilter){ sel in
+                    displayedCourses = courses
                     if sel == 0 {
-                        viewModel.getallcourses { success, result in
-                            if success {
-                                self.courses = []
-                                self.courses.append(contentsOf: result!)
-                            }
-                        }
+                        displayedCourses = courses
                     }else
                     {
-                        var filtredCourses = courses.filter { course in
+                        var filtredCourses = displayedCourses.filter { course in
                             return course.fields.contains(Fields(rawValue: selectionArray[sel].name) ?? Fields.Arts)
                         }
-                        self.courses = filtredCourses
+
+                        print(filtredCourses)
+                        self.displayedCourses = filtredCourses
                     }
                 }
                 Text("Recommanded")
@@ -96,7 +104,7 @@ struct HomeView: View {
                     .fontWeight(.black).padding(.all)
                 VStack{
                     ScrollView(.vertical,showsIndicators: false) {
-                        ForEach(courses) { course in
+                        ForEach(displayedCourses) { course in
                             NavigationLink{
                                 CourseDetailView(course: course)
                             } label: {
@@ -120,6 +128,7 @@ struct HomeView: View {
                     self.selectionArray.insert(ListData(name: "All"), at: 0)
                     self.courses = []
                     self.courses.append(contentsOf: result!)
+                    self.displayedCourses = courses
                 }
                 
             }

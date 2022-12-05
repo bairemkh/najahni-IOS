@@ -66,6 +66,7 @@ class CourseService {
         }), level: jsonItem["level"].stringValue, description: jsonItem["description"].stringValue, isPaid: jsonItem["isPaid"].boolValue, image: jsonItem["image"].stringValue, price: jsonItem["price"].intValue, idowner: UserService.makeItem(jsonItem: jsonItem["idowner"]), isArchived: jsonItem["isArchived"].boolValue, createdAt: jsonItem["createdAt"].stringValue, updatedAt: jsonItem["updatedAt"].stringValue, sections: jsonItem["sections"].arrayValue.map({ json in
             return SectionService.makeItem(jsonItem: json)
         }))
+
     }
     
     static func addCourse(course : Course , image :UIImage , completed:@escaping(Bool,Int)->Void){
