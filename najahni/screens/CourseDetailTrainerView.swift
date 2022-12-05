@@ -55,11 +55,10 @@ struct CourseDetailTrainerView: View {
                 VStack(alignment: .leading) {
                     SlidingTabView(selection: self.$selectedTabIndex, tabs: ["Lessons", "Reviews"],activeAccentColor: Color("primaryColor"),selectionBarColor: Color("primaryColor"))
                     if(selectedTabIndex == 0){
-                        ScrollView(.vertical){
-                            VStack(spacing: 15) {
-                                SectionCardView()
-                                SectionCardView()
-                                
+                        ScrollView(.vertical,showsIndicators: false) {
+                            ForEach(course.sections) { section in
+                                SectionCardView(section: section)
+                            
                             }
                         }
                     }else{

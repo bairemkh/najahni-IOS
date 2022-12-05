@@ -13,7 +13,7 @@ struct VideoPlayerCourseView: View {
     @State var video: String
     // 1
        var body: some View {
-               VideoPlayer(player: AVPlayer(url: URL(string: video)!))
+               VideoPlayer(player: AVPlayer(url: URL(string: URL_BASE_APP + video)!))
                    .frame(width: 400,
                           height: 300,
                           alignment: .center)

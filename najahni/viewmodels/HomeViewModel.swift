@@ -11,26 +11,11 @@ import SwiftyJSON
 
 class HomeViewModel : ObservableObject {
     var userViewModel = LoginViewModel()
+    
     func getallcourses (completed: @escaping (Bool,[Course]?)-> Void) {
 
-        AF.request(ALL_COURSE,
-                   method: .get)
-        .responseJSON{
-            (res) in
-            switch res.result {
-            case .success(let data):
-                let json = JSON(data)
-                print("json --------> \(json)")
-                var courses :[Course]? = []
-                for singleJsonItem in json["courses"]{
-                    courses!.append(self.makeItem(jsonItem: singleJsonItem.1))
-                }
-                //print(courses)
-                completed(true,courses)
-            case .failure(let error):
-                completed(false,nil)
-                
-            }
+        CourseService.getallcourses { ok, list in
+            completed(ok,list)
         }
     }
 

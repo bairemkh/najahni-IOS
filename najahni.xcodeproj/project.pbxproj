@@ -45,6 +45,8 @@
 		419FAD1B293106FD00FA6A49 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419FAD1A293106FD00FA6A49 /* WishListView.swift */; };
 		41BAA2FD293E504E008FEC06 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FC293E504E008FEC06 /* Section.swift */; };
 		41BAA2FF293E5433008FEC06 /* SectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FE293E5433008FEC06 /* SectionService.swift */; };
+		41BAA301293E615B008FEC06 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA300293E615B008FEC06 /* Lesson.swift */; };
+		41BAA303293E62A8008FEC06 /* LessonServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA302293E62A8008FEC06 /* LessonServices.swift */; };
 		8741BAB1291E9116002FBDE8 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB0291E9116002FBDE8 /* SignupView.swift */; };
 		8741BAB4291E9557002FBDE8 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */; };
 		8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB7291E9C77002FBDE8 /* Role.swift */; };
@@ -144,6 +146,8 @@
 		419FAD1A293106FD00FA6A49 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		41BAA2FC293E504E008FEC06 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		41BAA2FE293E5433008FEC06 /* SectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionService.swift; sourceTree = "<group>"; };
+		41BAA300293E615B008FEC06 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		41BAA302293E62A8008FEC06 /* LessonServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonServices.swift; sourceTree = "<group>"; };
 		8741BAB0291E9116002FBDE8 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		8741BAB7291E9C77002FBDE8 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
@@ -315,6 +319,7 @@
 				41353FAB2923D51500DAA6C5 /* UserService.swift */,
 				87B9266B29369B4000F7A082 /* CourseServices.swift */,
 				41BAA2FE293E5433008FEC06 /* SectionService.swift */,
+				41BAA302293E62A8008FEC06 /* LessonServices.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				8743D061291FF61000C1781C /* User.swift */,
 				414248CB292D4CF800D35692 /* Course.swift */,
 				41BAA2FC293E504E008FEC06 /* Section.swift */,
+				41BAA300293E615B008FEC06 /* Lesson.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -584,10 +590,12 @@
 				41941380293BA06700306B28 /* ProgressBarView.swift in Sources */,
 				8741BABC291EA33B002FBDE8 /* Sexe.swift in Sources */,
 				419B69D8293DFBF000B2CF81 /* SectionCardView.swift in Sources */,
+				41BAA301293E615B008FEC06 /* Lesson.swift in Sources */,
 				8741BABA291E9CC0002FBDE8 /* Fields.swift in Sources */,
 				419FAD1B293106FD00FA6A49 /* WishListView.swift in Sources */,
 				28F322E92919C6FC004DC8C9 /* VerificationView.swift in Sources */,
 				87B21C6E29325A1E000FD964 /* AddCourseView.swift in Sources */,
+				41BAA303293E62A8008FEC06 /* LessonServices.swift in Sources */,
 				28CABB1A29191BC400AED109 /* ContentView.swift in Sources */,
 				419DF04E29353701004BB54E /* ProfileTrainerViewModel.swift in Sources */,
 				8743D05B291FE3FB00C1781C /* ResetPasswordViewModel.swift in Sources */,
