@@ -79,12 +79,20 @@ struct CourseDetailView: View {
                         .multilineTextAlignment(.leading)
                     .font(.system(size: 23))
                     Spacer()
-                    Text(" Free")
-                        .foregroundColor(Color("secondaryColor"))
-                        .multilineTextAlignment(.leading)
-                    .font(.system(size: 20))
-                    Spacer()
-                        .frame(width: 30)
+                    if(course.isPaid){
+                        Text("\(course.price) TND")
+                            .foregroundColor(Color("secondaryColor"))
+                            .multilineTextAlignment(.leading)
+                        .font(.system(size: 20))
+                        
+                    }else{
+                        Text("Free")
+                            .foregroundColor(Color("secondaryColor"))
+                            .multilineTextAlignment(.leading)
+                        .font(.system(size: 20))
+                        Spacer()
+                            .frame(width: 30)
+                    }
                 }
                 Spacer()
                 HStack {
@@ -114,17 +122,40 @@ struct CourseDetailView: View {
                         ContainerRelativeShape()
                             .frame(height: 50)
                     }
-                    Button(action: {
+                    if(course.isPaid == true){
+                        Button(action: {
+                            var cart = SessionManager.getCart()
+                            
+                                if(!cart.contains(where: { c in
+                                    return c.elementsEqual(self.course.id)
+                                })){
+                                    cart.append(self.course.id)
+                                    UserDefaults.standard.removeObject(forKey: CART)
+                                    UserDefaults.standard.set(cart, forKey: CART)
+                                }
+                            
+                        }) {
+                            Text("Add to cart")
+                                  .foregroundColor(Color.white)
+                                  .multilineTextAlignment(.center)
+                                  .frame(width: 300.0,height: 60.0)
+                                  .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
+                                  .cornerRadius(25)
+                        }
+                    }else{
+                        Button(action: {
 
-                        viewModel.enrollNow(id: course.id)
-                    }) {
-                        Text("Enroll now")
-                              .foregroundColor(Color.white)
-                              .multilineTextAlignment(.center)
-                              .frame(width: 300.0,height: 60.0)
-                              .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
-                              .cornerRadius(25)
+                            viewModel.enrollNow(id: course.id)
+                        }) {
+                            Text("Enroll now")
+                                  .foregroundColor(Color.white)
+                                  .multilineTextAlignment(.center)
+                                  .frame(width: 300.0,height: 60.0)
+                                  .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
+                                  .cornerRadius(25)
+                        }
                     }
+
                 }
                 
                 

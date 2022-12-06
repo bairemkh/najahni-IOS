@@ -22,10 +22,9 @@ struct HostingTabBarView: View {
     @State private var role : String = ""
     
     var body: some View {
-        NavigationView {
-            VStack{
-                
-                    TabView(selection: $selectedTab) {
+
+            
+                    TabView {
                         HomeView()
                             .tag(0)
                             .tabItem {
@@ -74,9 +73,9 @@ struct HostingTabBarView: View {
                             
                             
                         }.accentColor(Color(red: 0.356, green: 0.315, blue: 0.848))
-                    }
+                    
             
-        }
+        
             .navigationBarHidden(true)
             
             .onAppear{

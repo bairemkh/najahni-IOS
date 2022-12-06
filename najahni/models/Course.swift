@@ -19,6 +19,7 @@ struct Course  : Identifiable{
     //let students:[User]
     let createdAt, updatedAt: String
     var sections:[Section] = []
+    var comments:[Comment] = []
     
     
     
@@ -50,6 +51,22 @@ struct Course  : Identifiable{
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.sections = sections
+    }
+    init(id: String, title: String, fields: [Fields], level: String, description: String, isPaid: Bool, image: String, price: Int, idowner: User, isArchived: Bool, createdAt: String, updatedAt: String,sections:[Section],comments:[Comment]) {
+        self.id = id
+        self.title = title
+        self.fields = fields
+        self.level = level
+        self.description = description
+        self.isPaid = isPaid
+        self.image = image
+        self.price = price
+        self.idowner = idowner
+        self.isArchived = isArchived
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+        self.sections = sections
+        self.comments = comments
     }
 
     init(title: String, fields: [Fields], level: String, description: String, isPaid: Bool, price: Int, isArchived: Bool) {

@@ -22,6 +22,8 @@ struct HomeView: View {
     var body: some View {
         ScrollView (showsIndicators: false){
             VStack(alignment: .leading){
+
+                
                 HStack{
                     VStack{
                         Text("\(SessionManager.currentUser?.firstname ?? "First name")")
@@ -47,20 +49,18 @@ struct HomeView: View {
                                 .fill)
                     
                 }
-                
-                
                 VStack(alignment: .leading) {
                     HStack {
                         Image(systemName: "magnifyingglass")
                         TextField("Search any course ...", text: $text).onChange(of: text) { newValue in
-                                var filtredCourses = displayedCourses.filter { course in
-                                    return course.title.contains(newValue)
-                                }
-                                if(newValue.isEmpty){
-                                    displayedCourses = courses
-                                }else{
-                                    displayedCourses = filtredCourses
-                                }
+                            var filtredCourses = displayedCourses.filter { course in
+                                return course.title.contains(newValue)
+                            }
+                            if(newValue.isEmpty){
+                                displayedCourses = courses
+                            }else{
+                                displayedCourses = filtredCourses
+                            }
                         }
                         
                     }.padding(10)
@@ -80,7 +80,7 @@ struct HomeView: View {
                         var filtredCourses = displayedCourses.filter { course in
                             return course.fields.contains(Fields(rawValue: selectionArray[sel].name) ?? Fields.Arts)
                         }
-
+                        
                         print(filtredCourses)
                         self.displayedCourses = filtredCourses
                     }
@@ -90,13 +90,13 @@ struct HomeView: View {
                     .foregroundColor(Color("primaryColor"))
                     .fontWeight(.black)
                 
-                    ScrollView(.horizontal,showsIndicators: false) {
-                        ForEach(courses) {item in
-                           // CustomCardView(course: item)
-                            
-                            }
+                ScrollView(.horizontal,showsIndicators: false) {
+                    ForEach(courses) {item in
+                        // CustomCardView(course: item)
+                        
                     }
-                    
+                }
+                
                 
                 //print("s",courses.count)
                 Text("Courses").font(.title2)
@@ -118,6 +118,8 @@ struct HomeView: View {
             }
             .padding(.horizontal)
         }
+    
+        
         .onAppear{
             
             viewModel.getallcourses { success, result in

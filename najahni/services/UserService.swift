@@ -164,7 +164,7 @@ class UserService {
                 lastname: jsonItem["lastname"].stringValue,
                 email: jsonItem["email"].stringValue,
                 password: jsonItem["password"].stringValue,
-                role: try Role(rawValue: jsonItem["role"].stringValue)!,
+                role:  try Role(rawValue: jsonItem["role"].stringValue)!,
                 fields: jsonItem["fields"].arrayValue.map({ json in
                     return Fields(rawValue: json.stringValue)!
                 }),
