@@ -39,6 +39,7 @@
 		4196FA6E292D33500095AD16 /* CustomCard2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196FA6D292D33500095AD16 /* CustomCard2View.swift */; };
 		419937C1293FAD0000A0516A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419937C0293FAD0000A0516A /* Comment.swift */; };
 		419937C3293FAE1A00A0516A /* CommentServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419937C2293FAE1A00A0516A /* CommentServices.swift */; };
+		419937C7293FC94B00A0516A /* CommentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419937C6293FC94B00A0516A /* CommentCardView.swift */; };
 		419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B350A292BB49200A8EEA1 /* CustomCardView.swift */; };
 		419B69D8293DFBF000B2CF81 /* SectionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B69D7293DFBF000B2CF81 /* SectionCardView.swift */; };
 		419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */; };
@@ -144,6 +145,7 @@
 		4196FA6D292D33500095AD16 /* CustomCard2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCard2View.swift; sourceTree = "<group>"; };
 		419937C0293FAD0000A0516A /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		419937C2293FAE1A00A0516A /* CommentServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentServices.swift; sourceTree = "<group>"; };
+		419937C6293FC94B00A0516A /* CommentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCardView.swift; sourceTree = "<group>"; };
 		419B350A292BB49200A8EEA1 /* CustomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardView.swift; sourceTree = "<group>"; };
 		419B69D7293DFBF000B2CF81 /* SectionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCardView.swift; sourceTree = "<group>"; };
 		419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardTrainerView.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				4194137F293BA06700306B28 /* ProgressBarView.swift */,
 				41941381293BA90400306B28 /* VideoPlayerCourseView.swift */,
 				419B69D7293DFBF000B2CF81 /* SectionCardView.swift */,
+				419937C6293FC94B00A0516A /* CommentCardView.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				28793957291970D300778A5B /* SplashView.swift in Sources */,
 				8743D060291FE5F800C1781C /* LoginViewModel.swift in Sources */,
 				87AD691E293E6656000F0A88 /* EditCourseView.swift in Sources */,
+				419937C7293FC94B00A0516A /* CommentCardView.swift in Sources */,
 				87B21C7029326353000FD964 /* Level.swift in Sources */,
 				419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */,
 				419937C1293FAD0000A0516A /* Comment.swift in Sources */,

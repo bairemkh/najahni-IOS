@@ -62,12 +62,13 @@ struct CourseDetailTrainerView: View {
                             }
                         }
                     }else{
-                        ContainerRelativeShape()
-                            .frame(height: 50)
-                        ContainerRelativeShape()
-                            .frame(height: 50)
-                        ContainerRelativeShape()
-                            .frame(height: 50)
+                        ScrollView(.vertical,showsIndicators: false) {
+                            ForEach(course.comments) { comment in
+                                CommentCardView(comment: comment)
+                                    .padding(.all)
+                            
+                            }
+                        }
                     }
                 }
           
