@@ -20,7 +20,7 @@ struct ProfileView: View {
 
     var username = UserDefaults.standard.string(forKey: "token")
     var body: some View {
-    NavigationView(){
+   // NavigationView(){
         VStack(alignment: .center){
             ScrollView(.vertical){
                 Spacer()
@@ -140,7 +140,7 @@ struct ProfileView: View {
             
             
         }
-    }
+    //}
           
             .navigationTitle(
                 Text("Profile")

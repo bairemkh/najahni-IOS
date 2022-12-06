@@ -61,13 +61,17 @@ class CourseService {
     }
     
     static func makeItem(jsonItem: JSON) -> Course {
-        return Course(id: jsonItem["_id"].stringValue, title: jsonItem["title"].stringValue, fields: jsonItem["fields"].arrayValue.map({ json in
-            return Fields(rawValue: json.stringValue)!
-        }), level: jsonItem["level"].stringValue, description: jsonItem["description"].stringValue, isPaid: jsonItem["isPaid"].boolValue, image: jsonItem["image"].stringValue, price: jsonItem["price"].intValue, idowner: UserService.makeItem(jsonItem: jsonItem["idowner"]), isArchived: jsonItem["isArchived"].boolValue, createdAt: jsonItem["createdAt"].stringValue, updatedAt: jsonItem["updatedAt"].stringValue, sections: jsonItem["sections"].arrayValue.map({ json in
-            return SectionService.makeItem(jsonItem: json)
-        }))
-
-    }
+        do{
+            return try Course(id: jsonItem["_id"].stringValue, title: jsonItem["title"].stringValue, fields: jsonItem["fields"].arrayValue.map({ json in
+                return Fields(rawValue: json.stringValue)!
+            }), level: jsonItem["level"].stringValue, description: jsonItem["description"].stringValue, isPaid: jsonItem["isPaid"].boolValue, image: jsonItem["image"].stringValue, price: jsonItem["price"].intValue, idowner: UserService.makeItem(jsonItem: jsonItem["idowner"]), isArchived: jsonItem["isArchived"].boolValue, createdAt: jsonItem["createdAt"].stringValue, updatedAt: jsonItem["updatedAt"].stringValue, sections: jsonItem["sections"].arrayValue.map({ json in
+                return SectionService.makeItem(jsonItem: json)
+            }))
+        }catch{
+           print(error)
+            return CourseFix
+        }
+   }
     
     static func addCourse(course : Course , image :UIImage , completed:@escaping(Bool,Int)->Void){
         let token = UserDefaults.standard.string(forKey: "token")
