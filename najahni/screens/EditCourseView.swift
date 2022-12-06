@@ -17,9 +17,18 @@ struct EditCourseView: View {
                                     self.presentationMode.wrappedValue.dismiss()
                                 }
                             Spacer()
+                            NavigationLink {
+                                EditSectionsView(sections: course.sections)
+                            } label: {
+                                Text("Edit sections")
+                                    .fontWeight(.black)
+                                    .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
+                                    .multilineTextAlignment(.leading)
+                            }
+
                         }
                         HStack {
-                            Text("Create a new Course")
+                            Text("let's modify the Course")
                                 .fontWeight(.black)
                                 .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                                 .multilineTextAlignment(.leading)
@@ -84,14 +93,21 @@ struct EditCourseView: View {
                             .shadow(color: Color.gray, radius: 3)
                             .lineLimit(/*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)
                             .frame(height: 100)
-                        Button(action: {}) {
-                            Text("Next")
+                        Button(action: {
+                            viewmodel.updateCourse { message, canPass in
+                                viewmodel.showAlert = true
+                                viewmodel.errorMsg = message
+                            }
+                        }) {
+                            Text("Modify")
                                 .foregroundColor(Color.white)
                                 .frame(width: 300.0,height: 60.0)
                                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
                                     .cornerRadius(25)
                         }
-                        
+                        .alert(isPresented: $viewmodel.showAlert){
+                            Alert(title: Text ("Alert") , message: Text(viewmodel.errorMsg), dismissButton: .default(Text("close")))
+                        }
                         
                         //
                         

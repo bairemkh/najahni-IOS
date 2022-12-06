@@ -79,7 +79,11 @@ struct CourseDetailTrainerView: View {
             Text("Detail"),
             displayMode: .inline
           )
-        .navigationBarItems(trailing: Text("Edit"))
+        .navigationBarItems(trailing: NavigationLink {
+            EditCourseView(course: course)
+        }label: {
+            Text("Edit")
+        })
     //.navigationBarTitleDisplayMode(.inline)
     }
 }
