@@ -16,4 +16,10 @@ struct Lesson :Identifiable{
         self.sectionid = sectionid
         self.video = video
     }
+    init(title: String, sectionid: String,video: String) {
+        self.id = ""
+        self.title = title
+        self.sectionid = sectionid
+        self.video = video
+    }
 }
