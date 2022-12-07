@@ -37,6 +37,11 @@
 		419509A52934BFD400E417FF /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 419509A42934BFD400E417FF /* GoogleSignInSwift */; };
 		419509A82934C4E300E417FF /* googlesigninViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419509A72934C4E300E417FF /* googlesigninViewModel.swift */; };
 		4196FA6E292D33500095AD16 /* CustomCard2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196FA6D292D33500095AD16 /* CustomCard2View.swift */; };
+		419937C1293FAD0000A0516A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419937C0293FAD0000A0516A /* Comment.swift */; };
+		419937C3293FAE1A00A0516A /* CommentServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419937C2293FAE1A00A0516A /* CommentServices.swift */; };
+		419937C7293FC94B00A0516A /* CommentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419937C6293FC94B00A0516A /* CommentCardView.swift */; };
+		419937CA293FDEED00A0516A /* ExpandableText in Frameworks */ = {isa = PBXBuildFile; productRef = 419937C9293FDEED00A0516A /* ExpandableText */; };
+		419937CC293FF07C00A0516A /* CustomCardCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419937CB293FF07C00A0516A /* CustomCardCartView.swift */; };
 		419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B350A292BB49200A8EEA1 /* CustomCardView.swift */; };
 		419B69D8293DFBF000B2CF81 /* SectionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B69D7293DFBF000B2CF81 /* SectionCardView.swift */; };
 		419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */; };
@@ -143,6 +148,10 @@
 		419509A62934C2EC00E417FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		419509A72934C4E300E417FF /* googlesigninViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = googlesigninViewModel.swift; sourceTree = "<group>"; };
 		4196FA6D292D33500095AD16 /* CustomCard2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCard2View.swift; sourceTree = "<group>"; };
+		419937C0293FAD0000A0516A /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		419937C2293FAE1A00A0516A /* CommentServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentServices.swift; sourceTree = "<group>"; };
+		419937C6293FC94B00A0516A /* CommentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCardView.swift; sourceTree = "<group>"; };
+		419937CB293FF07C00A0516A /* CustomCardCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardCartView.swift; sourceTree = "<group>"; };
 		419B350A292BB49200A8EEA1 /* CustomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardView.swift; sourceTree = "<group>"; };
 		419B69D7293DFBF000B2CF81 /* SectionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCardView.swift; sourceTree = "<group>"; };
 		419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardTrainerView.swift; sourceTree = "<group>"; };
@@ -202,6 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				419937CA293FDEED00A0516A /* ExpandableText in Frameworks */,
 				419495FE293702DE00349A24 /* SlidingTabView in Frameworks */,
 				419509A52934BFD400E417FF /* GoogleSignInSwift in Frameworks */,
 				87C5CB192923C5050049814E /* SDWebImageSwiftUI in Frameworks */,
@@ -332,6 +342,7 @@
 				87B9266B29369B4000F7A082 /* CourseServices.swift */,
 				41BAA2FE293E5433008FEC06 /* SectionService.swift */,
 				41BAA302293E62A8008FEC06 /* LessonServices.swift */,
+				419937C2293FAE1A00A0516A /* CommentServices.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -366,6 +377,7 @@
 				414248CB292D4CF800D35692 /* Course.swift */,
 				41BAA2FC293E504E008FEC06 /* Section.swift */,
 				41BAA300293E615B008FEC06 /* Lesson.swift */,
+				419937C0293FAD0000A0516A /* Comment.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -399,6 +411,8 @@
 				4194137F293BA06700306B28 /* ProgressBarView.swift */,
 				41941381293BA90400306B28 /* VideoPlayerCourseView.swift */,
 				419B69D7293DFBF000B2CF81 /* SectionCardView.swift */,
+				419937C6293FC94B00A0516A /* CommentCardView.swift */,
+				419937CB293FF07C00A0516A /* CustomCardCartView.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -436,6 +450,7 @@
 				419509A22934BFD400E417FF /* GoogleSignIn */,
 				419509A42934BFD400E417FF /* GoogleSignInSwift */,
 				419495FD293702DE00349A24 /* SlidingTabView */,
+				419937C9293FDEED00A0516A /* ExpandableText */,
 			);
 			productName = najahni;
 			productReference = 28CABB1429191BC400AED109 /* najahni.app */;
@@ -515,6 +530,7 @@
 				87C5CB172923C5050049814E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				419509A12934BFD400E417FF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				419495FC293702DE00349A24 /* XCRemoteSwiftPackageReference "SlidingTabView" */,
+				419937C8293FDEED00A0516A /* XCRemoteSwiftPackageReference "ExpandableText" */,
 			);
 			productRefGroup = 28CABB1529191BC400AED109 /* Products */;
 			projectDirPath = "";
@@ -568,6 +584,7 @@
 				87A4E85B29229F7200E2A505 /* MultiSelector.swift in Sources */,
 				419E7C3B2928E023007E7D87 /* ImagePicker.swift in Sources */,
 				8741BAC4291EC4FD002FBDE8 /* CartView.swift in Sources */,
+				419937CC293FF07C00A0516A /* CustomCardCartView.swift in Sources */,
 				419509A82934C4E300E417FF /* googlesigninViewModel.swift in Sources */,
 				28CABB2129191BC500AED109 /* Persistence.swift in Sources */,
 				87A371D82930F6E500685486 /* customTextField.swift in Sources */,
@@ -594,14 +611,17 @@
 				87A5AEDB2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift in Sources */,
 				28CABB2429191BC500AED109 /* najahni.xcdatamodeld in Sources */,
 				87425FAF2934CF0A000961E2 /* NewSectionView.swift in Sources */,
+				419937C3293FAE1A00A0516A /* CommentServices.swift in Sources */,
 				879B2F9F2927A68B00249774 /* ForgetPasswordViewModel.swift in Sources */,
 				414248CE292D4D8F00D35692 /* HomeViewModel.swift in Sources */,
 				87B9266E2936AA5B00F7A082 /* WishListCard.swift in Sources */,
 				28793957291970D300778A5B /* SplashView.swift in Sources */,
 				8743D060291FE5F800C1781C /* LoginViewModel.swift in Sources */,
 				87AD691E293E6656000F0A88 /* EditCourseView.swift in Sources */,
+				419937C7293FC94B00A0516A /* CommentCardView.swift in Sources */,
 				87B21C7029326353000FD964 /* Level.swift in Sources */,
 				419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */,
+				419937C1293FAD0000A0516A /* Comment.swift in Sources */,
 				419495FB2937025300349A24 /* SlidingTabCustomView.swift in Sources */,
 				87AA86002922354F009536CA /* ChangePasswordView.swift in Sources */,
 				419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */,
@@ -994,6 +1014,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		419937C8293FDEED00A0516A /* XCRemoteSwiftPackageReference "ExpandableText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NuPlay/ExpandableText";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		8743D05C291FE49300C1781C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1035,6 +1063,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 419509A12934BFD400E417FF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		419937C9293FDEED00A0516A /* ExpandableText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 419937C8293FDEED00A0516A /* XCRemoteSwiftPackageReference "ExpandableText" */;
+			productName = ExpandableText;
 		};
 		8743D05D291FE49300C1781C /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

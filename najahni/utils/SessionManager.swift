@@ -34,4 +34,7 @@ final class SessionManager: ObservableObject {
     static func getWishlist() -> [String] {
         return UserDefaults.standard.object(forKey: WISHLIST) as! [String]
     }
+    static func getCart() -> [String] {
+        return UserDefaults.standard.object(forKey: CART) as! [String]
+    }
 }

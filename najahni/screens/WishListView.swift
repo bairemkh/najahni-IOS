@@ -12,11 +12,19 @@ struct WishListView: View {
     @State var showAlert = false
     @State var onDelete = false
     var body: some View {
-        NavigationView {
+        VStack {
             if #available(iOS 16.0, *) {
                 List{
                     ForEach(wishlist) { course in
                         WishListCard(course: course)
+                            .alert(isPresented: $showAlert) {
+                                    
+                                Alert(title: Text("Confirm"), primaryButton: .destructive(Text("Delete")){
+                                    onDelete = true
+                                }, secondaryButton: .cancel (Text("Cancel")){
+                                    onDelete = false
+                                })
+                            }
                     }.onDelete { io in
                         showAlert = true
                         if(onDelete){
@@ -27,12 +35,13 @@ struct WishListView: View {
                             }), forKey: WISHLIST)
                         }
                     }
+                    
                 }.scrollContentBackground(.hidden)
             } else {
             }
             
         }
-        .navigationTitle(Text("title"))
+        //.navigationTitle(Text("title"))
         
         .onAppear(){
             let list = SessionManager.getWishlist()

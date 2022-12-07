@@ -8,6 +8,7 @@
 import SwiftUI
 import SDWebImageSwiftUI
 import SlidingTabView
+import ExpandableText
 
 struct CourseDetailTrainerView: View {
     var course : Course
@@ -43,10 +44,18 @@ struct CourseDetailTrainerView: View {
                 }
                 Spacer()
                 HStack {
-                    Text(course.description)
+                    ExpandableText(text: course.description)
+                        .font(.body)//optional
+                        .foregroundColor(.primary)//optional
+                        .lineLimit(3)//optional
+                        .expandButton(TextSet(text: "more", font: .body, color: .blue))//optional
+                        .collapseButton(TextSet(text: "less", font: .body, color: .blue))//optional
+                        .expandAnimation(.easeOut)//optional
+                        .padding(.horizontal, 24)//optional
+                    /*Text(course.description)
                         .fontWeight(.medium)
                         .multilineTextAlignment(.leading)
-                    .font(.system(size: 15))
+                    .font(.system(size: 15))*/
                     Spacer()
                 }
                 /*Spacer()
@@ -62,12 +71,13 @@ struct CourseDetailTrainerView: View {
                             }
                         }
                     }else{
-                        ContainerRelativeShape()
-                            .frame(height: 50)
-                        ContainerRelativeShape()
-                            .frame(height: 50)
-                        ContainerRelativeShape()
-                            .frame(height: 50)
+                        ScrollView(.vertical,showsIndicators: false) {
+                            ForEach(course.comments) { comment in
+                                CommentCardView(comment: comment)
+                                    .padding(.all)
+                            
+                            }
+                        }
                     }
                 }
           
