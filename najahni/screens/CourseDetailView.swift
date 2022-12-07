@@ -10,7 +10,6 @@ import SDWebImageSwiftUI
 
 struct CourseDetailView: View {
     @StateObject var viewModel = DetailPageViewModel()
-    
     var course : Course
     var body: some View {
         VStack {
@@ -181,7 +180,8 @@ struct CourseDetailView: View {
 struct CourseDetailView_Previews: PreviewProvider {
     static var course: Course = Course(id: "", title: "Title course", fields: Fields.allCases, level: Level.Beginner.rawValue, description: "", isPaid: false, image: "/img/pexels-supreet-7559057.jpg1668674151911.jpg", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
     static var previews: some View {
-        CourseDetailView(course: course)
+        //CourseDetailView(course: course)
+        listLessonsView(section: Section(title: "hello", idCourse: ""), onAdd:{})
     }
 }
 struct btnIcon:View {
@@ -204,5 +204,53 @@ struct btnIcon:View {
                      select(true)
                 }
         }
+    }
+}
+struct listLessonsView:View {
+    @State var isTapped = false
+    @State var section:Section
+    @State var onAdd:()->Void
+    
+    @State private var indexDelete:IndexSet = IndexSet()
+    var body: some View{
+        
+        
+            HStack{
+                if(!isTapped)
+                {Text(section.title)
+                        .font(.title)
+                    Spacer()
+                    Image(systemName: "arrowtriangle.right.fill")
+                        .onTapGesture {
+                            withAnimation {
+                                isTapped.toggle()
+                            }
+                        }
+                }else{
+                    VStack{
+                        HStack {
+                            Text("Lessons:")
+                                .bold()
+                                .font(.title2)
+                                .onTapGesture {
+                                    withAnimation {
+                                        isTapped.toggle()
+                                    }
+                                }
+                        Spacer()
+                        }
+                        
+                        ForEach(section.lessons) { lesson in
+                            EditLessonsViewPart(lesson: lesson)
+                        }
+                    }
+                    Spacer()
+                        
+                }
+            }
+            .animation(.easeInOut(duration: 0.5))
+            
+            
+        
     }
 }
