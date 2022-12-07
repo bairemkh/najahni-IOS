@@ -45,13 +45,13 @@ struct CourseDetailTrainerView: View {
                 Spacer()
                 HStack {
                     ExpandableText(text: course.description)
-                        .font(.body)//optional
-                        .foregroundColor(.primary)//optional
-                        .lineLimit(3)//optional
-                        .expandButton(TextSet(text: "more", font: .body, color: .blue))//optional
-                        .collapseButton(TextSet(text: "less", font: .body, color: .blue))//optional
-                        .expandAnimation(.easeOut)//optional
-                        .padding(.horizontal, 24)//optional
+                        .font(.body)
+                        .foregroundColor(.primary)
+                        .lineLimit(3)
+                        .expandButton(TextSet(text: "more", font: .body, color: .blue))
+                        .collapseButton(TextSet(text: "less", font: .body, color: .blue))
+                        .expandAnimation(.easeOut)
+                        .padding(.horizontal, 24)
                     /*Text(course.description)
                         .fontWeight(.medium)
                         .multilineTextAlignment(.leading)
