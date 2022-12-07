@@ -28,6 +28,7 @@ struct customTextField: View {
                         .padding(.leading)
                         .padding(.trailing)
                         .cornerRadius(20)
+                        .autocorrectionDisabled()
                 }
                 Image(systemName:icon).onTapGesture {
                     isHidden = !isHidden
