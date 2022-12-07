@@ -52,10 +52,7 @@ struct CustomCardTrainerView: View {
             .padding(.horizontal, -5.0)
            // Spacer()
             
-            Image(systemName:"trash.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 20)
+    
             
             Spacer()
                 
@@ -64,7 +61,7 @@ struct CustomCardTrainerView: View {
         .background(Color.white)
         .cornerRadius(12)
         .shadow(color: Color(hue: 1.0, saturation: 0.0, brightness: 0.906), radius: 10)
-        .padding([.top, .leading, .trailing])
+       // .padding([.top, .leading, .trailing])
     }
 }
 

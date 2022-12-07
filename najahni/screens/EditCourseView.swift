@@ -2,6 +2,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 struct EditCourseView: View {
     @StateObject var viewmodel = EditCourseViewModel()
+    @State var isArchived = true
     @State var course:Course
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
@@ -43,6 +44,14 @@ struct EditCourseView: View {
                             .padding()
                             .frame(width: 120.0, height: 120.0)
                             .aspectRatio(contentMode: .fill)
+                        
+                        HStack{
+                            Text("Archived the course")
+                            Spacer()
+                            Toggle(isOn: $viewmodel.course.isArchived) {
+                            }
+                            .toggleStyle(SwitchToggleStyle(tint: Color("primaryColor")))
+                        }
                         
                         HStack {
                             TextField("Course name", text: $viewmodel.course.title)
