@@ -2,7 +2,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 struct EditCourseView: View {
     @StateObject var viewmodel = EditCourseViewModel()
-    var course:Course
+    @State var course:Course
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView {
@@ -17,9 +17,18 @@ struct EditCourseView: View {
                                     self.presentationMode.wrappedValue.dismiss()
                                 }
                             Spacer()
+                            NavigationLink {
+                                EditSectionsView(courseId: course.id, sections: $course.sections)
+                            } label: {
+                                Text("Edit sections")
+                                    .fontWeight(.black)
+                                    .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
+                                    .multilineTextAlignment(.leading)
+                            }
+
                         }
                         HStack {
-                            Text("Create a new Course")
+                            Text("let's modify the Course")
                                 .fontWeight(.black)
                                 .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                                 .multilineTextAlignment(.leading)
@@ -84,14 +93,21 @@ struct EditCourseView: View {
                             .shadow(color: Color.gray, radius: 3)
                             .lineLimit(/*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)
                             .frame(height: 100)
-                        Button(action: {}) {
-                            Text("Next")
+                        Button(action: {
+                            viewmodel.updateCourse { message, canPass in
+                                viewmodel.showAlert = true
+                                viewmodel.errorMsg = message
+                            }
+                        }) {
+                            Text("Modify")
                                 .foregroundColor(Color.white)
                                 .frame(width: 300.0,height: 60.0)
                                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
                                     .cornerRadius(25)
                         }
-                        
+                        .alert(isPresented: $viewmodel.showAlert){
+                            Alert(title: Text ("Alert") , message: Text(viewmodel.errorMsg), dismissButton: .default(Text("close")))
+                        }
                         
                         //
                         
@@ -113,6 +129,7 @@ struct EditCourseView: View {
     struct AddCourseView_Previews: PreviewProvider {
         static var previews: some View {
             //AddCourseView()
+            
             EditCourseView(course: Course(id: "", title: "Kotlin course", fields: [Fields.Arts,Fields.Programming], level: "Beginner", description: "Test test test etste", isPaid: false, image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fgithub.com%2Ftopics%2Fkotlin&psig=AOvVaw3Eu_Jmp69SUelgSgNoCmC4&ust=1670350756865000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMii8M2L4_sCFQAAAAAdAAAAABAD", price: 200, idowner: UserFix, isArchived: false, createdAt: "", updatedAt: ""))
         }
     }

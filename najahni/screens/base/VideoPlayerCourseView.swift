@@ -18,7 +18,6 @@ struct VideoPlayerCourseView: View {
                    .frame(width: 400,
                           height: 300,
                           alignment: .center)
-           Text("ff")
          
        }
 }

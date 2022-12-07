@@ -15,6 +15,11 @@ struct Section :Identifiable{
         self.title = title
         self.idCourse = idCourse
     }
+    init(title: String, idCourse: String) {
+        self.id = ""
+        self.title = title
+        self.idCourse = idCourse
+    }
     init(id: String, title: String, idCourse: String,lessons:[Lesson] ) {
         self.id = id
         self.title = title

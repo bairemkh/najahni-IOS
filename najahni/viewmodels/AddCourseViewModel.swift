@@ -36,7 +36,7 @@ class AddCourseViewModel : ObservableObject{
         }
         CourseService.addCourse(course: Course(title: name, fields: selectedList.map({ ld in
             return Fields(rawValue: ld.name)!
-        }), level: list[selection].name, description: description, isPaid: !price.isEmpty, price: Int(price) ?? 0 , isArchived: true), image: image) { passed, statusCode in
+        }), level: list[selection].name, description: description, isPaid: !price.isEmpty||price == "0", price: Int(price) ?? 0 , isArchived: true), image: image) { passed, statusCode in
             if(passed == true){
                 action("Course created !",true)
             }else{
