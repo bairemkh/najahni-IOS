@@ -15,6 +15,7 @@ struct User {
     var image: String
     var isVerified: Bool
     var otp: String
+    var courses:[String] = []
     
     
     init(_id: String, firstname: String, lastname: String, email: String, password: String, role: Role, fields: [Fields], image: String, isVerified: Bool, otp: String) {
@@ -28,6 +29,19 @@ struct User {
         self.image = image
         self.isVerified = isVerified
         self.otp = otp
+    }
+    init(_id: String, firstname: String, lastname: String, email: String, password: String, role: Role, fields: [Fields], image: String, isVerified: Bool, otp: String,courses:[String]) {
+        self._id = _id
+        self.firstname = firstname
+        self.lastname = lastname
+        self.email = email
+        self.password = password
+        self.role = role
+        self.fields = fields
+        self.image = image
+        self.isVerified = isVerified
+        self.otp = otp
+        self.courses = courses
     }
 
     init(firstname: String, lastname: String, email: String, password: String, role: Role, fields: [Fields], image: String, isVerified: Bool, otp: String){

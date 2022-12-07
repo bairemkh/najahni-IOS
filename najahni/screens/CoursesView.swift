@@ -16,7 +16,7 @@ struct CoursesView: View {
                 ScrollView(.vertical,showsIndicators: false) {
                     ForEach(courses) { course in
                         NavigationLink{
-                            CourseDetailView(course: course)
+                            DetailCourseLessonsView(course: course)
                         } label: {
                             CustomCardCourseView(course: course)
                         }
@@ -29,11 +29,15 @@ struct CoursesView: View {
                     Text("My courses")
                 )
                 .navigationBarTitleDisplayMode(.inline)
-        }.onAppear{ courseviewModel.getMyCoursesList {
+        }.onAppear{ CourseService.getallcourses() {
             success, result in
                 if success {
                     self.courses = []
-                    self.courses.append(contentsOf: result!)
+                    self.courses.append(contentsOf: (result?.filter({ course in
+                        return SessionManager.currentUser!.courses.contains(where: { com in
+                            com.elementsEqual(course.id)
+                        })
+                    }))!)
                     print(courses)
                 }
         }

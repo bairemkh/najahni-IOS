@@ -170,7 +170,12 @@ class UserService {
                 }),
                 image: jsonItem["image"].stringValue,
                 isVerified: jsonItem["isVerified"].boolValue,
-                otp: jsonItem["otp"].stringValue)
+                otp: jsonItem["otp"].stringValue,
+                courses: jsonItem["courses"].arrayValue.map({ json in
+                    return json.stringValue
+                })
+            )
+        
         }catch{
             throw error
         }

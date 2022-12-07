@@ -37,14 +37,14 @@ struct ProfileTrainerView: View {
                             .multilineTextAlignment(.leading)
                             .foregroundColor(.black)
                         
-                        NavigationLink(destination:EditProfileView(firstname: firstname, lastname: lastname, image: image),label:{
+                        NavigationLink{
+                            EditProfileView(firstname: firstname, lastname: lastname, image: image)
+                        }label:{
                             Text("Edit profile")
                                     .font(.headline)
                                     .foregroundColor(Color("primaryColor"))
-                                    .onTapGesture {
-                                        print("click to pick")
-                                    }
-                        })
+                                   
+                        }
                         
                     }
                     Spacer()
