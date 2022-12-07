@@ -8,30 +8,29 @@
 import SwiftUI
 
 struct EditSectionsView: View {
-    @State var showingAlert = false
-    @State var showPopup = false
-    @State var sections:[Section]
-    @State var selectedSection:Section = Section(id: "dfdfdf", title: "Section", idCourse: "0")
+    @StateObject var viewmodel = SectionViewModel()
+    @State var courseId:String
+    @Binding var sections:[Section]
     @State private var indexDelete:IndexSet = IndexSet()
     var body: some View {
         NavigationView{
             ZStack{
-                List {
+                List{
                     ForEach(sections) { section in
                         EditSectionsViewPart(section: section){
                             withAnimation {
-                                selectedSection = section
-                                showPopup = true
+                                viewmodel.selectedSection = section
+                                viewmodel.showPopup = true
                             }
                         }
                     }
                     .onDelete(perform: { ind in
-                        showingAlert = true
-                        indexDelete = ind
+                        viewmodel.showingAlert = true
+                        viewmodel.indexDelete = ind
                     })
                     .animation(.easeInOut(duration: 0.5))
                     .listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
-                    .alert(isPresented:$showingAlert) {
+                    .alert(isPresented:$viewmodel.showingAlert) {
                         Alert(
                             title: Text("Are you sure you want to delete this?"),
                             message: Text("There is no undo"),
@@ -45,18 +44,70 @@ struct EditSectionsView: View {
                     
                 }
                 // popup
-                addLesson(sectionId: selectedSection.id, isPresented: $showPopup)
+                addLesson(sectionId: viewmodel.selectedSection.id, isPresented: $viewmodel.showPopup)
+                VStack{
+                    Spacer()
+                    HStack {
+                        if(viewmodel.showField)
+                        {
+                            TextField("Section name", text: $viewmodel.nameNewSection)
+                                .padding(.all)
+                                .autocorrectionDisabled()
+                                .background(Color(.white))
+                                .foregroundColor(Color("primaryColor"))
+                                .cornerRadius(10)
+                        }
+                        else
+                        {
+                            EmptyView()
+                        }
+                        Spacer()
+                        Button(action: {withAnimation {
+                            if(viewmodel.showField && !viewmodel.nameNewSection.isEmpty){
+                                viewmodel.addSection { isOk in
+                                    if isOk
+                                    {
+                                        sections.append(Section(title: viewmodel.nameNewSection, idCourse: courseId))
+                                        viewmodel.nameNewSection = ""
+                                    }
+                                }
+                            }
+                            viewmodel.showField.toggle()
+                        }
+                        }, label: {
+                            Text("+")
+                                .font(.system(.largeTitle))
+                                .frame(width: 77, height: 70)
+                                .foregroundColor(Color.white)
+                                .padding(.bottom, 7)
+                        })
+                        .background(Color("primaryColor"))
+                        .cornerRadius(38.5)
+                        .padding()
+                        .shadow(color: Color.black.opacity(0.3),
+                                radius: 3,
+                                x: 3,
+                                y: 3)
+                    }
+
+                }
                 
+            }
+            .onAppear{
+                viewmodel.idcourse = courseId
             }
         }
     }
 }
 
 struct EditSectionsView_Previews: PreviewProvider {
+    @State static var sections = [Section(id: "1", title: "Section 1", idCourse: "hello",lessons: [Lesson(id: "", title: "Kotlin", sectionid: "gfgfg", video: "")]),Section(id: "2", title: "Section 2", idCourse: "hello"),Section(id: "3", title: "Section 3", idCourse: "hello",lessons: [Lesson(id: "", title: "Java", sectionid: "gfgfg", video: ""),Lesson(id: "", title: "Swift", sectionid: "gfgfg", video: "")])]
     static var previews: some View {
-        EditSectionsView(sections: [Section(id: "1", title: "Section 1", idCourse: "hello",lessons: [Lesson(id: "", title: "Kotlin", sectionid: "gfgfg", video: "")]),Section(id: "2", title: "Section 2", idCourse: "hello"),Section(id: "3", title: "Section 3", idCourse: "hello",lessons: [Lesson(id: "", title: "Java", sectionid: "gfgfg", video: ""),Lesson(id: "", title: "Swift", sectionid: "gfgfg", video: "")])])
-        /*EditSectionsViewPart(section: Section(id: "1", title: "Section 1", idCourse: "hello",lessons: [Lesson(id: "", title: "Kotlin", sectionid: "gfgfg", video: "")]))*/
+        EditSectionsView(courseId: "", sections: $sections)
+        /*EditSectionsViewPart(section: Section(id: "1", title: "Section 1", idCourse: "hello",lessons: [Lesson(id: "", title: "Kotlin", sectionid: "gfgfg", video: "")]), onAdd: {})*/
         //addLesson()
+        /*EditLessonsViewPart(lesson: Lesson(title: "Kotlin part 1", sectionid: "", video: ""))*/
+        //addSection(CourseId: "")
         
     }
 }
@@ -81,7 +132,7 @@ struct EditSectionsViewPart: View {
             }else{
                 VStack{
                     HStack {
-                        Text("  Lessons:")
+                        Text("Lessons:")
                             .bold()
                             .font(.title2)
                             .onTapGesture {
@@ -101,7 +152,6 @@ struct EditSectionsViewPart: View {
                     ForEach(section.lessons) { lesson in
                         EditLessonsViewPart(lesson: lesson)
                     }
-                    
                 }
                 Spacer()
                     
@@ -122,13 +172,15 @@ struct EditLessonsViewPart: View {
     
     @State private var indexDelete:IndexSet = IndexSet()
     var body: some View {
-        HStack{
-                Text(lesson.title)
-                .font(.title3)
-            Spacer()
-            Text("2h30")
-        }
-        .padding(.horizontal)
+            HStack{
+                    Text(lesson.title)
+                    .font(.system(size: 20))
+                    .bold()
+                Spacer()
+                Text("2h30")
+            }
+            .padding(.horizontal)
+            .padding()
     }
 }
 struct addLesson: View {
@@ -187,10 +239,9 @@ struct addLesson: View {
                     Button(action: {
                         viewmodel.addLesson { canPass, msgErr in
                             //alert
-                            print(msgErr)
-                            if canPass{
+                            print(canPass)
                                 self.presentationMode.wrappedValue.dismiss()
-                            }
+                            
                         }
                     }) {
                         Text("Save")
@@ -210,6 +261,66 @@ struct addLesson: View {
             else{
                 EmptyView()
             }
+            
+        }
+        .background(Color("primaryColor"))
+        .cornerRadius(20)
+        .padding(.all)
+    }
+}
+struct addSection: View {
+    @Environment(\.presentationMode) var presentationMode
+    var CourseId:String
+    @StateObject var viewmodel = AddLessonViewModel()
+   // @Binding var isPresented:Bool
+    var body: some View {
+        VStack{
+           // if(isPresented){
+                Group{
+                    HStack {
+                        Spacer()
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.white)
+                            .onTapGesture {
+                                //isPresented = false
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
+                    }
+                    Text("Add a Section")
+                        .foregroundColor(.white)
+                        .font(.system(size: 40))
+                    TextField("Name*", text: $viewmodel.lessonName)
+                        .padding(.all)
+                        .autocorrectionDisabled()
+                        .background(Color(.white))
+                        .foregroundColor(Color("primaryColor"))
+                        .cornerRadius(10)
+                    
+                    Button(action: {
+                        viewmodel.addLesson { canPass, msgErr in
+                            //alert
+                            print(canPass)
+                                self.presentationMode.wrappedValue.dismiss()
+                            
+                        }
+                    }) {
+                        Text("Save")
+                        .foregroundColor(Color("primaryColor"))
+                        .multilineTextAlignment(.center)
+                        .frame(width: 200.0,height: 60.0)
+                        .background(Color(.white))
+                        .cornerRadius(25)
+                    }
+                        
+                }
+                .padding(.all)
+                .onAppear{
+                    viewmodel.sectionId = CourseId
+                }
+            /*}
+            else{
+                EmptyView()
+            }*/
             
         }
         .background(Color("primaryColor"))

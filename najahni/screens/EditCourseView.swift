@@ -2,7 +2,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 struct EditCourseView: View {
     @StateObject var viewmodel = EditCourseViewModel()
-    var course:Course
+    @State var course:Course
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView {
@@ -18,7 +18,7 @@ struct EditCourseView: View {
                                 }
                             Spacer()
                             NavigationLink {
-                                EditSectionsView(sections: course.sections)
+                                EditSectionsView(courseId: course.id, sections: $course.sections)
                             } label: {
                                 Text("Edit sections")
                                     .fontWeight(.black)
@@ -129,6 +129,7 @@ struct EditCourseView: View {
     struct AddCourseView_Previews: PreviewProvider {
         static var previews: some View {
             //AddCourseView()
+            
             EditCourseView(course: Course(id: "", title: "Kotlin course", fields: [Fields.Arts,Fields.Programming], level: "Beginner", description: "Test test test etste", isPaid: false, image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fgithub.com%2Ftopics%2Fkotlin&psig=AOvVaw3Eu_Jmp69SUelgSgNoCmC4&ust=1670350756865000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMii8M2L4_sCFQAAAAAdAAAAABAD", price: 200, idowner: UserFix, isArchived: false, createdAt: "", updatedAt: ""))
         }
     }

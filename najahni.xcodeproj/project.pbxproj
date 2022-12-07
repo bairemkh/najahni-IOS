@@ -48,6 +48,7 @@
 		41BAA301293E615B008FEC06 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA300293E615B008FEC06 /* Lesson.swift */; };
 		41BAA303293E62A8008FEC06 /* LessonServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA302293E62A8008FEC06 /* LessonServices.swift */; };
 		872AD031293FE1F70066C22D /* AddLessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872AD030293FE1F70066C22D /* AddLessonViewModel.swift */; };
+		872AD03529401CC80066C22D /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872AD03429401CC80066C22D /* SectionViewModel.swift */; };
 		8741BAB1291E9116002FBDE8 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB0291E9116002FBDE8 /* SignupView.swift */; };
 		8741BAB4291E9557002FBDE8 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */; };
 		8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741BAB7291E9C77002FBDE8 /* Role.swift */; };
@@ -153,6 +154,7 @@
 		41BAA300293E615B008FEC06 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		41BAA302293E62A8008FEC06 /* LessonServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonServices.swift; sourceTree = "<group>"; };
 		872AD030293FE1F70066C22D /* AddLessonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLessonViewModel.swift; sourceTree = "<group>"; };
+		872AD03429401CC80066C22D /* SectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewModel.swift; sourceTree = "<group>"; };
 		8741BAB0291E9116002FBDE8 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		8741BAB3291E9557002FBDE8 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		8741BAB7291E9C77002FBDE8 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				879BC95E293B4EF700FA2E44 /* AddCourseViewModel.swift */,
 				87AD691F293E66E0000F0A88 /* EditCourseViewModel.swift */,
 				872AD030293FE1F70066C22D /* AddLessonViewModel.swift */,
+				872AD03429401CC80066C22D /* SectionViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				8741BAC6291EC517002FBDE8 /* ProfileView.swift in Sources */,
 				41353FAC2923D51500DAA6C5 /* UserService.swift in Sources */,
 				8743D059291FE16300C1781C /* ResetPasswordView.swift in Sources */,
+				872AD03529401CC80066C22D /* SectionViewModel.swift in Sources */,
 				28CABB1829191BC400AED109 /* najahniApp.swift in Sources */,
 				8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */,
 				87B9266A293607C200F7A082 /* TrainerVerificationView.swift in Sources */,
