@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import ExpandableText
 
 struct CourseDetailView: View {
     @StateObject var viewModel = DetailPageViewModel()
@@ -95,10 +96,18 @@ struct CourseDetailView: View {
                 }
                 Spacer()
                 HStack {
-                    Text(course.description)
+                    ExpandableText(text: course.description)
+                        .font(.body)//optional
+                        .foregroundColor(.primary)//optional
+                        .lineLimit(3)//optional
+                        .expandButton(TextSet(text: "more", font: .body, color: .blue))//optional
+                        .collapseButton(TextSet(text: "less", font: .body, color: .blue))//optional
+                        .expandAnimation(.easeOut)//optional
+                        .padding(.horizontal, 24)//optional
+                    /*Text(course.description)
                         .fontWeight(.medium)
                         .multilineTextAlignment(.leading)
-                    .font(.system(size: 15))
+                    .font(.system(size: 15))*/
                     Spacer()
                 }
                 /*Spacer()
@@ -115,11 +124,11 @@ struct CourseDetailView: View {
                         Text(course.level)
                             .bold()
                     }
-                    VStack(spacing: 15) {
-                        ContainerRelativeShape()
-                            .frame(height: 50)
-                        ContainerRelativeShape()
-                            .frame(height: 50)
+                    ScrollView(.vertical,showsIndicators: false) {
+                        ForEach(course.sections) { section in
+                            SectionCardView(section: section)
+                        
+                        }
                     }
                     if(course.isPaid == true){
                         Button(action: {
