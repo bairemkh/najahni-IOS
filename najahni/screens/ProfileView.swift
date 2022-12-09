@@ -94,60 +94,14 @@ struct ProfileView: View {
                             print(UserDefaults.standard.object(forKey: "token"))
                         }
                 }
-                
-                       
-                //Spacer()
-               /* NavigationLink(destination:EditProfileView(firstname: firstname, lastname: lastname, image: image),label:{
-                    CustomButtonView(icon: "highlighter",buttonText: "Edit profile")
-                } )
-               
-                    
-                
-                
-                Button(action:{
-                    print("wish")
-                    //viewModel.profile()
-                },
-                       label:{
-                    CustomButtonView(icon: "heart.fill",buttonText: "My wishlist")
-                })
-                
-                NavigationLink(destination: LoginView(), isActive: $onLogOut){
-                    CustomButtonView(icon: "trash.fill",buttonText: "Delete account").onTapGesture {
-                        UserService.deleteAccount { msg, logout in
-                            print(msg)
-                            SessionManager.logOut()
-                            onLogOut = !logout
-                        }
-                    }
-                }
-                
-                NavigationLink(destination: LoginView(), isActive: $onLogOut){
-                    CustomButtonView(icon: "rectangle.portrait.and.arrow.forward",buttonText: "Logout")
-                        .onTapGesture {
-                            print(UserDefaults.standard.object(forKey: "token")!)
-                            UserDefaults.standard.removeObject(forKey: "token");                     UserDefaults.standard.removeObject(forKey: "role")
-                            
-                            onLogOut = true
-                            print(UserDefaults.standard.object(forKey: "token"))
-                        }
-                }*/
-                
-               //Spacer()
+              
             }
-            .padding(.horizontal)
-            
-            
-            
-        }
-    //}
+            .padding(.horizontal) }
           
             .navigationTitle(
                 Text("Profile")
             )
             .navigationBarTitleDisplayMode(.inline)
-            //.padding(.all)
-        //}
         .onAppear{
          print("profile view")
             viewModel.profile(completed: {

@@ -21,20 +21,9 @@ struct SectionCardView: View {
            //List{
             ScrollView(.vertical,showsIndicators: false){
                 ForEach(section.lessons){ lesson in
-                    NavigationLink {
-                        VideoPlayerCourseView(video: lesson.video)
-                    }label: {
-                        HStack{
-                            Text("01")
-                            Spacer()
-                                .frame(width: 20.0)
-                            VStack(alignment: .leading){
-                                Text(lesson.title)
-                                Text("10min")
-                            }
-                        }
-                    }
-                    
+                    LessonsViewPart(lesson: lesson,indexLesson: section.lessons.firstIndex(where: { l in
+                        return l.id == lesson.id
+                    }) ?? -1)
                 }
             }
             //}
@@ -45,6 +34,6 @@ struct SectionCardView: View {
 
 struct SectionCardView_Previews: PreviewProvider {
     static var previews: some View {
-        SectionCardView(section: SectionFix)
+        SectionCardView(section: Section(id: "2", title: "Section 1", idCourse: "", lessons: [Lesson(title: "Lesson 1", sectionid: "1", video: ""),Lesson(title: "Lesson 2", sectionid: "1", video: "")]))
     }
 }

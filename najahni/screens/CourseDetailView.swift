@@ -11,7 +11,6 @@ import ExpandableText
 
 struct CourseDetailView: View {
     @StateObject var viewModel = DetailPageViewModel()
-    
     var course : Course
     var body: some View {
         VStack {
@@ -111,11 +110,9 @@ struct CourseDetailView: View {
                     .font(.system(size: 15))*/
                     Spacer()
                 }
-                /*Spacer()
-                    .frame(height: 50)*/
-                
-                
                 Group{
+                    Spacer()
+                        .frame(height: 50)
                     HStack {
                         Text("Lessons")
                             .fontWeight(.medium)
@@ -190,7 +187,9 @@ struct CourseDetailView: View {
 struct CourseDetailView_Previews: PreviewProvider {
     static var course: Course = Course(id: "", title: "Title course", fields: Fields.allCases, level: Level.Beginner.rawValue, description: "", isPaid: false, image: "/img/pexels-supreet-7559057.jpg1668674151911.jpg", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
     static var previews: some View {
-        CourseDetailView(course: course)
+        //CourseDetailView(course: course)
+        //listLessonsView(section: Section(title: "hello", idCourse: ""), onAdd:{})
+        LessonsViewPart(lesson: Lesson(title: "Kotlin part 1", sectionid: "", video: ""))
     }
 }
 struct btnIcon:View {
@@ -215,3 +214,91 @@ struct btnIcon:View {
         }
     }
 }
+struct listLessonsView:View {
+    @State var isTapped = false
+    @State var section:Section
+    @State var onAdd:()->Void
+    
+    @State private var indexDelete:IndexSet = IndexSet()
+    var body: some View{
+        
+        
+            HStack{
+                if(!isTapped)
+                {Text(section.title)
+                        .font(.title)
+                    Spacer()
+                    Image(systemName: "arrowtriangle.right.fill")
+                        .onTapGesture {
+                            withAnimation {
+                                isTapped.toggle()
+                            }
+                        }
+                }else{
+                    VStack{
+                        HStack {
+                            Text("Lessons:")
+                                .bold()
+                                .font(.title2)
+                                .onTapGesture {
+                                    withAnimation {
+                                        isTapped.toggle()
+                                    }
+                                }
+                        Spacer()
+                        }
+                        
+                        ForEach(section.lessons) { lesson in
+                            EditLessonsViewPart(lesson: lesson)
+                        }
+                    }
+                    Spacer()
+                        
+                }
+            }
+            .animation(.easeInOut(duration: 0.5))
+            
+            
+        
+    }
+}
+struct LessonsViewPart: View {
+    @State var isTapped = false
+    @State var lesson:Lesson
+    @State var indexLesson = 1
+    @State var goVideo = false
+    var body: some View {
+            HStack{
+                ZStack {
+                    Circle()
+                        .frame(width: 40)
+                        .foregroundColor(Color(hue: 0.738, saturation: 0.922, brightness: 0.866, opacity: 0.3))
+                    Text((indexLesson+1).description)
+                        .foregroundColor(Color("primaryColor"))
+                }
+                VStack {
+                    Text(lesson.title)
+                        .font(.system(size: 20))
+                    .bold()
+                    Text("2h30")
+                }
+                Spacer()
+                NavigationLink(destination: VideoPlayerCourseView(video: lesson.video),isActive: $goVideo) {
+                    ZStack {
+                        Circle()
+                            .frame(width: 30)
+                            .foregroundColor(Color(hue: 0.738, saturation: 0.922, brightness: 0.866, opacity: 0.3))
+                        Image(systemName: "play.fill")
+                            .foregroundColor(Color("primaryColor"))
+                            .onTapGesture {
+                                goVideo = true
+                            }
+                    }
+
+                }
+                            }
+            .padding(.horizontal)
+            .padding()
+    }
+}
+

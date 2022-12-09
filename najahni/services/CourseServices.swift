@@ -64,7 +64,7 @@ class CourseService {
             
             return try Course(id: jsonItem["_id"].stringValue, title: jsonItem["title"].stringValue, fields: jsonItem["fields"].arrayValue.map({ json in
                 return Fields(rawValue: json.stringValue)!
-            }), level: jsonItem["level"].stringValue, description: jsonItem["description"].stringValue, isPaid: jsonItem["isPaid"].boolValue, image: jsonItem["image"].stringValue, price: jsonItem["price"].intValue, idowner: UserService.makeItem(jsonItem: jsonItem["idowner"]), isArchived: jsonItem["isArchived"].boolValue, createdAt: jsonItem["createdAt"].stringValue, updatedAt: jsonItem["updatedAt"].stringValue, sections: jsonItem["sections"].arrayValue.map({ json in
+            }), level: jsonItem["level"].stringValue, description: jsonItem["description"].stringValue, isPaid: jsonItem["isPaid"].boolValue, image: jsonItem["image"].stringValue, price: jsonItem["price"].intValue, idowner: SessionManager.currentUser!, isArchived: jsonItem["isArchived"].boolValue, createdAt: jsonItem["createdAt"].stringValue, updatedAt: jsonItem["updatedAt"].stringValue, sections: jsonItem["sections"].arrayValue.map({ json in
                 return SectionService.makeItem(jsonItem: json)
             }),
             comments: jsonItem["comments"].arrayValue.map({ json in
