@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EditSectionsView: View {
+    @Environment(\.presentationMode) var presentationMode
     @StateObject var viewmodel = SectionViewModel()
     @State var courseId:String
     @Binding var sections:[Section]
@@ -15,6 +16,7 @@ struct EditSectionsView: View {
     var body: some View {
         NavigationView{
             ZStack{
+                
                 List{
                     ForEach(sections) { section in
                         EditSectionsViewPart(section: section){
@@ -41,7 +43,23 @@ struct EditSectionsView: View {
                             secondaryButton: .cancel()
                         )
                     }
-                    
+                    .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
+                    .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                }
+                
+                VStack {
+                    HStack{
+                        Spacer()
+                            .frame(width: 30)
+                        Image(systemName: "arrowshape.backward.fill")
+                        Text("Course")
+                            .bold()
+                        Spacer()
+                    }
+                    .onTapGesture {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                    Spacer()
                 }
                 // popup
                 addLesson(sectionId: viewmodel.selectedSection.id, isPresented: $viewmodel.showPopup)
@@ -97,11 +115,12 @@ struct EditSectionsView: View {
                 viewmodel.idcourse = courseId
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
 struct EditSectionsView_Previews: PreviewProvider {
-    @State static var sections = [Section(id: "1", title: "Section 1", idCourse: "hello",lessons: [Lesson(id: "", title: "Kotlin", sectionid: "gfgfg", video: "")]),Section(id: "2", title: "Section 2", idCourse: "hello"),Section(id: "3", title: "Section 3", idCourse: "hello",lessons: [Lesson(id: "", title: "Java", sectionid: "gfgfg", video: ""),Lesson(id: "", title: "Swift", sectionid: "gfgfg", video: "")])]
+    @State static var sections = [Section(id: "1", title: "Section 1", idCourse: "hello",lessons: [Lesson(id: "1", title: "Kotlin", sectionid: "gfgfg", video: "")]),Section(id: "2", title: "Section 2", idCourse: "hello"),Section(id: "3", title: "Section 3", idCourse: "hello",lessons: [Lesson(id: "3", title: "Java", sectionid: "gfgfg", video: ""),Lesson(id: "57", title: "Swift", sectionid: "gfgfg", video: "")])]
     static var previews: some View {
         EditSectionsView(courseId: "", sections: $sections)
         /*EditSectionsViewPart(section: Section(id: "1", title: "Section 1", idCourse: "hello",lessons: [Lesson(id: "", title: "Kotlin", sectionid: "gfgfg", video: "")]), onAdd: {})*/
@@ -119,43 +138,31 @@ struct EditSectionsViewPart: View {
     @State private var indexDelete:IndexSet = IndexSet()
     var body: some View {
         HStack{
-            if(!isTapped)
-            {Text(section.title)
-                    .font(.title)
-                Spacer()
-                Image(systemName: "arrowtriangle.right.fill")
-                    .onTapGesture {
-                        withAnimation {
-                            isTapped.toggle()
-                        }
-                    }
-            }else{
+            
                 VStack{
                     HStack {
-                        Text("Lessons:")
+                        Text(section.title)
                             .bold()
-                            .font(.title2)
-                            .onTapGesture {
-                                withAnimation {
-                                    isTapped.toggle()
-                                }
-                            }
-                    Spacer()
+                            .foregroundColor(Color("primaryColor"))
+                        Spacer()
                         Image(systemName: "plus.circle.fill")
                             .resizable()
                             .frame(width: 30,height: 30)
+                            .foregroundColor(Color("primaryColor"))
                             .onTapGesture {
                             onAdd()
                             }
                     }
                     
                     ForEach(section.lessons) { lesson in
-                        EditLessonsViewPart(lesson: lesson)
+                        EditLessonsViewPart(lesson: lesson,indexLesson: section.lessons.firstIndex(where: { l in
+                            return l.id == lesson.id
+                        }) ?? -1)
                     }
                 }
                 Spacer()
                     
-            }
+            
         }
             
         .animation(.easeInOut(duration: 0.5))
@@ -169,15 +176,30 @@ struct EditSectionsViewPart: View {
 struct EditLessonsViewPart: View {
     @State var isTapped = false
     @State var lesson:Lesson
-    
-    @State private var indexDelete:IndexSet = IndexSet()
+    @State var indexLesson = 1
     var body: some View {
             HStack{
+                ZStack {
+                    Circle()
+                        .frame(width: 40)
+                        .foregroundColor(Color(hue: 0.738, saturation: 0.922, brightness: 0.866, opacity: 0.3))
+                    Text((indexLesson+1).description)
+                        .foregroundColor(Color("primaryColor"))
+                }
+                VStack {
                     Text(lesson.title)
-                    .font(.system(size: 20))
+                        .font(.system(size: 20))
                     .bold()
+                    Text("2h30")
+                }
                 Spacer()
-                Text("2h30")
+                ZStack {
+                    Circle()
+                        .frame(width: 30)
+                        .foregroundColor(Color(hue: 0.738, saturation: 0.922, brightness: 0.866, opacity: 0.3))
+                    Image(systemName: "minus")
+                        .foregroundColor(Color("primaryColor"))
+                }
             }
             .padding(.horizontal)
             .padding()
