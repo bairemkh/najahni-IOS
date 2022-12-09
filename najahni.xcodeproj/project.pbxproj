@@ -48,6 +48,16 @@
 		419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */; };
 		419DF04E29353701004BB54E /* ProfileTrainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */; };
 		419E7C3B2928E023007E7D87 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E7C3A2928E023007E7D87 /* ImagePicker.swift */; };
+		419F2E7A2943970600CE2495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 419F2E792943970600CE2495 /* GoogleService-Info.plist */; };
+		419F2E7D2943992600CE2495 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 419F2E7C2943992600CE2495 /* FirebaseFirestore */; };
+		419F2E7F2943992600CE2495 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 419F2E7E2943992600CE2495 /* FirebaseFirestoreSwift */; };
+		419F2E812943A52A00CE2495 /* ProfileTrainerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E802943A52A00CE2495 /* ProfileTrainerDetailsView.swift */; };
+		419F2E862943A72A00CE2495 /* TitleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E832943A72900CE2495 /* TitleRow.swift */; };
+		419F2E872943A72A00CE2495 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E842943A72900CE2495 /* MessageBubble.swift */; };
+		419F2E882943A72A00CE2495 /* MessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E852943A72A00CE2495 /* MessageField.swift */; };
+		419F2E8A2943A75C00CE2495 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E892943A75C00CE2495 /* Message.swift */; };
+		419F2E8C2943AA1D00CE2495 /* DiscussionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E8B2943AA1D00CE2495 /* DiscussionView.swift */; };
+		419F2E8E2943B41800CE2495 /* MessagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E8D2943B41800CE2495 /* MessagesManager.swift */; };
 		419FAD1B293106FD00FA6A49 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419FAD1A293106FD00FA6A49 /* WishListView.swift */; };
 		41BAA2FD293E504E008FEC06 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FC293E504E008FEC06 /* Section.swift */; };
 		41BAA2FF293E5433008FEC06 /* SectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FE293E5433008FEC06 /* SectionService.swift */; };
@@ -159,6 +169,14 @@
 		419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardTrainerView.swift; sourceTree = "<group>"; };
 		419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerViewModel.swift; sourceTree = "<group>"; };
 		419E7C3A2928E023007E7D87 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		419F2E792943970600CE2495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		419F2E802943A52A00CE2495 /* ProfileTrainerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerDetailsView.swift; sourceTree = "<group>"; };
+		419F2E832943A72900CE2495 /* TitleRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleRow.swift; path = "../../../../../../Downloads/ChatApp-main/ChatApp/Components/TitleRow.swift"; sourceTree = "<group>"; };
+		419F2E842943A72900CE2495 /* MessageBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageBubble.swift; path = "../../../../../../Downloads/ChatApp-main/ChatApp/Components/MessageBubble.swift"; sourceTree = "<group>"; };
+		419F2E852943A72A00CE2495 /* MessageField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageField.swift; path = "../../../../../../Downloads/ChatApp-main/ChatApp/Components/MessageField.swift"; sourceTree = "<group>"; };
+		419F2E892943A75C00CE2495 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "../../../../../Downloads/ChatApp-main/ChatApp/Models/Message.swift"; sourceTree = "<group>"; };
+		419F2E8B2943AA1D00CE2495 /* DiscussionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionView.swift; sourceTree = "<group>"; };
+		419F2E8D2943B41800CE2495 /* MessagesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessagesManager.swift; path = "../../../../../Downloads/ChatApp-main/ChatApp/MessagesManager.swift"; sourceTree = "<group>"; };
 		419FAD1A293106FD00FA6A49 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		41BAA2FC293E504E008FEC06 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		41BAA2FE293E5433008FEC06 /* SectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionService.swift; sourceTree = "<group>"; };
@@ -218,8 +236,10 @@
 				419509A52934BFD400E417FF /* GoogleSignInSwift in Frameworks */,
 				87C5CB192923C5050049814E /* SDWebImageSwiftUI in Frameworks */,
 				419509A32934BFD400E417FF /* GoogleSignIn in Frameworks */,
+				419F2E7D2943992600CE2495 /* FirebaseFirestore in Frameworks */,
 				87A4E8642922B85500E2A505 /* SwiftyJSON in Frameworks */,
 				8743D05E291FE49300C1781C /* Alamofire in Frameworks */,
+				419F2E7F2943992600CE2495 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +263,7 @@
 		287939552919709700778A5B /* screens */ = {
 			isa = PBXGroup;
 			children = (
+				419F2E822943A6B900CE2495 /* chat */,
 				8743D04F291F9E7900C1781C /* base */,
 				28793956291970D300778A5B /* SplashView.swift */,
 				287939582919737500778A5B /* WelcomeView.swift */,
@@ -270,6 +291,7 @@
 				87AD691D293E6656000F0A88 /* EditCourseView.swift */,
 				87702710293F93500048A824 /* EditSectionsView.swift */,
 				4196A73629403D6B0007B6B3 /* DetailCourseLessonsView.swift */,
+				419F2E802943A52A00CE2495 /* ProfileTrainerDetailsView.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -297,6 +319,7 @@
 		28CABB1629191BC400AED109 /* najahni */ = {
 			isa = PBXGroup;
 			children = (
+				419F2E792943970600CE2495 /* GoogleService-Info.plist */,
 				419509A62934C2EC00E417FF /* Info.plist */,
 				41353FAA2923D4F500DAA6C5 /* services */,
 				87A4E85F2922B2FB00E2A505 /* utils */,
@@ -350,6 +373,17 @@
 			path = services;
 			sourceTree = "<group>";
 		};
+		419F2E822943A6B900CE2495 /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				419F2E842943A72900CE2495 /* MessageBubble.swift */,
+				419F2E852943A72A00CE2495 /* MessageField.swift */,
+				419F2E832943A72900CE2495 /* TitleRow.swift */,
+				419F2E8B2943AA1D00CE2495 /* DiscussionView.swift */,
+			);
+			path = chat;
+			sourceTree = "<group>";
+		};
 		8741BAB2291E952E002FBDE8 /* viewmodels */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +409,7 @@
 		8741BAB5291E9C03002FBDE8 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				419F2E892943A75C00CE2495 /* Message.swift */,
 				8741BAB6291E9C1B002FBDE8 /* enums */,
 				8743D061291FF61000C1781C /* User.swift */,
 				414248CB292D4CF800D35692 /* Course.swift */,
@@ -423,6 +458,7 @@
 		87A4E85F2922B2FB00E2A505 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				419F2E8D2943B41800CE2495 /* MessagesManager.swift */,
 				87A4E8602922B30E00E2A505 /* constant.swift */,
 				419E7C3A2928E023007E7D87 /* ImagePicker.swift */,
 				879E5C80292BE19600573969 /* SessionManager.swift */,
@@ -454,6 +490,8 @@
 				419509A42934BFD400E417FF /* GoogleSignInSwift */,
 				419495FD293702DE00349A24 /* SlidingTabView */,
 				419937C9293FDEED00A0516A /* ExpandableText */,
+				419F2E7C2943992600CE2495 /* FirebaseFirestore */,
+				419F2E7E2943992600CE2495 /* FirebaseFirestoreSwift */,
 			);
 			productName = najahni;
 			productReference = 28CABB1429191BC400AED109 /* najahni.app */;
@@ -534,6 +572,7 @@
 				419509A12934BFD400E417FF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				419495FC293702DE00349A24 /* XCRemoteSwiftPackageReference "SlidingTabView" */,
 				419937C8293FDEED00A0516A /* XCRemoteSwiftPackageReference "ExpandableText" */,
+				419F2E7B2943992600CE2495 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 28CABB1529191BC400AED109 /* Products */;
 			projectDirPath = "";
@@ -553,6 +592,7 @@
 			files = (
 				28CABB1F29191BC500AED109 /* Preview Assets.xcassets in Resources */,
 				28CABB1C29191BC500AED109 /* Assets.xcassets in Resources */,
+				419F2E7A2943970600CE2495 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +618,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				872AD031293FE1F70066C22D /* AddLessonViewModel.swift in Sources */,
+				419F2E872943A72A00CE2495 /* MessageBubble.swift in Sources */,
 				879E5C83292BE53400573969 /* CourseDetailView.swift in Sources */,
 				8743D062291FF61000C1781C /* User.swift in Sources */,
 				8743D055291FD9CD00C1781C /* EditProfileView.swift in Sources */,
@@ -603,6 +644,7 @@
 				87B9266C29369B4000F7A082 /* CourseServices.swift in Sources */,
 				87B926702936DF7000F7A082 /* SettingsView.swift in Sources */,
 				2879395D2919A57800778A5B /* ForgetPassword.swift in Sources */,
+				419F2E862943A72A00CE2495 /* TitleRow.swift in Sources */,
 				4194137C293B7B8800306B28 /* CourseDetailTrainerView.swift in Sources */,
 				87AD6920293E66E0000F0A88 /* EditCourseViewModel.swift in Sources */,
 				2879395B2919824100778A5B /* LoginView.swift in Sources */,
@@ -626,9 +668,11 @@
 				87B21C7029326353000FD964 /* Level.swift in Sources */,
 				419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */,
 				419937C1293FAD0000A0516A /* Comment.swift in Sources */,
+				419F2E812943A52A00CE2495 /* ProfileTrainerDetailsView.swift in Sources */,
 				419495FB2937025300349A24 /* SlidingTabCustomView.swift in Sources */,
 				87AA86002922354F009536CA /* ChangePasswordView.swift in Sources */,
 				419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */,
+				419F2E8E2943B41800CE2495 /* MessagesManager.swift in Sources */,
 				41941380293BA06700306B28 /* ProgressBarView.swift in Sources */,
 				8741BABC291EA33B002FBDE8 /* Sexe.swift in Sources */,
 				419B69D8293DFBF000B2CF81 /* SectionCardView.swift in Sources */,
@@ -643,6 +687,8 @@
 				8743D05B291FE3FB00C1781C /* ResetPasswordViewModel.swift in Sources */,
 				87702711293F93500048A824 /* EditSectionsView.swift in Sources */,
 				419495F92936B9A300349A24 /* MyCoursesViewModel.swift in Sources */,
+				419F2E8A2943A75C00CE2495 /* Message.swift in Sources */,
+				419F2E8C2943AA1D00CE2495 /* DiscussionView.swift in Sources */,
 				8743D053291F9EA300C1781C /* CustomButtonView.swift in Sources */,
 				414248CC292D4CF800D35692 /* Course.swift in Sources */,
 				87A4E85D2922A3CF00E2A505 /* CustomPicker2View.swift in Sources */,
@@ -656,6 +702,7 @@
 				87B9266A293607C200F7A082 /* TrainerVerificationView.swift in Sources */,
 				41941382293BA90400306B28 /* VideoPlayerCourseView.swift in Sources */,
 				879E5C81292BE19600573969 /* SessionManager.swift in Sources */,
+				419F2E882943A72A00CE2495 /* MessageField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1026,6 +1073,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		419F2E7B2943992600CE2495 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		8743D05C291FE49300C1781C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1072,6 +1127,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 419937C8293FDEED00A0516A /* XCRemoteSwiftPackageReference "ExpandableText" */;
 			productName = ExpandableText;
+		};
+		419F2E7C2943992600CE2495 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 419F2E7B2943992600CE2495 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		419F2E7E2943992600CE2495 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 419F2E7B2943992600CE2495 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 		8743D05D291FE49300C1781C /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
