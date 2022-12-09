@@ -21,7 +21,9 @@ struct SectionCardView: View {
            //List{
             ScrollView(.vertical,showsIndicators: false){
                 ForEach(section.lessons){ lesson in
-                    LessonsViewPart(lesson: lesson,indexLesson: 0)
+                    LessonsViewPart(lesson: lesson,indexLesson: section.lessons.firstIndex(where: { l in
+                        return l.id == lesson.id
+                    }) ?? -1)
                 }
             }
             //}
