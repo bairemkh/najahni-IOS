@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct najahniApp: App {
     let persistenceController = PersistenceController.shared
-
+    @State var user = UserFix
     var body: some Scene {
         WindowGroup {
             SplashView()

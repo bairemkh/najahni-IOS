@@ -8,7 +8,7 @@
 import Foundation
 
 
-let URL_BASE_APP = "http://172.17.12.49:9090"
+let URL_BASE_APP = "http://172.17.3.56:9090"
 //let URL_BASE_APP = "http://localhost:9090"
 let LOGIN_URL = URL_BASE_APP + "/user/signin"
 let PROFILE_URL = URL_BASE_APP + "/user/profile"
@@ -26,7 +26,7 @@ let ENROLL_NOW = URL_BASE_APP + "/course/enrollnow/"
 let WISHLIST = "wishlist"
 let CART = "cart"
 
-var UserFix = User(firstname: "User", lastname: "Test", email: "", password: "", role: Role.Trainer, fields: Fields.allCases, image: "https://cdn-icons-png.flaticon.com/512/147/147144.png", isVerified: false, otp: "")
+var UserFix = User(firstname: "User", lastname: "Test", email: "user.test@test.com", password: "", role: Role.Trainer, fields: Fields.allCases, image: "https://cdn-icons-png.flaticon.com/512/147/147144.png", isVerified: false, otp: "")
 var CourseFix = Course(id: "", title: "Title course", fields: Fields.allCases, level: "", description: "", isPaid: false, image: "", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
 
 var videofix = URL_BASE_APP + "/vid/VIDEO_1669506604612.mp4"
