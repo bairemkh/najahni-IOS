@@ -27,6 +27,7 @@ class DetailPageViewModel : ObservableObject {
             case .success(let data):
                 let json = JSON(data)
                 print(json)
+                SessionManager.currentUser?.courses.append(id)
                 //completed(true,user)
             case .failure(let error):
                 print(error)

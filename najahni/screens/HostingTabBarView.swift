@@ -20,6 +20,7 @@ struct HostingTabBarView: View {
     
     @State private var selectedTab: Tab = .home
     @State private var role : String = ""
+    @State private var user:User = UserFix
     
     var body: some View {
 
@@ -54,7 +55,8 @@ struct HostingTabBarView: View {
                         if (role == "Student"){
                             
                             
-                            ProfileView()
+                            //ProfileView()
+                            ProfileStudentView(user: $user)
                                 .tag(4)
                                 .tabItem {
                                     Text("Profile")
@@ -82,6 +84,7 @@ struct HostingTabBarView: View {
                 print("user =====> \(SessionManager.currentUser)")
                 print("user role =====> \(SessionManager.currentUser?.role)")
                 print("user role 2 =====> \(SessionManager.currentUser?.role)")
+                user = SessionManager.currentUser!
                 role = UserDefaults.standard.string(forKey: "role")!
             }
             .onDisappear()
@@ -91,6 +94,7 @@ struct HostingTabBarView: View {
     }
 
 struct HostingTabBarView_Previews: PreviewProvider {
+    @State static var user = UserFix
     static var previews: some View {
         HostingTabBarView()
     }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @State private var onLogOut = false
     @AppStorage("isDarkMode") private var isDarkMode = false
     var body: some View {
         VStack{
@@ -28,9 +29,16 @@ struct SettingsView: View {
                 .toggleStyle(SwitchToggleStyle(tint: Color("primaryColor")))
             }.padding(.all, 12.0)
             Divider()
-        
-            
-            CustomButtonView(icon: "trash.fill",buttonText: "Delete Account")
+            NavigationLink(destination: LoginView(), isActive: $onLogOut){
+                CustomButtonView(icon: "trash.fill",buttonText: "Delete account").onTapGesture {
+                    UserService.deleteAccount { msg, logout in
+                        print(msg)
+                        SessionManager.logOut()
+                        onLogOut = !logout
+                    }
+                }
+                .foregroundColor(.red)
+            }
             
             Spacer()
         }

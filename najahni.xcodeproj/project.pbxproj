@@ -75,6 +75,7 @@
 		8743D060291FE5F800C1781C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743D05F291FE5F800C1781C /* LoginViewModel.swift */; };
 		8743D062291FF61000C1781C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743D061291FF61000C1781C /* User.swift */; };
 		874981D82943815D0098F4A0 /* ProfileStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874981D72943815D0098F4A0 /* ProfileStudentView.swift */; };
+		876E2F062944AF3800A21304 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E2F052944AF3800A21304 /* PrivacyPolicyView.swift */; };
 		87702711293F93500048A824 /* EditSectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87702710293F93500048A824 /* EditSectionsView.swift */; };
 		8774D6FC292D1DEA00FCC1BE /* DetailPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D6FB292D1DEA00FCC1BE /* DetailPageViewModel.swift */; };
 		8774D6FE292D20CB00FCC1BE /* CustomSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D6FD292D20CB00FCC1BE /* CustomSelectionView.swift */; };
@@ -186,6 +187,7 @@
 		8743D05F291FE5F800C1781C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8743D061291FF61000C1781C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		874981D72943815D0098F4A0 /* ProfileStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStudentView.swift; sourceTree = "<group>"; };
+		876E2F052944AF3800A21304 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		87702710293F93500048A824 /* EditSectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSectionsView.swift; sourceTree = "<group>"; };
 		8774D6FB292D1DEA00FCC1BE /* DetailPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewModel.swift; sourceTree = "<group>"; };
 		8774D6FD292D20CB00FCC1BE /* CustomSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSelectionView.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				87702710293F93500048A824 /* EditSectionsView.swift */,
 				4196A73629403D6B0007B6B3 /* DetailCourseLessonsView.swift */,
 				874981D72943815D0098F4A0 /* ProfileStudentView.swift */,
+				876E2F052944AF3800A21304 /* PrivacyPolicyView.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				872AD031293FE1F70066C22D /* AddLessonViewModel.swift in Sources */,
 				879E5C83292BE53400573969 /* CourseDetailView.swift in Sources */,
 				8743D062291FF61000C1781C /* User.swift in Sources */,
+				876E2F062944AF3800A21304 /* PrivacyPolicyView.swift in Sources */,
 				8743D055291FD9CD00C1781C /* EditProfileView.swift in Sources */,
 				41BAA2FF293E5433008FEC06 /* SectionService.swift in Sources */,
 				879BC95F293B4EF700FA2E44 /* AddCourseViewModel.swift in Sources */,
