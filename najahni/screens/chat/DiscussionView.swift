@@ -8,13 +8,9 @@
 import SwiftUI
 
 struct DiscussionView: View {
-   // var message : Message
+   var message : Message
     var course : Course
-    @StateObject var messagesManager : MessagesManager
-    init(course: Course,messageManager:MessagesManager) {
-        self.course = course
-        self.messagesManager = MessagesManager(collection: course.id)
-    }
+ 
     
     var body: some View {
         VStack {
@@ -22,12 +18,9 @@ struct DiscussionView: View {
             
             ScrollViewReader { proxy in
                 ScrollView {
-                 
-                    ScrollView {
-                                       ForEach(messagesManager.messages, id: \.id) { message in
-                                           MessageBubble(message: message)
-                                       }
-                                   }
+                
+                    MessageBubble(message: message)
+                          
                     
                 }
          // Custom cornerRadius modifier added in Extensions file
@@ -39,7 +32,7 @@ struct DiscussionView: View {
                 }*/
             }
             MessageField(course:course)
-                .environmentObject(messagesManager)
+               
             
         }
         .background(Color("priamryColor"))
@@ -52,6 +45,6 @@ struct DiscussionView: View {
 
 struct DiscussionView_Previews: PreviewProvider {
     static var previews: some View {
-        DiscussionView(course: CourseFix)
+        DiscussionView(message: Message(id: "12345", text: "I've been coding applications from scratch in SwiftUI and it's so much fun!", received: true, timestamp: Date()),course: CourseFix)
     }
 }

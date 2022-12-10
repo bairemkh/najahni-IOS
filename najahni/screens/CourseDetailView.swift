@@ -55,14 +55,6 @@ struct CourseDetailView: View {
                         .frame(width: 50,height: 50)
                     Text(course.idowner!.firstname + " " + course.idowner!.lastname)
                     
-                    NavigationLink {
-                        DiscussionView(course: course)
-                    }label: {
-                        Image(systemName: "message.fill")
-                            .resizable()
-                            .clipShape(Circle())
-                            .frame(width: 50,height: 50)
-                    }
                     Spacer()
                     
                 }

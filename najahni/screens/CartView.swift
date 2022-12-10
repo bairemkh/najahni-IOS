@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CartView: View {
     @State var cartlist : [Course] = []
+    @State private var showWebView = false
+    private let urlString: String = "https://www.google.com"
     var body: some View {
         VStack{
             List{
@@ -29,11 +31,12 @@ struct CartView: View {
                 HStack{
                     Text("Total")
                         .foregroundColor(.gray)
+                        .padding(.horizontal)
                     Spacer()
                     Text("\(calculateTotal())")
                 }
                 Button(action: {
-
+                    showWebView.toggle()
                    
                 }) {
                     Text("Check out")
@@ -43,6 +46,9 @@ struct CartView: View {
                           .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
                           .cornerRadius(25)
                 }
+                .sheet(isPresented: $showWebView) {
+                             WebView(url: URL(string: urlString)!)
+                         }
             }
         }
             .onAppear(){

@@ -38,6 +38,7 @@
 		419509A82934C4E300E417FF /* googlesigninViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419509A72934C4E300E417FF /* googlesigninViewModel.swift */; };
 		4196A73729403D6B0007B6B3 /* DetailCourseLessonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A73629403D6B0007B6B3 /* DetailCourseLessonsView.swift */; };
 		4196FA6E292D33500095AD16 /* CustomCard2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196FA6D292D33500095AD16 /* CustomCard2View.swift */; };
+		4198283F2944D19200D72E45 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198283E2944D19200D72E45 /* WebView.swift */; };
 		419937C1293FAD0000A0516A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419937C0293FAD0000A0516A /* Comment.swift */; };
 		419937C3293FAE1A00A0516A /* CommentServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419937C2293FAE1A00A0516A /* CommentServices.swift */; };
 		419937C7293FC94B00A0516A /* CommentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419937C6293FC94B00A0516A /* CommentCardView.swift */; };
@@ -160,6 +161,7 @@
 		419509A72934C4E300E417FF /* googlesigninViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = googlesigninViewModel.swift; sourceTree = "<group>"; };
 		4196A73629403D6B0007B6B3 /* DetailCourseLessonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCourseLessonsView.swift; sourceTree = "<group>"; };
 		4196FA6D292D33500095AD16 /* CustomCard2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCard2View.swift; sourceTree = "<group>"; };
+		4198283E2944D19200D72E45 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		419937C0293FAD0000A0516A /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		419937C2293FAE1A00A0516A /* CommentServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentServices.swift; sourceTree = "<group>"; };
 		419937C6293FC94B00A0516A /* CommentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCardView.swift; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 				419B69D7293DFBF000B2CF81 /* SectionCardView.swift */,
 				419937C6293FC94B00A0516A /* CommentCardView.swift */,
 				419937CB293FF07C00A0516A /* CustomCardCartView.swift */,
+				4198283E2944D19200D72E45 /* WebView.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				87AD691E293E6656000F0A88 /* EditCourseView.swift in Sources */,
 				419937C7293FC94B00A0516A /* CommentCardView.swift in Sources */,
 				4196A73729403D6B0007B6B3 /* DetailCourseLessonsView.swift in Sources */,
+				4198283F2944D19200D72E45 /* WebView.swift in Sources */,
 				87B21C7029326353000FD964 /* Level.swift in Sources */,
 				419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */,
 				419937C1293FAD0000A0516A /* Comment.swift in Sources */,
