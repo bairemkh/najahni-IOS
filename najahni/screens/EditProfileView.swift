@@ -10,39 +10,25 @@ import SDWebImageSwiftUI
 
 struct EditProfileView: View {
     @StateObject var viewModel = LoginViewModel()
-   @State var firstname: String
-   @State var lastname: String
-   @State var image: String
-    
+    @State var user:User
 
     var body: some View {
         NavigationView(){
             VStack{
-                WebImage(url: URL(string: image))
-                    .resizable()
-                    .clipShape(Circle())
-                        .shadow(radius: 10)
-                    .padding()
-                    .frame(width: 150.0, height: 150.0)
-                    .aspectRatio(contentMode: .fill)
-                Spacer()
-                    .frame(width: 0.0, height:30)
-                TextField("Name", text: $firstname)
+                TextField("Name", text: $user.firstname)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
-                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
-                    .cornerRadius(20)
-                    .shadow(color: .gray, radius: 3)
+                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848, opacity: 0.075)/*@END_MENU_TOKEN@*/)
+                    .cornerRadius(10)
                 Spacer()
                     .frame(width: 0.0, height:30)
-                TextField("Last name", text: $lastname)
+                TextField("Last name", text: $user.lastname)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
-                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
-                    .cornerRadius(20)
-                    .shadow(color: .gray, radius: 3)
+                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848, opacity: 0.075)/*@END_MENU_TOKEN@*/)
+                    .cornerRadius(10)
 
                 Spacer()
                     .frame(width: 0.0, height:30)
@@ -54,9 +40,8 @@ struct EditProfileView: View {
                                        .padding()
                                        
                 })
-                Button(action: {
-                    print("test edit")
-                    viewModel.editprofile(firstname: firstname, lastname: lastname)
+                Spacer()
+                Button(action: {UserService.editprofile(user: user)
                 }){
                     Text("Update Profile")
                         .foregroundColor(.white)
@@ -69,13 +54,18 @@ struct EditProfileView: View {
                 .cornerRadius(25)
             }
             .padding(.all)
-        }
-        
+        }.navigationTitle(Text("Edit Profile"))
+            .onAppear{
+                viewModel.selected = user.fields.map({ f in
+                    return ListData(name: f.rawValue)
+                })
+            }
     }
 }
 
 struct EditProfileView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        EditProfileView(firstname: String(), lastname: String(), image: String())
+        EditProfileView(user: UserFix)
     }
 }

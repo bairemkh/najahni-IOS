@@ -38,7 +38,7 @@ struct ProfileTrainerView: View {
                             .foregroundColor(.black)
                         
                         NavigationLink{
-                            EditProfileView(firstname: firstname, lastname: lastname, image: image)
+                            EditProfileView(user: SessionManager.currentUser!)
                         }label:{
                             Text("Edit profile")
                                     .font(.headline)

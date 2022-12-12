@@ -14,7 +14,7 @@ import UIKit
 class LoginViewModel: ObservableObject {
     @Published  var email=""
     @Published  var password=""
-    
+    @Published  var selected:[ListData] = []
     
     func login(email:String,password:String, completed: @escaping (Bool , Int
 ) -> Void) {
@@ -80,11 +80,11 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-    func editprofile(firstname: String,lastname: String){
+   /* func editprofile(firstname: String,lastname: String){
         let token = UserDefaults.standard.string(forKey: "token")
         let parmetres : [String : Any] = [
             "firstname": firstname,
-            "lastname": lastname
+            "lastname": lastname,
         ]
         let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
         AF.request(EDIT_PROFILE,
@@ -104,30 +104,13 @@ class LoginViewModel: ObservableObject {
                 
             }
         }
-    }
+    }*/
     
     func editPhoto(image: UIImage? ,completed: @escaping (Bool)-> Void) {
-        let token = UserDefaults.standard.string(forKey: "token")
-        let headers : HTTPHeaders = [.authorization(bearerToken: token!),.contentType("multipart/form-data")]
-        
-        AF.upload(multipartFormData: {multipartFormData in
-            multipartFormData.append(image!.jpegData(compressionQuality: 0.5)!, withName: "image",fileName: "file.jpg", mimeType: "image/jpg")
-        },
-                  to: UPLOAD_IMAGE, method: .post, headers: headers)
-        .responseData { response in
-            switch response.result {
-            case .success:
-                print("upload")
-                completed(true)
-            case let .failure(error):
-                print(error)
-                completed(false)
-            }
+        UserService.editPhoto(image: image) { isOk in
+            completed(isOk)
         }
-        
-        
-        
-    }
+     }
     
 
     
@@ -146,5 +129,6 @@ class LoginViewModel: ObservableObject {
             isVerified: jsonItem["isVerified"].boolValue,
             otp: jsonItem["otp"].stringValue)
     }
+    
         
 }
