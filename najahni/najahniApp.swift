@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct najahniApp: App {
     let persistenceController = PersistenceController.shared
-    @State var user = UserFix
+    
+    init(){
+        FirebaseApp.configure()
+    }
+
     var body: some Scene {
         WindowGroup {
             SplashView()

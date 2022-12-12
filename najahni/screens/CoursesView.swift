@@ -11,7 +11,7 @@ struct CoursesView: View {
     @State var courses : [Course] = []
     @StateObject var courseviewModel = MyCoursesViewModel()
     var body: some View {
-        NavigationView {
+        //NavigationView {
             VStack{
                 ScrollView(.vertical,showsIndicators: false) {
                     ForEach(courses) { course in
@@ -25,11 +25,9 @@ struct CoursesView: View {
                 }
                 
             }
-                .navigationTitle(
-                    Text("My courses")
-                )
-                .navigationBarTitleDisplayMode(.inline)
-        }.onAppear{ CourseService.getallcourses() {
+               
+        //}
+        .onAppear{ CourseService.getallcourses() {
             success, result in
                 if success {
                     self.courses = []
@@ -42,6 +40,10 @@ struct CoursesView: View {
                 }
         }
             }
+        .navigationTitle(
+            Text("My courses")
+        )
+        .navigationBarTitleDisplayMode(.inline)
 
     }
 }

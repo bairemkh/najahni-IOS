@@ -54,7 +54,9 @@ struct CourseDetailView: View {
                         .clipShape(Circle())
                         .frame(width: 50,height: 50)
                     Text(course.idowner!.firstname + " " + course.idowner!.lastname)
+                    
                     Spacer()
+                    
                 }
                 Spacer()
                     .frame(width: 0,height: 30)

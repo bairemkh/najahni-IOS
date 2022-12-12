@@ -22,8 +22,23 @@ struct ProfileTrainerView: View {
     @State private var pass = false
     var body: some View {
         //NavigationView(){
-            VStack(alignment: .leading){
-                HStack(alignment: .center){
+            VStack(alignment: .center){
+                HStack{
+                    NavigationLink(destination: LoginView(),isActive: $onLogOut){
+                        Image(systemName: "rectangle.portrait.and.arrow.forward")
+                            .foregroundColor(Color("primaryColor"))
+                            .onTapGesture {
+                                print("logout")
+                                print(UserDefaults.standard.object(forKey: "token")!)
+                                UserDefaults.standard.removeObject(forKey: "token");                     UserDefaults.standard.removeObject(forKey: "role")
+                                
+                                onLogOut = true
+                                print(UserDefaults.standard.object(forKey: "token"))
+                            }
+                    }
+                    Spacer()
+                }
+                VStack(alignment: .center){
                     WebImage(url: URL(string:URL_BASE_APP + image ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvaBdtJ4GaN7m79jU-Y47NqT3Grvxd7qIZ9VKUZKyU1ynYKxoNdlQCixTRDnliBE62os&usqp=CAU"))
                         .resizable()
                         .clipShape(Circle())
@@ -47,30 +62,20 @@ struct ProfileTrainerView: View {
                         }
                         
                     }
-                    Spacer()
-                    NavigationLink(destination: LoginView(),isActive: $onLogOut){
-                        Image(systemName: "rectangle.portrait.and.arrow.forward")
-                            .foregroundColor(Color("primaryColor"))
-                            .onTapGesture {
-                                print("logout")
-                                print(UserDefaults.standard.object(forKey: "token")!)
-                                UserDefaults.standard.removeObject(forKey: "token");                     UserDefaults.standard.removeObject(forKey: "role")
-                                
-                                onLogOut = true
-                                print(UserDefaults.standard.object(forKey: "token"))
-                            }
-                    }
-                    Spacer()
+                   // Spacer()
                         
                 }
                 
 
                 HStack{
                     CustomBoxView()
+                    Divider()
                     CustomBoxView()
-                    Spacer()
+                    //Spacer()
                 }
                 .padding()
+                .frame(height: 100.0)
+                Divider()
                 VStack(alignment: .leading) {
                     SlidingTabView(selection: self.$selectedTabIndex, tabs: ["Courses", "Archived"],activeAccentColor: Color("primaryColor"),selectionBarColor: Color("primaryColor"))
                     if(selectedTabIndex == 0){
@@ -129,8 +134,8 @@ struct ProfileTrainerView: View {
                        
                             //Spacer()
                         }
-                            .padding(.top)
-                            .animation(.none)
+                           // .padding()
+                            .animation(.linear)
                /* Text("My courses")
                     .fontWeight(.bold)
                     .foregroundColor(Color.black)
