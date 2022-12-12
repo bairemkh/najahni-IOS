@@ -51,11 +51,7 @@
 		419E5EBA29473D6A00AC7538 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E5EB929473D6A00AC7538 /* CartViewModel.swift */; };
 		419E7C3B2928E023007E7D87 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E7C3A2928E023007E7D87 /* ImagePicker.swift */; };
 		419F2E812943A52A00CE2495 /* ProfileTrainerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E802943A52A00CE2495 /* ProfileTrainerDetailsView.swift */; };
-		419F2E862943A72A00CE2495 /* TitleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E832943A72900CE2495 /* TitleRow.swift */; };
-		419F2E872943A72A00CE2495 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E842943A72900CE2495 /* MessageBubble.swift */; };
-		419F2E882943A72A00CE2495 /* MessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E852943A72A00CE2495 /* MessageField.swift */; };
 		419F2E8A2943A75C00CE2495 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E892943A75C00CE2495 /* Message.swift */; };
-		419F2E8C2943AA1D00CE2495 /* DiscussionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E8B2943AA1D00CE2495 /* DiscussionView.swift */; };
 		419FAD1B293106FD00FA6A49 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419FAD1A293106FD00FA6A49 /* WishListView.swift */; };
 		41BAA2FD293E504E008FEC06 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FC293E504E008FEC06 /* Section.swift */; };
 		41BAA2FF293E5433008FEC06 /* SectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FE293E5433008FEC06 /* SectionService.swift */; };
@@ -87,7 +83,6 @@
 		87702711293F93500048A824 /* EditSectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87702710293F93500048A824 /* EditSectionsView.swift */; };
 		8774D6FC292D1DEA00FCC1BE /* DetailPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D6FB292D1DEA00FCC1BE /* DetailPageViewModel.swift */; };
 		8774D6FE292D20CB00FCC1BE /* CustomSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D6FD292D20CB00FCC1BE /* CustomSelectionView.swift */; };
-		87982167294795C7001F2BB1 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 87982166294795C7001F2BB1 /* SocketIO */; };
 		879B2F9F2927A68B00249774 /* ForgetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B2F9E2927A68B00249774 /* ForgetPasswordViewModel.swift */; };
 		879BC95F293B4EF700FA2E44 /* AddCourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879BC95E293B4EF700FA2E44 /* AddCourseViewModel.swift */; };
 		879E5C81292BE19600573969 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E5C80292BE19600573969 /* SessionManager.swift */; };
@@ -173,11 +168,7 @@
 		419E5EB929473D6A00AC7538 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		419E7C3A2928E023007E7D87 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		419F2E802943A52A00CE2495 /* ProfileTrainerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerDetailsView.swift; sourceTree = "<group>"; };
-		419F2E832943A72900CE2495 /* TitleRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleRow.swift; path = "../../../../../../Downloads/ChatApp-main/ChatApp/Components/TitleRow.swift"; sourceTree = "<group>"; };
-		419F2E842943A72900CE2495 /* MessageBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageBubble.swift; path = "../../../../../../Downloads/ChatApp-main/ChatApp/Components/MessageBubble.swift"; sourceTree = "<group>"; };
-		419F2E852943A72A00CE2495 /* MessageField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageField.swift; path = "../../../../../../Downloads/ChatApp-main/ChatApp/Components/MessageField.swift"; sourceTree = "<group>"; };
 		419F2E892943A75C00CE2495 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "../../../../../Downloads/ChatApp-main/ChatApp/Models/Message.swift"; sourceTree = "<group>"; };
-		419F2E8B2943AA1D00CE2495 /* DiscussionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionView.swift; sourceTree = "<group>"; };
 		419FAD1A293106FD00FA6A49 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		41BAA2FC293E504E008FEC06 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		41BAA2FE293E5433008FEC06 /* SectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionService.swift; sourceTree = "<group>"; };
@@ -235,7 +226,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				419937CA293FDEED00A0516A /* ExpandableText in Frameworks */,
-				87982167294795C7001F2BB1 /* SocketIO in Frameworks */,
 				419495FE293702DE00349A24 /* SlidingTabView in Frameworks */,
 				419509A52934BFD400E417FF /* GoogleSignInSwift in Frameworks */,
 				87C5CB192923C5050049814E /* SDWebImageSwiftUI in Frameworks */,
@@ -265,7 +255,6 @@
 		287939552919709700778A5B /* screens */ = {
 			isa = PBXGroup;
 			children = (
-				419F2E822943A6B900CE2495 /* chat */,
 				8743D04F291F9E7900C1781C /* base */,
 				28793956291970D300778A5B /* SplashView.swift */,
 				287939582919737500778A5B /* WelcomeView.swift */,
@@ -376,17 +365,6 @@
 			path = services;
 			sourceTree = "<group>";
 		};
-		419F2E822943A6B900CE2495 /* chat */ = {
-			isa = PBXGroup;
-			children = (
-				419F2E842943A72900CE2495 /* MessageBubble.swift */,
-				419F2E852943A72A00CE2495 /* MessageField.swift */,
-				419F2E832943A72900CE2495 /* TitleRow.swift */,
-				419F2E8B2943AA1D00CE2495 /* DiscussionView.swift */,
-			);
-			path = chat;
-			sourceTree = "<group>";
-		};
 		8741BAB2291E952E002FBDE8 /* viewmodels */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,7 +472,6 @@
 				419509A42934BFD400E417FF /* GoogleSignInSwift */,
 				419495FD293702DE00349A24 /* SlidingTabView */,
 				419937C9293FDEED00A0516A /* ExpandableText */,
-				87982166294795C7001F2BB1 /* SocketIO */,
 			);
 			productName = najahni;
 			productReference = 28CABB1429191BC400AED109 /* najahni.app */;
@@ -575,7 +552,6 @@
 				419509A12934BFD400E417FF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				419495FC293702DE00349A24 /* XCRemoteSwiftPackageReference "SlidingTabView" */,
 				419937C8293FDEED00A0516A /* XCRemoteSwiftPackageReference "ExpandableText" */,
-				87982165294795C7001F2BB1 /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = 28CABB1529191BC400AED109 /* Products */;
 			projectDirPath = "";
@@ -620,7 +596,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				872AD031293FE1F70066C22D /* AddLessonViewModel.swift in Sources */,
-				419F2E872943A72A00CE2495 /* MessageBubble.swift in Sources */,
 				879E5C83292BE53400573969 /* CourseDetailView.swift in Sources */,
 				8743D062291FF61000C1781C /* User.swift in Sources */,
 				876E2F062944AF3800A21304 /* PrivacyPolicyView.swift in Sources */,
@@ -648,7 +623,6 @@
 				87B9266C29369B4000F7A082 /* CourseServices.swift in Sources */,
 				87B926702936DF7000F7A082 /* SettingsView.swift in Sources */,
 				2879395D2919A57800778A5B /* ForgetPassword.swift in Sources */,
-				419F2E862943A72A00CE2495 /* TitleRow.swift in Sources */,
 				4194137C293B7B8800306B28 /* CourseDetailTrainerView.swift in Sources */,
 				87AD6920293E66E0000F0A88 /* EditCourseViewModel.swift in Sources */,
 				2879395B2919824100778A5B /* LoginView.swift in Sources */,
@@ -692,7 +666,6 @@
 				87702711293F93500048A824 /* EditSectionsView.swift in Sources */,
 				419495F92936B9A300349A24 /* MyCoursesViewModel.swift in Sources */,
 				419F2E8A2943A75C00CE2495 /* Message.swift in Sources */,
-				419F2E8C2943AA1D00CE2495 /* DiscussionView.swift in Sources */,
 				8743D053291F9EA300C1781C /* CustomButtonView.swift in Sources */,
 				414248CC292D4CF800D35692 /* Course.swift in Sources */,
 				87A4E85D2922A3CF00E2A505 /* CustomPicker2View.swift in Sources */,
@@ -707,7 +680,6 @@
 				87B9266A293607C200F7A082 /* TrainerVerificationView.swift in Sources */,
 				41941382293BA90400306B28 /* VideoPlayerCourseView.swift in Sources */,
 				879E5C81292BE19600573969 /* SessionManager.swift in Sources */,
-				419F2E882943A72A00CE2495 /* MessageField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1086,14 +1058,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		87982165294795C7001F2BB1 /* XCRemoteSwiftPackageReference "socket" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		87A4E8622922B85500E2A505 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
@@ -1137,11 +1101,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8743D05C291FE49300C1781C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		87982166294795C7001F2BB1 /* SocketIO */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 87982165294795C7001F2BB1 /* XCRemoteSwiftPackageReference "socket" */;
-			productName = SocketIO;
 		};
 		87A4E8632922B85500E2A505 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;

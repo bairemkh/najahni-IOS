@@ -8,7 +8,6 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
-import UIKit
 class UserService {
     
     static func forgetPassword(email:String, onAction: @escaping (Int , String)-> Void){
@@ -181,60 +180,6 @@ class UserService {
             throw error
         }
         
-    }
-    
-    static func editPhoto(image: UIImage? ,completed: @escaping (Bool)-> Void) {
-        if(image!.jpegData(compressionQuality: 0.5) != nil){
-            let token = UserDefaults.standard.string(forKey: "token")
-            let headers : HTTPHeaders = [.authorization(bearerToken: token!),.contentType("multipart/form-data")]
-            
-            AF.upload(multipartFormData: {multipartFormData in
-                multipartFormData.append(image!.jpegData(compressionQuality: 0.5)!, withName: "image",fileName: "file.jpg", mimeType: "image/jpg")
-            },
-                      to: UPLOAD_IMAGE, method: .post, headers: headers)
-            .responseData { response in
-                switch response.result {
-                case .success:
-                    print("upload")
-                    completed(true)
-                case let .failure(error):
-                    print(error)
-                    completed(false)
-                }
-            }
-        }
-        else{
-            completed(false)
-        }
-    }
-    
-    static func editprofile(user:User){
-        let token = UserDefaults.standard.string(forKey: "token")
-        let parmetres : [String : Any] = [
-            "firstname": user.firstname,
-            "lastname": user.lastname,
-            "fields":user.fields.map({ field in
-                return field.rawValue
-            })
-        ]
-        let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
-        AF.request(EDIT_PROFILE,
-                   method: .put,
-                   parameters: parmetres,
-        headers: headers)
-        .responseJSON{
-            (res) in
-            switch res.result {
-            case .success(let data):
-                let json = JSON(data)
-              
-                //completed(true,user)
-            case .failure(let error):
-                print(error)
-                //completed(false,nil)
-                
-            }
-        }
     }
 }
 

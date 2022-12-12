@@ -65,7 +65,7 @@ struct ProfileView: View {
                             ImagePicker(sourceType: .photoLibrary, selectedImage: $images)}
                 Divider()
                 NavigationLink{
-                    EditProfileView(user: SessionManager.currentUser!)
+                    EditProfileView(firstname: firstname, lastname: lastname, image: image)
                         .padding(0.0)
                 } label: {
                     CustomButtonView(icon: "pencil.line",buttonText: "Edit profile")
