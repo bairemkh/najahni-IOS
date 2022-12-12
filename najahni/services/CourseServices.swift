@@ -11,7 +11,7 @@ import SwiftyJSON
 import UIKit
 import SwiftUI
 class CourseService {
-   static func getallcourses (completed: @escaping (Bool,[Course]?)-> Void) {
+    static func getallcourses (completed: @escaping (Bool,[Course]?)-> Void) {
         
         AF.request(ALL_COURSE,
                    method: .get)
@@ -39,7 +39,7 @@ class CourseService {
         let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
         AF.request(ALL_MY_COURSE,
                    method: .get,
-                headers: headers)
+                   headers: headers)
         .responseJSON{
             (res) in
             switch res.result {
@@ -67,16 +67,16 @@ class CourseService {
             }), level: jsonItem["level"].stringValue, description: jsonItem["description"].stringValue, isPaid: jsonItem["isPaid"].boolValue, image: jsonItem["image"].stringValue, price: jsonItem["price"].intValue, idowner: UserService.makeItem(jsonItem: jsonItem["idowner"]), isArchived: jsonItem["isArchived"].boolValue, createdAt: jsonItem["createdAt"].stringValue, updatedAt: jsonItem["updatedAt"].stringValue, sections: jsonItem["sections"].arrayValue.map({ json in
                 return SectionService.makeItem(jsonItem: json)
             }),
-            comments: jsonItem["comments"].arrayValue.map({ json in
+                              comments: jsonItem["comments"].arrayValue.map({ json in
                 return CommentService.makeItem(jsonItem: json)
             })
-            
+                              
             )
         }catch{
-           print(error)
+            print(error)
             return CourseFix
         }
-   }
+    }
     
     static func addCourse(course : Course , image :UIImage , completed:@escaping(Bool,Int)->Void){
         let token = UserDefaults.standard.string(forKey: "token")
@@ -106,7 +106,7 @@ class CourseService {
                 completed(false,error.responseCode!)
             }
         }
-        }
+    }
     
     static func updateCourse(course : Course , completed:@escaping(Bool,Int)->Void){
         let token = UserDefaults.standard.string(forKey: "token")
@@ -135,6 +135,32 @@ class CourseService {
                 completed(false,error.responseCode!)
             }
         }
-        }
+    }
+    
+    static func payementApi(amount: Int,completed: @escaping (Bool ,Int,String?
+    ) -> Void) {
+        let parmetres : [String : Any] = [
+            "amount": amount
+        ]
+        AF.request(PAIEMENT_COURSE, method: .post, parameters: parmetres, encoding: JSONEncoding.default)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseJSON{
+                (res) in
+                switch res.result {
+                case .success(let data):
+                    let json = JSON(data)
+                    print(json)
+                    completed(true,200,json["payUrl"].stringValue)
+                case .failure(let error):
+                    print("request failed")
+                    print(res.error?.responseCode)
+                    completed(false,res.error?.responseCode ?? 500,nil)
+                }
+                
+            }
+        
+        
+    }
     
 }

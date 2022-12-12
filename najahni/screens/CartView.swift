@@ -10,7 +10,8 @@ import SwiftUI
 struct CartView: View {
     @State var cartlist : [Course] = []
     @State private var showWebView = false
-    private let urlString: String = "https://www.google.com"
+    @StateObject var cartViewModel = CartViewModel()
+    @State var urlString: String = ""
     var body: some View {
         VStack{
             List{
@@ -33,10 +34,18 @@ struct CartView: View {
                         .foregroundColor(.gray)
                         .padding(.horizontal)
                     Spacer()
-                    Text("\(calculateTotal())")
+                    Text("\(cartViewModel.price)")
                 }
                 Button(action: {
-                    showWebView.toggle()
+                    //showWebView.toggle()
+                    //$cartViewModel.price = calculateTotal()
+                    cartViewModel.addPayement{ oki,url in
+                        print(oki)
+                        urlString = url!
+                        print(urlString)
+                        showWebView.toggle()
+                    }
+                    
                    
                 }) {
                     Text("Check out")
@@ -45,10 +54,12 @@ struct CartView: View {
                           .frame(width: 300.0,height: 60.0)
                           .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
                           .cornerRadius(25)
+                          .sheet(isPresented: $showWebView) {
+                              WebView(url: URL(string: urlString)!)
+                                    }
+                    
                 }
-                .sheet(isPresented: $showWebView) {
-                             WebView(url: URL(string: urlString)!)
-                         }
+               
             }
         }
             .onAppear(){
@@ -61,19 +72,16 @@ struct CartView: View {
                             }
                         }) ?? [Course(id: "", title: "", fields: [], level: "", description: "", isPaid: true, image: "", price: 0, idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")]
                     }
+                    cartlist.forEach{(item) in
+                        cartViewModel.price += item.price
+                    }
                 }
+                
             }
         
     
         
   
-    }
-    func calculateTotal () -> Int {
-        var price : Int = 0
-        cartlist.forEach{(item) in
-            price += item.price
-        }
-        return price;
     }
 }
 
