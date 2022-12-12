@@ -13,6 +13,8 @@ struct SectionCardView: View {
         VStack {
             HStack {
                 Text(section.title)
+                    .bold()
+                    .font(.system(size: 25))
                 Spacer()
                 Text("15 min")
             }
@@ -27,7 +29,6 @@ struct SectionCardView: View {
                 }
             }
             //}
-            .padding(.horizontal)
         }
     }
 }

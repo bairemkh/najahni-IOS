@@ -187,11 +187,11 @@ struct CourseDetailView: View {
 }
 
 struct CourseDetailView_Previews: PreviewProvider {
-    static var course: Course = Course(id: "", title: "Title course", fields: Fields.allCases, level: Level.Beginner.rawValue, description: "", isPaid: false, image: "/img/pexels-supreet-7559057.jpg1668674151911.jpg", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
+    static var course: Course = Course(id: "", title: "Title course", fields: Fields.allCases, level: Level.Beginner.rawValue, description: "", isPaid: false, image: "/img/pexels-supreet-7559057.jpg1668674151911.jpg", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "",sections: [Section(id: "2", title: "Section 1", idCourse: "", lessons: [Lesson(title: "Lesson 1", sectionid: "1", video: ""),Lesson(title: "Lesson 2", sectionid: "1", video: "")])])
     static var previews: some View {
-        //CourseDetailView(course: course)
+        CourseDetailView(course: course)
         //listLessonsView(section: Section(title: "hello", idCourse: ""), onAdd:{})
-        LessonsViewPart(lesson: Lesson(title: "Kotlin part 1", sectionid: "", video: ""))
+       /* LessonsViewPart(lesson: Lesson(title: "Kotlin part 1", sectionid: "", video: ""))*/
     }
 }
 struct btnIcon:View {
