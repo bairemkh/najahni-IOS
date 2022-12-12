@@ -6,19 +6,17 @@
 //
 
 import SwiftUI
-import Firebase
 
 @main
 struct najahniApp: App {
     let persistenceController = PersistenceController.shared
     
-    init(){
-        FirebaseApp.configure()
-    }
+   
 
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            //SplashView()
+            messageView()
         }
     }
 }
