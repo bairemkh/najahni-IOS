@@ -71,9 +71,15 @@ struct messageView: View {
                     .padding(.all)
                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848, opacity: 0.445)/*@END_MENU_TOKEN@*/)
                     .cornerRadius(10)
+                    .autocorrectionDisabled()
                 Spacer()
                     .frame(width: 30)
-                Button(action: {viewModel.sendMessage(message: message,id: "hama")}) {
+                Button(
+                    action: {
+                        if(!message.isEmpty){
+                        viewModel.sendMessage(message: message,id: "hama")
+                        message = ""
+                        }}) {
                     Image(systemName: "paperplane.circle.fill")
                         .resizable()
                         .frame(width: 40,height: 40)
