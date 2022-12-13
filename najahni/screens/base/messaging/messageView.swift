@@ -9,28 +9,120 @@ import SwiftUI
 import SocketIO
 import SwiftyJSON
 class messanger: ObservableObject{
-    private var manager = SocketManager(socketURL: URL(string: URL_SOCKET)!)
-    @Published var messages = [String]()
+    private var manager = SocketManager(socketURL: URL(string: URL_BASE_APP)!,config: [.log(false),.reconnects(true)])
+    @Published var messages = [Message]()
+    var socket :SocketIOClient
+    func sendMessage(message:String,id:String) {
+        print("test \(socket.status)")
+        let messageJson = ["msgContent" : message,"senderid":"bairem","receiverid":id]
+        socket.emit("onMessage", messageJson)
+    }
     init(){
-        let socket = manager.defaultSocket
-        print(manager.socketURL)
-        print("\(socket) 1-----\(socket.status)")
-        socket.on(clientEvent: .connect) { data, ack in
-            print("data===>\(data)")
+        socket = manager.defaultSocket
+        socket.on(clientEvent: .connect) { [self] data, ack in
+            socket.on("onMessage") { data, ack in
+                let dataJson = JSON(data[0])["msg"]
+                print("test====>\(dataJson["msgContent"])")
+                messages.append(MessageServices.makeItem(jsonItem: dataJson))
+            }
         }
-        print("\(socket) 2-----\(socket.status)")
+        socket.connect()
+        
     }
 }
 
 struct messageView: View {
+    
+    @State var user:User
     @StateObject var viewModel = messanger()
+    @State var message = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            HStack{
+                Image(systemName: "arrowshape.backward.fill")
+                    .resizable()
+                    .frame(width: 30,height: 30)
+                    .foregroundColor(Color("primaryColor"))
+                Spacer()
+                Image("user")
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width: 70.0, height: 70.0)
+                Text(user.firstname)
+                    .font(.title)
+                    .fontWeight(.black)
+                    .padding(.horizontal)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/Color("primaryColor")/*@END_MENU_TOKEN@*/)
+                Spacer()
+            }
+            .padding([.leading, .bottom, .trailing])
+            ScrollView(showsIndicators: false) {
+                VStack{
+                    Group{
+                        ForEach(viewModel.messages){ message in
+                            messageBubble(message:message.msgContent,isCurrentUser: message.senderid.elementsEqual("bairem"))
+                        }
+                        
+                    }
+                    .padding(.all)
+                }
+            }
+            HStack {
+                TextField("", text: $message)
+                    .padding(.all)
+                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848, opacity: 0.445)/*@END_MENU_TOKEN@*/)
+                    .cornerRadius(10)
+                Spacer()
+                    .frame(width: 30)
+                Button(action: {viewModel.sendMessage(message: message,id: "hama")}) {
+                    Image(systemName: "paperplane.circle.fill")
+                        .resizable()
+                        .frame(width: 40,height: 40)
+                        .foregroundColor(Color("primaryColor"))
+                }
+            }
+            .padding(.all)
+        }
     }
+    
 }
 
 struct messageView_Previews: PreviewProvider {
     static var previews: some View {
-        messageView()
+        //messageView(user: UserFix)
+        messageBubble(message:"testing message")
     }
+}
+
+
+
+struct messageBubble :View {
+    @State var message : String
+    @State var isCurrentUser = true
+    var body: some View {
+        if isCurrentUser{
+            HStack {
+                Spacer()
+                Text(message)
+                    .foregroundColor(.white)
+                    .padding(.all)
+                .background(Rectangle().foregroundColor(Color("primaryColor")).cornerRadius(30))
+            }
+        }else{
+            HStack {
+                Image("user")
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width: 50.0, height: 50.0)
+                Text(message)
+                    .foregroundColor(Color("primaryColor"))
+                    .padding(.all)
+                    .background(Rectangle().foregroundColor(Color(red: 0.694, green: 0.509, blue: 0.922, opacity: 0.214)).cornerRadius(30))
+                Spacer()
+            }
+            
+        }
+        
+    }
+    
 }

@@ -8,8 +8,8 @@
 import Foundation
 
 
-let URL_BASE_APP = "http://172.17.4.45:9090"
-let URL_SOCKET = "ws://172.17.4.45:3000"
+let URL_BASE_APP = "http://172.17.9.34:9090"
+let URL_SOCKET = "ws://172.17.9.34:3000"
 //let URL_BASE_APP = "http://localhost:9090"
 let LOGIN_URL = URL_BASE_APP + "/user/signin"
 let PROFILE_URL = URL_BASE_APP + "/user/profile"

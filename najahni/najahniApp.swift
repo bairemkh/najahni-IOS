@@ -16,7 +16,7 @@ struct najahniApp: App {
     var body: some Scene {
         WindowGroup {
             //SplashView()
-            messageView()
+            messageView(user: UserFix)
         }
     }
 }
