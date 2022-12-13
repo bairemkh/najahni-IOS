@@ -13,9 +13,11 @@ struct najahniApp: App {
     let persistenceController = PersistenceController.shared
     
 
+
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            //SplashView()
+            messageView(user: UserFix)
         }
     }
 }

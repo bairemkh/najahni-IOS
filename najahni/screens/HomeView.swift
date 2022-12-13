@@ -30,12 +30,11 @@ struct HomeView: View {
                         Text("\(SessionManager.currentUser?.lastname ?? "Last name")")
                     }
                     Spacer()
-                    Image(systemName: "bell")
+                    Image(systemName: "bell.fill")
                         .resizable()
                         .padding(8)
                         .frame(width: 45.0, height: 45.0)
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.black, lineWidth: 2))
+                        .foregroundColor(Color("primaryColor"))
                     
                     //.frame(width: 50.0, height: 50.0)
                         .aspectRatio(contentMode: .fill)
