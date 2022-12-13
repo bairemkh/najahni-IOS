@@ -4,7 +4,6 @@
 //
 //  Created by bairem mohamed on 12/12/2022.
 //
-
 import SwiftUI
 import SocketIO
 import SwiftyJSON
@@ -14,16 +13,16 @@ class messanger: ObservableObject{
     var socket :SocketIOClient
     func sendMessage(message:String,id:String) {
         print("test \(socket.status)")
-        let messageJson = ["msgContent" : message,"senderid":"bairem","receiverid":id]
+        let messageJson = ["msgContent" : message,"senderid":"bairem","receiverid":id,"id":UUID().uuidString]
         socket.emit("onMessage", messageJson)
     }
     init(){
         socket = manager.defaultSocket
         socket.on(clientEvent: .connect) { [self] data, ack in
-            socket.on("onMessage") { data, ack in
+            socket.on("send") { data, ack in
                 let dataJson = JSON(data[0])["msg"]
-                print("test====>\(dataJson["msgContent"])")
-                messages.append(MessageServices.makeItem(jsonItem: dataJson))
+                self.messages.append(MessageServices.makeItem(jsonItem: dataJson))
+                print("test====>\(MessageServices.makeItem(jsonItem: dataJson)) \(JSON(data[0])["msg"])")
             }
         }
         socket.connect()
