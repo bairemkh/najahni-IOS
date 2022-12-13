@@ -15,7 +15,7 @@ struct Message :Identifiable{
         self.receiverid = receiverid
     }
     init(msgContent: String, senderid: String, receiverid: String) {
-        self.id = ""
+        self.id = UUID().uuidString
         self.msgContent = msgContent
         self.senderid = senderid
         self.receiverid = receiverid

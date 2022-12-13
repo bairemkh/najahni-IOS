@@ -14,13 +14,13 @@ class messanger: ObservableObject{
     var socket :SocketIOClient
     func sendMessage(message:String,id:String) {
         print("test \(socket.status)")
-        let messageJson = ["msgContent" : message,"senderid":"bairem","receiverid":id]
+        let messageJson = ["msgContent" : message,"senderid":"hama","receiverid":id]
         socket.emit("onMessage", messageJson)
     }
     init(){
         socket = manager.defaultSocket
         socket.on(clientEvent: .connect) { [self] data, ack in
-            socket.on("onMessage") { data, ack in
+            socket.on("send") { data, ack in
                 let dataJson = JSON(data[0])["msg"]
                 print("test====>\(dataJson["msgContent"])")
                 messages.append(MessageServices.makeItem(jsonItem: dataJson))
@@ -60,7 +60,7 @@ struct messageView: View {
                 VStack{
                     Group{
                         ForEach(viewModel.messages){ message in
-                            messageBubble(message:message.msgContent,isCurrentUser: message.senderid.elementsEqual("bairem"))
+                            messageBubble(message:message.msgContent,isCurrentUser: message.senderid.elementsEqual("hama"))
                         }
                         
                     }
@@ -74,7 +74,7 @@ struct messageView: View {
                     .cornerRadius(10)
                 Spacer()
                     .frame(width: 30)
-                Button(action: {viewModel.sendMessage(message: message,id: "hama")}) {
+                Button(action: {viewModel.sendMessage(message: message,id: "bairem")}) {
                     Image(systemName: "paperplane.circle.fill")
                         .resizable()
                         .frame(width: 40,height: 40)
