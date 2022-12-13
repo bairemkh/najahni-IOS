@@ -12,9 +12,15 @@ import SwiftyJSON
 class ProfileTrainerViewModel : ObservableObject {
     var homeviewModel = HomeViewModel()
     func getMyCourses (completed: @escaping (Bool,[Course]?)-> Void) {
+        CourseService.getMyCourses { ok, list in
+            completed(ok,list)
+        }
+    }
+    
+    func getMyCoursesArchived (completed: @escaping (Bool,[Course]?)-> Void) {
         let token = UserDefaults.standard.string(forKey: "token")
         let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
-        AF.request(ALL_MY_COURSE,
+        AF.request(ALL_MY_COURSE_ARCHIVED,
                    method: .get,
                 headers: headers)
         .responseJSON{

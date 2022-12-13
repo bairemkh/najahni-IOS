@@ -38,7 +38,7 @@ class UserService {
             "id" : userId,
             "otp" : otp
         ]
-        AF.request(URL_BASE_APP + "/user/reset-password",method: .post,parameters: body,encoding: JSONEncoding.default )
+        AF.request(URL_BASE_APP + "/user/reset-password",method: .post,parameters: body,encoding: JSONEncoding.default)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseData { response in
@@ -112,13 +112,19 @@ class UserService {
         AF.request(PROFILE_URL,
                    method: .get,
                 headers: headers)
+        .validate(statusCode: 200..<300)
         .responseJSON{
             (res) in
             switch res.result {
             case .success(let data):
                 let json = JSON(data)
-                let user = self.makeItem(jsonItem: json["data"])
-                completed(true,user)
+                do{
+                    let  user = try self.makeItem(jsonItem: json["data"])
+                    completed(true,user)
+                }
+                catch{
+                    UserDefaults.standard.removeObject(forKey: "token")
+                }
             case .failure(let error):
                 print(error)
                 completed(false,nil)
@@ -126,20 +132,54 @@ class UserService {
             }
         }
     }
-    static func makeItem(jsonItem: JSON) -> User {
-        return User(
-            _id: jsonItem["_id"].stringValue,
-            firstname: jsonItem["firstname"].stringValue,
-            lastname: jsonItem["lastname"].stringValue,
-            email: jsonItem["email"].stringValue,
-            password: jsonItem["password"].stringValue,
-            role: Role(rawValue: jsonItem["role"].stringValue)!,
-            fields: jsonItem["fields"].arrayValue.map({ json in
-                return Fields(rawValue: json.stringValue)!
-            }),
-            image: jsonItem["image"].stringValue,
-            isVerified: jsonItem["isVerified"].boolValue,
-            otp: jsonItem["otp"].stringValue)
+    static func profile() async{
+        let token = UserDefaults.standard.string(forKey: "token")
+        let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
+        do{
+            var data = try await AF.request(PROFILE_URL,method: .get, headers: headers).serializingData(emptyResponseCodes: [200]).result
+            
+            switch (data){
+                
+            case .success(let data):
+                let json = JSON(data)
+                let  user = try self.makeItem(jsonItem: json["data"])
+                SessionManager.currentUser = user
+                print(SessionManager.currentUser)
+            case .failure(let err):
+                print(err)
+            }
+        }catch{
+            print(error)
+            UserDefaults.standard.removeObject(forKey: "token")
+            SplashView()
+        }
+        //print(output.data)
+        //return "\(output)"
+    }
+    static func makeItem(jsonItem: JSON) throws -> User {
+        do{
+            return try User(
+                _id: jsonItem["_id"].stringValue,
+                firstname: jsonItem["firstname"].stringValue,
+                lastname: jsonItem["lastname"].stringValue,
+                email: jsonItem["email"].stringValue,
+                password: jsonItem["password"].stringValue,
+                role:  Role(rawValue: jsonItem["role"].stringValue)!,
+                fields: jsonItem["fields"].arrayValue.map({ json in
+                    return Fields(rawValue: json.stringValue)!
+                }),
+                image: jsonItem["image"].stringValue,
+                isVerified: jsonItem["isVerified"].boolValue,
+                otp: jsonItem["otp"].stringValue,
+                courses: jsonItem["courses"].arrayValue.map({ json in
+                    return json.stringValue
+                })
+            )
+        
+        }catch{
+            throw error
+        }
+        
     }
 }
 

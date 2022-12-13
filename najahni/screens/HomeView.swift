@@ -17,14 +17,17 @@ struct HomeView: View {
     @Namespace private var ns
     @State var text = ""
     @State var courses : [Course] = []
+    @State var displayedCourses : [Course] = []
     @StateObject var viewModel = HomeViewModel()
     var body: some View {
         ScrollView (showsIndicators: false){
             VStack(alignment: .leading){
+
+                
                 HStack{
                     VStack{
-                        Text("Welcome")
-                        Text("\(SessionManager.currentUser?.firstname ?? "User")")
+                        Text("\(SessionManager.currentUser?.firstname ?? "First name")")
+                        Text("\(SessionManager.currentUser?.lastname ?? "Last name")")
                     }
                     Spacer()
                     Image(systemName: "bell")
@@ -36,7 +39,7 @@ struct HomeView: View {
                     
                     //.frame(width: 50.0, height: 50.0)
                         .aspectRatio(contentMode: .fill)
-                    WebImage(url: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvaBdtJ4GaN7m79jU-Y47NqT3Grvxd7qIZ9VKUZKyU1ynYKxoNdlQCixTRDnliBE62os&usqp=CAU"))
+                    WebImage(url: URL(string:"\(URL_BASE_APP)\(SessionManager.currentUser?.image ?? "")"))
                         .resizable()
                         .clipShape(Circle())
                         .shadow(radius: 10)
@@ -46,12 +49,19 @@ struct HomeView: View {
                                 .fill)
                     
                 }
-                
-                
                 VStack(alignment: .leading) {
                     HStack {
                         Image(systemName: "magnifyingglass")
-                        TextField("Search any course ...", text: $text)
+                        TextField("Search any course ...", text: $text).onChange(of: text) { newValue in
+                            var filtredCourses = displayedCourses.filter { course in
+                                return course.title.contains(newValue)
+                            }
+                            if(newValue.isEmpty){
+                                displayedCourses = courses
+                            }else{
+                                displayedCourses = filtredCourses
+                            }
+                        }
                         
                     }.padding(10)
                     
@@ -62,20 +72,17 @@ struct HomeView: View {
                     
                 }
                 CustomSelectionView(list: $selectionArray,itemSelected: selectedFilter){ sel in
+                    displayedCourses = courses
                     if sel == 0 {
-                        viewModel.getallcourses { success, result in
-                            if success {
-                                self.courses = []
-                                self.courses.append(contentsOf: result!)
-                            }
-                        }
+                        displayedCourses = courses
                     }else
                     {
-                        var filtredCourses = courses.filter { course in
+                        var filtredCourses = displayedCourses.filter { course in
                             return course.fields.contains(Fields(rawValue: selectionArray[sel].name) ?? Fields.Arts)
                         }
+                        
                         print(filtredCourses)
-                        self.courses = filtredCourses
+                        self.displayedCourses = filtredCourses
                     }
                 }
                 Text("Recommanded")
@@ -83,13 +90,13 @@ struct HomeView: View {
                     .foregroundColor(Color("primaryColor"))
                     .fontWeight(.black)
                 
-                    ScrollView(.horizontal,showsIndicators: false) {
-                        ForEach(courses) {item in
-                           // CustomCardView(course: item)
-                            
-                            }
+                ScrollView(.horizontal,showsIndicators: false) {
+                    ForEach(courses) {item in
+                        // CustomCardView(course: item)
+                        
                     }
-                    
+                }
+                
                 
                 //print("s",courses.count)
                 Text("Courses").font(.title2)
@@ -97,7 +104,7 @@ struct HomeView: View {
                     .fontWeight(.black).padding(.all)
                 VStack{
                     ScrollView(.vertical,showsIndicators: false) {
-                        ForEach(courses) { course in
+                        ForEach(displayedCourses) { course in
                             NavigationLink{
                                 CourseDetailView(course: course)
                             } label: {
@@ -111,7 +118,10 @@ struct HomeView: View {
             }
             .padding(.horizontal)
         }
+    
+        
         .onAppear{
+            
             viewModel.getallcourses { success, result in
                 if success {
                     self.selectionArray = Fields.allCases.map({ f in
@@ -120,6 +130,7 @@ struct HomeView: View {
                     self.selectionArray.insert(ListData(name: "All"), at: 0)
                     self.courses = []
                     self.courses.append(contentsOf: result!)
+                    self.displayedCourses = courses
                 }
                 
             }

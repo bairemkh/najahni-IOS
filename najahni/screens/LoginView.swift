@@ -31,6 +31,7 @@ struct LoginView: View {
                         .padding(.leading)
                         .padding(.trailing)
                         .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
+                        .autocorrectionDisabled()
                         .cornerRadius(20)
                         .shadow(color: .gray, radius: 3)
                     Spacer()

@@ -7,16 +7,15 @@
 
 import SwiftUI
 
+
 @main
 struct najahniApp: App {
     let persistenceController = PersistenceController.shared
+    
 
     var body: some Scene {
         WindowGroup {
             SplashView()
-                .onAppear{
-                    print("run session \(SessionManager.currentUser)")
-                }
         }
     }
 }

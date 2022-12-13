@@ -35,10 +35,12 @@ class LoginViewModel: ObservableObject {
                     UserDefaults.standard.setValue(token, forKey: "token")
                     UserDefaults.standard.setValue(role, forKey: "role")
                     SessionManager.initLists()
-                    UserService.profile { _, user in
+                   /* UserService.profile { _, user in
                         SessionManager.currentUser = user
+                    }*/
+                    Task{
+                        await UserService.profile()
                     }
-                    
                     print(token)
                     print(role)
                     completed(true,200)
@@ -94,7 +96,7 @@ class LoginViewModel: ObservableObject {
             switch res.result {
             case .success(let data):
                 let json = JSON(data)
-                print(json)
+              
                 //completed(true,user)
             case .failure(let error):
                 print(error)

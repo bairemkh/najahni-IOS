@@ -8,55 +8,33 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    @StateObject var viewmodel = test()
+    @State var text = ""
     var body: some View {
-        NavigationView{
-            VStack(alignment: .center, spacing: 0.0) {
-                Image("Logo-Najahni")
-                    .resizable()
-                    .padding(.bottom, 0.0)
-                    .frame(width: 250 , height: 250)
-                    .scaledToFit()
-                
-                
-                Spacer()
-                    .frame(width: 0.0, height: 100.0)
-                NavigationLink(destination:LoginView()){
-                    Button(action: {}) {
-                            /*@START_MENU_TOKEN@*/Text("Sign in")
-                            .foregroundColor(Color.white)
-                            .multilineTextAlignment(.center)     /*@END_MENU_TOKEN@*/
-                        }
-                        .padding(.top, 10.0)
-                        .frame(width: 300.0,height: 60.0)
-                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
-                        .cornerRadius(25)
-                }
-                Spacer()
-                    .frame(width: 0.0, height: 24.0)
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                        /*@START_MENU_TOKEN@*/Text("Sign up")
-                            .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
-                        /*@END_MENU_TOKEN@*/
+        ScrollView {
+            Text(text)
+                .onAppear{
+                    CourseService.getallcourses { isgod, list in
+                        text = "\(list)"
                     }
-                    .frame(width: 300.0,height: 60.0)
-                    .padding(.top, 2.0)
-                    
-                    .border(/*@START_MENU_TOKEN@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/, width: 2)
-                    .cornerRadius(25)
-                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.white/*@END_MENU_TOKEN@*/)
-                
-                
-                
             }
         }
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
-    }
         
+    }
 }
 
 struct WelcomeView_Previews: PreviewProvider {
+    
     static var previews: some View {
         WelcomeView()
+        
     }
+}
+
+class test : ObservableObject {
+    @Published var message = "waiting"
+    func upload() async{
+      // try await Task.sleep(nanoseconds: 2 * 1000000000)
+    }
+    
 }

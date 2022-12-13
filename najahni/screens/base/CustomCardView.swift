@@ -12,7 +12,7 @@ struct CustomCardView: View {
     var course : Course
     var body: some View {
         HStack{
-            WebImage(url: URL(string: course.image))
+            WebImage(url: URL(string: URL_BASE_APP + course.image))
                 .resizable()
                 .scaledToFit()
                 .aspectRatio(contentMode: .fill)
@@ -74,7 +74,7 @@ struct CustomCardView: View {
 
 struct CustomCardView_Previews: PreviewProvider {
     
-    static var course: Course = Course(id: "", title: "Learn kotlin", fields: Fields.allCases, level: "", description: "", isPaid: false, image: "https://repository-images.githubusercontent.com/3432266/7e79bf80-7aa6-11eb-9cbd-d7bda7eaf1aa", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
+    static var course: Course = Course(id: "", title: "Learn kotlin", fields: Fields.allCases, level: "", description: "", isPaid: false, image: "/img/pexels-supreet-7559057.jpg1668674151911.jpg", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
     static var previews: some View {
         CustomCardView(course: course)
     }

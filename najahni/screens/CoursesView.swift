@@ -11,33 +11,39 @@ struct CoursesView: View {
     @State var courses : [Course] = []
     @StateObject var courseviewModel = MyCoursesViewModel()
     var body: some View {
-        NavigationView {
+        //NavigationView {
             VStack{
                 ScrollView(.vertical,showsIndicators: false) {
                     ForEach(courses) { course in
                         NavigationLink{
-                            CourseDetailView(course: course)
+                            DetailCourseLessonsView(course: course)
                         } label: {
-                            CustomCardView(course: course)
+                            CustomCardCourseView(course: course)
                         }
                         
                     }
                 }
                 
             }
-                .navigationTitle(
-                    Text("My courses")
-                )
-                .navigationBarTitleDisplayMode(.inline)
-        }.onAppear{ courseviewModel.getMyCoursesList {
+               
+        //}
+        .onAppear{ CourseService.getallcourses() {
             success, result in
                 if success {
                     self.courses = []
-                    self.courses.append(contentsOf: result!)
+                    self.courses.append(contentsOf: (result?.filter({ course in
+                        return SessionManager.currentUser!.courses.contains(where: { com in
+                            com.elementsEqual(course.id)
+                        })
+                    }))!)
                     print(courses)
                 }
         }
             }
+        .navigationTitle(
+            Text("My courses")
+        )
+        .navigationBarTitleDisplayMode(.inline)
 
     }
 }

@@ -19,15 +19,11 @@ struct CustomBoxView: View {
                 .fontWeight(.regular)
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.black)
-            Spacer()
+            //Spacer()
                 
         }
             .padding()
-                .frame(maxWidth: .infinity)
-                .frame(width: 100.0, height: 60.0)
-                .background(Color.white)
-                .cornerRadius(8.0)
-                .shadow(color: .gray, radius: 3)
+                
     }
 }
 

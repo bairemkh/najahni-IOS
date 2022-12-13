@@ -51,16 +51,9 @@ struct SplashView: View {
                 toLogin()
             }
         }.onAppear{
-            UserService.profile(){isTrue,user in
-                SessionManager.currentUser = user
-            }
+           
         }
         //toLogin()
-    }
-    func gotoWelcomeScreen(time: Double) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + Double(time)) {
-            self.isActive = true
-        }
     }
 }
 
@@ -73,6 +66,7 @@ struct SplashView_Previews: PreviewProvider {
 }
 struct toProfile: View {
     @State var isActive:Bool = false
+    @State private var goToLogin:Bool = false
     let welcome = HostingTabBarView()
     var body: some View {
         NavigationView {
@@ -86,18 +80,41 @@ struct toProfile: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
-                
-                NavigationLink(destination: welcome , isActive:$isActive,label: {EmptyView()})
+                if goToLogin{
+                    NavigationLink(destination: LoginView() , isActive:$isActive,label: {EmptyView()})
+                }else
+                {
+                    NavigationLink(destination: welcome , isActive:$isActive,label: {EmptyView()})
+                }
             }
-            .onAppear(perform: {self.gotoWelcomeScreen(time: 2.0)})
+            .onAppear(perform: {
+               
+                self.gotoWelcomeScreen(time: 2.0)})
         }
         
         
     }
     func gotoWelcomeScreen(time: Double) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + Double(time)) {
-            self.isActive = true
-        }
+            DispatchQueue.main.async{
+               // Task{await UserService.profile()}
+                UserService.profile { isGood, user in
+                    if(isGood){
+                        SessionManager.currentUser = user
+                        goToLogin = false
+                        self.isActive = true
+                    }
+                    else{
+                        goToLogin = true
+                        self.isActive = true
+                    }
+                    
+                    print("1 --------->\(SessionManager.currentUser)")
+                    print("1 --------->\(UserDefaults.standard.string(forKey: "role")!)")
+                }
+                
+                
+            }
+        
     }
 }
 
@@ -120,7 +137,6 @@ struct toLogin: View {
                 NavigationLink(destination: welcome , isActive:$isActive,label: {EmptyView()})
             }
             .onAppear(perform: {self.gotoWelcomeScreen(time: 2.0)
-                print(SessionManager.token)
             })
         }
         

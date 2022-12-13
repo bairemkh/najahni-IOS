@@ -14,7 +14,7 @@ struct WishListCard: View {
     var body: some View {
         
             HStack{
-                WebImage(url: URL(string: course.image))
+                WebImage(url: URL(string: "\(URL_BASE_APP)\(course.image)"))
                     .resizable()
                     .scaledToFit()
                     .aspectRatio(contentMode: .fill)
@@ -29,7 +29,6 @@ struct WishListCard: View {
                         .font(.system(size: 16, weight: .bold, design: .default))
                         .foregroundColor(.black)
                     HStack{
-                        //WebImage(url: URL(string: URL_BASE_APP + course.idowner!.image))
                         WebImage(url: URL(string:course.idowner!.image))
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -63,7 +62,7 @@ struct WishListCard: View {
             .frame(maxWidth: .infinity, alignment: .center)
             .background(Color.white)
             .cornerRadius(8.0)
-            .shadow(color: Color(hue: 1.0, saturation: 0.0, brightness: 0.906), radius: 10)
+      
             .padding(.top)
         
     }
