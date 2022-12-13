@@ -13,34 +13,49 @@ struct WebView: UIViewRepresentable {
  
     var url: URL
     @Binding var showWebView: Bool
+    
  
     func makeUIView(context: Context) -> WKWebView {
-        return WKWebView()
+        let wKWebView = WKWebView()
+        wKWebView.navigationDelegate = context.coordinator
+        return wKWebView
     }
  
     func updateUIView(_ webView: WKWebView, context: Context) {
         let request = URLRequest(url: url)
         webView.load(request)
     }
+    
     func makeCoordinator() -> WebViewCoordinator {
-        WebViewCoordinator(self)
+        WebViewCoordinator(parent: self)
     }
-
+    
+    class WebViewCoordinator: NSObject, WKNavigationDelegate {
+        var parent: WebView
+        
+        init(parent: WebView) {
+            self.parent = parent
+        }
+        
+        func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+            //let urlToMatch = "https://preprod.konnect.network/gateway/payment-success"
+            let urlStr = navigationAction.request.url?.absoluteString
+            print(urlStr)
+            if(navigationAction.request.url!.absoluteString.contains("admin")){
+                CourseService.enrollNow(id: SessionManager.getCart()[0])
+                
+            parent.showWebView = false
+            
+            return decisionHandler(.cancel)
+            
+        }
+                //parent.showWebView = false
+            
+            return decisionHandler(.allow)
+        }
+        
+    }
 }
-class WebViewCoordinator: NSObject, WKNavigationDelegate {
-       var parent: WebView
-       
-       init(_ parent: WebView) {
-           self.parent = parent
-       }
-       
-       func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-           let urlToMatch = "https://preprod.konnect.network/gateway/payment-success"
-           if let urlStr = navigationAction.request.url?.absoluteString, urlStr == urlToMatch {
-               parent.showWebView = false
-           }
-           decisionHandler(.allow)
-       }
-       
-   }
+
+
 

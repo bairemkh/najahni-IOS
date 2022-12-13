@@ -53,13 +53,19 @@ struct CartView: View {
                           .frame(width: 300.0,height: 60.0)
                           .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
                           .cornerRadius(25)
-                          .sheet(isPresented: $showWebView) {
-                              WebView(url: URL(string: cartViewModel.urlString)!,showWebView: $showWebView)
-                                    }
+                          
                     
                 }
                
             }
+            .fullScreenCover(isPresented: $showWebView){
+                Text("cancel")
+                    .onTapGesture {
+                        showWebView.toggle()
+                    }
+                WebView(url: URL(string: cartViewModel.urlString)!,showWebView: $showWebView)
+                      }
+            
         }
             .onAppear(){
                 let list = SessionManager.getCart()
@@ -71,6 +77,7 @@ struct CartView: View {
                             }
                         }) ?? [Course(id: "", title: "", fields: [], level: "", description: "", isPaid: true, image: "", price: 0, idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")]
                     }
+                    cartViewModel.price = 0
                     cartlist.forEach{(item) in
                         cartViewModel.price += item.price
                     }
