@@ -76,7 +76,7 @@ struct SignupView: View {
                         
                     }
                     .pickerStyle(.segmented)
-                    Picker("What's your gender ?", selection: $signUpVM.role)
+                   /* Picker("What's your gender ?", selection: $signUpVM.role)
                     {
                         // Picker's items
                         ForEach(0..<signUpVM.roleList.count)
@@ -86,7 +86,7 @@ struct SignupView: View {
                         
                     }
                     .pickerStyle(.segmented)
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.purple/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.purple/*@END_MENU_TOKEN@*/)*/
                     NavigationLink(destination:  CustomPicker2View(items: signUpVM.fieldsList,selected: $signUpVM.selectedFields)){
                         HStack {
                             Text("Select")

@@ -35,6 +35,7 @@ struct CartView: View {
                         .padding(.horizontal)
                     Spacer()
                     Text("\(cartViewModel.price)")
+                        .padding(.trailing)
                 }
                 Button(action: {
                     //showWebView.toggle()

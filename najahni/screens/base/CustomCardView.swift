@@ -14,26 +14,32 @@ struct CustomCardView: View {
         HStack{
             WebImage(url: URL(string: URL_BASE_APP + course.image))
                 .resizable()
-                .scaledToFit()
-                .aspectRatio(contentMode: .fill)
-                .cornerRadius(8.0)
                 .frame(width: 140,height: 140)
+                .scaledToFit()
+                .aspectRatio(contentMode: .fit)
+                .cornerRadius(8.0)
+                
                 .padding(.leading,-12)
                 .clipped()
                 .clipShape(Rectangle())
+            Spacer()
+                .frame(width: 25.0)
             
             VStack(alignment: .leading,spacing: 15.0) {
                 Text(course.title)
-                    .font(.system(size: 16, weight: .bold, design: .default))
+                    .font(.system(size: 14, weight: .bold, design: .default))
                     .foregroundColor(.black)
                 HStack{
                     WebImage(url: URL(string: URL_BASE_APP + course.idowner!.image))
                     .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .cornerRadius(12.0)
-                        .frame(width: 22)
-                    Text(course.idowner!.firstname)
-                        .font(.system(size: 12, weight: .bold, design: .default))
+                    .clipShape(Circle())
+                    .frame(width: 30,height:30)
+                    .aspectRatio(contentMode: .fit)
+                    .cornerRadius(12.0)
+                    
+                    Text(course.idowner!.firstname + " " + course.idowner!.lastname)
+                    
+                        .font(.system(size: 10, weight: .bold, design: .default))
                         .foregroundColor(.gray)
                 }
                 HStack {

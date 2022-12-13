@@ -58,7 +58,7 @@ struct messageView: View {
                 VStack{
                     Group{
                         ForEach(viewModel.messages){ message in
-                            messageBubble(message:message.msgContent,isCurrentUser: message.senderid.elementsEqual("bairem"))
+                            messageBubble(message:message.msgContent,isCurrentUser: message.senderid.elementsEqual("hama"))
                         }
                         
                     }
