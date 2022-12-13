@@ -50,9 +50,10 @@
 		419DF04E29353701004BB54E /* ProfileTrainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */; };
 		419E5EBA29473D6A00AC7538 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E5EB929473D6A00AC7538 /* CartViewModel.swift */; };
 		419E7C3B2928E023007E7D87 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E7C3A2928E023007E7D87 /* ImagePicker.swift */; };
-		419F2E7D2943992600CE2495 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 419F2E7C2943992600CE2495 /* FirebaseFirestore */; };
-		419F2E7F2943992600CE2495 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 419F2E7E2943992600CE2495 /* FirebaseFirestoreSwift */; };
+
 		419F2E812943A52A00CE2495 /* ProfileTrainerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E802943A52A00CE2495 /* ProfileTrainerDetailsView.swift */; };
+		419F2E812943A52A00CE2495 /* ProfileTrainerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E802943A52A00CE2495 /* ProfileTrainerDetailsView.swift */; };
+		419F2E8A2943A75C00CE2495 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E892943A75C00CE2495 /* Message.swift */; };
 		419FAD1B293106FD00FA6A49 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419FAD1A293106FD00FA6A49 /* WishListView.swift */; };
 		41BAA2FD293E504E008FEC06 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FC293E504E008FEC06 /* Section.swift */; };
 		41BAA2FF293E5433008FEC06 /* SectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FE293E5433008FEC06 /* SectionService.swift */; };
@@ -84,6 +85,7 @@
 		87702711293F93500048A824 /* EditSectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87702710293F93500048A824 /* EditSectionsView.swift */; };
 		8774D6FC292D1DEA00FCC1BE /* DetailPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D6FB292D1DEA00FCC1BE /* DetailPageViewModel.swift */; };
 		8774D6FE292D20CB00FCC1BE /* CustomSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D6FD292D20CB00FCC1BE /* CustomSelectionView.swift */; };
+
 		87982167294795C7001F2BB1 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 87982166294795C7001F2BB1 /* SocketIO */; };
 		879A190E2947AC8E00D017C3 /* messageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A190D2947AC8E00D017C3 /* messageView.swift */; };
 		879B0E932948E0EA0000119B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B0E922948E0EA0000119B /* Message.swift */; };
@@ -173,6 +175,9 @@
 		419E5EB929473D6A00AC7538 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		419E7C3A2928E023007E7D87 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		419F2E802943A52A00CE2495 /* ProfileTrainerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerDetailsView.swift; sourceTree = "<group>"; };
+
+		419F2E892943A75C00CE2495 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "../../../../../Downloads/ChatApp-main/ChatApp/Models/Message.swift"; sourceTree = "<group>"; };
+
 		419FAD1A293106FD00FA6A49 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		41BAA2FC293E504E008FEC06 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		41BAA2FE293E5433008FEC06 /* SectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionService.swift; sourceTree = "<group>"; };
@@ -233,15 +238,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				419937CA293FDEED00A0516A /* ExpandableText in Frameworks */,
-				87982167294795C7001F2BB1 /* SocketIO in Frameworks */,
 				419495FE293702DE00349A24 /* SlidingTabView in Frameworks */,
 				419509A52934BFD400E417FF /* GoogleSignInSwift in Frameworks */,
 				87C5CB192923C5050049814E /* SDWebImageSwiftUI in Frameworks */,
 				419509A32934BFD400E417FF /* GoogleSignIn in Frameworks */,
-				419F2E7D2943992600CE2495 /* FirebaseFirestore in Frameworks */,
 				87A4E8642922B85500E2A505 /* SwiftyJSON in Frameworks */,
 				8743D05E291FE49300C1781C /* Alamofire in Frameworks */,
-				419F2E7F2943992600CE2495 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,9 +494,6 @@
 				419509A42934BFD400E417FF /* GoogleSignInSwift */,
 				419495FD293702DE00349A24 /* SlidingTabView */,
 				419937C9293FDEED00A0516A /* ExpandableText */,
-				419F2E7C2943992600CE2495 /* FirebaseFirestore */,
-				419F2E7E2943992600CE2495 /* FirebaseFirestoreSwift */,
-				87982166294795C7001F2BB1 /* SocketIO */,
 			);
 			productName = najahni;
 			productReference = 28CABB1429191BC400AED109 /* najahni.app */;
@@ -575,8 +574,6 @@
 				419509A12934BFD400E417FF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				419495FC293702DE00349A24 /* XCRemoteSwiftPackageReference "SlidingTabView" */,
 				419937C8293FDEED00A0516A /* XCRemoteSwiftPackageReference "ExpandableText" */,
-				419F2E7B2943992600CE2495 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				87982165294795C7001F2BB1 /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = 28CABB1529191BC400AED109 /* Products */;
 			projectDirPath = "";
@@ -692,6 +689,9 @@
 				8743D05B291FE3FB00C1781C /* ResetPasswordViewModel.swift in Sources */,
 				87702711293F93500048A824 /* EditSectionsView.swift in Sources */,
 				419495F92936B9A300349A24 /* MyCoursesViewModel.swift in Sources */,
+
+				419F2E8A2943A75C00CE2495 /* Message.swift in Sources */,
+
 				8743D053291F9EA300C1781C /* CustomButtonView.swift in Sources */,
 				414248CC292D4CF800D35692 /* Course.swift in Sources */,
 				87A4E85D2922A3CF00E2A505 /* CustomPicker2View.swift in Sources */,
@@ -1077,28 +1077,12 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		419F2E7B2943992600CE2495 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
 		8743D05C291FE49300C1781C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
-			};
-		};
-		87982165294795C7001F2BB1 /* XCRemoteSwiftPackageReference "socket" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
-			requirement = {
-				branch = master;
-				kind = branch;
 			};
 		};
 		87A4E8622922B85500E2A505 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
@@ -1140,25 +1124,10 @@
 			package = 419937C8293FDEED00A0516A /* XCRemoteSwiftPackageReference "ExpandableText" */;
 			productName = ExpandableText;
 		};
-		419F2E7C2943992600CE2495 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 419F2E7B2943992600CE2495 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		419F2E7E2943992600CE2495 /* FirebaseFirestoreSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 419F2E7B2943992600CE2495 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestoreSwift;
-		};
 		8743D05D291FE49300C1781C /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8743D05C291FE49300C1781C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		87982166294795C7001F2BB1 /* SocketIO */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 87982165294795C7001F2BB1 /* XCRemoteSwiftPackageReference "socket" */;
-			productName = SocketIO;
 		};
 		87A4E8632922B85500E2A505 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;

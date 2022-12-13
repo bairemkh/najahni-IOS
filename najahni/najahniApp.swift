@@ -7,11 +7,12 @@
 
 import SwiftUI
 
+
 @main
 struct najahniApp: App {
     let persistenceController = PersistenceController.shared
     
-   
+
 
     var body: some Scene {
         WindowGroup {

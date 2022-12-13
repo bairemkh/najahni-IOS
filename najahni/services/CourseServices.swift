@@ -163,4 +163,25 @@ class CourseService {
         
     }
     
+   static func enrollNow(id: String){
+        let token = UserDefaults.standard.string(forKey: "token")
+        let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
+        AF.request(ENROLL_NOW + id,
+                   method: .post,
+        headers: headers)
+        .responseJSON{
+            (res) in
+            switch res.result {
+            case .success(let data):
+                let json = JSON(data)
+                print(json)
+                SessionManager.currentUser?.courses.append(id)
+                //completed(true,user)
+            case .failure(let error):
+                print(error)
+                //completed(false,nil)
+                
+            }
+        }
+    }
 }
