@@ -81,6 +81,7 @@
 		876E2F062944AF3800A21304 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E2F052944AF3800A21304 /* PrivacyPolicyView.swift */; };
 		87702711293F93500048A824 /* EditSectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87702710293F93500048A824 /* EditSectionsView.swift */; };
 		8771F0762948ED6F00810C65 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 8771F0752948ED6F00810C65 /* SocketIO */; };
+		8771F078294906C600810C65 /* ListContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8771F077294906C600810C65 /* ListContactsView.swift */; };
 		8774D6FC292D1DEA00FCC1BE /* DetailPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D6FB292D1DEA00FCC1BE /* DetailPageViewModel.swift */; };
 		8774D6FE292D20CB00FCC1BE /* CustomSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D6FD292D20CB00FCC1BE /* CustomSelectionView.swift */; };
 		879A190E2947AC8E00D017C3 /* messageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A190D2947AC8E00D017C3 /* messageView.swift */; };
@@ -200,6 +201,7 @@
 		874981D72943815D0098F4A0 /* ProfileStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStudentView.swift; sourceTree = "<group>"; };
 		876E2F052944AF3800A21304 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		87702710293F93500048A824 /* EditSectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSectionsView.swift; sourceTree = "<group>"; };
+		8771F077294906C600810C65 /* ListContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsView.swift; sourceTree = "<group>"; };
 		8774D6FB292D1DEA00FCC1BE /* DetailPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewModel.swift; sourceTree = "<group>"; };
 		8774D6FD292D20CB00FCC1BE /* CustomSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSelectionView.swift; sourceTree = "<group>"; };
 		879A190D2947AC8E00D017C3 /* messageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageView.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				419937C6293FC94B00A0516A /* CommentCardView.swift */,
 				419937CB293FF07C00A0516A /* CustomCardCartView.swift */,
 				4198283E2944D19200D72E45 /* WebView.swift */,
+				8771F077294906C600810C65 /* ListContactsView.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				8774D6FE292D20CB00FCC1BE /* CustomSelectionView.swift in Sources */,
 				87A5AEDB2928ED3E00FDB9B4 /* ForgetPasswordVerificationModelView.swift in Sources */,
 				28CABB2429191BC500AED109 /* najahni.xcdatamodeld in Sources */,
+				8771F078294906C600810C65 /* ListContactsView.swift in Sources */,
 				87425FAF2934CF0A000961E2 /* NewSectionView.swift in Sources */,
 				419937C3293FAE1A00A0516A /* CommentServices.swift in Sources */,
 				879B2F9F2927A68B00249774 /* ForgetPasswordViewModel.swift in Sources */,

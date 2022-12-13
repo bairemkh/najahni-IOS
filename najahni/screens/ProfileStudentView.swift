@@ -48,35 +48,41 @@ struct ProfileStudentView: View {
                     .frame(height: 20)
                 Text("Email: \(user.email)")
                 Divider()
-                NavigationLink(destination: EditProfileView(firstname: user.firstname, lastname: user.lastname, image: user.image),isActive: $pass) {
-                    CustomButtonView(icon: "pencil",buttonText: "Edit Profile")
-                        .onTapGesture {
-                            pass = true
-                        }
+                Group{
+                    NavigationLink(destination: EditProfileView(firstname: user.firstname, lastname: user.lastname, image: user.image),isActive: $pass) {
+                        CustomButtonView(icon: "pencil",buttonText: "Edit Profile")
+                            .onTapGesture {
+                                pass = true
+                            }
+                    }
+                    NavigationLink{
+                       SettingsView()
+                    } label: {
+                        CustomButtonView(icon: "gearshape.2.fill",buttonText: "Setting")
+                    }
+                    NavigationLink{
+                       PrivacyPolicyView()
+                    } label: {
+                        CustomButtonView(icon: "shield.lefthalf.filled",buttonText: "Privacy Policy")
+                    }
+                    NavigationLink{
+                       PrivacyPolicyView()
+                    } label: {
+                        CustomButtonView(icon: "briefcase.fill",buttonText: "Want to be a Trainer ?").foregroundColor(Color("secondaryColor"))
+                    }
+                    
+                    NavigationLink(destination: LoginView(), isActive: $onLogOut){
+                        CustomButtonView(icon: "rectangle.portrait.and.arrow.forward",buttonText: "Logout")
+                            .onTapGesture {
+                                print(UserDefaults.standard.object(forKey: "token")!)
+                                UserDefaults.standard.removeObject(forKey: "token");                     UserDefaults.standard.removeObject(forKey: "role")
+                                
+                                onLogOut = true
+                                print(UserDefaults.standard.object(forKey: "token"))
+                            }
+                            .foregroundColor(.red)
+                    }
                 }
-                NavigationLink{
-                   SettingsView()
-                } label: {
-                    CustomButtonView(icon: "gearshape.2.fill",buttonText: "Setting")
-                }
-                NavigationLink{
-                   PrivacyPolicyView()
-                } label: {
-                    CustomButtonView(icon: "shield.lefthalf.filled",buttonText: "Privacy Policy")
-                }
-                NavigationLink(destination: LoginView(), isActive: $onLogOut){
-                    CustomButtonView(icon: "rectangle.portrait.and.arrow.forward",buttonText: "Logout")
-                        .onTapGesture {
-                            print(UserDefaults.standard.object(forKey: "token")!)
-                            UserDefaults.standard.removeObject(forKey: "token");                     UserDefaults.standard.removeObject(forKey: "role")
-                            
-                            onLogOut = true
-                            print(UserDefaults.standard.object(forKey: "token"))
-                        }
-                        .foregroundColor(.red)
-                }
-                
-                
             }
         //}
         
