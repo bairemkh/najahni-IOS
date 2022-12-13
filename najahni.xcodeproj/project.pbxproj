@@ -50,10 +50,7 @@
 		419DF04E29353701004BB54E /* ProfileTrainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */; };
 		419E5EBA29473D6A00AC7538 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E5EB929473D6A00AC7538 /* CartViewModel.swift */; };
 		419E7C3B2928E023007E7D87 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E7C3A2928E023007E7D87 /* ImagePicker.swift */; };
-
 		419F2E812943A52A00CE2495 /* ProfileTrainerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E802943A52A00CE2495 /* ProfileTrainerDetailsView.swift */; };
-		419F2E812943A52A00CE2495 /* ProfileTrainerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E802943A52A00CE2495 /* ProfileTrainerDetailsView.swift */; };
-		419F2E8A2943A75C00CE2495 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E892943A75C00CE2495 /* Message.swift */; };
 		419FAD1B293106FD00FA6A49 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419FAD1A293106FD00FA6A49 /* WishListView.swift */; };
 		41BAA2FD293E504E008FEC06 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FC293E504E008FEC06 /* Section.swift */; };
 		41BAA2FF293E5433008FEC06 /* SectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FE293E5433008FEC06 /* SectionService.swift */; };
@@ -83,10 +80,9 @@
 		874981D82943815D0098F4A0 /* ProfileStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874981D72943815D0098F4A0 /* ProfileStudentView.swift */; };
 		876E2F062944AF3800A21304 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E2F052944AF3800A21304 /* PrivacyPolicyView.swift */; };
 		87702711293F93500048A824 /* EditSectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87702710293F93500048A824 /* EditSectionsView.swift */; };
+		8771F0762948ED6F00810C65 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 8771F0752948ED6F00810C65 /* SocketIO */; };
 		8774D6FC292D1DEA00FCC1BE /* DetailPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D6FB292D1DEA00FCC1BE /* DetailPageViewModel.swift */; };
 		8774D6FE292D20CB00FCC1BE /* CustomSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D6FD292D20CB00FCC1BE /* CustomSelectionView.swift */; };
-
-		87982167294795C7001F2BB1 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 87982166294795C7001F2BB1 /* SocketIO */; };
 		879A190E2947AC8E00D017C3 /* messageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A190D2947AC8E00D017C3 /* messageView.swift */; };
 		879B0E932948E0EA0000119B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B0E922948E0EA0000119B /* Message.swift */; };
 		879B0E952948E41D0000119B /* MessageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B0E942948E41D0000119B /* MessageServices.swift */; };
@@ -175,9 +171,7 @@
 		419E5EB929473D6A00AC7538 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		419E7C3A2928E023007E7D87 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		419F2E802943A52A00CE2495 /* ProfileTrainerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerDetailsView.swift; sourceTree = "<group>"; };
-
-		419F2E892943A75C00CE2495 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "../../../../../Downloads/ChatApp-main/ChatApp/Models/Message.swift"; sourceTree = "<group>"; };
-
+		419F2E892943A75C00CE2495 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "/Downloads/ChatApp-main/ChatApp/Models/Message.swift"; sourceTree = "<absolute>"; };
 		419FAD1A293106FD00FA6A49 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		41BAA2FC293E504E008FEC06 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		41BAA2FE293E5433008FEC06 /* SectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionService.swift; sourceTree = "<group>"; };
@@ -238,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				419937CA293FDEED00A0516A /* ExpandableText in Frameworks */,
+				8771F0762948ED6F00810C65 /* SocketIO in Frameworks */,
 				419495FE293702DE00349A24 /* SlidingTabView in Frameworks */,
 				419509A52934BFD400E417FF /* GoogleSignInSwift in Frameworks */,
 				87C5CB192923C5050049814E /* SDWebImageSwiftUI in Frameworks */,
@@ -308,6 +303,7 @@
 				28CABB2C29191BC600AED109 /* najahniTests */,
 				28CABB3629191BC600AED109 /* najahniUITests */,
 				28CABB1529191BC400AED109 /* Products */,
+				879B0E962948E8E30000119B /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -460,6 +456,14 @@
 			path = messaging;
 			sourceTree = "<group>";
 		};
+		879B0E962948E8E30000119B /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				419F2E892943A75C00CE2495 /* Message.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		87A4E85F2922B2FB00E2A505 /* utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,6 +498,7 @@
 				419509A42934BFD400E417FF /* GoogleSignInSwift */,
 				419495FD293702DE00349A24 /* SlidingTabView */,
 				419937C9293FDEED00A0516A /* ExpandableText */,
+				8771F0752948ED6F00810C65 /* SocketIO */,
 			);
 			productName = najahni;
 			productReference = 28CABB1429191BC400AED109 /* najahni.app */;
@@ -574,6 +579,7 @@
 				419509A12934BFD400E417FF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				419495FC293702DE00349A24 /* XCRemoteSwiftPackageReference "SlidingTabView" */,
 				419937C8293FDEED00A0516A /* XCRemoteSwiftPackageReference "ExpandableText" */,
+				8771F0742948ED6F00810C65 /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = 28CABB1529191BC400AED109 /* Products */;
 			projectDirPath = "";
@@ -689,9 +695,6 @@
 				8743D05B291FE3FB00C1781C /* ResetPasswordViewModel.swift in Sources */,
 				87702711293F93500048A824 /* EditSectionsView.swift in Sources */,
 				419495F92936B9A300349A24 /* MyCoursesViewModel.swift in Sources */,
-
-				419F2E8A2943A75C00CE2495 /* Message.swift in Sources */,
-
 				8743D053291F9EA300C1781C /* CustomButtonView.swift in Sources */,
 				414248CC292D4CF800D35692 /* Course.swift in Sources */,
 				87A4E85D2922A3CF00E2A505 /* CustomPicker2View.swift in Sources */,
@@ -1085,6 +1088,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		8771F0742948ED6F00810C65 /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		87A4E8622922B85500E2A505 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
@@ -1128,6 +1139,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8743D05C291FE49300C1781C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		8771F0752948ED6F00810C65 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8771F0742948ED6F00810C65 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
 		};
 		87A4E8632922B85500E2A505 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
