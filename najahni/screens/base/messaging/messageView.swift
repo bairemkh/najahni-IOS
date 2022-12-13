@@ -22,7 +22,6 @@ class messanger: ObservableObject{
             socket.on("send") { data, ack in
                 let dataJson = JSON(data[0])["msg"]
                 self.messages.append(MessageServices.makeItem(jsonItem: dataJson))
-                print("test====>\(MessageServices.makeItem(jsonItem: dataJson)) \(JSON(data[0])["msg"])")
             }
         }
         socket.connect()
