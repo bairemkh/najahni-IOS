@@ -25,6 +25,14 @@ struct HomeView: View {
 
                 
                 HStack{
+                    WebImage(url: URL(string:"\(URL_BASE_APP)\(SessionManager.currentUser?.image ?? "")"))
+                        .resizable()
+                        .clipShape(Circle())
+                        .shadow(radius: 10)
+                        .padding()
+                        .frame(width: 80.0, height: 80.0)
+                        .aspectRatio(contentMode:
+                                .fill)
                     VStack{
                         Text("\(SessionManager.currentUser?.firstname ?? "First name")")
                         Text("\(SessionManager.currentUser?.lastname ?? "Last name")")
@@ -35,18 +43,17 @@ struct HomeView: View {
                         .padding(8)
                         .frame(width: 45.0, height: 45.0)
                         .foregroundColor(Color("primaryColor"))
-                    
-                    //.frame(width: 50.0, height: 50.0)
                         .aspectRatio(contentMode: .fill)
-                    WebImage(url: URL(string:"\(URL_BASE_APP)\(SessionManager.currentUser?.image ?? "")"))
-                        .resizable()
-                        .clipShape(Circle())
-                        .shadow(radius: 10)
-                        .padding()
-                        .frame(width: 80.0, height: 80.0)
-                        .aspectRatio(contentMode:
-                                .fill)
-                    
+                    NavigationLink(destination: ListContactsView()) {
+                        Button(action: {}) {
+                            Image(systemName: "message.fill")
+                                .resizable()
+                                .padding(8)
+                                .frame(width: 45.0, height: 45.0)
+                                .foregroundColor(Color("primaryColor"))
+                                .aspectRatio(contentMode: .fill)
+                        }
+                    }
                 }
                 VStack(alignment: .leading) {
                     HStack {

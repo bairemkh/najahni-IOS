@@ -445,8 +445,8 @@
 				419B69D7293DFBF000B2CF81 /* SectionCardView.swift */,
 				419937C6293FC94B00A0516A /* CommentCardView.swift */,
 				419937CB293FF07C00A0516A /* CustomCardCartView.swift */,
-				4198283E2944D19200D72E45 /* WebView.swift */,
 				8771F077294906C600810C65 /* ListContactsView.swift */,
+				4198283E2944D19200D72E45 /* WebView.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
