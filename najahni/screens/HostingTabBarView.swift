@@ -79,6 +79,7 @@ struct HostingTabBarView: View {
             
         
             .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
             
             .onAppear{
                 print("user =====> \(SessionManager.currentUser)")

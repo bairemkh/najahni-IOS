@@ -9,7 +9,7 @@ import Foundation
 
 
 
-let URL_BASE_APP = "http://172.17.12.11:9090"
+let URL_BASE_APP = "http://172.17.4.30:9090"
 let URL_SOCKET = "ws://172.17.9.34:3000"
 
 //let URL_BASE_APP = "http://localhost:9090"
@@ -19,6 +19,7 @@ let EDIT_PROFILE = URL_BASE_APP + "/user/editprofile"
 let DELETE_PROFILE = URL_BASE_APP + "/user/delete-account"
 let EDIT_PASSWORD = URL_BASE_APP + "/user/change-password"
 let UPLOAD_IMAGE = URL_BASE_APP + "/user/change-photo"
+let UPLOAD_BADGE = URL_BASE_APP + "/user/add-badge"
 let GOOGLE_SIGNIN = URL_BASE_APP + "/user/google-signin"
 let ALL_COURSE = URL_BASE_APP + "/course/getall"
 let ALL_MY_COURSE = URL_BASE_APP + "/course/mycourses"

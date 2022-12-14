@@ -129,6 +129,29 @@ class LoginViewModel: ObservableObject {
         
     }
     
+    
+    func uploadBadge(file: Data ,completed: @escaping (Bool)-> Void) {
+        let token = UserDefaults.standard.string(forKey: "token")
+        let headers : HTTPHeaders = [.authorization(bearerToken: token!),.contentType("multipart/form-data")]
+        
+        AF.upload(multipartFormData: {multipartFormData in
+            multipartFormData.append(file, withName: "file",fileName: "file.pdf")
+        },
+                  to: UPLOAD_BADGE, method: .post, headers: headers)
+        .responseData { response in
+            switch response.result {
+            case .success:
+                print("upload")
+                completed(true)
+            case let .failure(error):
+                print(error)
+                completed(false)
+            }
+        }
+        
+        
+        
+    }
 
     
     func makeItem(jsonItem: JSON) -> User {

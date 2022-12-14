@@ -10,6 +10,8 @@ import SwiftUI
 struct VerifyTrainerView: View {
     @State var showFileUpload = false
     @State var FileName = "Import"
+    @State var file = Data()
+    @StateObject var viewModel = LoginViewModel()
     var body: some View {
         VStack(spacing: 30){
             HStack {
@@ -30,7 +32,17 @@ struct VerifyTrainerView: View {
                     .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                 }
             Spacer()
-            Button(action: {}){
+            Button(action: {
+                viewModel.uploadBadge(file: file) {
+                    (success) in
+                    if success {
+                        print("jawha nice")
+                    }else {
+                        print("not logged in")
+                        
+                    }
+                }
+            }){
                 Text("Verify")
                     .foregroundColor(.white)
             }.frame(width: 300.0,height: 60.0)
@@ -39,7 +51,10 @@ struct VerifyTrainerView: View {
                    
             .fileImporter(isPresented: $showFileUpload, allowedContentTypes: [.image,.pdf]) { result in
                 do {
-                    try FileName = result.get().lastPathComponent
+                     var fileurl = try result.get()
+                    try FileName = fileurl.lastPathComponent
+                    file = try Data(contentsOf: fileurl)
+                    
                }
                 catch  {
                     print(error)
