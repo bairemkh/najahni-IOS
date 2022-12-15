@@ -9,7 +9,7 @@ import Foundation
 
 
 
-let URL_BASE_APP = "http://172.17.4.30:9090"
+let URL_BASE_APP = "http://172.17.6.73:9090"
 let URL_SOCKET = "ws://172.17.9.34:3000"
 
 //let URL_BASE_APP = "http://localhost:9090"
@@ -24,8 +24,10 @@ let GOOGLE_SIGNIN = URL_BASE_APP + "/user/google-signin"
 let ALL_COURSE = URL_BASE_APP + "/course/getall"
 let ALL_MY_COURSE = URL_BASE_APP + "/course/mycourses"
 let ALL_MY_COURSE_ARCHIVED = URL_BASE_APP + "/course/mycourses-archived"
-let MY_COURSES_LIST = URL_BASE_APP + "/course/mycourseslist"
-let ENROLL_NOW = URL_BASE_APP + "/course/enrollnow/"
+//let MY_COURSES_LIST = URL_BASE_APP + "/course/mycourseslist"
+let MY_COURSES_LIST = URL_BASE_APP + "/enroll/getmycourses"
+//let ENROLL_NOW = URL_BASE_APP + "/course/enrollnow/"
+let ENROLL_NOW = URL_BASE_APP + "/enroll/enrollincourse/"
 let PAIEMENT_COURSE = URL_BASE_APP + "/course/initpayement"
 
 let WISHLIST = "wishlist"
@@ -33,7 +35,7 @@ let CART = "cart"
 
 var UserFix = User(firstname: "User", lastname: "Test", email: "user.test@test.com", password: "", role: Role.Trainer, fields: Fields.allCases, image: "https://cdn-icons-png.flaticon.com/512/147/147144.png", isVerified: false, otp: "")
 var CourseFix = Course(id: "", title: "Title course", fields: Fields.allCases, level: "", description: "", isPaid: false, image: "", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")
-
+var EnrollFix = Enroll(id: "", userid: "", courseid: CourseFix, progress: 0)
 var videofix = URL_BASE_APP + "/vid/VIDEO_1669506604612.mp4"
 var SectionFix = Section(id: "", title: "", idCourse: "")
 var CommentFix = Comment(id: "", content: "", courseid: "", userid: UserFix, createdAt: "", updatedAt: "")

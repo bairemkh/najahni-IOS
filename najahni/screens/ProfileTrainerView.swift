@@ -12,9 +12,7 @@ import SlidingTabView
 struct ProfileTrainerView: View {
     @StateObject var viewModel = LoginViewModel()
     @StateObject var viewModelCourseTrainer = ProfileTrainerViewModel()
-    @State var firstname : String = ""
-    @State var lastname : String = ""
-    @State var image : String = ""
+    @Binding var user : User
     @State var courses : [Course] = []
     @State var coursesArchived : [Course] = []
     @State private var onLogOut = false
@@ -39,7 +37,7 @@ struct ProfileTrainerView: View {
                     Spacer()
                 }
                 VStack(alignment: .center){
-                    WebImage(url: URL(string:URL_BASE_APP + image ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvaBdtJ4GaN7m79jU-Y47NqT3Grvxd7qIZ9VKUZKyU1ynYKxoNdlQCixTRDnliBE62os&usqp=CAU"))
+                    WebImage(url: URL(string:URL_BASE_APP + user.image ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvaBdtJ4GaN7m79jU-Y47NqT3Grvxd7qIZ9VKUZKyU1ynYKxoNdlQCixTRDnliBE62os&usqp=CAU"))
                         .resizable()
                         .clipShape(Circle())
                             .shadow(radius: 10)
@@ -47,13 +45,12 @@ struct ProfileTrainerView: View {
                         .frame(width: 120.0, height: 120.0)
                         .aspectRatio(contentMode: .fill)
                     VStack{
-                        Text(firstname ?? "test" + " " + lastname ?? "test")
+                        Text(user.firstname + " " + user.lastname)
                             .fontWeight(.semibold)
-                            .multilineTextAlignment(.leading)
                             .foregroundColor(.black)
                         
                         NavigationLink{
-                            EditProfileView(firstname: firstname, lastname: lastname, image: image)
+                            EditProfileView(firstname: user.firstname, lastname: user.lastname, image: user.image)
                         }label:{
                             Text("Edit profile")
                                     .font(.headline)
@@ -68,9 +65,9 @@ struct ProfileTrainerView: View {
                 
 
                 HStack{
-                    CustomBoxView()
+                    CustomBoxView(nbr: courses.count)
                     Divider()
-                    CustomBoxView()
+                    CustomBoxView(nbr: coursesArchived.count)
                     //Spacer()
                 }
                 .padding()
@@ -123,7 +120,7 @@ struct ProfileTrainerView: View {
                             ScrollView(.vertical,showsIndicators: false) {
                                 ForEach(coursesArchived) { courseArch in
                                     NavigationLink{
-                                        CourseDetailView(course: courseArch)
+                                        CourseDetailTrainerView(course: courseArch)
                                     } label: {
                                         CustomCardTrainerView(course: courseArch)
                                     }
@@ -190,11 +187,8 @@ struct ProfileTrainerView: View {
           viewModelCourseTrainer.getMyCourses{ success, result in
 
                })*/
-            let user = SessionManager.currentUser
-            print(user!.firstname)
-            firstname = user!.firstname
-            lastname = user!.lastname
-            image = user!.image
+            
+            
             viewModelCourseTrainer.getMyCourses{ success, result in
                 if success {
                     self.courses = []
@@ -221,7 +215,8 @@ struct ProfileTrainerView: View {
 }
 
 struct ProfileTrainerView_Previews: PreviewProvider {
+    @State static var user = UserFix
     static var previews: some View {
-        ProfileTrainerView()
+        ProfileTrainerView(user: $user)
     }
 }

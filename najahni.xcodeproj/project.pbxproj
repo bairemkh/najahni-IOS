@@ -39,6 +39,9 @@
 		4196A73729403D6B0007B6B3 /* DetailCourseLessonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A73629403D6B0007B6B3 /* DetailCourseLessonsView.swift */; };
 		4196FA6E292D33500095AD16 /* CustomCard2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196FA6D292D33500095AD16 /* CustomCard2View.swift */; };
 		4198283F2944D19200D72E45 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198283E2944D19200D72E45 /* WebView.swift */; };
+		4198CA18294B37D50065E07D /* Enroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198CA17294B37D50065E07D /* Enroll.swift */; };
+		4198CA1A294B3C760065E07D /* EnrollServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198CA19294B3C760065E07D /* EnrollServices.swift */; };
+		4198CA1C294B769C0065E07D /* SafariWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198CA1B294B769C0065E07D /* SafariWebView.swift */; };
 		419937C1293FAD0000A0516A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419937C0293FAD0000A0516A /* Comment.swift */; };
 		419937C3293FAE1A00A0516A /* CommentServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419937C2293FAE1A00A0516A /* CommentServices.swift */; };
 		419937C7293FC94B00A0516A /* CommentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419937C6293FC94B00A0516A /* CommentCardView.swift */; };
@@ -161,6 +164,9 @@
 		4196A73629403D6B0007B6B3 /* DetailCourseLessonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCourseLessonsView.swift; sourceTree = "<group>"; };
 		4196FA6D292D33500095AD16 /* CustomCard2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCard2View.swift; sourceTree = "<group>"; };
 		4198283E2944D19200D72E45 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		4198CA17294B37D50065E07D /* Enroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enroll.swift; sourceTree = "<group>"; };
+		4198CA19294B3C760065E07D /* EnrollServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollServices.swift; sourceTree = "<group>"; };
+		4198CA1B294B769C0065E07D /* SafariWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebView.swift; sourceTree = "<group>"; };
 		419937C0293FAD0000A0516A /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		419937C2293FAE1A00A0516A /* CommentServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentServices.swift; sourceTree = "<group>"; };
 		419937C6293FC94B00A0516A /* CommentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCardView.swift; sourceTree = "<group>"; };
@@ -372,6 +378,7 @@
 				41BAA302293E62A8008FEC06 /* LessonServices.swift */,
 				419937C2293FAE1A00A0516A /* CommentServices.swift */,
 				879B0E942948E41D0000119B /* MessageServices.swift */,
+				4198CA19294B3C760065E07D /* EnrollServices.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -409,6 +416,7 @@
 				41BAA300293E615B008FEC06 /* Lesson.swift */,
 				419937C0293FAD0000A0516A /* Comment.swift */,
 				879B0E922948E0EA0000119B /* Message.swift */,
+				4198CA17294B37D50065E07D /* Enroll.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -447,6 +455,7 @@
 				419937CB293FF07C00A0516A /* CustomCardCartView.swift */,
 				4198283E2944D19200D72E45 /* WebView.swift */,
 				8771F077294906C600810C65 /* ListContactsView.swift */,
+				4198CA1B294B769C0065E07D /* SafariWebView.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -681,8 +690,10 @@
 				419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */,
 				419937C1293FAD0000A0516A /* Comment.swift in Sources */,
 				879B0E932948E0EA0000119B /* Message.swift in Sources */,
+				4198CA1C294B769C0065E07D /* SafariWebView.swift in Sources */,
 				419F2E812943A52A00CE2495 /* ProfileTrainerDetailsView.swift in Sources */,
 				419495FB2937025300349A24 /* SlidingTabCustomView.swift in Sources */,
+				4198CA18294B37D50065E07D /* Enroll.swift in Sources */,
 				87AA86002922354F009536CA /* ChangePasswordView.swift in Sources */,
 				419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */,
 				41941380293BA06700306B28 /* ProgressBarView.swift in Sources */,
@@ -712,6 +723,7 @@
 				28CABB1829191BC400AED109 /* najahniApp.swift in Sources */,
 				8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */,
 				87B9266A293607C200F7A082 /* TrainerVerificationView.swift in Sources */,
+				4198CA1A294B3C760065E07D /* EnrollServices.swift in Sources */,
 				41941382293BA90400306B28 /* VideoPlayerCourseView.swift in Sources */,
 				879E5C81292BE19600573969 /* SessionManager.swift in Sources */,
 			);

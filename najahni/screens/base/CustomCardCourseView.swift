@@ -10,6 +10,7 @@ import SDWebImageSwiftUI
 
 struct CustomCardCourseView: View {
     var course : Course
+    var progress : Float
     var body: some View {
         HStack{
             WebImage(url: URL(string: URL_BASE_APP + course.image))
@@ -42,7 +43,7 @@ struct CustomCardCourseView: View {
             .padding(.horizontal, -5.0)
            // Spacer()
             
-            ProgressBarView()
+            ProgressBarView(progress: progress)
             
             Spacer()
                 
@@ -57,6 +58,6 @@ struct CustomCardCourseView: View {
 
 struct CustomCardCourseView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomCardCourseView(course: CourseFix)
+        CustomCardCourseView(course: CourseFix,progress: 0)
     }
 }

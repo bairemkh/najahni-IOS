@@ -65,7 +65,7 @@ struct HostingTabBarView: View {
                                 }
                         } else if (role == "Trainer"){
                         //} else{
-                                    ProfileTrainerView()
+                                    ProfileTrainerView(user: $user)
                                         .tag(4)
                                         .tabItem {
                                             Text("Profile")
