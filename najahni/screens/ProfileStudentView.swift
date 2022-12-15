@@ -13,6 +13,9 @@ struct ProfileStudentView: View {
     @State private var onLogOut = false
     @Binding var user:User
     @State var pass = false
+    @State private var showSheet = false
+    @StateObject var viewModel = LoginViewModel()
+    @State var images : UIImage = UIImage.init(named:"") ?? UIImage()
     var body: some View {
         //NavigationView{
             VStack {
@@ -37,7 +40,26 @@ struct ProfileStudentView: View {
                                     .resizable()
                                     .frame(width: 15,height: 15)
                                     .foregroundColor(.white)
+                            }.onTapGesture{
+                                print("pick")
+                                showSheet = true
+                                
                             }
+                            .sheet(isPresented: $showSheet,onDismiss: {
+                                viewModel.editPhoto(image: images){
+                                    
+                                        (success) in
+                                        if success {
+                                            print("jawha nice")
+                                        }else {
+                                            print("not logged in")
+                                            
+                                        }
+                                    
+                                }
+                            }) {
+                                // Pick an image from the photo library:
+                                ImagePicker(sourceType: .photoLibrary, selectedImage: $images)}
                         }
                     }
                 }
@@ -66,7 +88,7 @@ struct ProfileStudentView: View {
                         CustomButtonView(icon: "shield.lefthalf.filled",buttonText: "Privacy Policy")
                     }
                     NavigationLink{
-                       PrivacyPolicyView()
+                       VerifyTrainerView()
                     } label: {
                         CustomButtonView(icon: "briefcase.fill",buttonText: "Want to be a Trainer ?").foregroundColor(Color("secondaryColor"))
                     }

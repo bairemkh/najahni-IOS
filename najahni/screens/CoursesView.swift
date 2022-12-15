@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct CoursesView: View {
-    @State var courses : [Course] = []
+    @State var courses : [Enroll] = []
     @StateObject var courseviewModel = MyCoursesViewModel()
     var body: some View {
         //NavigationView {
             VStack{
                 ScrollView(.vertical,showsIndicators: false) {
                     ForEach(courses) { course in
-                        NavigationLink{
-                            DetailCourseLessonsView(course: course)
+                        
+                        
+                       NavigationLink{
+                           DetailCourseLessonsView(course: course.courseid)
                         } label: {
-                            CustomCardCourseView(course: course)
+                            CustomCardCourseView(course: course.courseid,progress:Float(course.progress))
                         }
                         
                     }
@@ -27,7 +29,7 @@ struct CoursesView: View {
             }
                
         //}
-        .onAppear{ CourseService.getallcourses() {
+        .onAppear{/* CourseService.getallcourses() {
             success, result in
                 if success {
                     self.courses = []
@@ -38,7 +40,14 @@ struct CoursesView: View {
                     }))!)
                     print(courses)
                 }
-        }
+        }*/
+            courseviewModel.getMyCoursesList {
+                succes, result in
+                if succes {
+                    self.courses = []
+                    self.courses.append(contentsOf: result!)
+                }
+            }
             }
         .navigationTitle(
             Text("My courses")

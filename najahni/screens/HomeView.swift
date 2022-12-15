@@ -140,7 +140,14 @@ struct HomeView: View {
                     ScrollView(.vertical,showsIndicators: false) {
                         ForEach(displayedCourses) { course in
                             NavigationLink{
-                                CourseDetailView(course: course)
+                                if(SessionManager.currentUser!.courses.contains(where: { idc in
+                                    return idc.elementsEqual(course.id)
+                                })){
+                                    DetailCourseLessonsView(course: course)
+                                }else{
+                                    CourseDetailView(course: course)
+                                }
+                                
                             } label: {
                                 CustomCardView(course: course)
                             }

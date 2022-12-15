@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct CustomBoxView: View {
+    var nbr : Int
     var body: some View {
         VStack{
-            Text("10")
+            Text("\(nbr)")
                 .fontWeight(.bold)
             
             Spacer()
@@ -29,6 +30,6 @@ struct CustomBoxView: View {
 
 struct CustomBoxView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomBoxView()
+        CustomBoxView(nbr: 0)
     }
 }

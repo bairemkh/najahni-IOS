@@ -65,7 +65,7 @@ struct HostingTabBarView: View {
                                 }
                         } else if (role == "Trainer"){
                         //} else{
-                                    ProfileTrainerView()
+                                    ProfileTrainerView(user: $user)
                                         .tag(4)
                                         .tabItem {
                                             Text("Profile")
@@ -79,6 +79,7 @@ struct HostingTabBarView: View {
             
         
             .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
             
             .onAppear{
                 print("user =====> \(SessionManager.currentUser)")
