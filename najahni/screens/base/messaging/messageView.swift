@@ -30,17 +30,21 @@ class messanger: ObservableObject{
 }
 
 struct messageView: View {
-    
+    @State var contactMsgs = [Message]()
     @State var user:User
+    @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel = messanger()
     @State var message = ""
     var body: some View {
         VStack{
             HStack{
-                Image(systemName: "arrowshape.backward.fill")
+                Image(systemName: "arrow.backward")
                     .resizable()
                     .frame(width: 30,height: 30)
                     .foregroundColor(Color("primaryColor"))
+                    .onTapGesture {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
                 Spacer()
                 Image("user")
                     .resizable()
@@ -58,7 +62,7 @@ struct messageView: View {
                 VStack{
                     Group{
                         ForEach(viewModel.messages){ message in
-                            messageBubble(message:message.msgContent,isCurrentUser: message.senderid.elementsEqual("hama"))
+                            messageBubble(message:message.msgContent,isCurrentUser: message.senderid.elementsEqual(user.id))
                         }
                         
                     }
@@ -85,7 +89,11 @@ struct messageView: View {
                         .foregroundColor(Color("primaryColor"))
                 }
             }
+            .onAppear{
+                viewModel.messages = contactMsgs
+            }
             .padding(.all)
+            .navigationBarBackButtonHidden()
         }
     }
     
@@ -93,8 +101,8 @@ struct messageView: View {
 
 struct messageView_Previews: PreviewProvider {
     static var previews: some View {
-        //messageView(user: UserFix)
-        messageBubble(message:"testing message")
+        messageView(user: UserFix)
+        //messageBubble(message:"testing message")
     }
 }
 
