@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct User {
-    var _id, firstname, lastname, email: String
+struct User :Identifiable{
+    
+    var id, firstname, lastname, email: String
     var password: String
     var role:Role
     var fields: [Fields]
@@ -19,7 +20,7 @@ struct User {
     
     
     init(_id: String, firstname: String, lastname: String, email: String, password: String, role: Role, fields: [Fields], image: String, isVerified: Bool, otp: String) {
-        self._id = _id
+        self.id = _id
         self.firstname = firstname
         self.lastname = lastname
         self.email = email
@@ -31,7 +32,7 @@ struct User {
         self.otp = otp
     }
     init(_id: String, firstname: String, lastname: String, email: String, password: String, role: Role, fields: [Fields], image: String, isVerified: Bool, otp: String,courses:[String]) {
-        self._id = _id
+        self.id = _id
         self.firstname = firstname
         self.lastname = lastname
         self.email = email
@@ -45,7 +46,7 @@ struct User {
     }
 
     init(firstname: String, lastname: String, email: String, password: String, role: Role, fields: [Fields], image: String, isVerified: Bool, otp: String){
-        self._id = "0"
+        self.id = "0"
         self.firstname = firstname
         self.lastname = lastname
         self.email = email

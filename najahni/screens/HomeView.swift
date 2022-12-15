@@ -11,12 +11,15 @@ import SDWebImageSwiftUI
 struct HomeView: View {
     
     //@Binding var selectedIndex: Int
+    @State var passChat = false
     @State private var currentIndex: Int = 0
     @State var selectedFilter = 0
     @State var selectionArray : [ListData] = []
     @Namespace private var ns
     @State var text = ""
     @State var courses : [Course] = []
+    @State  var friends = [User]()
+    @State  var contacts = [String:[Message]]()
     @State var displayedCourses : [Course] = []
     @StateObject var viewModel = HomeViewModel()
     var body: some View {
@@ -44,16 +47,41 @@ struct HomeView: View {
                         .frame(width: 45.0, height: 45.0)
                         .foregroundColor(Color("primaryColor"))
                         .aspectRatio(contentMode: .fill)
-                    NavigationLink(destination: ListContactsView()) {
-                        Button(action: {}) {
-                            Image(systemName: "message.fill")
-                                .resizable()
-                                .padding(8)
-                                .frame(width: 45.0, height: 45.0)
-                                .foregroundColor(Color("primaryColor"))
-                                .aspectRatio(contentMode: .fill)
-                        }
+                    NavigationLink(destination:ListContactsView(contacts: contacts, users: friends),isActive: $passChat) {
+                        Image(systemName: "message.fill")
+                            .resizable()
+                            .padding(8)
+                            .frame(width: 45.0, height: 45.0)
+                            .foregroundColor(Color("primaryColor"))
+                            .aspectRatio(contentMode: .fill)
+                            .onTapGesture {
+                                MessageServices.getContacts { ok,users,contactsapi in
+                                    if(ok)
+                                    {
+                                        friends = users ?? []
+                                        contacts = contactsapi ?? [String:[Message]]()
+                                    }
+                                    passChat = ok
+                                }
+                                
+                            }
                     }
+                    /*NavigationLink{
+                    ListContactsView(contacts: contacts, users: friends)
+                    } label: {
+                        Image(systemName: "message.fill")
+                            .resizable()
+                            .padding(8)
+                            .frame(width: 45.0, height: 45.0)
+                            .foregroundColor(Color("primaryColor"))
+                            .aspectRatio(contentMode: .fill)
+                            
+                    }.onTapGesture {
+                        MessageServices.getContacts { ok in
+                            print(ok)
+                            passChat = ok
+                        }
+                    }*/
                 }
                 VStack(alignment: .leading) {
                     HStack {

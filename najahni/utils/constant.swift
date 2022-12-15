@@ -9,7 +9,7 @@ import Foundation
 
 
 
-let URL_BASE_APP = "http://172.17.4.9:9090"
+let URL_BASE_APP = "http://172.17.8.49:9090"
 
 //let URL_BASE_APP = "http://localhost:9090"
 let LOGIN_URL = URL_BASE_APP + "/user/signin"
@@ -25,6 +25,7 @@ let ALL_MY_COURSE_ARCHIVED = URL_BASE_APP + "/course/mycourses-archived"
 let MY_COURSES_LIST = URL_BASE_APP + "/course/mycourseslist"
 let ENROLL_NOW = URL_BASE_APP + "/course/enrollnow/"
 let PAIEMENT_COURSE = URL_BASE_APP + "/course/initpayement"
+let MESSAGE_CONTACTS = URL_BASE_APP + "/message/get-Contacts"
 
 let WISHLIST = "wishlist"
 let CART = "cart"
