@@ -118,7 +118,7 @@ struct SignupView: View {
                         .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
                         .cornerRadius(25)
                         .alert(isPresented: $signUpVM.isError) {
-                            Alert(title: Text(signUpVM.errorMsg),dismissButton: .default(Text("Okay")) )
+                            Alert(title: Text(signUpVM.errorMsg),dismissButton: .default(Text("close")) )
                     }
                     }
                     Text("Already have an account ?")
