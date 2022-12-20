@@ -11,13 +11,14 @@ import SwiftUI
 @main
 struct najahniApp: App {
     let persistenceController = PersistenceController.shared
-    
-
+    @Environment(\.colorScheme) var colorScheme
 
     var body: some Scene {
         WindowGroup {
         SplashView()
                 .background(Color("BackgroundColor"))
+                .environment(\.colorScheme, .dark)
+            
             //messageView(user: UserFix)
         }
     }

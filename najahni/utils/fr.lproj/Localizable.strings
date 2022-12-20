@@ -8,7 +8,7 @@
 
 /**-------Login Screen------*/
 "password" = "Mot de passe";
-"Forgot_my_password" = "Oublier mot de passe";
+"Forgot my password" = "Oublier mot de passe";
 "Sign_in" = "Se connecter";
 "Don't_have_an_account" = "Vous n'avez pas de compte ?";
 "create_one" = "s'inscrire";
