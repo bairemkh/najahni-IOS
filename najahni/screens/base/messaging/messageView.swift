@@ -9,19 +9,21 @@ import SocketIO
 import SwiftyJSON
 class messanger: ObservableObject{
     private var manager = SocketManager(socketURL: URL(string: URL_BASE_APP)!,config: [.log(false),.reconnects(true)])
-    @Published var messages = [Message]()
+    //@Published var messages : [Message] = []
+    @Published var action:(Message)->Void = {mess in print("")}
     var socket :SocketIOClient
     func sendMessage(message:String,id:String) {
         print("test \(socket.status)")
-        let messageJson = ["msgContent" : message,"senderid":"bairem","receiverid":id,"id":UUID().uuidString]
+        let messageJson = ["msgContent" : message,"senderid":SessionManager.currentUser!.id,"receiverid":id,"_id":UUID().uuidString]
         socket.emit("onMessage", messageJson)
     }
     init(){
         socket = manager.defaultSocket
-        socket.on(clientEvent: .connect) { [self] data, ack in
+        socket.on(clientEvent: .connect) { [self]data, ack in
             socket.on("send") { data, ack in
                 let dataJson = JSON(data[0])["msg"]
-                self.messages.append(MessageServices.makeItem(jsonItem: dataJson))
+                self.action(MessageServices.makeItem(jsonItem: dataJson))
+                //self.messages.append(MessageServices.makeItem(jsonItem: dataJson))
             }
         }
         socket.connect()
@@ -30,7 +32,7 @@ class messanger: ObservableObject{
 }
 
 struct messageView: View {
-    @State var contactMsgs = [Message]()
+    @Binding var contactMsgs : [Message]
     @State var user:User
     @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel = messanger()
@@ -61,8 +63,8 @@ struct messageView: View {
             ScrollView(showsIndicators: false) {
                 VStack{
                     Group{
-                        ForEach(viewModel.messages){ message in
-                            messageBubble(message:message.msgContent,isCurrentUser: message.senderid.elementsEqual(user.id))
+                        ForEach(contactMsgs){ message in
+                            messageBubble(message:message.msgContent,isCurrentUser: message.receiverid.elementsEqual(user.id))
                         }
                         
                     }
@@ -80,7 +82,7 @@ struct messageView: View {
                 Button(
                     action: {
                         if(!message.isEmpty){
-                        viewModel.sendMessage(message: message,id: "hama")
+                            viewModel.sendMessage(message: message,id: user.id)
                         message = ""
                         }}) {
                     Image(systemName: "paperplane.circle.fill")
@@ -90,7 +92,12 @@ struct messageView: View {
                 }
             }
             .onAppear{
-                viewModel.messages = contactMsgs
+                viewModel.action = {
+                    message in
+                    contactMsgs.append(message)
+                }
+                //viewModel.messages = contactMsgs
+                //print("Messages:======> \(viewModel.messages)")
             }
             .padding(.all)
             .navigationBarBackButtonHidden()
@@ -100,9 +107,9 @@ struct messageView: View {
 }
 
 struct messageView_Previews: PreviewProvider {
+    @State static var messages = [Message]()
     static var previews: some View {
-        messageView(user: UserFix)
-        //messageBubble(message:"testing message")
+        messageView(contactMsgs: $messages, user: UserFix)
     }
 }
 
@@ -110,7 +117,7 @@ struct messageView_Previews: PreviewProvider {
 
 struct messageBubble :View {
     @State var message : String
-    @State var isCurrentUser = true
+    @State var isCurrentUser = false
     var body: some View {
         if isCurrentUser{
             HStack {

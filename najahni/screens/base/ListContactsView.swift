@@ -16,7 +16,11 @@ struct ListContactsView: View {
             VStack{
                 ForEach(users) { user in
                     NavigationLink {
-                        messageView(contactMsgs: contacts[user.id] ?? [], user: user)
+                        messageView(contactMsgs: Binding(get: {
+                            contacts[user.id] ?? []
+                        }, set: { val, tra in
+                            contacts[user.id] = val
+                        }), user: user)
                     }label:{
                         ContactCard(user: user,lastMsg: contacts[user.id]?.last?.msgContent ?? "test",you: contacts[user.id]?.last?.senderid.elementsEqual(user.id) ?? true)
                     }
@@ -62,11 +66,14 @@ struct ContactCard: View {
                             Text("You:\(lastMsg)")
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(1)
+                                .foregroundColor(.black)
                             .padding(.horizontal)
                         }else{
                             Text(lastMsg)
+                                .fontWeight(.bold)
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(1)
+                                .foregroundColor(.black)
                             .padding(.horizontal)
                         }
                         
