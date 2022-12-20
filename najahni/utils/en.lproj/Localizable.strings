@@ -50,7 +50,7 @@
 "cancel"="cancel";
 /************************ edit Profile Page ***************************/
 "Change_password_?"="Change password ?";
-"Update Profile"="Update Profile";
+"Update_Profile"="Update Profile";
 /************************ Reset Page ***************************/
 "Reset_your_password"="Reset your password";
 /************************ change password Page ***************************/
@@ -73,7 +73,7 @@
 "Enroll_now"="Enroll now";
 "Detail"="Detail";
 /************************ course detail Page ***************************/
-"Create a new Course"="Create a new Course";
+"Create_a_new_Course"="Create a new Course";
 "Course_name*"="Course name*";
 "Price"="Price (Optionnal)";
 "Level"="Level";
@@ -85,7 +85,7 @@
 "Trainer_verif"="In order to verify certain information, we need to make sure that you are a verified trainer, so we will ask you for proof such as certificates. You can send us an image or a pdf file of your certificate.";
 /************************ Settings Page ***************************/
 "Dark_mode"="Dark mode";
-"Delete account"="Delete_account";
+"Delete_account"="Delete_account";
 /************************ course detail trainer Page ***************************/
 "Edit"="Edit";
 "Reviews"="Reviews";
