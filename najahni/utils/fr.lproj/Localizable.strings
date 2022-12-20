@@ -21,14 +21,14 @@
 "Name" = "Nom";
 "Last_name" = "Prénom";
 "Confirm_your_password" = "Confirmer votre mot de passe";
-"What's_your_gender" = "Quel est ton genre ?";
+"What's_your_gender_?" = "Quel est ton genre ?";
 "Select" = "Sélectionner";
 "Create" = "S'inscrire";
-"Already_have_an_account" = "Vous avez déjà un compte ?";
+"Already_have_an_account_?" = "Vous avez déjà un compte ?";
 
 /**----------Forget password---------*/
 "Go_back" = "Retourner";
-"Forgot_your_password" = "Mot de passe oublié ??"
+"Forgot_your_password_??" = "Mot de passe oublié ??";
 "Forgot_description" = "Si vous avez votre mot de passe, vous devez le saisir et enfin vous recevez un email pour le récupérer. D'abord vous obtenez un code pin à 4 chiffres et ensuite vous le mettez dans le formulaire";
 "Send_Email" = "Envoyer";
 "Error" = "Erreur";
@@ -58,12 +58,13 @@
 "Check_out" = "Payer";
 "cancel" = "Annuler";
 /**-------Edit profile------*/
-"Change_password" = "Changer le mot de passe ?";
+"Change_password_?" = "Changer le mot de passe ?";
 "Update_Profile" = "Modifier le profil";
 /**---------Reset password----------*/
 "Reset_your_password" = "Réinitialisez votre mot de passe";
 
 /**--------Change password----------*/
+"Change_your_password"="Changez votre mot de passe";
 "New_password" = "Nouveau mot de passe";
 /*--------Profile Trainer--------*/
 "Edit_profile" = "Modifier le profil";
@@ -75,6 +76,7 @@
 "Delete" = "Supprimer";
 "Cancel" = "Annuler";
 /**----Course detail----*/
+"Description"="Description";
 "Free" = "Gratuit";
 "more" = "Plus";
 "less" = "Moins";
@@ -86,7 +88,7 @@
 
 /**------Add course----------*/
 "Create_a_new_Course" = "Créer un nouveau cours";
-"Course_name" = "Nom du cours*";
+"Course_name*" = "Nom du cours*";
 "Price" = "Prix";
 "Level" = "Niveau";
 /**------Verify trainer----------*/
@@ -112,8 +114,6 @@
 "want_to_delete_this?"="Êtes-vous sûr de vouloir supprimer ceci ?";
 "Section_name"="Nom de section";
 "Save"= "Enregistrer";
-/************************ edit section trainer Page ***************************/
-//"Save"="Save"
 /************************ profile Page ***************************/
 "To_Trainer"="Envie d'être Formateur ?";
 
