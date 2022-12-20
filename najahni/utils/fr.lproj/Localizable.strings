@@ -7,106 +7,113 @@
 */
 
 /**-------Login Screen------*/
-"password" = "Mot de passe"
-"Forgot_my_password" = "Oublier mot de passe"
-"Sign_in" = "Se connecter"
-"Don't_have_an_account" = "Vous n'avez pas de compte ?"
-"create_one" = "s'inscrire"
-"Or Login with" = "Ou se connecter avec"
-"Email_or_password_are_incorrect" = "Email ou mot de passe incorrect"
-"Connectivity_error_please_check_!" = "Erreur de connectivité,veuillez vérifier !"
-"close"="Fermer"
-
+"password" = "Mot de passe";
+"Forgot_my_password" = "Oublier mot de passe";
+"Sign_in" = "Se connecter";
+"Don't_have_an_account" = "Vous n'avez pas de compte ?";
+"create_one" = "s'inscrire";
+"Or Login with" = "Ou se connecter avec";
+"Email_or_password_are_incorrect" = "Email ou mot de passe incorrect";
+"Connectivity_error_please_check_!" = "Erreur de connectivité,veuillez vérifier !";
+"close"="Fermer";
 /**-----------Signup Screen------------*/
-"Let's_Create_A_new_Account" = "Créons un nouveau compte"
-"Name" = "Nom"
-"Last_name" = "Prénom"
-"Confirm_your_password" = "Confirmer votre mot de passe"
-"What's_your_gender" = "Quel est ton genre ?"
-"Select" = "Sélectionner"
-"Create" = "S'inscrire"
-"Already_have_an_account" = "Vous avez déjà un compte ?"
+"Let's_Create_A_new_Account" = "Créons un nouveau compte";
+"Name" = "Nom";
+"Last_name" = "Prénom";
+"Confirm_your_password" = "Confirmer votre mot de passe";
+"What's_your_gender" = "Quel est ton genre ?";
+"Select" = "Sélectionner";
+"Create" = "S'inscrire";
+"Already_have_an_account" = "Vous avez déjà un compte ?";
 
 /**----------Forget password---------*/
-"Go_back" = "Retourner"
+"Go_back" = "Retourner";
 "Forgot_your_password" = "Mot de passe oublié ??"
-"Forgot_description" = "Si vous avez votre mot de passe, vous devez le saisir et enfin vous recevez un email pour le récupérer. D'abord vous obtenez un code pin à 4 chiffres et ensuite vous le mettez dans le formulaire"
-"Send_Email" = "Envoyer"
-"Error" = "Erreur"
+"Forgot_description" = "Si vous avez votre mot de passe, vous devez le saisir et enfin vous recevez un email pour le récupérer. D'abord vous obtenez un code pin à 4 chiffres et ensuite vous le mettez dans le formulaire";
+"Send_Email" = "Envoyer";
+"Error" = "Erreur";
 
 /**---------Verification view-----------*/
-"Type_the_code_To_get_your_Password" = "Tapez le code pour obtenir votre mot de passe"
+"Type_the_code_To_get_your_Password" = "Tapez le code pour obtenir votre mot de passe";
 "Resend_another_verification_code" =
-"Renvoyer un autre code de vérification"
-"Next" = "Suivant"
+"Renvoyer un autre code de vérification";
+"Next" = "Suivant";
 
 /*---------Tab bar---------*/
-"Home" = "Acceuil"
-"My_courses" = "Mes aprentissages"
-"Cart" = "Panier"
-"Wishlist" = "Favoris"
-"Profile" = "Profil"
+"Home" = "Acceuil";
+"My_courses" = "Mes aprentissages";
+"Cart" = "Panier";
+"Wishlist" = "Favoris";
+"Profile" = "Profil";
 
 /*-------Home Screen-----*/
-"Search_any_course" = "Rechercher n'importe quel cours"
-"Recommanded" = "Recommandé"
-"Courses" = "Cours"
-"All" = "Tout"
+"Search_any_course" = "Rechercher n'importe quel cours";
+"Recommanded" = "Recommandé";
+"Courses" = "Cours";
+"All" = "Tout";
 
 
 /**-------Cart Sceen------*/
-"My_cart" = "Mon panier"
-"Check_out" = "Payer"
-"cancel" = "Annuler"
+"My_cart" = "Mon panier";
+"Check_out" = "Payer";
+"cancel" = "Annuler";
 /**-------Edit profile------*/
-"Change_password" = "Changer le mot de passe ?"
-"Update_Profile" = "Modifier le profil"
+"Change_password" = "Changer le mot de passe ?";
+"Update_Profile" = "Modifier le profil";
 /**---------Reset password----------*/
-"Reset_your_password" = "Réinitialisez votre mot de passe"
+"Reset_your_password" = "Réinitialisez votre mot de passe";
 
 /**--------Change password----------*/
-"New_password" = "Nouveau mot de passe"
+"New_password" = "Nouveau mot de passe";
 /*--------Profile Trainer--------*/
-"Edit_profile" = "Modifier le profil"
-"Courses" = "Mes cours"
-"Archived" = "Archivés"
+"Edit_profile" = "Modifier le profil";
+"Courses" = "Mes cours";
+"Archived" = "Archivés";
 
 /*-----Wish list----*/
-"Confirm" = "Confirmer"
-"Delete" = "Supprimer"
-"Cancel" = "Annuler"
+"Confirm" = "Confirmer";
+"Delete" = "Supprimer";
+"Cancel" = "Annuler";
 /**----Course detail----*/
-"Free" = "Gratuit"
-"more" = "Plus"
-"less" = "Moins"
-"Lessons" = "Chapitres"
-"Add_to_cart" = "Ajouter au panier"
-"Enroll_now" = "Inscrivez-vous"
-"Detail" = "Détail"
+"Free" = "Gratuit";
+"more" = "Plus";
+"less" = "Moins";
+"Lessons" = "Chapitres";
+"Add_to_cart" = "Ajouter au panier";
+"Enroll_now" = "Inscrivez-vous";
+"Detail" = "Détail";
 
 
 /**------Add course----------*/
-"Create_a_new_Course" = "Créer un nouveau cours"
-"Course_name" = "Nom du cours*"
-"Price" = "Prix"
-"Level" = "Niveau"
+"Create_a_new_Course" = "Créer un nouveau cours";
+"Course_name" = "Nom du cours*";
+"Price" = "Prix";
+"Level" = "Niveau";
 /**------Verify trainer----------*/
-"Import" = "Importer"
-"Let's_take_a_look" = "Nous allons jeter un coup d'oeil"
+"Import" = "Importer";
+"Let's_take_a_look" = "Nous allons jeter un coup d'oeil";
 "Trainer_verif" =
-"Afin de vérifier certaines informations, nous devons nous assurer que vous êtes un formateur certifié, nous vous demanderons donc des preuves telles que des certificats. Vous pouvez nous envoyer une image ou un fichier pdf de votre certificat."
-"Verify" = "Verifier"
+"Afin de vérifier certaines informations, nous devons nous assurer que vous êtes un formateur certifié, nous vous demanderons donc des preuves telles que des certificats. Vous pouvez nous envoyer une image ou un fichier pdf de votre certificat.";
+"Verify" = "Verifier";
 /**--------Settings--------*/
-"Dark_mode" = "Mode sombre"
-"Delete_account" = "Supprimer le compte"
+"Dark_mode" = "Mode sombre";
+"Delete_account" = "Supprimer le compte";
 /**-------Course detail trainer-------*/
-"Reviews" = "Commentaires"
-"Edit" = "Modifier"
+"Reviews" = "Commentaires";
+"Edit" = "Modifier";
 
 /**--------Edit course---------*/
-"Edit_sections" = "Modifier les sections"
-"let's_modify_the_Course" = "modifions le cours"
-"Archived_the_course" = "Archivé le cours"
-/**-------Edit Section-----*/
-
+"Edit_sections" = "Modifier les sections";
+"let's_modify_the_Course" = "modifions le cours";
+"Archived_the_course" = "Archivé le cours";
+/************************ edit section trainer Page ***************************/
+"Add_a_lesson"="Ajouter un chapitre";
+"section_desc"="Ajoutez un chapitre en tapant son nom et en important sa vidéo";
+"want_to_delete_this?"="Êtes-vous sûr de vouloir supprimer ceci ?";
+"Section_name"="Nom de section";
+"Save"= "Enregistrer";
+/************************ edit section trainer Page ***************************/
+//"Save"="Save"
+/************************ profile Page ***************************/
+"To_Trainer"="Envie d'être Formateur ?";
 
