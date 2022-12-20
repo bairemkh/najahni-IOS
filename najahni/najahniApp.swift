@@ -17,6 +17,7 @@ struct najahniApp: App {
     var body: some Scene {
         WindowGroup {
         SplashView()
+                .background(Color("BackgroundColor"))
             //messageView(user: UserFix)
         }
     }
