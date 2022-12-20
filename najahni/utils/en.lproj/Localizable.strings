@@ -1,3 +1,10 @@
+/* 
+  Localizable.strings
+  najahni
+
+  Created by bairem mohamed on 20/12/2022.
+  
+*/
 /************************ Login Page ***************************/
 "password"="Password";
 "Forgot_my_password"="Forgot my password";
@@ -6,93 +13,91 @@
 "Or_Login_with"="Or Login with";
 "Email_or_password_are_incorrect"="Email or password are incorrect";
 "Connectivity_error,_please_check_!"="Connectivity error, please check !";
-"close"="Close"
+"close"="Close";
 /************************ signup Page ***************************/
-"Let's_Create_A_new_Account"="Let's Create A new Account"
-"Name"="Name"
-"Last_name"="Last name"
-"Confirm_your_password"="Confirm your password"
-"What's_your_gender_?"="What's your gender ?"
-"Create"="Create"
-"Already_have_an_account_?"="Already have an account ?"
-"Select"="Select"
-"Error"="Error"
+"Let's_Create_A_new_Account"="Let's Create A new Account";
+"Name"="Name";
+"Last_name"="Last name";
+"Confirm_your_password"="Confirm your password";
+"What's_your_gender_?"="What's your gender ?";
+"Create"="Create";
+"Already_have_an_account_?"="Already have an account ?";
+"Select"="Select";
+"Error"="Error";
 /************************ Forget password Page ***************************/
-"Go_back"="Go back"
-"Send_Email"="Send Email"
-"Forgot_your_password_??"="Forgot your password ??"
-"Forgot_description"="If you have your password, you have to type it in and finally you receive an email to retrieve it. First you get a 4 digit pin code and then you put it in the form"
+"Go_back"="Go back";
+"Send_Email"="Send Email";
+"Forgot_your_password_??"="Forgot your password ??";
+"Forgot_description"="If you have your password, you have to type it in and finally you receive an email to retrieve it. First you get a 4 digit pin code and then you put it in the form";
 /************************ Verification Page ***************************/
-"Type_the_code_To_get_your_Password"="Type the code To get your Password"
-"Resend_another_verification_code"="Resend another verification code"
-"Next"="Next"
+"Type_the_code_To_get_your_Password"="Type the code To get your Password";
+"Resend_another_verification_code"="Resend another verification code";
+"Next"="Next";
 /************************ Hosting TabBar Page ***************************/
-"Home"="Home"
-"My_courses"="My Courses"
-"Cart"="Cart"
-"Wishlist"="Wishlist"
-"Profile"="Profil"
+"Home"="Home";
+"My_courses"="My Courses";
+"Cart"="Cart";
+"Wishlist"="Wishlist";
+"Profile"="Profil";
 /************************ HomeView Page ***************************/
-"Search_any_course"="Search any course ..."
-"Recommanded"="Recommanded"
-"Courses"="Courses"
-"All"="All"
+"Search_any_course"="Search any course ...";
+"Recommanded"="Recommanded";
+"Courses"="Courses";
+"All"="All";
 /************************ cart Page ***************************/
-"Check_out"="Check out"
-"My_cart"="My cart"
-"cancel"="cancel"
+"Check_out"="Check out";
+"My_cart"="My cart";
+"cancel"="cancel";
 /************************ edit Profile Page ***************************/
-"Change_password_?"="Change password ?"
-"Update Profile"="Update Profile"
+"Change_password_?"="Change password ?";
+"Update Profile"="Update Profile";
 /************************ Reset Page ***************************/
-"Reset_your_password"="Reset your password"
+"Reset_your_password"="Reset your password";
 /************************ change password Page ***************************/
-"Change_your_password"="Change your password"
-"New password"="New password"
+"Change_your_password"="Change your password";
+"New password"="New password";
 /************************ profile trainer Page ***************************/
-"Edit_profile"="Edit profile"
-"Courses"="Courses"
-"Archived"="Archived"
+"Edit_profile"="Edit profile";
+"Courses"="Courses";
+"Archived"="Archived";
 /************************ wishlist Page ***************************/
-"Confirm"="Confirm"
-"Delete"="Delete"
+"Confirm"="Confirm";
+"Delete"="Delete";
 /************************ course detail Page ***************************/
-"Description"="Description"
-"Free"="Free"
-"more"="more"
-"less"="less"
-"Lessons"="Lessons"
-"Add_to_cart"="Add to cart"
-"Enroll_now"="Enroll now"
-"Detail"="Detail"
+"Description"="Description";
+"Free"="Free";
+"more"="more";
+"less"="less";
+"Lessons"="Lessons";
+"Add_to_cart"="Add to cart";
+"Enroll_now"="Enroll now";
+"Detail"="Detail";
 /************************ course detail Page ***************************/
-"Create a new Course"="Create a new Course"
-"Course_name*"="Course name*"
-"Price"="Price (Optionnal)"
-"Level"="Level"
-"Fields"="Fields"
+"Create a new Course"="Create a new Course";
+"Course_name*"="Course name*";
+"Price"="Price (Optionnal)";
+"Level"="Level";
+"Fields"="Fields";
 /************************ Trainer Verification Page ***************************/
-"Import"="Import"
-"Let's_take_a_look"="Let's take a look"
-"Verify"="Verify"
-"Trainer_verif"="In order to verify certain information, we need to make sure that you are a verified trainer, so we will ask you for proof such as certificates. You can send us an image or a pdf file of your certificate."
+"Import"="Import";
+"Let's_take_a_look"="Let's take a look";
+"Verify"="Verify";
+"Trainer_verif"="In order to verify certain information, we need to make sure that you are a verified trainer, so we will ask you for proof such as certificates. You can send us an image or a pdf file of your certificate.";
 /************************ Settings Page ***************************/
-"Dark_mode"="Dark mode"
-"Delete account"="Delete_account"
+"Dark_mode"="Dark mode";
+"Delete account"="Delete_account";
 /************************ course detail trainer Page ***************************/
-"Edit"="Edit"
-"Reviews"="Reviews"
+"Edit"="Edit";
+"Reviews"="Reviews";
 /************************ edit course trainer Page ***************************/
-"Edit_sections"="Edit sections"
-"let's_modify_the_Course"="let's modify the Course"
-"Archived_the_course"="Archived the course"
+"Edit_sections"="Edit sections";
+"let's_modify_the_Course"="let's modify the Course";
+"Archived_the_course"="Archived the course";
 /************************ edit section trainer Page ***************************/
-"Add_a_lesson"="Add a lesson"
-"section_desc"="Add a lesson by typing his name and importing its video"
-"want_to_delete_this?"="Are you sure you want to delete this?"
-"Section_name"="Section name"
-"Save"="Save"
-/************************ edit section trainer Page ***************************/
-"Save"="Save"
+"Add_a_lesson"="Add a lesson";
+"section_desc"="Add a lesson by typing his name and importing its video";
+"want_to_delete_this?"="Are you sure you want to delete this?";
+"Section_name"="Section name";
+"Save"="Save";
 /************************ profile Page ***************************/
-"To_Trainer"="Want to be a Trainer ?"
+"To_Trainer"="Want to be a Trainer ?";
