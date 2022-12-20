@@ -9,25 +9,23 @@ import SwiftUI
 
 struct CustomCard2View: View {
     var body: some View {
-        VStack {
+        VStack (alignment: .leading, spacing: 10){
                    Image("user")
                        .resizable()
-                       .frame(width: 150, height: 150 * (300/210))
-                       .cornerRadius(20.0)
-                   Text("Luxury Swedian chair").font(.title3).fontWeight(.bold)
-                   
-                   HStack (spacing: 2) {
-                      
-                       Spacer()
-                       Text("$1299")
-                           .font(.title3)
-                           .fontWeight(.bold)
-                   }
+                       .frame(width: 200,height: 200)
+                       .scaledToFit()
+                       .aspectRatio(contentMode: .fill)
+                       
+            Text("text")
+                .padding(.horizontal)
+            Text("test")
+                .padding([.leading, .bottom, .trailing])
+
                }
-               .frame(width: 250)
-               .padding()
+
                .background(Color.white)
-               .cornerRadius(20.0)
+               .clipShape(RoundedRectangle(cornerRadius: 24.0))
+               .shadow(radius: 2)
                
     }
 }
