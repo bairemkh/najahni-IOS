@@ -1,11 +1,11 @@
 /************************ Login Page ***************************/
-"password"="Password"
-"Forgot_my_password"="Forgot my password"
-"Sign_in"="Sign in"
-"Don't_have_an_account_?"="Don't have an account ?"
-"Or_Login_with"="Or Login with"
-"Email_or_password_are_incorrect"="Email or password are incorrect"
-"Connectivity_error,_please_check_!"="Connectivity error, please check !"
+"password"="Password";
+"Forgot_my_password"="Forgot my password";
+"Sign_in"="Sign in";
+"Don't_have_an_account_?"="Don't have an account ?";
+"Or_Login_with"="Or Login with";
+"Email_or_password_are_incorrect"="Email or password are incorrect";
+"Connectivity_error,_please_check_!"="Connectivity error, please check !";
 "close"="Close"
 /************************ signup Page ***************************/
 "Let's_Create_A_new_Account"="Let's Create A new Account"
