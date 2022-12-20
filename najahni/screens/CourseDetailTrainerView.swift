@@ -36,7 +36,7 @@ struct CourseDetailTrainerView: View {
                         .multilineTextAlignment(.leading)
                     .font(.system(size: 23))
                     Spacer()
-                    Text(" Free")
+                    Text("Free")
                         .multilineTextAlignment(.leading)
                     .font(.system(size: 20))
                     Spacer()
