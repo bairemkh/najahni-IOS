@@ -72,7 +72,7 @@ struct ForgetPassword: View {
                     .cornerRadius(25)
                 }
                 .alert(isPresented: $viewModel.onError) {
-                    Alert(title: Text("Error"), message: Text(viewModel.msgError), dismissButton:.default(Text("Okay")))
+                    Alert(title: Text("Error"), message: Text(viewModel.msgError), dismissButton:.default(Text("close")))
                 }
             }
             .padding(.all)

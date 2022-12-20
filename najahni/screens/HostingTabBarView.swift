@@ -49,7 +49,7 @@ struct HostingTabBarView: View {
                         WishListView()
                             .tag(3)
                             .tabItem {
-                                Text("wish")
+                                Text("Wishlist")
                                 Image(systemName: "heart.fill")
                             }
                         if (role == "Student"){

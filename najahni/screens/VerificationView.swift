@@ -102,7 +102,7 @@ struct VerificationView: View {
                         
                 }
                 .alert(isPresented: $isError){
-                    Alert(title: Text("Error"), message: Text(errorMsg), dismissButton: .default(Text("Got it")))
+                    Alert(title: Text("Error"), message: Text(errorMsg), dismissButton: .default(Text("close")))
             }
             }
         }.navigationBarBackButtonHidden(true)
