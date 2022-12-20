@@ -7,6 +7,7 @@
 import SwiftUI
 import SocketIO
 import SwiftyJSON
+import SDWebImageSwiftUI
 class messanger: ObservableObject{
     private var manager = SocketManager(socketURL: URL(string: URL_BASE_APP)!,config: [.log(false),.reconnects(true)])
     //@Published var messages : [Message] = []
@@ -48,7 +49,7 @@ struct messageView: View {
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 Spacer()
-                Image("user")
+                    WebImage(url: URL(string:"\(URL_BASE_APP)\(user.image ?? "")"))
                     .resizable()
                     .clipShape(Circle())
                     .frame(width: 70.0, height: 70.0)
@@ -60,15 +61,26 @@ struct messageView: View {
                 Spacer()
             }
             .padding([.leading, .bottom, .trailing])
-            ScrollView(showsIndicators: false) {
-                VStack{
-                    Group{
-                        ForEach(contactMsgs){ message in
-                            messageBubble(message:message.msgContent,isCurrentUser: message.receiverid.elementsEqual(user.id))
+            ScrollViewReader { proxy in
+                ScrollView(showsIndicators: false) {
+                    VStack{
+                        Group{
+                            ForEach(contactMsgs){ message in
+                                messageBubble(user: user, message:message.msgContent,isCurrentUser: message.receiverid.elementsEqual(user.id))
+                            }
+                            
                         }
-                        
+                        .padding(.all)
                     }
-                    .padding(.all)
+                }.onChange(of: contactMsgs.last!.id) { newValue in
+                    withAnimation {
+                        proxy.scrollTo(newValue, anchor: .bottom)
+                    }
+                }
+                .onAppear{
+                    withAnimation {
+                        proxy.scrollTo(contactMsgs.last!.id, anchor: .bottom)
+                    }
                 }
             }
             HStack {
@@ -116,6 +128,7 @@ struct messageView_Previews: PreviewProvider {
 
 
 struct messageBubble :View {
+    @State var user = UserFix
     @State var message : String
     @State var isCurrentUser = false
     var body: some View {
@@ -129,7 +142,7 @@ struct messageBubble :View {
             }
         }else{
             HStack {
-                Image("user")
+                    WebImage(url: URL(string:"\(URL_BASE_APP)\(user.image ?? "")"))
                     .resizable()
                     .clipShape(Circle())
                     .frame(width: 50.0, height: 50.0)
