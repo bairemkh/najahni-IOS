@@ -125,9 +125,12 @@ struct HomeView: View {
                     .fontWeight(.black)
                 
                 ScrollView(.horizontal,showsIndicators: false) {
-                    ForEach(courses) {item in
-                        // CustomCardView(course: item)
-                        
+                    HStack {
+                        ForEach(courses) {item in
+                            CustomCard2View()
+                                .padding(.all)
+                            
+                        }
                     }
                 }
                 
