@@ -76,22 +76,22 @@ struct ProfileStudentView: View {
                             .onTapGesture {
                                 pass = true
                             }
-                    }
+                    }.foregroundColor(Color("primaryColor"))
                     NavigationLink{
                        SettingsView()
                     } label: {
                         CustomButtonView(icon: "gearshape.2.fill",buttonText: "Setting")
-                    }
+                    }.foregroundColor(Color("primaryColor"))
                     NavigationLink{
                        PrivacyPolicyView()
                     } label: {
                         CustomButtonView(icon: "shield.lefthalf.filled",buttonText: "Privacy Policy")
-                    }
+                    }.foregroundColor(Color("primaryColor"))
                     NavigationLink{
                        VerifyTrainerView()
                     } label: {
                         CustomButtonView(icon: "briefcase.fill",buttonText: "Want to be a Trainer ?").foregroundColor(Color("secondaryColor"))
-                    }
+                    }.foregroundColor(Color("primaryColor"))
                     
                     NavigationLink(destination: LoginView(), isActive: $onLogOut){
                         CustomButtonView(icon: "rectangle.portrait.and.arrow.forward",buttonText: "Logout")

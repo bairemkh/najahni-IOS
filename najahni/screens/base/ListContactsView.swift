@@ -66,14 +66,14 @@ struct ContactCard: View {
                             Text("You:\(lastMsg)")
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(1)
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("Black"))
                             .padding(.horizontal)
                         }else{
                             Text(lastMsg)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(1)
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("Black"))
                             .padding(.horizontal)
                         }
                         
