@@ -18,9 +18,10 @@ struct CustomCard2View: View {
                        
             Text("text")
                 .padding(.horizontal)
+                .foregroundColor(.black)
             Text("test")
                 .padding([.leading, .bottom, .trailing])
-
+                .foregroundColor(.black)
                }
 
                .background(Color.white)

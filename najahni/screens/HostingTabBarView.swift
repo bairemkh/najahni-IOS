@@ -21,6 +21,7 @@ struct HostingTabBarView: View {
     @State private var selectedTab: Tab = .home
     @State private var role : String = ""
     @State private var user:User = UserFix
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
 
@@ -89,6 +90,8 @@ struct HostingTabBarView: View {
                 role = UserDefaults.standard.string(forKey: "role")!
             }
             .onDisappear()
+            .background(Color("BackgroundColor"))
+            
             //.onDisappear()
             
         }

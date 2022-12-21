@@ -95,6 +95,7 @@
 		879E5C81292BE19600573969 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E5C80292BE19600573969 /* SessionManager.swift */; };
 		879E5C83292BE53400573969 /* CourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E5C82292BE53400573969 /* CourseDetailView.swift */; };
 		87A127792951F18C0006FF1F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87A1277B2951F18C0006FF1F /* Localizable.strings */; };
+		87A1278029521FF80006FF1F /* LanguageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A1277F29521FF80006FF1F /* LanguageEnum.swift */; };
 		87A371D82930F6E500685486 /* customTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A371D72930F6E500685486 /* customTextField.swift */; };
 		87A4E85929229F1A00E2A505 /* MultiSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4E85829229F1A00E2A505 /* MultiSelectionView.swift */; };
 		87A4E85B29229F7200E2A505 /* MultiSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4E85A29229F7200E2A505 /* MultiSelector.swift */; };
@@ -220,6 +221,7 @@
 		879E5C82292BE53400573969 /* CourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
 		87A1277A2951F18C0006FF1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		87A1277C2951F1BB0006FF1F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		87A1277F29521FF80006FF1F /* LanguageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageEnum.swift; sourceTree = "<group>"; };
 		87A371D72930F6E500685486 /* customTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTextField.swift; sourceTree = "<group>"; };
 		87A4E85829229F1A00E2A505 /* MultiSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionView.swift; sourceTree = "<group>"; };
 		87A4E85A29229F7200E2A505 /* MultiSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelector.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 				419E7C3A2928E023007E7D87 /* ImagePicker.swift */,
 				879E5C80292BE19600573969 /* SessionManager.swift */,
 				87A1277B2951F18C0006FF1F /* Localizable.strings */,
+				87A1277F29521FF80006FF1F /* LanguageEnum.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -723,6 +726,7 @@
 				8741BAC0291EC4B8002FBDE8 /* HomeView.swift in Sources */,
 				8741BAC6291EC517002FBDE8 /* ProfileView.swift in Sources */,
 				879B0E952948E41D0000119B /* MessageServices.swift in Sources */,
+				87A1278029521FF80006FF1F /* LanguageEnum.swift in Sources */,
 				41353FAC2923D51500DAA6C5 /* UserService.swift in Sources */,
 				8743D059291FE16300C1781C /* ResetPasswordView.swift in Sources */,
 				872AD03529401CC80066C22D /* SectionViewModel.swift in Sources */,

@@ -86,7 +86,7 @@ struct HomeView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Image(systemName: "magnifyingglass")
-                        TextField("Search any course ...", text: $text).onChange(of: text) { newValue in
+                        TextField(LocalizedStringKey("Search_any_course"), text: $text).onChange(of: text) { newValue in
                             var filtredCourses = displayedCourses.filter { course in
                                 return course.title.contains(newValue)
                             }
@@ -99,7 +99,7 @@ struct HomeView: View {
                         
                     }.padding(10)
                     
-                        .background(Color.init(red: 211.0/255.0, green: 211.0/255.0, blue: 211.0/255.0))
+                        .background(Color("BackgroundColor"))
                     
                         .cornerRadius(10)
                     
@@ -119,7 +119,8 @@ struct HomeView: View {
                         self.displayedCourses = filtredCourses
                     }
                 }
-                Text("Recommanded")
+                //Text("Recommanded")
+                Text(LocalizedStringKey("Recommanded"))
                     .font(.title2)
                     .foregroundColor(Color("primaryColor"))
                     .fontWeight(.black)

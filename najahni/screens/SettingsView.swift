@@ -9,10 +9,33 @@ import SwiftUI
 
 struct SettingsView: View {
     @State private var onLogOut = false
+    @State private var selectedLanguage = 0
     @AppStorage("isDarkMode") private var isDarkMode = false
+    @AppStorage("language") private var language = Language.en
     var body: some View {
         VStack{
             Spacer().frame(height: 50)
+            HStack {
+                Image(systemName: "textformat.size")
+                    .foregroundColor(Color("primaryColor"))
+                Text("Language")
+                    .padding(.leading)
+                Spacer()
+                Picker(selection: $selectedLanguage, label: Text("Pick your Language")) {
+                    Text("English").tag(0)
+                    Text("Francais").tag(1)
+                }.onChange(of: selectedLanguage) { newValue in
+                    if(newValue == 0){
+                        language = Language.en
+                    }
+                    else{
+                        language = Language.fr
+                    }
+                }
+                
+
+            }.padding(.all, 12.0)
+            Divider()
             HStack {
                 Image(systemName: "circle.righthalf.filled")
                     .foregroundColor(Color("primaryColor"))
@@ -20,11 +43,6 @@ struct SettingsView: View {
                     .padding(.leading)
                 Spacer()
                 Toggle(isOn: $isDarkMode) {
-                    /*if darkModeOn{
-                        window?.overrideUserInterfaceStyle = .dark
-                    }else{
-                        window?.overrideUserInterfaceStyle = .light
-                    }*/
                 }
                 .toggleStyle(SwitchToggleStyle(tint: Color("primaryColor")))
             }.padding(.all, 12.0)

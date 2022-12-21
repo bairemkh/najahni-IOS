@@ -11,7 +11,6 @@ import SDWebImageSwiftUI
 class messanger: ObservableObject{
     private var manager = SocketManager(socketURL: URL(string: URL_BASE_APP)!,config: [.log(false),.reconnects(true)])
     //@Published var messages : [Message] = []
-    @Published var action:(Message)->Void = {mess in print("")}
     var socket :SocketIOClient
     func sendMessage(message:String,id:String) {
         print("test \(socket.status)")
@@ -20,15 +19,23 @@ class messanger: ObservableObject{
     }
     init(){
         socket = manager.defaultSocket
-        socket.on(clientEvent: .connect) { [self]data, ack in
-            socket.on("send") { data, ack in
-                let dataJson = JSON(data[0])["msg"]
-                self.action(MessageServices.makeItem(jsonItem: dataJson))
-                //self.messages.append(MessageServices.makeItem(jsonItem: dataJson))
-            }
-        }
+        
         socket.connect()
         
+    }
+    func initSocket(user:User,action:@escaping(Message)->Void){
+        socket.on(clientEvent: .connect) { [self]data, ack in
+            socket.on(user.id) { data, ack in
+                let dataJson = JSON(data[0])["msg"]
+                action(MessageServices.makeItem(jsonItem: dataJson))
+            }
+        }
+        socket.on(clientEvent: .connect) { [self]data, ack in
+            socket.on(SessionManager.currentUser!.id) { data, ack in
+                let dataJson = JSON(data[0])["msg"]
+                action(MessageServices.makeItem(jsonItem: dataJson))
+            }
+        }
     }
 }
 
@@ -104,12 +111,9 @@ struct messageView: View {
                 }
             }
             .onAppear{
-                viewModel.action = {
-                    message in
+                viewModel.initSocket(user: user, action: { message in
                     contactMsgs.append(message)
-                }
-                //viewModel.messages = contactMsgs
-                //print("Messages:======> \(viewModel.messages)")
+                })
             }
             .padding(.all)
             .navigationBarBackButtonHidden()
@@ -149,7 +153,9 @@ struct messageBubble :View {
                 Text(message)
                     .foregroundColor(Color("primaryColor"))
                     .padding(.all)
-                    .background(Rectangle().foregroundColor(Color(red: 0.694, green: 0.509, blue: 0.922, opacity: 0.214)).cornerRadius(30))
+                    .background(Rectangle().foregroundColor(Color("primaryColor"))
+                        .opacity(0.2)
+                        .cornerRadius(30))
                 Spacer()
             }
             
