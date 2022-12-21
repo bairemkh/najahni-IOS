@@ -16,7 +16,7 @@ struct ResetPasswordView: View {
         NavigationView(){
             VStack{
                 HStack{
-                    Text("Reset your password")
+                    Text(LocalizedStringKey("Reset_your_password"))
                         .fontWeight(.black)
                         .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                         .multilineTextAlignment(.leading)
@@ -36,7 +36,7 @@ struct ResetPasswordView: View {
                     .shadow(color: .gray, radius: 3,x: 1,y: 2)
                 Spacer()
                     .frame(width: 0.0, height:30)
-                SecureField("Confirm Password", text: $viewModel.confirmPassword)
+                SecureField(LocalizedStringKey("Confirm_Password"), text: $viewModel.confirmPassword)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
@@ -54,7 +54,7 @@ struct ResetPasswordView: View {
                             next = canPass
                         }
                     }) {
-                        Text("Change password")
+                        Text(LocalizedStringKey("Change_password"))
                             .foregroundColor(Color.white)
                             .frame(width: 300.0,height: 60.0)
                             .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)

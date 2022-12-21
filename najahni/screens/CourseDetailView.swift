@@ -143,7 +143,7 @@ struct CourseDetailView: View {
                                 }
                             
                         }) {
-                            Text("Add to cart")
+                            Text(LocalizedStringKey("Add_to_cart"))
                                   .foregroundColor(Color.white)
                                   .multilineTextAlignment(.center)
                                   .frame(width: 300.0,height: 60.0)
@@ -155,7 +155,7 @@ struct CourseDetailView: View {
 
                             viewModel.enrollNow(id: course.id)
                         }) {
-                            Text("Enroll now")
+                            Text(LocalizedStringKey("Enroll_now"))
                                   .foregroundColor(Color.white)
                                   .multilineTextAlignment(.center)
                                   .frame(width: 300.0,height: 60.0)

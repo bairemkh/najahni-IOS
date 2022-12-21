@@ -47,7 +47,7 @@ struct ProfileTrainerView: View {
                     VStack{
                         Text(user.firstname + " " + user.lastname)
                             .fontWeight(.semibold)
-                            .foregroundColor(.black)
+                            .foregroundColor(Color("Black"))
                         
                         NavigationLink{
                             EditProfileView(firstname: user.firstname, lastname: user.lastname, image: user.image)
@@ -67,7 +67,7 @@ struct ProfileTrainerView: View {
                 HStack{
                     CustomBoxView(nbr: courses.count)
                     Divider()
-                    CustomBoxView(nbr: coursesArchived.count)
+                    CustomBoxView(nbr: coursesArchived.count,title: "Archived")
                     //Spacer()
                 }
                 .padding()
@@ -75,8 +75,8 @@ struct ProfileTrainerView: View {
                 Divider()
                 VStack(alignment: .leading) {
                     SlidingTabView(selection: self.$selectedTabIndex, tabs: ["Courses", "Archived"],activeAccentColor: Color("primaryColor"),selectionBarColor: Color("primaryColor"))
+                        .foregroundColor(Color("primaryColor"))
                     if(selectedTabIndex == 0){
-                        //kkkk
                         ZStack {
                             VStack{
                                 ScrollView(.vertical,showsIndicators: false) {

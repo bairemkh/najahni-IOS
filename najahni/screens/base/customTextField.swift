@@ -38,7 +38,9 @@ struct customTextField: View {
                         icon = "eye.fill"
                     }
                 }
+                
             }
+            .background(Color("BackgroundColor"))
             .padding(.trailing)
 
         }.groupBoxStyle(TransparentGroupBox())

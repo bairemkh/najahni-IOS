@@ -25,7 +25,7 @@ struct AddCourseView: View {
                             Spacer()
                         }
                         HStack {
-                            Text("Create a new Course")
+                            Text(LocalizedStringKey("Create_a_new_Course"))
                                 .fontWeight(.black)
                                 .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                                 .multilineTextAlignment(.leading)
@@ -46,14 +46,14 @@ struct AddCourseView: View {
                                 
                             }
                         HStack {
-                            TextField("Course name*", text: $viewmodel.name)
+                            TextField(LocalizedStringKey("Course_name"), text: $viewmodel.name)
                                 .padding(.all)
                                 .padding(.leading)
                                 .padding(.trailing)
-                                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
+                                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color("BackgroundColor")/*@END_MENU_TOKEN@*/)
                                 .cornerRadius(20)
                             .shadow(color: .gray, radius: 3)
-                            TextField("Price (Optionnal)", text: $viewmodel.price)
+                            TextField("Price", text: $viewmodel.price)
                                 .padding(.all)
                                 .padding(.leading)
                                 .padding(.trailing)
@@ -103,7 +103,7 @@ struct AddCourseView: View {
                                 viewmodel.showAlert = true
                             }
                         }) {
-                            Text("Next")
+                            Text(LocalizedStringKey("Next"))
                                 .foregroundColor(Color.white)
                                 .frame(width: 300.0,height: 60.0)
                                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)

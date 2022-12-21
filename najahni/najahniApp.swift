@@ -13,12 +13,13 @@ struct najahniApp: App {
     let persistenceController = PersistenceController.shared
     @Environment(\.colorScheme) var colorScheme
     @AppStorage("isDarkMode") var isDarkMode: Bool = false
+    @AppStorage("language") private var language = Language.en
     var body: some Scene {
         WindowGroup {
         SplashView()
                 .background(Color("BackgroundColor"))
                 .environment(\.colorScheme, isDarkMode ? .dark : .light)
-                //.environment(\.locale, .init(identifier: "en"))
+                .environment(\.locale,.init(identifier: language.rawValue))
                     .accentColor(.primary)
                     .onAppear{
                         print("is dark ==> \(isDarkMode)")

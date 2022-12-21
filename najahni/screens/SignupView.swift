@@ -35,7 +35,7 @@ struct SignupView: View {
                             .cornerRadius(20)
                         .shadow(color: .gray, radius: 3)
                         .disableAutocorrection(true)
-                        TextField("Last name", text: $signUpVM.lastName)
+                        TextField(LocalizedStringKey("Last_name"), text: $signUpVM.lastName)
                             .padding(.all)
                             .padding(.leading)
                             .padding(.trailing)
@@ -60,14 +60,14 @@ struct SignupView: View {
                         .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
                         .cornerRadius(20)
                         .shadow(color: .gray, radius: 3)
-                    SecureField("Confirm your password", text: $signUpVM.verifPassword)
+                    SecureField(LocalizedStringKey("Confirm_your_password"), text: $signUpVM.verifPassword)
                         .padding(.all)
                         .padding(.leading)
                         .padding(.trailing)
                         .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
                         .cornerRadius(20)
                         .shadow(color: .gray, radius: 3)
-                    Picker("What's your gender ?", selection: $signUpVM.sexe)
+                    Picker(LocalizedStringKey("What's_your_gender_?"), selection: $signUpVM.sexe)
                     {
                         ForEach(0..<signUpVM.sexeList.count)
                             {
@@ -121,7 +121,7 @@ struct SignupView: View {
                             Alert(title: Text(signUpVM.errorMsg),dismissButton: .default(Text("close")) )
                     }
                     }
-                    Text("Already have an account ?")
+                    Text(LocalizedStringKey("Already_have_an_account_?"))
                         .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                         .onTapGesture {
                             self.presentationMode.wrappedValue.dismiss()

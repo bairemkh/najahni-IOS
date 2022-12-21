@@ -50,7 +50,7 @@ struct CoursesView: View {
             }
             }
         .navigationTitle(
-            Text("My courses")
+            Text(LocalizedStringKey("My_courses"))
         )
         .navigationBarTitleDisplayMode(.inline)
 

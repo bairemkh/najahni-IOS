@@ -88,7 +88,7 @@
 
 /**------Add course----------*/
 "Create_a_new_Course" = "Créer un nouveau cours";
-"Course_name*" = "Nom du cours*";
+"Course_name" = "Nom du cours";
 "Price" = "Prix";
 "Level" = "Niveau";
 /**------Verify trainer----------*/
@@ -114,6 +114,7 @@
 "want_to_delete_this?"="Êtes-vous sûr de vouloir supprimer ceci ?";
 "Section_name"="Nom de section";
 "Save"= "Enregistrer";
+"Settings"="Paramètres";
 /************************ profile Page ***************************/
 "To_Trainer"="Envie d'être Formateur ?";
 

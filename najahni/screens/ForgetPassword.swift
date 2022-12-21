@@ -14,7 +14,7 @@ struct ForgetPassword: View {
         NavigationView{
             VStack{
                 HStack{
-                    Text("Go back")
+                    Text(LocalizedStringKey("Go_back"))
                         .fontWeight(.black)
                         .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                         .multilineTextAlignment(.leading)
@@ -27,7 +27,7 @@ struct ForgetPassword: View {
                 }
                 Spacer()
                 HStack{
-                    Text("Forgot your password ??")
+                    Text(LocalizedStringKey("Forgot_your_password_??"))
                         .fontWeight(.black)
                         .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                         .multilineTextAlignment(.leading)
@@ -52,7 +52,7 @@ struct ForgetPassword: View {
                     .shadow(color: .gray, radius: 3,x: 1,y: 2)
                 Spacer()
                     .frame(width: 0.0, height:30)
-                Text("If you have your password, you have to type it in and finally you receive an email to retrieve it. First you get a 4 digit pin code and then you put it in the form")
+                Text(LocalizedStringKey("Forgot_description"))
                     .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                 Spacer()
                 
@@ -62,7 +62,7 @@ struct ForgetPassword: View {
                         viewModel.onError = true
                         viewModel.msgError = errorMsg
                     }}) {
-                        Text("Send Email")
+                        Text(LocalizedStringKey("Send_Email"))
                             .foregroundColor(Color.white)
                             .frame(width: 300.0,height: 60.0)
                             .cornerRadius(25)

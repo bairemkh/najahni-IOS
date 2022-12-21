@@ -21,7 +21,7 @@ struct EditCourseView: View {
                             NavigationLink {
                                 EditSectionsView(courseId: course.id, sections: $course.sections)
                             } label: {
-                                Text("Edit sections")
+                                Text(LocalizedStringKey("Edit_sections"))
                                     .fontWeight(.black)
                                     .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                                     .multilineTextAlignment(.leading)
@@ -29,7 +29,7 @@ struct EditCourseView: View {
 
                         }
                         HStack {
-                            Text("let's modify the Course")
+                            Text(LocalizedStringKey("let's_modify_the_Course"))
                                 .fontWeight(.black)
                                 .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                                 .multilineTextAlignment(.leading)
@@ -46,7 +46,7 @@ struct EditCourseView: View {
                             .aspectRatio(contentMode: .fill)
                         
                         HStack{
-                            Text("Archived the course")
+                            Text(LocalizedStringKey("Archived_the_course"))
                             Spacer()
                             Toggle(isOn: $viewmodel.course.isArchived) {
                             }
@@ -54,11 +54,11 @@ struct EditCourseView: View {
                         }
                         
                         HStack {
-                            TextField("Course name", text: $viewmodel.course.title)
+                            TextField(LocalizedStringKey("Course_name"), text: $viewmodel.course.title)
                                 .padding(.all)
                                 .padding(.leading)
                                 .padding(.trailing)
-                                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
+                                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color("BackgroundColor")/*@END_MENU_TOKEN@*/)
                                 .cornerRadius(20)
                             .shadow(color: .gray, radius: 3)
                             TextField("Price", text: $viewmodel.price)
@@ -97,7 +97,7 @@ struct EditCourseView: View {
                         //editor
                         TextEditor(text: $viewmodel.course.description)
                             .padding(.all)
-                            .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
+                            .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color("BackgroundColor")/*@END_MENU_TOKEN@*/)
                             .cornerRadius(20)
                             .shadow(color: Color.gray, radius: 3)
                             .lineLimit(/*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)

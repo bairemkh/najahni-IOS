@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CustomBoxView: View {
     var nbr : Int
+    var title : String = "Courses"
     var body: some View {
         VStack{
             Text("\(nbr)")
@@ -16,10 +17,10 @@ struct CustomBoxView: View {
             
             Spacer()
                 .frame(height: 8.0)
-            Text("Courses")
+            Text(LocalizedStringKey(title))
                 .fontWeight(.regular)
                 .multilineTextAlignment(.leading)
-                .foregroundColor(.black)
+                .foregroundColor(Color("Black"))
             //Spacer()
                 
         }

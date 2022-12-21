@@ -15,7 +15,7 @@ struct VerifyTrainerView: View {
     var body: some View {
         VStack(spacing: 30){
             HStack {
-                Text("Let's take a look")
+                Text(LocalizedStringKey("Let's_take_a_look"))
                     .fontWeight(.black)
                     .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                     .padding(0.0)
@@ -25,7 +25,7 @@ struct VerifyTrainerView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 300)
-            Text("In order to verify certain information, we need to make sure that you are a verified trainer, so we will ask you for proof such as certificates. You can send us an image or a pdf file of your certificate.")
+            Text(LocalizedStringKey("Trainer_verif"))
             Spacer()
             Button(action: {showFileUpload = true}){
                 Text(FileName)

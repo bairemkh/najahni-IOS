@@ -36,7 +36,7 @@ struct HostingTabBarView: View {
                         CoursesView()
                             .tag(1)
                             .tabItem {
-                                Text("My courses")
+                                Text(LocalizedStringKey("My_courses"))
                                 Image(systemName: "list.clipboard.fill")
                             }
                         CartView()

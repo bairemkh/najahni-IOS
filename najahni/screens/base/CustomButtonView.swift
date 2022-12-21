@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomButtonView: View {
     var icon = "house.fill"
-    var buttonText = "Delete account"
+    var buttonText = LocalizedStringKey("Delete_account")
     var body: some View {
        HStack {
             Image(systemName: icon)
