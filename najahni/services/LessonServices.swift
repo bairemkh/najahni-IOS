@@ -13,7 +13,8 @@ class LessonService{
         return Lesson(id: jsonItem["_id"].stringValue,
                       title: jsonItem["title"].stringValue,
                       sectionid: jsonItem["sectionid"].stringValue,
-                      video: jsonItem["video"].stringValue)
+                      video: jsonItem["video"].stringValue,
+                      duration: jsonItem["duration"].intValue )
         
     }
     static func addLesson(lesson : Lesson, video:Data,completed:@escaping(Bool,Int)->Void){

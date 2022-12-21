@@ -18,10 +18,11 @@ struct najahniApp: App {
         SplashView()
                 .background(Color("BackgroundColor"))
                 .environment(\.colorScheme, isDarkMode ? .dark : .light)
-                //.environment(\.locale, .init(identifier: "en"))
+                .environment(\.locale, .init(identifier: "en"))
                     .accentColor(.primary)
                     .onAppear{
                         print("is dark ==> \(isDarkMode)")
+                        SessionManager.initLists()
                     }
             
             //messageView(user: UserFix)

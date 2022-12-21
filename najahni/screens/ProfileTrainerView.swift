@@ -22,19 +22,17 @@ struct ProfileTrainerView: View {
         //NavigationView(){
             VStack(alignment: .center){
                 HStack{
-                    NavigationLink(destination: LoginView(),isActive: $onLogOut){
-                        Image(systemName: "rectangle.portrait.and.arrow.forward")
+                    Spacer()
+                    NavigationLink(destination: ProfileStudentView(user:$user),isActive: $onLogOut){
+                        Image(systemName: "ellipsis.circle")
+                            .resizable()
+                            .frame(width: 30,height: 30)
                             .foregroundColor(Color("primaryColor"))
                             .onTapGesture {
-                                print("logout")
-                                print(UserDefaults.standard.object(forKey: "token")!)
-                                UserDefaults.standard.removeObject(forKey: "token");                     UserDefaults.standard.removeObject(forKey: "role")
-                                
                                 onLogOut = true
-                                print(UserDefaults.standard.object(forKey: "token"))
                             }
                     }
-                    Spacer()
+                    //Spacer()
                 }
                 VStack(alignment: .center){
                     WebImage(url: URL(string:URL_BASE_APP + user.image ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbvaBdtJ4GaN7m79jU-Y47NqT3Grvxd7qIZ9VKUZKyU1ynYKxoNdlQCixTRDnliBE62os&usqp=CAU"))
@@ -49,15 +47,9 @@ struct ProfileTrainerView: View {
                             .fontWeight(.semibold)
                             .foregroundColor(.black)
                         
-                        NavigationLink{
-                            EditProfileView(firstname: user.firstname, lastname: user.lastname, image: user.image)
-                        }label:{
-                            Text("Edit profile")
-                                    .font(.headline)
-                                    .foregroundColor(Color("primaryColor"))
-                                   
-                        }
-                        
+                        Text(user.email)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.black)
                     }
                    // Spacer()
                         
@@ -65,9 +57,9 @@ struct ProfileTrainerView: View {
                 
 
                 HStack{
-                    CustomBoxView(nbr: courses.count)
+                    CustomBoxView(nbr: courses.count,title: "Courses")
                     Divider()
-                    CustomBoxView(nbr: coursesArchived.count)
+                    CustomBoxView(nbr: coursesArchived.count,title: "Archived")
                     //Spacer()
                 }
                 .padding()

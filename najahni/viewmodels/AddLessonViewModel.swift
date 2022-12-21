@@ -19,8 +19,9 @@ class AddLessonViewModel : ObservableObject{
             completed(false,"The course name is empty")
             return
         }
-        LessonService.addLesson(lesson: Lesson(title: lessonName, sectionid: sectionId, video: ""), video: lessonVideo) { isCompleted, statusCode in
+        LessonService.addLesson(lesson: Lesson(title: lessonName, sectionid: sectionId, video: "",duration: 0), video: lessonVideo) { isCompleted, statusCode in
             if(statusCode == 200){
+                
                 completed(true,"Lesson created")
             }else{
                 completed(false,"There is a problem")
