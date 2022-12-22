@@ -9,31 +9,19 @@ import Foundation
 import SocketIO
 import SwiftyJSON
 class NajahniSocketManager {
-    private var manager = SocketManager(socketURL: URL(string: URL_BASE_APP)!,config: [.log(false),.reconnects(true)])
-    var socket :SocketIOClient
-    func sendMessage(message:String,id:String) {
-        print("test \(socket.status)")
-        let messageJson = ["msgContent" : message,"senderid":SessionManager.currentUser!.id,"receiverid":id,"_id":UUID().uuidString]
-        socket.emit("onMessage", messageJson)
-    }
-    init(){
-        socket = manager.defaultSocket
-        
+    static var manager = SocketManager(socketURL: URL(string: URL_BASE_APP)!,config: [.log(false),.reconnects(true)])
+    static var socket :SocketIOClient = manager.defaultSocket
+    static func initSocket(){
         socket.connect()
-        
+        print("Socket state init: \(socket.status)")
     }
-    func initSocketMessaging(user:User,action:@escaping(Message)->Void){
-        socket.on(clientEvent: .connect) { [self]data, ack in
-            socket.on(user.id) { data, ack in
-                let dataJson = JSON(data[0])["msg"]
-                action(MessageServices.makeItem(jsonItem: dataJson))
+    static func listening(event:String,action:@escaping([Any])->Void){
+        socket.on(clientEvent: .connect) { dataConn, ackConn in
+            print("Socket state \(event): \(socket.status)")
+            socket.on(event) { data, ack in
+                action(data)
             }
         }
-        socket.on(clientEvent: .connect) { [self]data, ack in
-            socket.on(SessionManager.currentUser!.id) { data, ack in
-                let dataJson = JSON(data[0])["msg"]
-                action(MessageServices.makeItem(jsonItem: dataJson))
-            }
-        }
+        
     }
 }

@@ -13,18 +13,29 @@ import SocketIO
 struct najahniApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let persistenceController = PersistenceController.shared
-    let manager = SocketManager(socketURL: URL(string: URL_BASE_APP)!,config: [.log(false),.reconnects(true)])
+    //let manager = SocketManager(socketURL: URL(string: URL_BASE_APP)!,config: [.log(false),.reconnects(true)])
     @Environment(\.colorScheme) var colorScheme
-    var socket :SocketIOClient
+    //var socket :SocketIOClient
     @AppStorage("isDarkMode") var isDarkMode: Bool = false
     @AppStorage("language") private var language = Language.en
     @Environment(\.scenePhase) var scenePhase
-    var notif = NotificationHandler()
     init(){
-        notif.askPermission()
-        socket = manager.defaultSocket
+        NotificationHandler.askPermission()
+        /*NajahniSocketManager.initSocket()
+        NajahniSocketManager.listening(event: "receive"){ data in
+                NotificationHandler.sendNotification(title: "notif", body: "\(data)")
+            }*/
+        /*socket = manager.defaultSocket
         socket.connect()
-        
+        SessionManager.initLists()
+        print(socket.status)
+        socket.on(clientEvent: .connect) { [self]data, ack in
+            print("ena  connected")
+            socket.on("receive") { data, ack in
+                print("hello")
+                notif.sendNotification(title: "notif", body: "\(data)")
+            }
+        }*/
     }
     var body: some Scene {
         WindowGroup {
@@ -35,27 +46,22 @@ struct najahniApp: App {
                 .environment(\.locale,.init(identifier: language.rawValue))
                     .accentColor(.primary)
                     .onAppear{
-                        print("is dark ==> \(isDarkMode)")
-                        SessionManager.initLists()
-                        print(socket.status)
-                        socket.on(clientEvent: .connect) { [self]data, ack in
-                            print("ena  connected")
-                            socket.on("receive") { data, ack in
-                                print("hello")
-                                notif.sendNotification(title: "notif", body: "\(data)")
-                            }
-                        }
+                        
                     }
                     .onChange(of: scenePhase) { newPhase in
                         switch (newPhase){
                             
                         case .background:
                             print("background")
-                            notif.sendNotification(title: "Background", body: "background")
+                            NajahniSocketManager.listening(event: "receive"){ data in
+                                NotificationHandler.sendNotification(title: "notif", body: "\(data)")
+                            }
                             print("bg")
                         case .inactive:
                             print("inactive")
-                            notif.sendNotification(title: "inactive", body: "inactive")
+                            NajahniSocketManager.listening(event: "receive"){ data in
+                                NotificationHandler.sendNotification(title: "notif", body: "\(data)")
+                            }
                         case .active:
                             print("active")
                         @unknown default:

@@ -10,7 +10,7 @@ import UserNotifications
 
 class NotificationHandler {
     
-     func askPermission() {
+     static func askPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             if success {
                 print("Access granted!")
@@ -20,7 +20,7 @@ class NotificationHandler {
         }
     }
     
-     func sendNotification(title: String, body: String) {
+    static func sendNotification(title: String, body: String) {
    
         // Customise the content
         let content = UNMutableNotificationContent()

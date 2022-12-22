@@ -11,7 +11,6 @@ struct LoginView: View {
     @StateObject var googleiewmodel = GoogleAuth()
     @State  var isLogin :Bool = false
     @State  var showAlert :Bool = false
-    @State var notif = NotificationHandler()
     @State  var errorMsg = LocalizedStringKey("")
     var body: some View {
         
@@ -59,7 +58,6 @@ struct LoginView: View {
                                 print(code)
                                 if success {
                                     print("logged in")
-                                    notif.sendNotification(title: "hello", body: "fdfdf")
                                     isLogin = true
                                 } else {
                                     print("not logged in")
