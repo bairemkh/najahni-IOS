@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import LocalAuthentication
 struct CartView: View {
     @State var cartlist : [Course] = []
     @State private var showWebView = false
@@ -43,7 +43,7 @@ struct CartView: View {
                     cartViewModel.addPayement{ oki,url in
                         print(oki)
                        
-                        showWebView.toggle()
+                        authenticate()
                     }
                     
                    
@@ -69,11 +69,12 @@ struct CartView: View {
             
         }
             .onAppear(){
-                let list = SessionManager.getCart()
+                
                 CourseService.getallcourses { isGood, listOfCourses in
                     if(isGood){
+                        //cartlist = []
                         cartlist = listOfCourses?.filter({ course in
-                            list.contains { item in
+                            cartViewModel.list.contains { item in
                                 course.id.elementsEqual(item)
                             }
                         }) ?? [Course(id: "", title: "", fields: [], level: "", description: "", isPaid: true, image: "", price: 0, idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "")]
@@ -85,10 +86,26 @@ struct CartView: View {
                 }
                 
             }
-        
-    
-        
   
+    }
+    
+    func authenticate() {
+        let context = LAContext()
+        var error: NSError?
+
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "We need to unlock your data."
+
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+                if success {
+                    showWebView = true
+                } else {
+                        showWebView = false
+                }
+            }
+        } else {
+            // no biometrics
+        }
     }
 }
 

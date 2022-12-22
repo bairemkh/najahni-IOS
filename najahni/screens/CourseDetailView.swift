@@ -187,7 +187,7 @@ struct CourseDetailView: View {
 }
 
 struct CourseDetailView_Previews: PreviewProvider {
-    static var course: Course = Course(id: "", title: "Title course", fields: Fields.allCases, level: Level.Beginner.rawValue, description: "", isPaid: false, image: "/img/pexels-supreet-7559057.jpg1668674151911.jpg", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "",sections: [Section(id: "2", title: "Section 1", idCourse: "", lessons: [Lesson(title: "Lesson 1", sectionid: "1", video: ""),Lesson(title: "Lesson 2", sectionid: "1", video: "")])])
+    static var course: Course = Course(id: "", title: "Title course", fields: Fields.allCases, level: Level.Beginner.rawValue, description: "", isPaid: false, image: "/img/pexels-supreet-7559057.jpg1668674151911.jpg", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "",sections: [Section(id: "2", title: "Section 1", idCourse: "", lessons: [Lesson(title: "Lesson 1", sectionid: "1", video: "",duration: 0),Lesson(title: "Lesson 2", sectionid: "1", video: "",duration: 0)])])
     static var previews: some View {
         CourseDetailView(course: course)
         //listLessonsView(section: Section(title: "hello", idCourse: ""), onAdd:{})
@@ -269,6 +269,7 @@ struct LessonsViewPart: View {
     @State var lesson:Lesson
     @State var indexLesson = 1
     @State var goVideo = false
+    @State var course = ""
     var body: some View {
             HStack{
                 ZStack {
@@ -282,7 +283,7 @@ struct LessonsViewPart: View {
                     Text(lesson.title)
                         .font(.system(size: 20))
                     .bold()
-                    Text("2h30")
+                    Text(convertTime(value:lesson.duration))
                 }
                 Spacer()
                 NavigationLink(destination: VideoPlayerCourseView(video: lesson.video),isActive: $goVideo) {
@@ -290,11 +291,22 @@ struct LessonsViewPart: View {
                         Circle()
                             .frame(width: 30)
                             .foregroundColor(Color(hue: 0.738, saturation: 0.922, brightness: 0.866, opacity: 0.3))
-                        Image(systemName: "play.fill")
-                            .foregroundColor(Color("primaryColor"))
-                            .onTapGesture {
-                                goVideo = true
-                            }
+                        if(SessionManager.currentUser!.courses.contains(where: { ids in
+                            ids.elementsEqual(course)
+                        })){
+                            Image(systemName: "play.fill")
+                                .foregroundColor(Color("primaryColor"))
+                                .onTapGesture {
+                                    goVideo = true
+                                }
+                        } else{
+                            Image(systemName: "lock.fill")
+                                .foregroundColor(Color("primaryColor"))
+                                .onTapGesture {
+                                    goVideo = false
+                                }
+                        }
+
                     }
 
                 }

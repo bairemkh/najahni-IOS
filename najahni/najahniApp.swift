@@ -20,10 +20,12 @@ struct najahniApp: App {
         SplashView()
                 .background(Color("BackgroundColor"))
                 .environment(\.colorScheme, isDarkMode ? .dark : .light)
+
                 .environment(\.locale,.init(identifier: language.rawValue))
                     .accentColor(.primary)
                     .onAppear{
                         print("is dark ==> \(isDarkMode)")
+                        SessionManager.initLists()
                     }
                     .onChange(of: scenePhase) { newPhase in
                         switch (newPhase){

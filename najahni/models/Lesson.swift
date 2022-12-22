@@ -10,16 +10,19 @@ struct Lesson :Identifiable{
     let id, title: String
     let sectionid : String
     let video : String
-    init(id: String, title: String, sectionid: String,video: String) {
+    let duration : Int
+    init(id: String, title: String, sectionid: String,video: String,duration: Int) {
         self.id = id
         self.title = title
         self.sectionid = sectionid
         self.video = video
+        self.duration = duration
     }
-    init(title: String, sectionid: String,video: String) {
+    init(title: String, sectionid: String,video: String,duration: Int) {
         self.id = ""
         self.title = title
         self.sectionid = sectionid
         self.video = video
+        self.duration = duration
     }
 }

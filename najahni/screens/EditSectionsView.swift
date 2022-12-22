@@ -120,7 +120,7 @@ struct EditSectionsView: View {
 }
 
 struct EditSectionsView_Previews: PreviewProvider {
-    @State static var sections = [Section(id: "1", title: "Section 1", idCourse: "hello",lessons: [Lesson(id: "1", title: "Kotlin", sectionid: "gfgfg", video: "")]),Section(id: "2", title: "Section 2", idCourse: "hello"),Section(id: "3", title: "Section 3", idCourse: "hello",lessons: [Lesson(id: "3", title: "Java", sectionid: "gfgfg", video: ""),Lesson(id: "57", title: "Swift", sectionid: "gfgfg", video: "")])]
+    @State static var sections = [Section(id: "1", title: "Section 1", idCourse: "hello",lessons: [Lesson(id: "1", title: "Kotlin", sectionid: "gfgfg", video: "",duration: 0)]),Section(id: "2", title: "Section 2", idCourse: "hello"),Section(id: "3", title: "Section 3", idCourse: "hello",lessons: [Lesson(id: "3", title: "Java", sectionid: "gfgfg", video: "",duration: 0),Lesson(id: "57", title: "Swift", sectionid: "gfgfg", video: "",duration: 0)])]
     static var previews: some View {
         EditSectionsView(courseId: "", sections: $sections)
         /*EditSectionsViewPart(section: Section(id: "1", title: "Section 1", idCourse: "hello",lessons: [Lesson(id: "", title: "Kotlin", sectionid: "gfgfg", video: "")]), onAdd: {})*/
@@ -177,6 +177,7 @@ struct EditLessonsViewPart: View {
     @State var isTapped = false
     @State var lesson:Lesson
     @State var indexLesson = 1
+    
     var body: some View {
             HStack{
                 ZStack {
@@ -190,7 +191,7 @@ struct EditLessonsViewPart: View {
                     Text(lesson.title)
                         .font(.system(size: 20))
                     .bold()
-                    Text("2h30")
+                    Text(convertTime(value:lesson.duration))
                 }
                 Spacer()
                 ZStack {

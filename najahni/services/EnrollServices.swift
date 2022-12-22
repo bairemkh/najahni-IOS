@@ -16,7 +16,7 @@ class EnrollService {
             return try Enroll(id: jsonItem["_id"].stringValue,
                               userid: jsonItem["userid"].stringValue,
                               courseid: CourseService.makeItem(jsonItem: jsonItem["courseid"]),
-                              progress: jsonItem["progress"].intValue
+                              progress: jsonItem["progress"].floatValue
                          )
         } catch {
             print(error)

@@ -10,9 +10,9 @@ struct Enroll : Identifiable{
     let id: String
     var userid: String
     var courseid: Course
-    var progress : Int
+    var progress : Float
     
-    init(id: String, userid: String, courseid: Course, progress: Int) {
+    init(id: String, userid: String, courseid: Course, progress: Float) {
         self.id = id
         self.userid = userid
         self.courseid = courseid

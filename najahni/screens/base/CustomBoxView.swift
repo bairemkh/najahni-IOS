@@ -31,6 +31,6 @@ struct CustomBoxView: View {
 
 struct CustomBoxView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomBoxView(nbr: 0)
+        CustomBoxView(nbr: 0,title: "")
     }
 }

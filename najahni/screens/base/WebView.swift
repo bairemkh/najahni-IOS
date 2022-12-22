@@ -43,7 +43,10 @@ struct WebView: UIViewRepresentable {
             print(urlStr)
             if(navigationAction.request.url!.absoluteString.contains("admin")){
                 CourseService.enrollNow(id: SessionManager.getCart()[0])
-                
+                UserDefaults.standard.removeObject(forKey: CART)
+                UserDefaults.standard.set([String](),forKey: CART)
+                var vm = CartViewModel()
+                vm.list = [String]()
             parent.showWebView = false
             
             return decisionHandler(.cancel)
