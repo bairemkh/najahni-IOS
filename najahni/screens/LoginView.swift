@@ -78,7 +78,7 @@ struct LoginView: View {
                                 .foregroundColor(Color.white)
                                 .multilineTextAlignment(.center)
                                 .frame(width: 300.0,height: 60.0)
-                                .background(Color("BackgroundColor"))
+                                .background(Color("primaryColor"))
                                 .cornerRadius(25)
                         }
                         
