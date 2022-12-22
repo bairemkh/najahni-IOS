@@ -39,7 +39,7 @@ struct SettingsView: View {
             HStack {
                 Image(systemName: "circle.righthalf.filled")
                     .foregroundColor(Color("primaryColor"))
-                Text("Dark mode")
+                Text(LocalizedStringKey("Dark_mode"))
                     .padding(.leading)
                 Spacer()
                 Toggle(isOn: $isDarkMode) {
@@ -48,7 +48,7 @@ struct SettingsView: View {
             }.padding(.all, 12.0)
             Divider()
             NavigationLink(destination: LoginView(), isActive: $onLogOut){
-                CustomButtonView(icon: "trash.fill",buttonText: "Delete account").onTapGesture {
+                CustomButtonView(icon: "trash.fill",buttonText: LocalizedStringKey("Delete_account")).onTapGesture {
                     UserService.deleteAccount { msg, logout in
                         print(msg)
                         SessionManager.logOut()
@@ -63,6 +63,7 @@ struct SettingsView: View {
         .background(Color("BackgroundColor"))
         .environment(\.colorScheme, isDarkMode ? .dark : .light)
             .accentColor(.primary)
+            .environment(\.locale,.init(identifier: language.rawValue))
     }
 }
 

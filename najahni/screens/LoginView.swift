@@ -11,7 +11,7 @@ struct LoginView: View {
     @StateObject var googleiewmodel = GoogleAuth()
     @State  var isLogin :Bool = false
     @State  var showAlert :Bool = false
-    @State  var errorMsg :String = ""
+    @State  var errorMsg = LocalizedStringKey("")
     var body: some View {
         
         NavigationView {
@@ -30,7 +30,7 @@ struct LoginView: View {
                         .padding(.all)
                         .padding(.leading)
                         .padding(.trailing)
-                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
+                        .background(Color("BackgroundColor"))
                         .autocorrectionDisabled()
                         .cornerRadius(20)
                         .shadow(color: .gray, radius: 3)
@@ -41,7 +41,7 @@ struct LoginView: View {
                     
                     NavigationLink(destination:ForgetPassword(),label: {
                         HStack {
-                            Text("Forgot my password")
+                            Text(LocalizedStringKey("Forgot_my_password"))
                                 .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.848))
                                            .multilineTextAlignment(.leading)
                                        .padding()
@@ -64,21 +64,21 @@ struct LoginView: View {
                                     isLogin = false
                                     showAlert = true
                                     if(400 ... 499).contains(code){
-                                        errorMsg = "Email or password are incorrect"
+                                        errorMsg = LocalizedStringKey("Email_or_password_are_incorrect")
                                     }
                                     if(500 ... 599).contains(code){
-                                        errorMsg = "Connectivity error, please check !"
+                                        errorMsg = LocalizedStringKey("Connectivity_error,_please_check_!")
                                     }
                                     
                                 }
                                 
                             })
                         }) {
-                          Text("Sign in")
+                          Text(LocalizedStringKey("Sign_in"))
                                 .foregroundColor(Color.white)
                                 .multilineTextAlignment(.center)
                                 .frame(width: 300.0,height: 60.0)
-                                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
+                                .background(Color("BackgroundColor"))
                                 .cornerRadius(25)
                         }
                         
@@ -88,9 +88,9 @@ struct LoginView: View {
                     }
                  
                     HStack(spacing: -10.0){
-                        Text("Don't have an account ?")
+                        Text(LocalizedStringKey("Don't_have_an_account"))
                         NavigationLink(destination:SignupView(),label: {
-                            Text("create one")
+                            Text(LocalizedStringKey("create_one"))
                                 .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.848))
                                            .multilineTextAlignment(.leading)
                                            .padding()
@@ -119,10 +119,10 @@ struct LoginView: View {
                             isLogin = false
                             showAlert = true
                             if(400 ... 499).contains(code){
-                                errorMsg = "Email or password are incorrect"
+                                errorMsg = LocalizedStringKey("Email_or_password_are_incorrect")
                             }
                             if(500 ... 599).contains(code){
-                                errorMsg = "Connectivity error, please check !"
+                                errorMsg = LocalizedStringKey("Connectivity_error,_please_check_!")
                             }
                             
                         }

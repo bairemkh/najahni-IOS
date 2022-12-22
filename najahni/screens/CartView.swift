@@ -24,7 +24,7 @@ struct CartView: View {
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             }
 
-            .navigationTitle(Text("My cart"))
+            .navigationTitle(Text(LocalizedStringKey("My_cart")))
             
 
             VStack {
@@ -48,7 +48,7 @@ struct CartView: View {
                     
                    
                 }) {
-                    Text("Check out")
+                    Text(LocalizedStringKey("Check_out"))
                           .foregroundColor(Color.white)
                           .multilineTextAlignment(.center)
                           .frame(width: 300.0,height: 60.0)

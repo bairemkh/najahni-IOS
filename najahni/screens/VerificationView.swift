@@ -18,7 +18,7 @@ struct VerificationView: View {
         NavigationView {
             VStack{
                     HStack{
-                    Text("Type the code To get your Password")
+                    Text(LocalizedStringKey("Type_the_code_To_get_your_Password"))
                         .fontWeight(.black)
                         .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                         .multilineTextAlignment(.leading)
@@ -69,7 +69,7 @@ struct VerificationView: View {
                     }
                     .padding(.all)
                     HStack{
-                        Text("Resend another verification code")
+                        Text(LocalizedStringKey("Resend_another_verification_code"))
                             .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.848))
                                        .multilineTextAlignment(.leading)
                                        .padding()

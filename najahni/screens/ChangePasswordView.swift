@@ -34,7 +34,7 @@ struct ChangePasswordView: View {
                     .shadow(color: .gray, radius: 3,x: 1,y: 2)
                 Spacer()
                     .frame(width: 0.0, height:30)
-                SecureField("New password", text: $viewModel.newPassword)
+                SecureField(LocalizedStringKey("New_password"), text: $viewModel.newPassword)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
@@ -43,7 +43,7 @@ struct ChangePasswordView: View {
                     .shadow(color: .gray, radius: 3,x: 1,y: 2)
                 Spacer()
                     .frame(width: 0.0, height:30)
-                SecureField("Confirm Password", text: $viewModel.confirmPassword)
+                SecureField(LocalizedStringKey("Confirm_Password"), text: $viewModel.confirmPassword)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
@@ -55,7 +55,7 @@ struct ChangePasswordView: View {
                 Button(action: {
                     viewModel.editpassword(password: viewModel.oldPassword, newpassword: viewModel.newPassword)
                 }) {
-                    Text("Change password")
+                    Text(LocalizedStringKey("Change password"))
                         .foregroundColor(Color.white)
                 }
                 .frame(width: 300.0,height: 60.0)

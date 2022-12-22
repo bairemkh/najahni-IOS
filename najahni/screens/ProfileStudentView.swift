@@ -72,7 +72,7 @@ struct ProfileStudentView: View {
                 Divider()
                 Group{
                     NavigationLink(destination: EditProfileView(firstname: user.firstname, lastname: user.lastname, image: user.image),isActive: $pass) {
-                        CustomButtonView(icon: "pencil",buttonText: "Edit Profile")
+                        CustomButtonView(icon: "pencil",buttonText: "Edit_profile")
                             .onTapGesture {
                                 pass = true
                             }
@@ -80,7 +80,7 @@ struct ProfileStudentView: View {
                     NavigationLink{
                        SettingsView()
                     } label: {
-                        CustomButtonView(icon: "gearshape.2.fill",buttonText: "Setting")
+                        CustomButtonView(icon: "gearshape.2.fill",buttonText: "Settings")
                     }.foregroundColor(Color("primaryColor"))
                     NavigationLink{
                        PrivacyPolicyView()
@@ -90,7 +90,7 @@ struct ProfileStudentView: View {
                     NavigationLink{
                        VerifyTrainerView()
                     } label: {
-                        CustomButtonView(icon: "briefcase.fill",buttonText: "Want to be a Trainer ?").foregroundColor(Color("secondaryColor"))
+                        CustomButtonView(icon: "briefcase.fill",buttonText: "To_Trainer").foregroundColor(Color("secondaryColor"))
                     }.foregroundColor(Color("primaryColor"))
                     
                     NavigationLink(destination: LoginView(), isActive: $onLogOut){

@@ -7,6 +7,6 @@
 
 import Foundation
 enum Language : String, CaseIterable{
-    case en = "English"
-    case fr = "Francais"
+    case en = "en"
+    case fr = "fr"
 }

@@ -34,8 +34,8 @@ struct EditSectionsView: View {
                     .listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
                     .alert(isPresented:$viewmodel.showingAlert) {
                         Alert(
-                            title: Text("Are you sure you want to delete this?"),
-                            message: Text("There is no undo"),
+                            title: Text(LocalizedStringKey("want_to_delete_this?")),
+                            message: Text(LocalizedStringKey("want_to_delete_this?")),
                             primaryButton: .destructive(Text("Delete")) {
                                 print("Deleting...")
                                 sections.remove(atOffsets: indexDelete)
@@ -68,7 +68,7 @@ struct EditSectionsView: View {
                     HStack {
                         if(viewmodel.showField)
                         {
-                            TextField("Section name", text: $viewmodel.nameNewSection)
+                            TextField(LocalizedStringKey("Section_name"), text: $viewmodel.nameNewSection)
                                 .padding(.all)
                                 .autocorrectionDisabled()
                                 .background(Color(.white))

@@ -36,7 +36,7 @@ struct EditProfileView: View {
                     .shadow(color: .gray, radius: 3)
                 Spacer()
                     .frame(width: 0.0, height:30)
-                TextField("Last name", text: $lastname)
+                TextField(LocalizedStringKey("Last_name"), text: $lastname)
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
@@ -47,7 +47,7 @@ struct EditProfileView: View {
                 Spacer()
                     .frame(width: 0.0, height:30)
                 NavigationLink(destination:ChangePasswordView(),label: {
-                    Text("Change password ?")
+                    Text(LocalizedStringKey("Change_password_?"))
                             .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.848))
                                        .multilineTextAlignment(
                                         .leading)
@@ -58,7 +58,7 @@ struct EditProfileView: View {
                     print("test edit")
                     viewModel.editprofile(firstname: firstname, lastname: lastname)
                 }){
-                    Text("Update Profile")
+                    Text(LocalizedStringKey("Update_Profile"))
                         .foregroundColor(.white)
                                    .multilineTextAlignment(
                                     .leading)

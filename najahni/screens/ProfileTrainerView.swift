@@ -45,7 +45,7 @@ struct ProfileTrainerView: View {
                     VStack{
                         Text(user.firstname + " " + user.lastname)
                             .fontWeight(.semibold)
-                            .foregroundColor(.black)
+                            .foregroundColor(Color("Black"))
                         
                         Text(user.email)
                             .fontWeight(.semibold)
@@ -67,8 +67,8 @@ struct ProfileTrainerView: View {
                 Divider()
                 VStack(alignment: .leading) {
                     SlidingTabView(selection: self.$selectedTabIndex, tabs: ["Courses", "Archived"],activeAccentColor: Color("primaryColor"),selectionBarColor: Color("primaryColor"))
+                        .foregroundColor(Color("primaryColor"))
                     if(selectedTabIndex == 0){
-                        //kkkk
                         ZStack {
                             VStack{
                                 ScrollView(.vertical,showsIndicators: false) {

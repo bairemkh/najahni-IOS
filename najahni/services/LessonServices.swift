@@ -34,7 +34,7 @@ class LessonService{
                 completed(true,200)
             case .failure(let error):
                 print(error)
-                completed(false,error.responseCode!)
+                completed(false,error.responseCode ?? 500)
             }
         }
     }
