@@ -8,6 +8,7 @@
 import SwiftUI
 
 import SwiftUI
+import SwiftyJSON
 
 /*struct SplashView: View {
     @State var isActive:Bool = false
@@ -100,6 +101,15 @@ struct toProfile: View {
                 UserService.profile { isGood, user in
                     if(isGood){
                         SessionManager.currentUser = user
+                        NajahniSocketManager.initSocket()
+                        NajahniSocketManager.listening(event: "receive"){ data in
+                                NotificationHandler.sendNotification(title: "notif", body: "\(data)")
+                            }
+                        NajahniSocketManager.listening(event: SessionManager.currentUser!.id) { data in
+                            var message = MessageServices.makeItem(jsonItem: JSON(data[0]))
+                            print(message)
+                            NotificationHandler.sendNotification(title: message.senderid, body: message.msgContent)
+                        }
                         goToLogin = false
                         self.isActive = true
                     }
@@ -137,6 +147,7 @@ struct toLogin: View {
                 NavigationLink(destination: welcome , isActive:$isActive,label: {EmptyView()})
             }
             .onAppear(perform: {self.gotoWelcomeScreen(time: 2.0)
+            
             })
         }
         

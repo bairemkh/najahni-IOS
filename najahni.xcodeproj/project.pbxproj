@@ -92,6 +92,8 @@
 		879B0E952948E41D0000119B /* MessageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B0E942948E41D0000119B /* MessageServices.swift */; };
 		879B2F9F2927A68B00249774 /* ForgetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B2F9E2927A68B00249774 /* ForgetPasswordViewModel.swift */; };
 		879BC95F293B4EF700FA2E44 /* AddCourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879BC95E293B4EF700FA2E44 /* AddCourseViewModel.swift */; };
+		879CCF842954A15700A112E8 /* notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879CCF832954A15700A112E8 /* notifications.swift */; };
+		879CCF862954ABCA00A112E8 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879CCF852954ABCA00A112E8 /* SocketManager.swift */; };
 		879E5C81292BE19600573969 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E5C80292BE19600573969 /* SessionManager.swift */; };
 		879E5C83292BE53400573969 /* CourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E5C82292BE53400573969 /* CourseDetailView.swift */; };
 		87A127792951F18C0006FF1F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87A1277B2951F18C0006FF1F /* Localizable.strings */; };
@@ -217,6 +219,9 @@
 		879B0E942948E41D0000119B /* MessageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageServices.swift; sourceTree = "<group>"; };
 		879B2F9E2927A68B00249774 /* ForgetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewModel.swift; sourceTree = "<group>"; };
 		879BC95E293B4EF700FA2E44 /* AddCourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseViewModel.swift; sourceTree = "<group>"; };
+		879CCF8229548DB400A112E8 /* najahni.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = najahni.entitlements; sourceTree = "<group>"; };
+		879CCF832954A15700A112E8 /* notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notifications.swift; sourceTree = "<group>"; };
+		879CCF852954ABCA00A112E8 /* SocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
 		879E5C80292BE19600573969 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		879E5C82292BE53400573969 /* CourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
 		87A1277A2951F18C0006FF1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -333,6 +338,7 @@
 		28CABB1629191BC400AED109 /* najahni */ = {
 			isa = PBXGroup;
 			children = (
+				879CCF8229548DB400A112E8 /* najahni.entitlements */,
 				419509A62934C2EC00E417FF /* Info.plist */,
 				41353FAA2923D4F500DAA6C5 /* services */,
 				87A4E85F2922B2FB00E2A505 /* utils */,
@@ -489,6 +495,8 @@
 				879E5C80292BE19600573969 /* SessionManager.swift */,
 				87A1277B2951F18C0006FF1F /* Localizable.strings */,
 				87A1277F29521FF80006FF1F /* LanguageEnum.swift */,
+				879CCF832954A15700A112E8 /* notifications.swift */,
+				879CCF852954ABCA00A112E8 /* SocketManager.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -656,6 +664,7 @@
 				419E7C3B2928E023007E7D87 /* ImagePicker.swift in Sources */,
 				8741BAC4291EC4FD002FBDE8 /* CartView.swift in Sources */,
 				419937CC293FF07C00A0516A /* CustomCardCartView.swift in Sources */,
+				879CCF862954ABCA00A112E8 /* SocketManager.swift in Sources */,
 				419509A82934C4E300E417FF /* googlesigninViewModel.swift in Sources */,
 				28CABB2129191BC500AED109 /* Persistence.swift in Sources */,
 				87A371D82930F6E500685486 /* customTextField.swift in Sources */,
@@ -732,6 +741,7 @@
 				872AD03529401CC80066C22D /* SectionViewModel.swift in Sources */,
 				28CABB1829191BC400AED109 /* najahniApp.swift in Sources */,
 				8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */,
+				879CCF842954A15700A112E8 /* notifications.swift in Sources */,
 				87B9266A293607C200F7A082 /* TrainerVerificationView.swift in Sources */,
 				4198CA1A294B3C760065E07D /* EnrollServices.swift in Sources */,
 				41941382293BA90400306B28 /* VideoPlayerCourseView.swift in Sources */,
@@ -907,11 +917,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = najahni/najahni.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"najahni/Preview Content\"";
-				DEVELOPMENT_TEAM = 34C4534N6R;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = najahni/Info.plist;
@@ -921,7 +932,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -941,11 +952,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = najahni/najahni.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"najahni/Preview Content\"";
-				DEVELOPMENT_TEAM = 34C4534N6R;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = najahni/Info.plist;
@@ -955,7 +967,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

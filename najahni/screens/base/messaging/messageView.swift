@@ -15,7 +15,9 @@ class messanger: ObservableObject{
     func sendMessage(message:String,id:String) {
         print("test \(socket.status)")
         let messageJson = ["msgContent" : message,"senderid":SessionManager.currentUser!.id,"receiverid":id,"_id":UUID().uuidString]
+        let notifJson = ["msgContent" : message,"senderid":"\(SessionManager.currentUser!.firstname) \(SessionManager.currentUser!.lastname)","receiverid":id,"_id":UUID().uuidString]
         socket.emit("onMessage", messageJson)
+        socket.emit("onMessageNotif", messageJson)
     }
     init(){
         socket = manager.defaultSocket
