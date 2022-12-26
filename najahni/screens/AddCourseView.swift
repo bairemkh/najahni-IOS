@@ -94,14 +94,19 @@ struct AddCourseView: View {
                             .shadow(color: Color.gray, radius: 3)
                             .lineLimit(/*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)
                             .frame(height: 100)
-                        NavigationLink(destination: EmptyView(), isActive: $viewmodel.canPass,label: {
+                        NavigationLink(destination: EditSectionsView(courseId: CourseFix.id, sections: Binding(get: {
+                            return CourseFix.sections
+                        }, set: { newValue, trans in
+                            CourseFix.sections = newValue
+                        })), isActive: $viewmodel.canPass,label: {
                             Button(action: {
                                 viewmodel.addCourse { message, canPass  in
                                     if(canPass){
                                         viewmodel.canPass = true
                                     }
-                                    viewmodel.errorMsg = message
-                                    viewmodel.showAlert = true
+                                    else{
+                                        viewmodel.canPass = false
+                                    }
                                 }
                             }) {
                                 Text(LocalizedStringKey("Next"))

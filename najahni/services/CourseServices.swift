@@ -20,7 +20,6 @@ class CourseService {
             switch res.result {
             case .success(let data):
                 let json = JSON(data)
-                print(json)
                 var courses :[Course]? = []
                 for singleJsonItem in json["courses"]{
                     courses!.append(self.makeItem(jsonItem: singleJsonItem.1))

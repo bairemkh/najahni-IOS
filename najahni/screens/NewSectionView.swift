@@ -118,6 +118,7 @@ struct NewSectionView: View {
                 viewmodel.idcourse = courseId
             }
         }
+        .navigationBarBackButtonHidden()
         .navigationBarTitle(
             Text("Add Sections"),
             displayMode: .inline
@@ -131,8 +132,8 @@ struct NewSectionView: View {
 }
 
 struct NewSectionView_Previews: PreviewProvider {
-    /*@State static var sections = [Section(id: "1", title: "Section 1", idCourse: "hello",lessons: [Lesson(id: "1", title: "Kotlin", sectionid: "gfgfg", video: "",duration: 0)]),Section(id: "2", title: "Section 2", idCourse: "hello"),Section(id: "3", title: "Section 3", idCourse: "hello",lessons: [Lesson(id: "3", title: "Java", sectionid: "gfgfg", video: "",duration: 0),Lesson(id: "57", title: "Swift", sectionid: "gfgfg", video: "",duration: 0)])]*/
-    @State static var sections = [Section]()
+    @State static var sections = [Section(id: "1", title: "Section 1", idCourse: "hello",lessons: [Lesson(id: "1", title: "Kotlin", sectionid: "gfgfg", video: "",duration: 0)]),Section(id: "2", title: "Section 2", idCourse: "hello"),Section(id: "3", title: "Section 3", idCourse: "hello",lessons: [Lesson(id: "3", title: "Java", sectionid: "gfgfg", video: "",duration: 0),Lesson(id: "57", title: "Swift", sectionid: "gfgfg", video: "",duration: 0)])]
+    //@State static var sections = [Section]()
     static var previews: some View {
         NewSectionView(courseId: "5", sections: $sections)
     }

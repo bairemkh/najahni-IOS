@@ -69,7 +69,7 @@ struct CartView: View {
             
         }
             .onAppear(){
-                
+                print(cartViewModel.list)
                 CourseService.getallcourses { isGood, listOfCourses in
                     if(isGood){
                         //cartlist = []

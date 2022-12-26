@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SocketIO
+import SwiftyJSON
 
 
 @main
@@ -53,15 +54,8 @@ struct najahniApp: App {
                             
                         case .background:
                             print("background")
-                            NajahniSocketManager.listening(event: "receive"){ data in
-                                NotificationHandler.sendNotification(title: "notif", body: "\(data)")
-                            }
-                            print("bg")
                         case .inactive:
                             print("inactive")
-                            NajahniSocketManager.listening(event: "receive"){ data in
-                                NotificationHandler.sendNotification(title: "notif", body: "\(data)")
-                            }
                         case .active:
                             print("active")
                         @unknown default:
