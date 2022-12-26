@@ -14,6 +14,7 @@ class AddCourseViewModel : ObservableObject{
     @Published var file = "Import"
     @Published var price = ""
     @Published var name = ""
+    @Published var course:Course?
     @Published var selection = 0
     @Published var list = Level.allCases.map({ lvl in
         return ListData(name: lvl.rawValue)
@@ -29,19 +30,23 @@ class AddCourseViewModel : ObservableObject{
     @Published var errorMsg = ""
     @Published var showAlert = false
     
-    func addCourse(action:@escaping(String,Bool)->Void){
+    /*func addCourse(action:@escaping(String,Bool)->Void){
         if(name.isEmpty || description.isEmpty){
             action("Some fields aren't filled , please check",false)
             return
         }
         CourseService.addCourse(course: Course(title: name, fields: selectedList.map({ ld in
             return Fields(rawValue: ld.name)!
-        }), level: list[selection].name, description: description, isPaid: !price.isEmpty||price == "0", price: Int(price) ?? 0 , isArchived: true), image: image) { passed, statusCode in
+        }), level: list[selection].name, description: description, isPaid: !price.isEmpty||price == "0", price: Int(price) ?? 0 , isArchived: true), image: image) { passed, statusCode,c  in
             if(passed == true){
+                self.course = c
                 action("Course created !",true)
             }else{
                 action("There was an error",false)
             }
         }
+    }*/
+    func addCourse(action:@escaping(String,Bool)->Void){
+        action("Let's go",true)
     }
 }

@@ -94,24 +94,26 @@ struct AddCourseView: View {
                             .shadow(color: Color.gray, radius: 3)
                             .lineLimit(/*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)
                             .frame(height: 100)
-                        Button(action: {
-                            viewmodel.addCourse { message, canPass in
-                                if(canPass){
-                                    viewmodel.canPass = true
+                        NavigationLink(destination: EmptyView(), isActive: $viewmodel.canPass,label: {
+                            Button(action: {
+                                viewmodel.addCourse { message, canPass  in
+                                    if(canPass){
+                                        viewmodel.canPass = true
+                                    }
+                                    viewmodel.errorMsg = message
+                                    viewmodel.showAlert = true
                                 }
-                                viewmodel.errorMsg = message
-                                viewmodel.showAlert = true
+                            }) {
+                                Text(LocalizedStringKey("Next"))
+                                    .foregroundColor(Color.white)
+                                    .frame(width: 300.0,height: 60.0)
+                                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
+                                        .cornerRadius(25)
                             }
-                        }) {
-                            Text(LocalizedStringKey("Next"))
-                                .foregroundColor(Color.white)
-                                .frame(width: 300.0,height: 60.0)
-                                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
-                                    .cornerRadius(25)
+                            .alert(isPresented: $viewmodel.showAlert){
+                                Alert(title: Text ("Alert") , message: Text(viewmodel.errorMsg), dismissButton: .default(Text("close")))
                         }
-                        .alert(isPresented: $viewmodel.showAlert){
-                            Alert(title: Text ("Alert") , message: Text(viewmodel.errorMsg), dismissButton: .default(Text("close")))
-                        }
+                        })
                         
                         
                         //
