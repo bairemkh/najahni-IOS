@@ -17,7 +17,7 @@ class messanger: ObservableObject{
         let messageJson = ["msgContent" : message,"senderid":SessionManager.currentUser!.id,"receiverid":id,"_id":UUID().uuidString]
         let notifJson = ["msgContent" : message,"senderid":"\(SessionManager.currentUser!.firstname) \(SessionManager.currentUser!.lastname)","receiverid":id,"_id":UUID().uuidString]
         socket.emit("onMessage", messageJson)
-        socket.emit("onMessageNotif", messageJson)
+        socket.emit("onMessageNotif", notifJson)
     }
     init(){
         socket = manager.defaultSocket
