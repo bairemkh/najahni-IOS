@@ -11,6 +11,7 @@ import SlidingTabView
 struct DetailCourseLessonsView: View {
     var course : Course
     @State private var selectedTabIndex = 0
+    @State private var showReview = false
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
@@ -36,6 +37,23 @@ struct DetailCourseLessonsView: View {
             Text(course.title),
             displayMode: .inline
           )
+        .navigationBarItems(trailing: Button {
+           showReview = true
+        }label: {
+            Text("Edit")
+        })
+        .sheet(isPresented: $showReview){
+            VStack(alignment: .leading){
+                Text("Note Compration")
+                RatingView(rating: 0)
+                Text("Note Compration")
+                RatingView(rating: 0)
+                Text("Note Compration")
+                RatingView(rating: 0)
+            }
+        }
+
+        
     }
 }
 
