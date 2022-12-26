@@ -33,7 +33,7 @@ class messanger: ObservableObject{
             }
         }
         socket.on(clientEvent: .connect) { [self]data, ack in
-            socket.on(SessionManager.currentUser!.id) { data, ack in
+            socket.on("\(SessionManager.currentUser!.id)Msg") { data, ack in
                 let dataJson = JSON(data[0])["msg"]
                 action(MessageServices.makeItem(jsonItem: dataJson))
             }

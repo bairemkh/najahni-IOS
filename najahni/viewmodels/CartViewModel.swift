@@ -9,7 +9,7 @@ import Foundation
 class CartViewModel: ObservableObject {
     @Published var price  = 0
     @Published var urlString = ""
-    @Published var list = SessionManager.getCart()
+    @Published var list = UserDefaults.standard.object(forKey: CART) as! [String]
     func addPayement(completed:@escaping(Bool,String?)->Void){
         CourseService.payementApi(amount: price ?? 0) { isOk,status,url in
             self.urlString = url!
