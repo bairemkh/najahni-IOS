@@ -36,5 +36,31 @@ class MyCoursesViewModel : ObservableObject {
             }
         }
     }
+    
+    func getMyCoursesCompleted (completed: @escaping (Bool,[Enroll]?)-> Void) {
+        let token = UserDefaults.standard.string(forKey: "token")
+        let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
+        AF.request(MY_COURSES_COMPLETED,
+                   method: .get,
+                headers: headers)
+        .responseJSON{
+            (res) in
+            switch res.result {
+            case .success(let data):
+                let json = JSON(data)
+                print(json)
+                var courses :[Enroll]? = []
+                for singleJsonItem in json["enrolled"]{
+                    courses!.append(EnrollService.makeItem(jsonItem: singleJsonItem.1))
+                }
+                //print(courses)
+                completed(true,courses)
+            case .failure(let error):
+                print(error)
+                completed(false,nil)
+                
+            }
+        }
+    }
 
 }

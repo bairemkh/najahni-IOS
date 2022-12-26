@@ -6,25 +6,46 @@
 //
 
 import SwiftUI
+import SlidingTabView
 
 struct CoursesView: View {
     @State var courses : [Enroll] = []
+    @State var coursesCompleted : [Enroll] = []
+    @State private var selectedTabIndex = 0
     @StateObject var courseviewModel = MyCoursesViewModel()
     var body: some View {
         //NavigationView {
             VStack{
-                ScrollView(.vertical,showsIndicators: false) {
-                    ForEach(courses) { course in
-                        
-                        
-                       NavigationLink{
-                           DetailCourseLessonsView(course: course.courseid)
-                        } label: {
-                            CustomCardCourseView(course: course.courseid,progress:Float(course.progress))
+                SlidingTabView(selection: self.$selectedTabIndex, tabs: ["Ongoing", "Completed"],activeAccentColor: Color("primaryColor"),selectionBarColor: Color("primaryColor"))
+                    .foregroundColor(Color("primaryColor"))
+                if(selectedTabIndex == 0){
+                    ScrollView(.vertical,showsIndicators: false) {
+                        ForEach(courses) { course in
+                            
+                            
+                           NavigationLink{
+                               DetailCourseLessonsView(course: course.courseid)
+                            } label: {
+                                CustomCardCourseView(course: course.courseid,progress:Float(course.progress))
+                            }
+                            
                         }
-                        
+                    }
+                }else{
+                    ScrollView(.vertical,showsIndicators: false) {
+                        ForEach(coursesCompleted) { course in
+                            
+                            
+                           NavigationLink{
+                               DetailCourseLessonsView(course: course.courseid)
+                            } label: {
+                                CustomCardCourseView(course: course.courseid,progress:Float(course.progress))
+                            }
+                            
+                        }
                     }
                 }
+
                 
             }
                
@@ -46,6 +67,16 @@ struct CoursesView: View {
                 if succes {
                     self.courses = []
                     self.courses.append(contentsOf: result!)
+                    self.courses = self.courses.filter { enroll in
+                        return enroll.progress < 1
+                    }
+                }
+            }
+            courseviewModel.getMyCoursesCompleted {
+                succes, result in
+                if succes {
+                    self.coursesCompleted = []
+                    self.coursesCompleted.append(contentsOf: result!)
                 }
             }
             }
