@@ -30,7 +30,7 @@ class AddCourseViewModel : ObservableObject{
     @Published var errorMsg = ""
     @Published var showAlert = false
     
-    func addCourse(action:@escaping(String,Bool)->Void){
+    /*func addCourse(action:@escaping(String,Bool)->Void){
         if(name.isEmpty || description.isEmpty){
             action("Some fields aren't filled , please check",false)
             return
@@ -45,5 +45,8 @@ class AddCourseViewModel : ObservableObject{
                 action("There was an error",false)
             }
         }
+    }*/
+    func addCourse(action:@escaping(String,Bool)->Void){
+        action("Let's go",true)
     }
 }

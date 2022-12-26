@@ -94,7 +94,7 @@ struct AddCourseView: View {
                             .shadow(color: Color.gray, radius: 3)
                             .lineLimit(/*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)
                             .frame(height: 100)
-                        NavigationLink(destination: EmptyView(), isActive: $viewmodel.canPass) {
+                        NavigationLink(destination: EmptyView(), isActive: $viewmodel.canPass,label: {
                             Button(action: {
                                 viewmodel.addCourse { message, canPass  in
                                     if(canPass){
@@ -113,7 +113,7 @@ struct AddCourseView: View {
                             .alert(isPresented: $viewmodel.showAlert){
                                 Alert(title: Text ("Alert") , message: Text(viewmodel.errorMsg), dismissButton: .default(Text("close")))
                         }
-                        }
+                        })
                         
                         
                         //
