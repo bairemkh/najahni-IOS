@@ -62,7 +62,7 @@ struct EditSectionsView: View {
                     Spacer()
                 }
                 // popup
-                addLesson(sectionId: viewmodel.selectedSection.id, isPresented: $viewmodel.showPopup)
+                addLesson(section: $viewmodel.selectedSection, isPresented: $viewmodel.showPopup)
                 VStack{
                     Spacer()
                     HStack {
@@ -82,10 +82,10 @@ struct EditSectionsView: View {
                         Spacer()
                         Button(action: {withAnimation {
                             if(viewmodel.showField && !viewmodel.nameNewSection.isEmpty){
-                                viewmodel.addSection { isOk in
+                                viewmodel.addSection { isOk,section  in
                                     if isOk
                                     {
-                                        sections.append(Section(title: viewmodel.nameNewSection, idCourse: courseId))
+                                        sections.append(Section(id:section.id,title: section.title, idCourse: courseId))
                                         viewmodel.nameNewSection = ""
                                     }
                                 }
@@ -208,7 +208,7 @@ struct EditLessonsViewPart: View {
 }
 struct addLesson: View {
     @Environment(\.presentationMode) var presentationMode
-    var sectionId:String
+    @Binding var section:Section
     @StateObject var viewmodel = AddLessonViewModel()
     @Binding var isPresented:Bool
     var body: some View {
@@ -247,7 +247,7 @@ struct addLesson: View {
                         Image(systemName: "arrow.down.to.line")
                             .foregroundColor(.white)
                             .frame(width: 50, height: 25)
-                            .fileImporter(isPresented: $viewmodel.showFileUpload, allowedContentTypes: [.video,.mpeg4Movie]) { result in
+                            .fileImporter(isPresented: $viewmodel.showFileUpload, allowedContentTypes: [.video,.mpeg4Movie,.quickTimeMovie,.movie]) { result in
                                 do {
                                     var file = try result.get()
                                     //try Data(contentsOf: self.previewURL!)
@@ -260,10 +260,11 @@ struct addLesson: View {
                                 }
                     }
                     Button(action: {
-                        viewmodel.addLesson { canPass, msgErr in
+                        viewmodel.addLesson { canPass, msgErr,less in
                             //alert
+                            section.lessons.append(less!)
                             print(canPass)
-                                self.presentationMode.wrappedValue.dismiss()
+                            self.presentationMode.wrappedValue.dismiss()
                             
                         }
                     }) {
@@ -278,7 +279,7 @@ struct addLesson: View {
                 }
                 .padding(.all)
                 .onAppear{
-                    viewmodel.sectionId = sectionId
+                    viewmodel.sectionId = section.id
                 }
             }
             else{
@@ -320,7 +321,7 @@ struct addSection: View {
                         .cornerRadius(10)
                     
                     Button(action: {
-                        viewmodel.addLesson { canPass, msgErr in
+                        viewmodel.addLesson { canPass, msgErr,less  in
                             //alert
                             print(canPass)
                                 self.presentationMode.wrappedValue.dismiss()

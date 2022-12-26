@@ -14,9 +14,9 @@ class SectionViewModel : ObservableObject{
     @Published var selectedSection:Section = Section(id: "dfdfdf", title: "Section", idCourse: "0")
     @Published var indexDelete:IndexSet = IndexSet()
     @Published var showingAlert = false
-    func addSection(completed:@escaping(Bool)->Void){
-        SectionService.addSection(section: Section(title: nameNewSection, idCourse: idcourse)) { isOk in
-            completed(isOk)
+    func addSection(completed:@escaping(Bool,Section)->Void){
+        SectionService.addSection(section: Section(title: nameNewSection, idCourse: idcourse)) { isOk,section  in
+            completed(isOk,section!)
         }
     }
 }

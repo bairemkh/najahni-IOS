@@ -84,8 +84,9 @@ struct ProfileTrainerView: View {
                             
                             VStack {
                                 Spacer()
+                                HStack {
                                 NavigationLink(destination: AddCourseView(),isActive: $pass,label: {
-                                    HStack {
+                                    
                                         Spacer()
                                         Button(action: {
                                             pass = true
@@ -104,7 +105,7 @@ struct ProfileTrainerView: View {
                                                 x: 3,
                                                 y: 3)
                                     }
-                                })
+                                )}
                            }
                         }
                     } else {

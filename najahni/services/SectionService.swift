@@ -18,7 +18,7 @@ class SectionService{
         })
         )
     }
-    static func addSection(section:Section,completed:@escaping(Bool)->Void){
+    static func addSection(section:Section,completed:@escaping(Bool,Section?)->Void){
         let token = UserDefaults.standard.string(forKey: "token")
         let parmetres : [String : Any] = [
             "title": section.title
@@ -30,10 +30,10 @@ class SectionService{
             switch res.result {
             case .success(let data):
                 print("Data------>\(data)")
-                completed(true)
+                completed(true,makeItem(jsonItem: JSON(data)))
             case .failure(let error):
                 print("error------>\(error)")
-                completed(false)
+                completed(false,nil)
                 
             }
         }

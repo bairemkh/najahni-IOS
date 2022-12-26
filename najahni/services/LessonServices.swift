@@ -17,7 +17,7 @@ class LessonService{
                       duration: jsonItem["duration"].intValue )
         
     }
-    static func addLesson(lesson : Lesson, video:Data,completed:@escaping(Bool,Int)->Void){
+    static func addLesson(lesson : Lesson, video:Data,completed:@escaping(Bool,Int,Lesson?)->Void){
         let token = UserDefaults.standard.string(forKey: "token")
         let headers : HTTPHeaders = [.authorization(bearerToken: token!),.contentType("multipart/form-data")]
         AF.upload(
@@ -31,10 +31,10 @@ class LessonService{
                 
             case .success(let data):
                 print(data)
-                completed(true,200)
+                completed(true,200,makeItem(jsonItem: JSON(data)))
             case .failure(let error):
                 print(error)
-                completed(false,error.responseCode ?? 500)
+                completed(false,error.responseCode ?? 500,nil)
             }
         }
     }
