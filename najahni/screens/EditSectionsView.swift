@@ -18,10 +18,10 @@ struct EditSectionsView: View {
             ZStack{
                 
                 List{
-                    ForEach(sections) { section in
+                    ForEach($sections) { section in
                         EditSectionsViewPart(section: section){
                             withAnimation {
-                                viewmodel.selectedSection = section
+                                viewmodel.selectedSection = section.wrappedValue
                                 viewmodel.showPopup = true
                             }
                         }
@@ -132,7 +132,7 @@ struct EditSectionsView_Previews: PreviewProvider {
 }
 struct EditSectionsViewPart: View {
     @State var isTapped = false
-    @State var section:Section
+    @Binding var section:Section
     @State var onAdd:()->Void
     
     @State private var indexDelete:IndexSet = IndexSet()

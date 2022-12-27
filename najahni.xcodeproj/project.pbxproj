@@ -110,6 +110,9 @@
 		87AD6920293E66E0000F0A88 /* EditCourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AD691F293E66E0000F0A88 /* EditCourseViewModel.swift */; };
 		87B21C6E29325A1E000FD964 /* AddCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B21C6D29325A1E000FD964 /* AddCourseView.swift */; };
 		87B21C7029326353000FD964 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B21C6F29326353000FD964 /* Level.swift */; };
+		87B54EC0295B1D98001AA1AD /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B54EBF295B1D98001AA1AD /* Quiz.swift */; };
+		87B54EC2295B20CD001AA1AD /* QuizServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B54EC1295B20CD001AA1AD /* QuizServices.swift */; };
+		87B54EC5295B36F0001AA1AD /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B54EC4295B36F0001AA1AD /* QuizView.swift */; };
 		87B9266A293607C200F7A082 /* TrainerVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B92669293607C200F7A082 /* TrainerVerificationView.swift */; };
 		87B9266C29369B4000F7A082 /* CourseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B9266B29369B4000F7A082 /* CourseServices.swift */; };
 		87B9266E2936AA5B00F7A082 /* WishListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B9266D2936AA5B00F7A082 /* WishListCard.swift */; };
@@ -238,6 +241,9 @@
 		87AD691F293E66E0000F0A88 /* EditCourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCourseViewModel.swift; sourceTree = "<group>"; };
 		87B21C6D29325A1E000FD964 /* AddCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseView.swift; sourceTree = "<group>"; };
 		87B21C6F29326353000FD964 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		87B54EBF295B1D98001AA1AD /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		87B54EC1295B20CD001AA1AD /* QuizServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizServices.swift; sourceTree = "<group>"; };
+		87B54EC4295B36F0001AA1AD /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		87B92669293607C200F7A082 /* TrainerVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerVerificationView.swift; sourceTree = "<group>"; };
 		87B9266B29369B4000F7A082 /* CourseServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseServices.swift; sourceTree = "<group>"; };
 		87B9266D2936AA5B00F7A082 /* WishListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListCard.swift; sourceTree = "<group>"; };
@@ -390,6 +396,7 @@
 				419937C2293FAE1A00A0516A /* CommentServices.swift */,
 				879B0E942948E41D0000119B /* MessageServices.swift */,
 				4198CA19294B3C760065E07D /* EnrollServices.swift */,
+				87B54EC1295B20CD001AA1AD /* QuizServices.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -428,6 +435,7 @@
 				419937C0293FAD0000A0516A /* Comment.swift */,
 				879B0E922948E0EA0000119B /* Message.swift */,
 				4198CA17294B37D50065E07D /* Enroll.swift */,
+				87B54EBF295B1D98001AA1AD /* Quiz.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -446,6 +454,7 @@
 		8743D04F291F9E7900C1781C /* base */ = {
 			isa = PBXGroup;
 			children = (
+				87B54EC3295B36D3001AA1AD /* Quiz */,
 				879A190C2947AC5700D017C3 /* messaging */,
 				8743D052291F9EA300C1781C /* CustomButtonView.swift */,
 				87A4E85829229F1A00E2A505 /* MultiSelectionView.swift */,
@@ -499,6 +508,14 @@
 				879CCF852954ABCA00A112E8 /* SocketManager.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		87B54EC3295B36D3001AA1AD /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				87B54EC4295B36F0001AA1AD /* QuizView.swift */,
+			);
+			path = Quiz;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -654,6 +671,7 @@
 			files = (
 				872AD031293FE1F70066C22D /* AddLessonViewModel.swift in Sources */,
 				879E5C83292BE53400573969 /* CourseDetailView.swift in Sources */,
+				87B54EC5295B36F0001AA1AD /* QuizView.swift in Sources */,
 				8743D062291FF61000C1781C /* User.swift in Sources */,
 				876E2F062944AF3800A21304 /* PrivacyPolicyView.swift in Sources */,
 				8743D055291FD9CD00C1781C /* EditProfileView.swift in Sources */,
@@ -742,7 +760,9 @@
 				28CABB1829191BC400AED109 /* najahniApp.swift in Sources */,
 				8741BAB8291E9C77002FBDE8 /* Role.swift in Sources */,
 				879CCF842954A15700A112E8 /* notifications.swift in Sources */,
+				87B54EC2295B20CD001AA1AD /* QuizServices.swift in Sources */,
 				87B9266A293607C200F7A082 /* TrainerVerificationView.swift in Sources */,
+				87B54EC0295B1D98001AA1AD /* Quiz.swift in Sources */,
 				4198CA1A294B3C760065E07D /* EnrollServices.swift in Sources */,
 				41941382293BA90400306B28 /* VideoPlayerCourseView.swift in Sources */,
 				879E5C81292BE19600573969 /* SessionManager.swift in Sources */,

@@ -68,7 +68,7 @@ class CourseService {
             }),
                               comments: jsonItem["comments"].arrayValue.map({ json in
                 return CommentService.makeItem(jsonItem: json)
-            })
+            }), quiz: QuizServices.makeQuiz(jsonItem: jsonItem["quiz"])
                               
             )
         }catch{
@@ -86,7 +86,7 @@ class CourseService {
             }),
                               comments: jsonItem["comments"].arrayValue.map({ json in
                 return CommentService.makeItem(jsonItem: json)
-            })
+            }), quiz: QuizServices.makeQuiz(jsonItem: jsonItem["quiz"])
                               
             )
         }catch{
