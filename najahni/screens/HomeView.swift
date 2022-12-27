@@ -133,9 +133,20 @@ struct HomeView: View {
                                     return fie == f
                                 })
                             }).count >  0)
-                        })) {item in
-                            CustomCard2View(course: item)
-                                .padding(.all)
+                        })) {course in
+                            NavigationLink{
+                                if(SessionManager.currentUser!.courses.contains(where: { idc in
+                                    return idc.elementsEqual(course.id)
+                                })){
+                                    DetailCourseLessonsView(course: course)
+                                }else{
+                                    CourseDetailView(course: course)
+                                }
+                                
+                            } label: {
+                                CustomCard2View(course: course)
+                                    .padding(.all)
+                            }
                             
                         }
                     }
@@ -161,6 +172,7 @@ struct HomeView: View {
                                 
                             } label: {
                                 CustomCardView(course: course)
+                                
                             }
                             
                         }

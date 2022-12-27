@@ -54,7 +54,7 @@ struct Course  : Identifiable{
         self.updatedAt = updatedAt
         self.sections = sections
     }
-    init(id: String, title: String, fields: [Fields], level: String, description: String, isPaid: Bool, image: String, price: Int, idowner: User, isArchived: Bool, createdAt: String, updatedAt: String,sections:[Section],comments:[Comment],rating : Float,,quiz:Quiz) {
+    init(id: String, title: String, fields: [Fields], level: String, description: String, isPaid: Bool, image: String, price: Int, idowner: User, isArchived: Bool, createdAt: String, updatedAt: String,sections:[Section],comments:[Comment],rating : Float,quiz:Quiz) {
         self.id = id
         self.title = title
         self.fields = fields
