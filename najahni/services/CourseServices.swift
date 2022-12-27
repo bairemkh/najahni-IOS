@@ -70,6 +70,8 @@ class CourseService {
                 return CommentService.makeItem(jsonItem: json)
             }),
                               rating: jsonItem["rating"].floatValue
+
+            }), quiz: QuizServices.makeQuiz(jsonItem: jsonItem["quiz"])
                               
             )
         }catch{
@@ -89,6 +91,7 @@ class CourseService {
                 return CommentService.makeItem(jsonItem: json)
             }),
                               rating: jsonItem["rating"].floatValue
+            }), quiz: QuizServices.makeQuiz(jsonItem: jsonItem["quiz"])
                               
             )
         }catch{

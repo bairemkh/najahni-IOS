@@ -274,9 +274,13 @@ struct CourseDetailView: View {
 struct CourseDetailView_Previews: PreviewProvider {
     static var course: Course = Course(id: "", title: "Title course", fields: Fields.allCases, level: Level.Beginner.rawValue, description: "", isPaid: false, image: "/img/pexels-supreet-7559057.jpg1668674151911.jpg", price: 0,idowner: UserFix, isArchived: false, createdAt: "", updatedAt: "",sections: [Section(id: "2", title: "Section 1", idCourse: "", lessons: [Lesson(title: "Lesson 1", sectionid: "1", video: "",duration: 0),Lesson(title: "Lesson 2", sectionid: "1", video: "",duration: 0)])])
     static var previews: some View {
-        CourseDetailView(course: course)
+        //CourseDetailView(course: course)
         //listLessonsView(section: Section(title: "hello", idCourse: ""), onAdd:{})
-       /* LessonsViewPart(lesson: Lesson(title: "Kotlin part 1", sectionid: "", video: ""))*/
+        QuizViewPart(quiz: Binding(get: {
+            return Quiz(id: "", courseid: "", questions: [Question(quizid: "", question: "hello", propositions: [String](), indexResponse: 1)])
+        }, set: { val in
+            print("change \(val)")
+        }))
     }
 }
 struct btnIcon:View {
@@ -405,3 +409,49 @@ struct LessonsViewPart: View {
     }
 }
 
+struct QuizViewPart: View {
+    @State var goQuiz = false
+    @Binding var quiz:Quiz
+    var body: some View {
+            HStack{
+                ZStack {
+                    Circle()
+                        .frame(width: 40)
+                        .foregroundColor(Color(hue: 0.738, saturation: 0.922, brightness: 0.866, opacity: 0.3))
+                    Image(systemName: "questionmark")
+                        .foregroundColor(Color("primaryColor"))
+                }
+                VStack {
+                    Text("Quiz")
+                        .font(.system(size: 20))
+                    .bold()
+                    Text("\(quiz.questions.capacity) Questions")
+                }
+                Spacer()
+                NavigationLink(destination: EmptyView(),isActive: $goQuiz) {
+                    ZStack {
+                        Circle()
+                            .frame(width: 30)
+                            .foregroundColor(Color(hue: 0.738, saturation: 0.922, brightness: 0.866, opacity: 0.3))
+                        if(false){
+                            Image(systemName: "play.fill")
+                                .foregroundColor(Color("primaryColor"))
+                                .onTapGesture {
+                                    goQuiz = true
+                                }
+                        } else{
+                            Image(systemName: "lock.fill")
+                                .foregroundColor(Color("primaryColor"))
+                                .onTapGesture {
+                                    goQuiz = false
+                                }
+                        }
+
+                    }
+
+                }
+                            }
+            .padding(.horizontal)
+            .padding()
+    }
+}

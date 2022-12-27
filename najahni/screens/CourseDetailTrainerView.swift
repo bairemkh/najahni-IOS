@@ -11,7 +11,7 @@ import SlidingTabView
 import ExpandableText
 
 struct CourseDetailTrainerView: View {
-    var course : Course
+    @State var course : Course
     @State private var selectedTabIndex = 0
     var body: some View {
         VStack {
@@ -69,6 +69,7 @@ struct CourseDetailTrainerView: View {
                                 SectionCardView(section: section)
                             
                             }
+                            QuizViewPart(quiz: $course.quiz)
                         }
                     }else{
                         ScrollView(.vertical,showsIndicators: false) {

@@ -125,37 +125,8 @@ struct ProfileTrainerView: View {
                             //Spacer()
                         }
                            // .padding()
-                            .animation(.linear)
-               /* Text("My courses")
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.black)
-                    .padding(.leading)*/
-
-               // Spacer()
-                //deb
-                /*ZStack {
-                    //Spacer()
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            print ("test float")
-                        }, label: {
-                            Text("+")
-                                .font(.system(.largeTitle))
-                                .frame(width: 77, height: 70)
-                                .foregroundColor(Color.white)
-                                .padding(.bottom, 7)
-                        })
-                        .background(Color.blue)
-                        .cornerRadius(38.5)
-                        .padding()
-                        .shadow(color: Color.black.opacity(0.3),
-                                radius: 3,
-                                x: 3,
-                                y: 3)
-                    }
-                    
-                }*/
+                            .animation(.easeIn)
+               
                 Spacer()
             }
             .padding(.horizontal)

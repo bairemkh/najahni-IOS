@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class ProfileTrainerViewModel : ObservableObject {
     var homeviewModel = HomeViewModel()
+    
     func getMyCourses (completed: @escaping (Bool,[Course]?)-> Void) {
         CourseService.getMyCourses { ok, list in
             completed(ok,list)
