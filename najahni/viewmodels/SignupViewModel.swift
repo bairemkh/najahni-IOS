@@ -16,7 +16,7 @@ class SignupViewModel: ObservableObject {
     @Published  var isSignedUp=false
     @Published  var verifPassword=""
     @Published  var roleList=["Trainer","Student"]
-    @Published  var role = 0
+    @Published  var role = 1
     @Published  var errorMsg = ""
     @Published  var isError = false
     @Published  var fieldsList: [ListData] = Fields.allCases.map { feild in

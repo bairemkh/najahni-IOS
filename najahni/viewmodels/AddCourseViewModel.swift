@@ -14,7 +14,7 @@ class AddCourseViewModel : ObservableObject{
     @Published var file = "Import"
     @Published var price = ""
     @Published var name = ""
-    @Published var course:Course?
+    @Published var course:Course = CourseFix
     @Published var selection = 0
     @Published var list = Level.allCases.map({ lvl in
         return ListData(name: lvl.rawValue)
@@ -39,7 +39,7 @@ class AddCourseViewModel : ObservableObject{
             return Fields(rawValue: ld.name)!
         }), level: list[selection].name, description: description, isPaid: !price.isEmpty||price == "0", price: Int(price) ?? 0 , isArchived: true), image: image) { passed, statusCode,c  in
             if(passed == true){
-                self.course = c
+                self.course = c!
                 action("Course created !",true)
             }else{
                 action("There was an error",false)
