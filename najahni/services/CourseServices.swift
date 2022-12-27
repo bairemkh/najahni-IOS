@@ -68,7 +68,8 @@ class CourseService {
             }),
                               comments: jsonItem["comments"].arrayValue.map({ json in
                 return CommentService.makeItem(jsonItem: json)
-            })
+            }),
+                              rating: jsonItem["rating"].floatValue
                               
             )
         }catch{
@@ -86,7 +87,8 @@ class CourseService {
             }),
                               comments: jsonItem["comments"].arrayValue.map({ json in
                 return CommentService.makeItem(jsonItem: json)
-            })
+            }),
+                              rating: jsonItem["rating"].floatValue
                               
             )
         }catch{
@@ -178,6 +180,33 @@ class CourseService {
         
     }
     
+    static func addReview (course: Course,ratingComp: Int , ratingTrainer: Int , ratingContent: Int, completed: @escaping(Bool,Int) -> Void){
+        let token = UserDefaults.standard.string(forKey: "token")
+        let parmetres : [String : Any] = [
+            "ratingComp": ratingComp,
+            "ratingTrainer": ratingTrainer,
+            "ratingContent": ratingContent
+        ]
+        let headers : HTTPHeaders = [.authorization(bearerToken: SessionManager.token!)]
+        AF.request(ADD_REVIEW + course.id, method: .post, parameters: parmetres, encoding: JSONEncoding.default, headers: headers)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseJSON{
+                (res) in
+                switch res.result {
+                case .success(let data):
+                    let json = JSON(data)
+                    print(json)
+                    completed(true,200)
+                case .failure(let error):
+                    print("request failed")
+                    print(res.error?.responseCode)
+                    completed(false,res.error?.responseCode ?? 500)
+                }
+                
+            }
+    }
+    
    static func enrollNow(id: String){
         let token = UserDefaults.standard.string(forKey: "token")
         let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
@@ -191,6 +220,32 @@ class CourseService {
                 let json = JSON(data)
                 print(json)
                 SessionManager.currentUser?.courses.append(id)
+                //completed(true,user)
+            case .failure(let error):
+                print(error)
+                //completed(false,nil)
+                
+            }
+        }
+    }
+    
+    static func progress(id: String,lessonid: String){
+        let token = UserDefaults.standard.string(forKey: "token")
+        let parameters : [String : Any] = [
+            "lessonid": lessonid
+        ]
+        let headers : HTTPHeaders = [.authorization(bearerToken: token!)]
+        AF.request(PROGRESS + id,
+                   method: .post,
+                   parameters: parameters,
+        headers: headers)
+        .responseJSON{
+            (res) in
+            switch res.result {
+            case .success(let data):
+                let json = JSON(data)
+                print(json)
+                //SessionManager.currentUser?.courses.append(id)
                 //completed(true,user)
             case .failure(let error):
                 print(error)

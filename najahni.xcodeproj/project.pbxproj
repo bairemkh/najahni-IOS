@@ -49,6 +49,7 @@
 		419937CC293FF07C00A0516A /* CustomCardCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419937CB293FF07C00A0516A /* CustomCardCartView.swift */; };
 		419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B350A292BB49200A8EEA1 /* CustomCardView.swift */; };
 		419B69D8293DFBF000B2CF81 /* SectionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B69D7293DFBF000B2CF81 /* SectionCardView.swift */; };
+		419BB7D5295B271E00F60AA9 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419BB7D4295B271E00F60AA9 /* ReviewViewModel.swift */; };
 		419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */; };
 		419DF04E29353701004BB54E /* ProfileTrainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */; };
 		419E5EBA29473D6A00AC7538 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E5EB929473D6A00AC7538 /* CartViewModel.swift */; };
@@ -178,6 +179,7 @@
 		419937CB293FF07C00A0516A /* CustomCardCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardCartView.swift; sourceTree = "<group>"; };
 		419B350A292BB49200A8EEA1 /* CustomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardView.swift; sourceTree = "<group>"; };
 		419B69D7293DFBF000B2CF81 /* SectionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCardView.swift; sourceTree = "<group>"; };
+		419BB7D4295B271E00F60AA9 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardTrainerView.swift; sourceTree = "<group>"; };
 		419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerViewModel.swift; sourceTree = "<group>"; };
 		419E5EB929473D6A00AC7538 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 				872AD030293FE1F70066C22D /* AddLessonViewModel.swift */,
 				872AD03429401CC80066C22D /* SectionViewModel.swift */,
 				419E5EB929473D6A00AC7538 /* CartViewModel.swift */,
+				419BB7D4295B271E00F60AA9 /* ReviewViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				879B2F9F2927A68B00249774 /* ForgetPasswordViewModel.swift in Sources */,
 				414248CE292D4D8F00D35692 /* HomeViewModel.swift in Sources */,
 				87B9266E2936AA5B00F7A082 /* WishListCard.swift in Sources */,
+				419BB7D5295B271E00F60AA9 /* ReviewViewModel.swift in Sources */,
 				28793957291970D300778A5B /* SplashView.swift in Sources */,
 				8743D060291FE5F800C1781C /* LoginViewModel.swift in Sources */,
 				87AD691E293E6656000F0A88 /* EditCourseView.swift in Sources */,

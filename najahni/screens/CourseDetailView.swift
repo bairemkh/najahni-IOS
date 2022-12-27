@@ -8,172 +8,257 @@
 import SwiftUI
 import SDWebImageSwiftUI
 import ExpandableText
+import SlidingTabView
 
 struct CourseDetailView: View {
     @StateObject var viewModel = DetailPageViewModel()
     var course : Course
+    @State var passChat = false
+    @State private var selectedTabIndex = 0
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        VStack {
-            ScrollView{
-                WebImage(url:URL(string: URL_BASE_APP + course.image))
-                    .resizable()
-                    .frame(width:.infinity ,height: 400)
-                    .clipShape(Rectangle())
-                    .aspectRatio(contentMode: .fill)
-                    .scaledToFit()
-                    .clipped()
-                    
-                HStack {
-                    Text(course.title)
-                        .fontWeight(.black)
-                        .multilineTextAlignment(.leading)
-                    .font(.system(size: 30))
-                    Spacer()
-                    btnIcon(isSelected: $viewModel.isLiked){ isLiked in
-                        print(isLiked)
-                        var wishlist = SessionManager.getWishlist()
-                        if(isLiked){
-                            if(!wishlist.contains(where: { c in
-                                return c.elementsEqual(self.course.id)
-                            })){
-                                wishlist.append(self.course.id)
-                                UserDefaults.standard.removeObject(forKey: WISHLIST)
-                                UserDefaults.standard.set(wishlist, forKey: WISHLIST)
-                            }
-                        }else{
-                            wishlist.remove(at: wishlist.firstIndex(where: { c in
-                                return c.elementsEqual(self.course.id)
-                            }) ?? -1)
-                            UserDefaults.standard.set(wishlist, forKey: WISHLIST)
-                        }
-                    }
-                }
-                HStack{
-                    WebImage(url:URL(string: URL_BASE_APP + course.idowner!.image))
+        //VStack {
+        ZStack(alignment: Alignment(horizontal: .center, vertical: .top)){
+            ScrollView {
+                GeometryReader{ geo in
+                    WebImage(url:URL(string: URL_BASE_APP + course.image))
                         .resizable()
-                        .clipShape(Circle())
-                        .frame(width: 50,height: 50)
-                    Text(course.idowner!.firstname + " " + course.idowner!.lastname)
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: UIScreen.main.bounds.width ,height: geo.frame(in: .global).minY > 0 ?
+                               geo.frame(in: .global).minY +
+                               (UIScreen.main.bounds.height / 2.2) :
+                                (UIScreen.main.bounds.height / 2.2)
+                        )
+                        .offset(y: -geo.frame(in: .global).minY)
+                    //.clipShape(Rectangle())
                     
-                    Spacer()
-                    
-                }
+                    //.scaledToFit()
+                        //.clipped()
+                }.frame(height: (UIScreen.main.bounds.height / 2.2))
                 Spacer()
-                    .frame(width: 0,height: 30)
-                ScrollView(.horizontal,showsIndicators: false){
-                    HStack(spacing: 10) {
-                        ForEach(course.fields .map({ f in
-                            return ListData(name: f.rawValue)
-                        })){ element in
-                            Text(element.name)
-                                .padding(.horizontal, 8.0)
-                                .background(Color("secondaryColor"))
-                                .foregroundColor(.white)
-                                .cornerRadius(5)
-                        }
-                    }
-                }
-                Spacer()
-                    .frame(width: 0,height: 30)
-                HStack {
-                    Text("Description")
-                        .fontWeight(.medium)
-                        .multilineTextAlignment(.leading)
-                    .font(.system(size: 23))
-                    Spacer()
-                    if(course.isPaid){
-                        Text("\(course.price) TND")
-                            .foregroundColor(Color("secondaryColor"))
-                            .multilineTextAlignment(.leading)
-                        .font(.system(size: 20))
-                        
-                    }else{
-                        Text("Free")
-                            .foregroundColor(Color("secondaryColor"))
-                            .multilineTextAlignment(.leading)
-                        .font(.system(size: 20))
-                        Spacer()
-                            .frame(width: 30)
-                    }
-                }
-                Spacer()
-                HStack {
-                    ExpandableText(text: course.description)
-                        .font(.body)//optional
-                        .foregroundColor(.primary)//optional
-                        .lineLimit(3)//optional
-                        .expandButton(TextSet(text: "more", font: .body, color: .blue))//optional
-                        .collapseButton(TextSet(text: "less", font: .body, color: .blue))//optional
-                        .expandAnimation(.easeOut)//optional
-                        .padding(.horizontal, 24)//optional
-                    /*Text(course.description)
-                        .fontWeight(.medium)
-                        .multilineTextAlignment(.leading)
-                    .font(.system(size: 15))*/
-                    Spacer()
-                }
-                Group{
-                    Spacer()
-                        .frame(height: 50)
+                VStack{
                     HStack {
-                        Text("Lessons")
+                        Text(course.title)
                             .fontWeight(.medium)
                             .multilineTextAlignment(.leading)
-                        .font(.system(size: 23))
+                            .font(.system(size: 24))
                         Spacer()
-                        Text(course.level)
-                            .bold()
-                    }
-                    ScrollView(.vertical,showsIndicators: false) {
-                        ForEach(course.sections) { section in
-                            SectionCardView(section: section)
-                        
-                        }
-                    }
-                    if(course.isPaid == true){
-                        Button(action: {
-                            var cart = SessionManager.getCart()
-                            
-                                if(!cart.contains(where: { c in
+                        btnIcon(isSelected: $viewModel.isLiked){ isLiked in
+                            print(isLiked)
+                            var wishlist = SessionManager.getWishlist()
+                            if(isLiked){
+                                if(!wishlist.contains(where: { c in
                                     return c.elementsEqual(self.course.id)
                                 })){
-                                    cart.append(self.course.id)
-                                    UserDefaults.standard.removeObject(forKey: CART)
-                                    UserDefaults.standard.set(cart, forKey: CART)
+                                    wishlist.append(self.course.id)
+                                    UserDefaults.standard.removeObject(forKey: WISHLIST)
+                                    UserDefaults.standard.set(wishlist, forKey: WISHLIST)
                                 }
-                            
-                        }) {
-                            Text(LocalizedStringKey("Add_to_cart"))
-                                  .foregroundColor(Color.white)
-                                  .multilineTextAlignment(.center)
-                                  .frame(width: 300.0,height: 60.0)
-                                  .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
-                                  .cornerRadius(25)
-                        }
-                    }else{
-                        Button(action: {
-
-                            viewModel.enrollNow(id: course.id)
-                        }) {
-                            Text(LocalizedStringKey("Enroll_now"))
-                                  .foregroundColor(Color.white)
-                                  .multilineTextAlignment(.center)
-                                  .frame(width: 300.0,height: 60.0)
-                                  .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
-                                  .cornerRadius(25)
+                            }else{
+                                wishlist.remove(at: wishlist.firstIndex(where: { c in
+                                    return c.elementsEqual(self.course.id)
+                                }) ?? -1)
+                                UserDefaults.standard.set(wishlist, forKey: WISHLIST)
+                            }
                         }
                     }
 
+                    Spacer()
+                        .frame(width: 0,height: 30)
+                    ScrollView(.horizontal,showsIndicators: false){
+                        HStack(spacing: 10) {
+                            ForEach(course.fields .map({ f in
+                                return ListData(name: f.rawValue)
+                            })){ element in
+                                Text(element.name)
+                                    .padding(.horizontal, 8.0)
+                                    .background(Color("secondaryColor"))
+                                    .foregroundColor(.white)
+                                    .cornerRadius(5)
+                            }
+                        }
+                        
+                    }
+                    HStack{
+                        if(course.isPaid){
+                            Text("\(course.price) TND")
+                                .foregroundColor(Color("secondaryColor"))
+                                .multilineTextAlignment(.leading)
+                                .font(.system(size: 20))
+                            
+                        }else{
+                            Text("Free")
+                                .foregroundColor(Color("secondaryColor"))
+                                .multilineTextAlignment(.leading)
+                                .font(.system(size: 20))
+                            Spacer()
+                                .frame(width: 30)
+                        }
+                        Spacer()
+                        VStack(alignment: .center, spacing: 8) {
+                            Image(systemName: "star.fill")
+                                .resizable()
+                                .frame(width: 25,height: 25)
+                                .foregroundColor(.yellow)
+                            Text("\(course.rating.formatted())")
+                                //.foregroundColor(Color.black)
+                                .font(Font.system(size: 11, weight: .semibold, design: .rounded))
+                        }
+                    }
+                    Divider()
+
+                    SlidingTabView(selection: self.$selectedTabIndex, tabs: ["About", "Lessons"],activeAccentColor: Color("primaryColor"),selectionBarColor: Color("primaryColor"))
+                        .foregroundColor(Color("primaryColor"))
+                    if(selectedTabIndex == 0){
+                        HStack{
+                            WebImage(url:URL(string: URL_BASE_APP + course.idowner!.image))
+                                .resizable()
+                                .clipShape(Circle())
+                                .frame(width: 50,height: 50)
+                            Text(course.idowner!.firstname + " " + course.idowner!.lastname)
+                            
+                            Spacer()
+                            NavigationLink(destination: messageView(contactMsgs: Binding(get: {
+                                return [Message(msgContent: "Hi how can help you", senderid: course.idowner!.id, receiverid: SessionManager.currentUser!.id)]
+                            }, set: { v in
+                                
+                            }), user: course.idowner!),isActive: $passChat) {
+                                Image(systemName: "ellipsis.message")
+                                    .resizable()
+                                    .padding(8)
+                                    .frame(width: 45.0, height: 45.0)
+                                    .foregroundColor(Color("primaryColor"))
+                                    .aspectRatio(contentMode: .fill)
+                                    .onTapGesture {
+                                     passChat = true
+                                    }
+                            }
+
+                            
+                        }
+                        HStack {
+                            Text("Description")
+                                .fontWeight(.medium)
+                                .multilineTextAlignment(.leading)
+                                .font(.system(size: 23))
+                            Spacer()
+                        }
+                        Spacer()
+                        //HStack {
+                            ExpandableText(text: course.description)
+                                .font(.body)//optional
+                                .foregroundColor(.primary)//optional
+                                .lineLimit(3)//optional
+                                .expandButton(TextSet(text: "more", font: .body, color: .blue))//optional
+                                .collapseButton(TextSet(text: "less", font: .body, color: .blue))//optional
+                                .expandAnimation(.easeOut)//optional
+                                .padding(.horizontal, 24)//optional
+                            /*Text(course.description)
+                             .fontWeight(.medium)
+                             .multilineTextAlignment(.leading)
+                             .font(.system(size: 15))*/
+                            Spacer()
+                        //}
+                    }else{
+                        Group{
+                            Spacer()
+                                .frame(height: 50)
+                            HStack {
+                                Text("Lessons")
+                                    .fontWeight(.medium)
+                                    .multilineTextAlignment(.leading)
+                                    .font(.system(size: 23))
+                                Spacer()
+                                Text(course.level)
+                                    .bold()
+                            }
+                            ScrollView(.vertical,showsIndicators: false) {
+                                ForEach(course.sections) { section in
+                                    SectionCardView(section: section)
+                                    
+                                }
+                            }
+
+                        }
+                    }
+
+
+                    
                 }
                 
+                .padding([.top, .leading, .trailing])
+                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color("BackgroundColor")/*@END_MENU_TOKEN@*/)
+                .cornerRadius(20)
                 
                 
+                
+                //  }
+                //.padding(.all)
+
             }
-            .padding(.all)
-        }.navigationTitle(
-            Text("Detail")
-          )
-    .navigationBarTitleDisplayMode(.inline)
+            
+            
+            HStack{
+                Button {
+                    self.presentationMode.wrappedValue.dismiss()
+                }label: {
+                    HStack(spacing: 8.0) {
+                        Image(systemName: "chevron.left")
+                            .resizable()
+                            
+                            
+                        
+                    }
+                    
+                }
+                .background(Color.white)
+                .frame(width: 25, height: 25)
+                .cornerRadius(38.5)
+                .padding()
+                Spacer()
+            }
+            
+            /*.navigationTitle(
+             Text("Detail")
+             )*/
+            //.navigationBarTitleDisplayMode(.inline)
+        }
+        VStack {
+            if(course.isPaid == true){
+                Button(action: {
+                    var cart = SessionManager.getCart()
+                    
+                    if(!cart.contains(where: { c in
+                        return c.elementsEqual(self.course.id)
+                    })){
+                        cart.append(self.course.id)
+                        UserDefaults.standard.removeObject(forKey: CART)
+                        UserDefaults.standard.set(cart, forKey: CART)
+                    }
+                    
+                }) {
+                    Text(LocalizedStringKey("Add_to_cart"))
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.center)
+                        .frame(width: 300.0,height: 60.0)
+                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
+                        .cornerRadius(25)
+                }
+            }else{
+                Button(action: {
+                    
+                    viewModel.enrollNow(id: course.id)
+                }) {
+                    Text(LocalizedStringKey("Enroll_now"))
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.center)
+                        .frame(width: 300.0,height: 60.0)
+                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
+                        .cornerRadius(25)
+                }
+            }
+        }
+    .navigationBarBackButtonHidden(true)
     .onAppear(){
         let wishlist = SessionManager.getWishlist()
         if(wishlist.contains(where: { c in
@@ -270,6 +355,8 @@ struct LessonsViewPart: View {
     @State var indexLesson = 1
     @State var goVideo = false
     @State var course = ""
+    
+    @StateObject var viewmodel = DetailPageViewModel()
     var body: some View {
             HStack{
                 ZStack {
@@ -298,6 +385,8 @@ struct LessonsViewPart: View {
                                 .foregroundColor(Color("primaryColor"))
                                 .onTapGesture {
                                     goVideo = true
+                                    viewmodel.progress(id: course,lessonid: lesson.id)
+                                    
                                 }
                         } else{
                             Image(systemName: "lock.fill")

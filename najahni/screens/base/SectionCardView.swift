@@ -32,6 +32,7 @@ struct SectionCardView: View {
             //}
         }.onAppear{
             section.lessons.forEach { l in
+                duration = 0
                 duration += l.duration
             }
         }

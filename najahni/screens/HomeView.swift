@@ -123,12 +123,18 @@ struct HomeView: View {
                 Text(LocalizedStringKey("Recommanded"))
                     .font(.title2)
                     .foregroundColor(Color("primaryColor"))
-                    .fontWeight(.black)
+                    .fontWeight(.medium)
                 
                 ScrollView(.horizontal,showsIndicators: false) {
                     HStack {
-                        ForEach(courses) {item in
-                            CustomCard2View()
+                        ForEach(courses.filter({ c in
+                            return (c.rating > 3) && (c.fields.filter({ f in
+                                return SessionManager.currentUser!.fields.contains(where: { fie in
+                                    return fie == f
+                                })
+                            }).count >  0)
+                        })) {item in
+                            CustomCard2View(course: item)
                                 .padding(.all)
                             
                         }
@@ -139,7 +145,8 @@ struct HomeView: View {
                 //print("s",courses.count)
                 Text("Courses").font(.title2)
                     .foregroundColor(Color("primaryColor"))
-                    .fontWeight(.black).padding(.all)
+                    .fontWeight(.medium)
+                    //.padding(.all)
                 VStack{
                     ScrollView(.vertical,showsIndicators: false) {
                         ForEach(displayedCourses) { course in

@@ -11,6 +11,7 @@ struct RatingView: View {
     @State var rating: Int
 
     var label = ""
+    @State var action : (Int) -> Void
 
     var maximumRating = 5
 
@@ -30,6 +31,7 @@ struct RatingView: View {
                     .foregroundColor(number > rating ? offColor : onColor)
                     .onTapGesture {
                         rating = number
+                    action(number)
                     }
             }
         }
@@ -46,6 +48,8 @@ struct RatingView: View {
 
 struct RatingView_Previews: PreviewProvider {
     static var previews: some View {
-        RatingView(rating: 3)
+        RatingView(rating: 3, action: {_ in  
+            
+        })
     }
 }
