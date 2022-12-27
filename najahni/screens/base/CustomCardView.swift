@@ -29,7 +29,7 @@ struct CustomCardView: View {
                 Text(course.title)
                     .font(.system(size: 14, weight: .bold, design: .default))
                     .foregroundColor(.black)
-                HStack{
+                /*HStack{
                     WebImage(url: URL(string: URL_BASE_APP + course.idowner!.image))
                     .resizable()
                     .clipShape(Circle())
@@ -41,7 +41,8 @@ struct CustomCardView: View {
                     
                         .font(.system(size: 10, weight: .bold, design: .default))
                         .foregroundColor(.gray)
-                }
+                }*/
+                
                 HStack {
                     Text("1h42")
                         .font(.system(size: 12, weight: .bold, design: .default))
@@ -56,6 +57,16 @@ struct CustomCardView: View {
                         .fontWeight(.medium)
                         .foregroundColor(.black)
                         
+                }
+                HStack {
+                    Image(systemName: "star.fill")
+                        .resizable()
+                        .frame(width: 15,height: 15)
+                        .foregroundColor(.yellow)
+                    Text("\(course.rating.formatted())")
+                        .font(.system(size: 11, weight: .bold, design: .default))
+                        .fontWeight(.medium)
+                        .foregroundColor(.black)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)

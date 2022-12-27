@@ -90,6 +90,12 @@
 /************************ course detail trainer Page ***************************/
 "Edit"="Edit";
 "Reviews"="Reviews";
+"Add_review" = "Add rating";
+"Note_Compration" = "Note Comprehenison";
+"Note_Trainer" = "Note Trainer";
+"Note_Content" = "Note Content";
+"Send_review" ="Send review";
+"Send_your_review_for_course" = "Send your review for course";
 /************************ edit course trainer Page ***************************/
 "Edit_sections"="Edit sections";
 "let's_modify_the_Course"="let's modify the Course";

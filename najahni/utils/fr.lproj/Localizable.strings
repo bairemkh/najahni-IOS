@@ -103,7 +103,12 @@
 /**-------Course detail trainer-------*/
 "Reviews" = "Commentaires";
 "Edit" = "Modifier";
-
+"Add_review" = "Ajouter une note";
+"Note_Compration" = "Noter la compréhension";
+"Note_Trainer" = "Noter le formateur";
+"Note_Content" = "Noter le contenu du cours";
+"Send_review" ="Envoyer un avis";
+"Send_your_review_for_course" = "Envoyer votre avis pour le cours";
 /**--------Edit course---------*/
 "Edit_sections" = "Modifier les sections";
 "let's_modify_the_Course" = "modifions le cours";

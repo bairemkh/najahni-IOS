@@ -49,12 +49,14 @@
 		419937CC293FF07C00A0516A /* CustomCardCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419937CB293FF07C00A0516A /* CustomCardCartView.swift */; };
 		419B350B292BB49200A8EEA1 /* CustomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B350A292BB49200A8EEA1 /* CustomCardView.swift */; };
 		419B69D8293DFBF000B2CF81 /* SectionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B69D7293DFBF000B2CF81 /* SectionCardView.swift */; };
+		419BB7D5295B271E00F60AA9 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419BB7D4295B271E00F60AA9 /* ReviewViewModel.swift */; };
 		419DF04C293525AB004BB54E /* CustomCardTrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */; };
 		419DF04E29353701004BB54E /* ProfileTrainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */; };
 		419E5EBA29473D6A00AC7538 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E5EB929473D6A00AC7538 /* CartViewModel.swift */; };
 		419E7C3B2928E023007E7D87 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E7C3A2928E023007E7D87 /* ImagePicker.swift */; };
 		419F2E812943A52A00CE2495 /* ProfileTrainerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F2E802943A52A00CE2495 /* ProfileTrainerDetailsView.swift */; };
 		419FAD1B293106FD00FA6A49 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419FAD1A293106FD00FA6A49 /* WishListView.swift */; };
+		41A41C57295A206900332011 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A41C56295A206900332011 /* RatingView.swift */; };
 		41BAA2FD293E504E008FEC06 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FC293E504E008FEC06 /* Section.swift */; };
 		41BAA2FF293E5433008FEC06 /* SectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA2FE293E5433008FEC06 /* SectionService.swift */; };
 		41BAA301293E615B008FEC06 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BAA300293E615B008FEC06 /* Lesson.swift */; };
@@ -180,6 +182,7 @@
 		419937CB293FF07C00A0516A /* CustomCardCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardCartView.swift; sourceTree = "<group>"; };
 		419B350A292BB49200A8EEA1 /* CustomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardView.swift; sourceTree = "<group>"; };
 		419B69D7293DFBF000B2CF81 /* SectionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCardView.swift; sourceTree = "<group>"; };
+		419BB7D4295B271E00F60AA9 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		419DF04B293525AB004BB54E /* CustomCardTrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardTrainerView.swift; sourceTree = "<group>"; };
 		419DF04D29353701004BB54E /* ProfileTrainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerViewModel.swift; sourceTree = "<group>"; };
 		419E5EB929473D6A00AC7538 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
@@ -187,6 +190,7 @@
 		419F2E802943A52A00CE2495 /* ProfileTrainerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTrainerDetailsView.swift; sourceTree = "<group>"; };
 		419F2E892943A75C00CE2495 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "/Downloads/ChatApp-main/ChatApp/Models/Message.swift"; sourceTree = "<absolute>"; };
 		419FAD1A293106FD00FA6A49 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
+		41A41C56295A206900332011 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		41BAA2FC293E504E008FEC06 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		41BAA2FE293E5433008FEC06 /* SectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionService.swift; sourceTree = "<group>"; };
 		41BAA300293E615B008FEC06 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
@@ -420,6 +424,7 @@
 				872AD030293FE1F70066C22D /* AddLessonViewModel.swift */,
 				872AD03429401CC80066C22D /* SectionViewModel.swift */,
 				419E5EB929473D6A00AC7538 /* CartViewModel.swift */,
+				419BB7D4295B271E00F60AA9 /* ReviewViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -476,6 +481,7 @@
 				8771F077294906C600810C65 /* ListContactsView.swift */,
 				4198CA1B294B769C0065E07D /* SafariWebView.swift */,
 				4198283E2944D19200D72E45 /* WebView.swift */,
+				41A41C56295A206900332011 /* RatingView.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -716,6 +722,7 @@
 				879B2F9F2927A68B00249774 /* ForgetPasswordViewModel.swift in Sources */,
 				414248CE292D4D8F00D35692 /* HomeViewModel.swift in Sources */,
 				87B9266E2936AA5B00F7A082 /* WishListCard.swift in Sources */,
+				419BB7D5295B271E00F60AA9 /* ReviewViewModel.swift in Sources */,
 				28793957291970D300778A5B /* SplashView.swift in Sources */,
 				8743D060291FE5F800C1781C /* LoginViewModel.swift in Sources */,
 				87AD691E293E6656000F0A88 /* EditCourseView.swift in Sources */,
@@ -765,6 +772,7 @@
 				87B54EC0295B1D98001AA1AD /* Quiz.swift in Sources */,
 				4198CA1A294B3C760065E07D /* EnrollServices.swift in Sources */,
 				41941382293BA90400306B28 /* VideoPlayerCourseView.swift in Sources */,
+				41A41C57295A206900332011 /* RatingView.swift in Sources */,
 				879E5C81292BE19600573969 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,6 +20,7 @@ struct Course  : Identifiable{
     let createdAt, updatedAt: String
     var sections:[Section] = []
     var comments:[Comment] = []
+    var rating : Float = 0
     var quiz:Quiz = Quiz(courseid: UUID().uuidString, questions: [Question]())
     
     
@@ -53,7 +54,7 @@ struct Course  : Identifiable{
         self.updatedAt = updatedAt
         self.sections = sections
     }
-    init(id: String, title: String, fields: [Fields], level: String, description: String, isPaid: Bool, image: String, price: Int, idowner: User, isArchived: Bool, createdAt: String, updatedAt: String,sections:[Section],comments:[Comment],quiz:Quiz) {
+    init(id: String, title: String, fields: [Fields], level: String, description: String, isPaid: Bool, image: String, price: Int, idowner: User, isArchived: Bool, createdAt: String, updatedAt: String,sections:[Section],comments:[Comment],rating : Float,,quiz:Quiz) {
         self.id = id
         self.title = title
         self.fields = fields
@@ -68,6 +69,7 @@ struct Course  : Identifiable{
         self.updatedAt = updatedAt
         self.sections = sections
         self.comments = comments
+        self.rating = rating
         self.quiz = quiz
     }
 

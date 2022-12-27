@@ -18,4 +18,7 @@ class DetailPageViewModel : ObservableObject {
     func enrollNow(id: String){
         CourseService.enrollNow(id: id)
     }
+    func progress(id: String,lessonid: String){
+        CourseService.progress(id: id,lessonid: lessonid)
+    }
 }
