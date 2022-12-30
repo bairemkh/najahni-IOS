@@ -12,7 +12,7 @@ import SlidingTabView
 
 struct CourseDetailView: View {
     @StateObject var viewModel = DetailPageViewModel()
-    var course : Course
+    @State var course : Course
     @State var passChat = false
     @State private var selectedTabIndex = 0
     @Environment(\.presentationMode) var presentationMode
@@ -175,8 +175,8 @@ struct CourseDetailView: View {
                             ScrollView(.vertical,showsIndicators: false) {
                                 ForEach(course.sections) { section in
                                     SectionCardView(section: section)
-                                    
                                 }
+                                QuizViewPart(quiz: $course.quiz)
                             }
 
                         }
@@ -202,19 +202,13 @@ struct CourseDetailView: View {
                 Button {
                     self.presentationMode.wrappedValue.dismiss()
                 }label: {
-                    HStack(spacing: 8.0) {
-                        Image(systemName: "chevron.left")
+                        Image(systemName: "chevron.backward.circle.fill")
                             .resizable()
-                            
-                            
-                        
-                    }
+                            .frame(width: 25,height: 25)
+                            .padding(.all)
+                            .foregroundColor(Color("primaryColor"))
                     
                 }
-                .background(Color.white)
-                .frame(width: 25, height: 25)
-                .cornerRadius(38.5)
-                .padding()
                 Spacer()
             }
             
