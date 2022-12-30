@@ -404,6 +404,7 @@ struct LessonsViewPart: View {
 }
 
 struct QuizViewPart: View {
+    @State var isBuyed = false
     @State var goQuiz = false
     @Binding var quiz:Quiz
     var body: some View {
@@ -422,12 +423,12 @@ struct QuizViewPart: View {
                     Text("\(quiz.questions.capacity) Questions")
                 }
                 Spacer()
-                NavigationLink(destination: EmptyView(),isActive: $goQuiz) {
+                NavigationLink(destination: QuizView(quiz: quiz),isActive: $goQuiz) {
                     ZStack {
                         Circle()
                             .frame(width: 30)
                             .foregroundColor(Color(hue: 0.738, saturation: 0.922, brightness: 0.866, opacity: 0.3))
-                        if(false){
+                        if(isBuyed){
                             Image(systemName: "play.fill")
                                 .foregroundColor(Color("primaryColor"))
                                 .onTapGesture {
