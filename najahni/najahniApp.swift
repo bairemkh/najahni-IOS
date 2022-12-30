@@ -40,7 +40,7 @@ struct najahniApp: App {
     }
     var body: some Scene {
         WindowGroup {
-       SplashView()
+       /*SplashView()
                 .background(Color("BackgroundColor"))
                 .environment(\.colorScheme, isDarkMode ? .dark : .light)
 
@@ -61,8 +61,8 @@ struct najahniApp: App {
                         @unknown default:
                             print("unknown")
                         }
-                    }
-           // QuizView(quiz: Quiz(id: "", courseid: "", questions: [Question(quizid: "", question: "vvvvv", propositions: ["1","2","4"], indexResponse: 1),Question(quizid: "", question: "gggg", propositions: ["1","2","3"], indexResponse: 0)]))
+                    }*/
+            QuizView(quiz: Quiz(id: "", courseid: "", questions: [Question(quizid: "", question: "vvvvv", propositions: ["1","2","4"], indexResponse: 1),Question(quizid: "", question: "gggg", propositions: ["1","2","3"], indexResponse: 0)]))
             
             //messageView(user: UserFix)
         }
