@@ -105,44 +105,6 @@ struct QuestionView: View {
                     .padding(.all)
                 
             }
-           /* if(completed){
-                NavigationLink(isActive: $completed,destination: {
-                    EmptyView()
-                }, label: {
-                    Text("Complete")
-                        .foregroundColor(Color.white)
-                        .multilineTextAlignment(.center)
-                        .frame(width: 300.0,height: 60.0)
-                        .background(Color("primaryColor"))
-                        .cornerRadius(25)
-                        .onTapGesture {
-                            if(indexAnswer == question.indexResponse)
-                            {
-                                action(10)
-                            }else{
-                                action(0)
-                            }
-                            completed = true
-                        }
-                        
-                })
-
-            }else{
-                Text("Next")
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.center)
-                    .frame(width: 300.0,height: 60.0)
-                    .background(Color("primaryColor"))
-                    .cornerRadius(25)
-                    .onTapGesture {
-                        if(indexAnswer == question.indexResponse)
-                        {
-                            action(10)
-                        }else{
-                            action(0)
-                        }
-                    }
-            }*/
                  
             
         }
