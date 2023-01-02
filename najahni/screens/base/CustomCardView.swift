@@ -27,46 +27,40 @@ struct CustomCardView: View {
             
             VStack(alignment: .leading,spacing: 15.0) {
                 Text(course.title)
+                    .lineLimit(1)
                     .font(.system(size: 14, weight: .bold, design: .default))
-                    .foregroundColor(.black)
-                /*HStack{
-                    WebImage(url: URL(string: URL_BASE_APP + course.idowner!.image))
-                    .resizable()
-                    .clipShape(Circle())
-                    .frame(width: 30,height:30)
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(12.0)
-                    
-                    Text(course.idowner!.firstname + " " + course.idowner!.lastname)
-                    
-                        .font(.system(size: 10, weight: .bold, design: .default))
-                        .foregroundColor(.gray)
-                }*/
-                
-                HStack {
-                    Text("1h42")
-                        .font(.system(size: 12, weight: .bold, design: .default))
-                        .fontWeight(.medium)
-                        .foregroundColor(.black)
-                    Text(".")
-                        .font(.system(size: 12, weight: .bold, design: .default))
-                        .fontWeight(.medium)
-                        .foregroundColor(.black)
-                    Text("12 Lessons")
-                        .font(.system(size: 12, weight: .bold, design: .default))
-                        .fontWeight(.medium)
-                        .foregroundColor(.black)
+                    .foregroundColor(Color("TextColor"))
+
+          
+                    HStack {
+                        Text((course.isPaid) ? "\(course.price) TND" : "Free")
+                            .font(.system(size: 12, weight: .medium, design: .default))
+                            .padding(5)
+                            .foregroundColor( Color.white)
                         
-                }
+                    }
+                    .background(Color("secondaryColor"))
+                    .cornerRadius(12)
+                    
+                        
+                
                 HStack {
                     Image(systemName: "star.fill")
                         .resizable()
                         .frame(width: 15,height: 15)
                         .foregroundColor(.yellow)
-                    Text("\(course.rating.formatted())")
+                    Text("\(course.rating,specifier: "%.1f")")
                         .font(.system(size: 11, weight: .bold, design: .default))
                         .fontWeight(.medium)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("TextColor"))
+                    Text("|")
+                        .font(.system(size: 12, weight: .bold, design: .default))
+                        .fontWeight(.medium)
+                        .foregroundColor(Color("TextColor"))
+                    Text("\(course.lessonNumber) Lessons")
+                        .font(.system(size: 12, weight: .bold, design: .default))
+                        .fontWeight(.medium)
+                        .foregroundColor(Color("TextColor"))
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -77,12 +71,12 @@ struct CustomCardView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 10)
-            
+                .foregroundColor(Color("TextColor"))
             Spacer()
                 
         }
         .frame(maxWidth: .infinity, alignment: .center)
-        .background(Color.white)
+        .background(Color("CardColor"))
         .cornerRadius(8.0)
         .shadow(color: Color(hue: 1.0, saturation: 0.0, brightness: 0.906), radius: 10)
         .padding([.top, .leading, .trailing])

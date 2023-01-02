@@ -38,29 +38,30 @@ struct DetailCourseLessonsView: View {
                                 .padding(.all)
                         
                         }
-                        HStack {
-                            TextField("", text: $reviewViewModel.content)
-                                .padding(.all)
-                                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848, opacity: 0.445)/*@END_MENU_TOKEN@*/)
-                                .cornerRadius(10)
-                                .autocorrectionDisabled()
-                            Spacer()
-                                .frame(width: 30)
-                            Button(
-                                action: {
-                                    if(!reviewViewModel.content.isEmpty){
-                                        reviewViewModel.addComment { isOk, status in
-                                            print(isOk)
-                                        }
-                                        reviewViewModel.content = ""
-                                    }}) {
-                                Image(systemName: "paperplane.circle.fill")
-                                    .resizable()
-                                    .frame(width: 40,height: 40)
-                                    .foregroundColor(Color("primaryColor"))
-                            }
+                    }
+                    HStack {
+                        TextField("", text: $reviewViewModel.content)
+                            .padding(.all)
+                            .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848, opacity: 0.445)/*@END_MENU_TOKEN@*/)
+                            .cornerRadius(10)
+                            .autocorrectionDisabled()
+                        Spacer()
+                            .frame(width: 30)
+                        Button(
+                            action: {
+                                if(!reviewViewModel.content.isEmpty){
+                                    reviewViewModel.addComment { isOk, status in
+                                        print(isOk)
+                                    }
+                                    reviewViewModel.content = ""
+                                }}) {
+                            Image(systemName: "paperplane.circle.fill")
+                                .resizable()
+                                .frame(width: 40,height: 40)
+                                .foregroundColor(Color("primaryColor"))
                         }
                     }
+                    .padding(.all)
                 }
             }
         }.navigationBarTitle(
@@ -135,6 +136,7 @@ struct DetailCourseLessonsView: View {
                 }
 
             }
+            .background(Color("BackgroundColor"))
             .padding(.all)
             .alert("Aleardy reviewed", isPresented: $showAlert) {
                 Button("OK", role: .cancel) { showReview = false}

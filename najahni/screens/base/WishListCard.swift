@@ -13,57 +13,44 @@ struct WishListCard: View {
     @State var elementLiked = true
     var body: some View {
         
-            HStack{
-                WebImage(url: URL(string: "\(URL_BASE_APP)\(course.image)"))
-                    .resizable()
-                    .scaledToFit()
-                    .aspectRatio(contentMode: .fill)
-                    .cornerRadius(8.0)
-                    .frame(width: 140,height: 140)
-                    .padding(.leading,-12)
-                    .clipped()
-                    .clipShape(Rectangle())
-                
-                VStack(alignment: .leading,spacing: 15.0) {
-                    Text(course.title)
-                        .font(.system(size: 16, weight: .bold, design: .default))
-                        .foregroundColor(.black)
-                    HStack{
-                        WebImage(url: URL(string:course.idowner!.image))
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(12.0)
-                            .frame(width: 22)
-                        Text(course.idowner!.firstname)
-                            .font(.system(size: 12, weight: .bold, design: .default))
-                            .foregroundColor(.gray)
-                    }
-                    HStack {
-                        Text("1h42")
-                            .font(.system(size: 12, weight: .bold, design: .default))
-                            .fontWeight(.medium)
-                            .foregroundColor(.black)
-                        Text(".")
-                            .font(.system(size: 12, weight: .bold, design: .default))
-                            .fontWeight(.medium)
-                            .foregroundColor(.black)
-                        Text("12 Lessons")
-                            .font(.system(size: 12, weight: .bold, design: .default))
-                            .fontWeight(.medium)
-                            .foregroundColor(.black)
-                            
-                    }
-                    
+        HStack{
+            WebImage(url: URL(string: URL_BASE_APP + course.image))
+                .resizable()
+                .frame(width: 100,height: 100)
+                .aspectRatio(contentMode: .fit)
+                .scaledToFit()
+                .cornerRadius(8.0)
+                .padding(.leading,1)
+                .padding(EdgeInsets(top: 8, leading: 18, bottom: 8, trailing: 8))
+                .clipped()
+                .clipShape(Rectangle())
+          
+            VStack(alignment: .leading,spacing: 10.0) {
+                Text(course.title)
+                    .font(.system(size: 16, weight: .bold, design: .default))
+                    .padding(.leading)
+ 
+
+                HStack {
+                    Text("\(course.price) TND")
+                        .font(.system(size: 14, weight: .bold, design: .default))
+                        .padding(4)
+                        .foregroundColor( Color.white)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, -5.0)
-               
+                .background(Color("secondaryColor"))
+                .cornerRadius(12)
+                .padding(.leading)
             }
-            .frame(maxWidth: .infinity, alignment: .center)
-            .background(Color.white)
-            .cornerRadius(8.0)
-      
-            .padding(.top)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, -5.0)
+           // Spacer()
+
+                
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
+        .background(Color("CardColor"))
+        .cornerRadius(12)
+
         
     }
 }

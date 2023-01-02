@@ -18,19 +18,20 @@ struct CommentCardView: View {
                     .frame(width: 40, height: 40, alignment: .center)
                     .aspectRatio(contentMode: .fill)
                     .cornerRadius(25)
+                Spacer().frame(width: 10)
                 VStack {
                     HStack {
                         Text((comment.userid?.firstname ?? "test") + " " + (comment.userid?.lastname ?? "test"))
-                            .foregroundColor(Color.blue)
+                            .foregroundColor(Color("TextColor"))
                             .font(.system(size: 14, weight: .semibold, design: .default))
                         Spacer()
                     }
 
-                    HStack {
+                 /*   HStack {
                         Text("12 minutes ago")
                             .foregroundColor(Color(.secondaryLabel))
                         Spacer()
-                    }
+                    }*/
                 }
                
             }
@@ -41,6 +42,7 @@ struct CommentCardView: View {
                 Text(comment.content)
                     .font(.system(size: 18, weight: .regular, design: .default))
                     .multilineTextAlignment(.leading)
+                    .foregroundColor(Color("TextColor"))
                 Spacer()
                 
             }
@@ -51,7 +53,7 @@ struct CommentCardView: View {
 
         }
         .padding(.all)
-        .background(Color.white)
+        .background(Color("CardColor"))
         .cornerRadius(12)
         .shadow(color: Color(hue: 1.0, saturation: 0.0, brightness: 0.906), radius: 10)
     }

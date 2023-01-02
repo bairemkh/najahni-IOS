@@ -14,24 +14,18 @@ struct WishListView: View {
     @State var posDel = IndexSet()
     var body: some View {
         VStack {
+            HStack{
+                Text("Wishlist")
+                    .font(.system(size: 16, weight: .bold, design: .default))
+                    .padding(.horizontal)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/Color("primaryColor")/*@END_MENU_TOKEN@*/)
+                Spacer()
+            }
+            .padding([.leading, .bottom, .trailing])
             if #available(iOS 16.0, *) {
                 List{
                     ForEach(wishlist) { course in
                         WishListCard(course: course)
-                            .alert(isPresented: $showAlert) {
-                                    
-                                Alert(title: Text("Confirm"), primaryButton: .destructive(Text("Delete")){
-                                    onDelete = true
-                                    wishlist.remove(atOffsets: posDel)
-                                    print("wishist = \(wishlist)")
-                                    UserDefaults.standard.removeObject(forKey: WISHLIST)
-                                    UserDefaults.standard.set(wishlist.map({ c in
-                                        return c.id
-                                    }), forKey: WISHLIST)
-                                }, secondaryButton: .cancel (Text("Cancel")){
-                                    onDelete = false
-                                })
-                            }
                     }.onDelete { io in
                         showAlert = true
                         posDel = io
@@ -44,11 +38,28 @@ struct WishListView: View {
                             }), forKey: WISHLIST)
                         }
                     }
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     
-                }.scrollContentBackground(.hidden)
+                }
+                //.scrollContentBackground(.hidden)
             } else {
             }
             
+        }
+        .background(Color("BackgroundColor"))
+        .alert(isPresented: $showAlert) {
+                
+            Alert(title: Text("Confirm"), primaryButton: .destructive(Text("Delete")){
+                onDelete = true
+                wishlist.remove(atOffsets: posDel)
+                print("wishist = \(wishlist)")
+                UserDefaults.standard.removeObject(forKey: WISHLIST)
+                UserDefaults.standard.set(wishlist.map({ c in
+                    return c.id
+                }), forKey: WISHLIST)
+            }, secondaryButton: .cancel (Text("Cancel")){
+                onDelete = false
+            })
         }
         //.navigationTitle(Text("title"))
         

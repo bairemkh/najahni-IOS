@@ -16,6 +16,14 @@ struct CoursesView: View {
     var body: some View {
         //NavigationView {
             VStack{
+                HStack{
+                    Text("My Courses")
+                        .font(.system(size: 16, weight: .bold, design: .default))
+                        .padding(.horizontal)
+                        .foregroundColor(/*@START_MENU_TOKEN@*/Color("primaryColor")/*@END_MENU_TOKEN@*/)
+                    Spacer()
+                }
+                .padding([.leading, .bottom, .trailing])
                 SlidingTabView(selection: self.$selectedTabIndex, tabs: ["Ongoing", "Completed"],activeAccentColor: Color("primaryColor"),selectionBarColor: Color("primaryColor"))
                     .foregroundColor(Color("primaryColor"))
                 if(selectedTabIndex == 0){

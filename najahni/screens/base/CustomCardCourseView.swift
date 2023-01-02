@@ -26,18 +26,18 @@ struct CustomCardCourseView: View {
           
             VStack(alignment: .leading,spacing: 15.0) {
                 Text(course.title)
-                    .font(.system(size: 16, weight: .bold, design: .default))
-                    .foregroundColor(.black)
+                    .font(.system(size: 14, weight: .bold, design: .default))
+                    .foregroundColor(Color("TextColor"))
                     .padding(.leading)
                 Spacer()
                     .frame(height:0)
 
-                HStack {
+              /*  HStack {
                     Text("1h42")
                         .font(.system(size: 12, weight: .bold, design: .default))
                         .foregroundColor( Color("secondaryColor"))
                 }
-                .padding(.leading)
+                .padding(.leading)*/
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, -5.0)
@@ -49,7 +49,7 @@ struct CustomCardCourseView: View {
                 
         }
         .frame(maxWidth: .infinity, alignment: .center)
-        .background(Color.white)
+        .background(Color("CardColor"))
         .cornerRadius(12)
         .shadow(color: Color(hue: 1.0, saturation: 0.0, brightness: 0.906), radius: 10)
         .padding([.top, .leading, .trailing])

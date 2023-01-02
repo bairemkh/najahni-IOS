@@ -31,7 +31,7 @@ struct EditProfileView: View {
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
-                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
+                    .background(Color("BackgroundColor"))
                     .cornerRadius(20)
                     .shadow(color: .gray, radius: 3)
                 Spacer()
@@ -40,7 +40,7 @@ struct EditProfileView: View {
                     .padding(.all)
                     .padding(.leading)
                     .padding(.trailing)
-                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
+                    .background(Color("BackgroundColor"))
                     .cornerRadius(20)
                     .shadow(color: .gray, radius: 3)
 
@@ -65,7 +65,7 @@ struct EditProfileView: View {
                 }
                 .padding(.all, 10.0)
                 .frame(width: 300.0,height: 60.0)
-                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.356, green: 0.315, blue: 0.848)/*@END_MENU_TOKEN@*/)
+                .background(Color("primaryColor"))
                 .cornerRadius(25)
             }
             .padding(.all)

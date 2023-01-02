@@ -52,19 +52,20 @@ struct messageView: View {
             HStack{
                 Image(systemName: "arrow.backward")
                     .resizable()
-                    .frame(width: 30,height: 30)
+                    .frame(width: 25,height: 25)
                     .foregroundColor(Color("primaryColor"))
                     .onTapGesture {
                         self.presentationMode.wrappedValue.dismiss()
                     }
-                Spacer()
+                Spacer().frame(width: 25)
                     WebImage(url: URL(string:"\(URL_BASE_APP)\(user.image ?? "")"))
                     .resizable()
                     .clipShape(Circle())
-                    .frame(width: 70.0, height: 70.0)
-                Text(user.firstname)
-                    .font(.title)
-                    .fontWeight(.black)
+                    .frame(width: 45.0, height: 45.0)
+                    .aspectRatio(contentMode:
+                            .fill)
+                Text(user.firstname + " " + user.lastname)
+                    .font(.system(size: 16, weight: .bold, design: .default))
                     .padding(.horizontal)
                     .foregroundColor(/*@START_MENU_TOKEN@*/Color("primaryColor")/*@END_MENU_TOKEN@*/)
                 Spacer()

@@ -80,7 +80,7 @@ struct ProfileTrainerView: View {
                                         }
                                         
                                     }
-                            }} .padding()
+                            }}
                             
                             VStack {
                                 Spacer()
@@ -119,7 +119,7 @@ struct ProfileTrainerView: View {
                                     }
                                     
                                 }
-                        }} .padding()
+                        }}
                     }
                        
                             //Spacer()
