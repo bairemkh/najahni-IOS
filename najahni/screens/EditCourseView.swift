@@ -3,6 +3,7 @@ import SDWebImageSwiftUI
 struct EditCourseView: View {
     @StateObject var viewmodel = EditCourseViewModel()
     @State var isArchived = true
+    @State var pass = false
     @State var course:Course
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
@@ -14,6 +15,7 @@ struct EditCourseView: View {
                                 .fontWeight(.black)
                                 .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                                 .multilineTextAlignment(.leading)
+                                .padding(.trailing)
                                 .onTapGesture {
                                     self.presentationMode.wrappedValue.dismiss()
                                 }
@@ -26,7 +28,32 @@ struct EditCourseView: View {
                                     .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
                                     .multilineTextAlignment(.leading)
                             }
+                            if(course.quiz.questions.count == 0){
+                               /* NavigationLink {
+                                    AddQuizView(quiz: course.quiz)
+                                } label: {
+                                    
+                                }*/
+                                NavigationLink(isActive: $pass) {
+                                    AddQuizView(quiz: course.quiz)
+                                } label: {
+                                    Text(LocalizedStringKey("Edit_Quiz"))
+                                        .fontWeight(.black)
+                                        .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
+                                        .multilineTextAlignment(.leading)
+                                        .onTapGesture {
+                                            QuizServices.addQuiz(courseid: course.id) { go, quiz in
+                                                if(go){
+                                                    course.quiz = quiz!
+                                                    pass = true
+                                                }else{
+                                                    pass = false
+                                                }
+                                            }
+                                        }
+                                }
 
+                            }
                         }
                         HStack {
                             Text(LocalizedStringKey("let's_modify_the_Course"))

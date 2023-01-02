@@ -10,7 +10,8 @@ import SwiftUI
 struct NewSectionView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject var viewmodel = SectionViewModel()
-    @State var courseId:String
+    @State var courseId:Course
+    @State var pass = false
     @State var sections = [Section]()
     @State private var indexDelete:IndexSet = IndexSet()
     var body: some View {
@@ -97,7 +98,7 @@ struct NewSectionView: View {
                 
             }
             .onAppear{
-                viewmodel.idcourse = courseId
+                viewmodel.idcourse = courseId.id
             }
         }
         .navigationBarBackButtonHidden()
@@ -105,11 +106,30 @@ struct NewSectionView: View {
             Text("Add Sections"),
             displayMode: .inline
           )
-        .navigationBarItems(trailing: NavigationLink {
-            HostingTabBarView()
-        }label: {
-            Text("Confirm")
+        .navigationBarItems(trailing: NavigationLink(isActive: $pass) {
+            AddQuizView(quiz: courseId.quiz)
+        } label: {
+            Text(LocalizedStringKey("Edit_Quiz"))
+                .fontWeight(.black)
+                .foregroundColor(Color(red: 0.356, green: 0.315, blue: 0.84))
+                .multilineTextAlignment(.leading)
+                .onTapGesture {
+                    QuizServices.addQuiz(courseid: courseId.id) { go, quiz in
+                        if(go){
+                            courseId.quiz = quiz!
+                            pass = true
+                        }else{
+                            pass = false
+                        }
+                    }
+                }
         })
+/*NavigationLink {
+            AddQuizView(quiz: courseId.quiz)
+        }label: {
+            Text("Next")
+        })*/
+                            
     }
 }
 
@@ -117,6 +137,6 @@ struct NewSectionView_Previews: PreviewProvider {
     @State static var sections = [Section(id: "1", title: "Section 1", idCourse: "hello",lessons: [Lesson(id: "1", title: "Kotlin", sectionid: "gfgfg", video: "",duration: 0)]),Section(id: "2", title: "Section 2", idCourse: "hello"),Section(id: "3", title: "Section 3", idCourse: "hello",lessons: [Lesson(id: "3", title: "Java", sectionid: "gfgfg", video: "",duration: 0),Lesson(id: "57", title: "Swift", sectionid: "gfgfg", video: "",duration: 0)])]
     //@State static var sections = [Section]()
     static var previews: some View {
-        NewSectionView(courseId: "5", sections: sections)
+        NewSectionView(courseId: CourseFix, sections: sections)
     }
 }
