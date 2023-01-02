@@ -37,7 +37,7 @@ struct CoursesView: View {
                             
                             
                            NavigationLink{
-                               DetailCourseLessonsView(course: course.courseid)
+                               DetailCourseLessonsView(course: course.courseid ,isCompleted: true)
                             } label: {
                                 CustomCardCourseView(course: course.courseid,progress:Float(course.progress))
                             }

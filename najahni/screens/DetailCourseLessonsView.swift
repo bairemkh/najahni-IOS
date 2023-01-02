@@ -9,8 +9,9 @@ import SwiftUI
 import SlidingTabView
 
 struct DetailCourseLessonsView: View {
-    var course : Course
+    @State var course : Course
     @State private var selectedTabIndex = 0
+    @State var isCompleted = false
     @State private var showReview = false
     @StateObject var reviewViewModel = ReviewViewModel()
     @State private var showAlert = false
@@ -24,6 +25,10 @@ struct DetailCourseLessonsView: View {
                         ForEach(course.sections) { section in
                             SectionCardView(section: section)
                         
+                        }
+                        if(!course.quiz.questions.isEmpty)
+                        {
+                            QuizViewPart(isBuyed: true, quiz: $course.quiz)
                         }
                     }
                 }else{
@@ -117,6 +122,7 @@ struct DetailCourseLessonsView: View {
   
         .onAppear{
             reviewViewModel.course = course
+            print(course)
         }
        
         

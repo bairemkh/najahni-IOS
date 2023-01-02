@@ -9,20 +9,50 @@ import SwiftUI
 
 struct QuizView: View {
     @State var quiz:Quiz
+    @State var score:[Int] = []
     @State var progress = 0
     var body: some View {
-        TabView(selection: $progress){
-            ForEach(quiz.questions.indices){i in
-               var question = quiz.questions[i]
-                QuestionView(question: question, indexQuestion: i,completed: i==quiz.questions.count-1){
-                    print("opp")
-                    withAnimation {
-                        progress = i+1
-                    }
-                }.tag(i)
+        NavigationView{
+            VStack {
+                TabView(selection: $progress){
+                    ForEach(quiz.questions.indices){i in
+                       var question = quiz.questions[i]
+                        QuestionView(question: question, indexQuestion: i,completed: i==quiz.questions.count-1){ scoreQuestion in
+                            withAnimation {
+                                score[i] = scoreQuestion
+                                if progress < quiz.questions.count-1{
+                                    print("in")
+                                    progress = i+1
+                                }
+                                print(score)
+                            }
+                        }.tag(i)
 
+                    }
+                }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                    .onAppear{
+                        score = quiz.questions.map({ q in
+                            return 0
+                        })
+                }
+                ProgressView(value: Double(progress+1)/Double(quiz.questions.count))
+                    .padding(.all)
+                    .accentColor(/*@START_MENU_TOKEN@*/Color("secondaryColor")/*@END_MENU_TOKEN@*/)
+                Spacer()
+                if progress == quiz.questions.count-1{
+                    NavigationLink(destination: QuizResultView(score: score)) {
+                        Text("Complete the quiz")
+                            .foregroundColor(Color.white)
+                            .multilineTextAlignment(.center)
+                            .frame(width: 300.0,height: 60.0)
+                            .background(Color("primaryColor"))
+                            .cornerRadius(25)
+                    }
+                }
+                
             }
-        }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        }.navigationBarBackButtonHidden()
+        
     }
 }
 
@@ -39,8 +69,8 @@ struct QuestionView: View {
     @State var isLast = false
     @State var question:Question
     @State var indexQuestion:Int
-    @State var completed = false
-    @State var action:()->Void
+    @State var completed : Bool
+    @State var action:(Int)->Void
     @State var indexAnswer:Int = -1
     var body: some View {
         VStack {
@@ -63,35 +93,57 @@ struct QuestionView: View {
                         
                     } onSelect: {
                         indexAnswer = question.propositions.firstIndex(of: listdata.name) ?? -1
+                        if(indexAnswer == question.indexResponse)
+                        {
+                            action(10)
+                        }else{
+                            action(0)
+                        }
                     }
 
                 }
                     .padding(.all)
                 
             }
-            if(completed){
-                NavigationLink(destination: {
+           /* if(completed){
+                NavigationLink(isActive: $completed,destination: {
                     EmptyView()
                 }, label: {
                     Text("Complete")
-                        .foregroundColor(.blue)
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.center)
+                        .frame(width: 300.0,height: 60.0)
+                        .background(Color("primaryColor"))
+                        .cornerRadius(25)
+                        .onTapGesture {
+                            if(indexAnswer == question.indexResponse)
+                            {
+                                action(10)
+                            }else{
+                                action(0)
+                            }
+                            completed = true
+                        }
                         
                 })
 
             }else{
                 Text("Next")
-                    .foregroundColor(.blue)
+                    .foregroundColor(Color.white)
+                    .multilineTextAlignment(.center)
+                    .frame(width: 300.0,height: 60.0)
+                    .background(Color("primaryColor"))
+                    .cornerRadius(25)
                     .onTapGesture {
-                        print("hola")
-                        action()
+                        if(indexAnswer == question.indexResponse)
+                        {
+                            action(10)
+                        }else{
+                            action(0)
+                        }
                     }
-            }
-                            
-            /*Button(action: {
-                action()
-            }) {
-                Text("next")
             }*/
+                 
             
         }
         

@@ -12,7 +12,7 @@ import SlidingTabView
 
 struct CourseDetailView: View {
     @StateObject var viewModel = DetailPageViewModel()
-    var course : Course
+    @State var course : Course
     @State var passChat = false
     @State private var selectedTabIndex = 0
     @Environment(\.presentationMode) var presentationMode
@@ -175,8 +175,8 @@ struct CourseDetailView: View {
                             ScrollView(.vertical,showsIndicators: false) {
                                 ForEach(course.sections) { section in
                                     SectionCardView(section: section)
-                                    
                                 }
+                                QuizViewPart(quiz: $course.quiz)
                             }
 
                         }
@@ -202,19 +202,13 @@ struct CourseDetailView: View {
                 Button {
                     self.presentationMode.wrappedValue.dismiss()
                 }label: {
-                    HStack(spacing: 8.0) {
-                        Image(systemName: "chevron.left")
+                        Image(systemName: "chevron.backward.circle.fill")
                             .resizable()
-                            
-                            
-                        
-                    }
+                            .frame(width: 25,height: 25)
+                            .padding(.all)
+                            .foregroundColor(Color("primaryColor"))
                     
                 }
-                .background(Color.white)
-                .frame(width: 25, height: 25)
-                .cornerRadius(38.5)
-                .padding()
                 Spacer()
             }
             
@@ -410,6 +404,7 @@ struct LessonsViewPart: View {
 }
 
 struct QuizViewPart: View {
+    @State var isBuyed = false
     @State var goQuiz = false
     @Binding var quiz:Quiz
     var body: some View {
@@ -428,12 +423,12 @@ struct QuizViewPart: View {
                     Text("\(quiz.questions.capacity) Questions")
                 }
                 Spacer()
-                NavigationLink(destination: EmptyView(),isActive: $goQuiz) {
+                NavigationLink(destination: QuizView(quiz: quiz),isActive: $goQuiz) {
                     ZStack {
                         Circle()
                             .frame(width: 30)
                             .foregroundColor(Color(hue: 0.738, saturation: 0.922, brightness: 0.866, opacity: 0.3))
-                        if(false){
+                        if(isBuyed){
                             Image(systemName: "play.fill")
                                 .foregroundColor(Color("primaryColor"))
                                 .onTapGesture {
