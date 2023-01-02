@@ -91,10 +91,11 @@ struct HostingTabBarView: View {
             }
             .onDisappear()
             .background(Color("BackgroundColor"))
+            .navigationBarBackButtonHidden()
             
             //.onDisappear()
             
-        }
+    }
     }
 
 struct HostingTabBarView_Previews: PreviewProvider {

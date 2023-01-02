@@ -40,7 +40,7 @@ struct QuizView: View {
                     .accentColor(/*@START_MENU_TOKEN@*/Color("secondaryColor")/*@END_MENU_TOKEN@*/)
                 Spacer()
                 if progress == quiz.questions.count-1{
-                    NavigationLink(destination: QuizResultView(score: score)) {
+                    NavigationLink(destination: QuizResultView(score: score,quiz: quiz)) {
                         Text("Complete the quiz")
                             .foregroundColor(Color.white)
                             .multilineTextAlignment(.center)

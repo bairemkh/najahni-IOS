@@ -11,6 +11,7 @@ struct WishListView: View {
     @State var wishlist : [Course] = []
     @State var showAlert = false
     @State var onDelete = false
+    @State var posDel = IndexSet()
     var body: some View {
         VStack {
             if #available(iOS 16.0, *) {
@@ -21,14 +22,22 @@ struct WishListView: View {
                                     
                                 Alert(title: Text("Confirm"), primaryButton: .destructive(Text("Delete")){
                                     onDelete = true
+                                    wishlist.remove(atOffsets: posDel)
+                                    print("wishist = \(wishlist)")
+                                    UserDefaults.standard.removeObject(forKey: WISHLIST)
+                                    UserDefaults.standard.set(wishlist.map({ c in
+                                        return c.id
+                                    }), forKey: WISHLIST)
                                 }, secondaryButton: .cancel (Text("Cancel")){
                                     onDelete = false
                                 })
                             }
                     }.onDelete { io in
                         showAlert = true
+                        posDel = io
                         if(onDelete){
                             wishlist.remove(atOffsets: io)
+                            print("wishist = \(wishlist)")
                             UserDefaults.standard.removeObject(forKey: WISHLIST)
                             UserDefaults.standard.set(wishlist.map({ c in
                                 return c.id
@@ -63,7 +72,4 @@ struct WishListView_Previews: PreviewProvider {
     static var previews: some View {
         WishListView()
     }
-}
-func delete(at offsets:IndexSet){
-    
 }

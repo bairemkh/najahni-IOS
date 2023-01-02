@@ -14,6 +14,7 @@
 "Email_or_password_are_incorrect"="Email or password are incorrect";
 "Connectivity_error,_please_check_!"="Connectivity error, please check !";
 "close"="Close";
+"create_one" = "Create one";
 /************************ signup Page ***************************/
 "Let's_Create_A_new_Account"="Let's Create A new Account";
 "Name"="Name";
