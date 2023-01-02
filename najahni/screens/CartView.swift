@@ -11,15 +11,35 @@ struct CartView: View {
     @State var cartlist : [Course] = []
     @State private var showWebView = false
     @StateObject var cartViewModel = CartViewModel()
+    @State var showAlert = false
+    @State var onDelete = false
+    @State var posDel = IndexSet()
   
     var body: some View {
         VStack{
+            HStack{
+                Text("Cart")
+                    .font(.system(size: 16, weight: .bold, design: .default))
+                    .padding(.horizontal)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/Color("primaryColor")/*@END_MENU_TOKEN@*/)
+                Spacer()
+            }
+            .padding([.leading, .bottom, .trailing])
             List{
                     ForEach(cartlist) { course in
                         CustomCardCartView(course: course)
                             .shadow(color: Color(hue: 1.0, saturation: 0.0, brightness: 0.906), radius: 10)
-                    }.onDelete(perform: { ind in
-                        print("deleted")
+                    }.onDelete(perform: { io in
+                        showAlert = true
+                        posDel = io
+                        if(onDelete){
+                            cartlist.remove(atOffsets: io)
+                            
+                            UserDefaults.standard.removeObject(forKey: CART)
+                            UserDefaults.standard.set(cartlist.map({ c in
+                                return c.id
+                            }), forKey: CART)
+                        }
                     })
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             }
@@ -67,6 +87,20 @@ struct CartView: View {
                 WebView(url: URL(string: cartViewModel.urlString)!,showWebView: $showWebView)
                       }
             
+        }
+        .alert(isPresented: $showAlert) {
+                
+            Alert(title: Text("Confirm"), primaryButton: .destructive(Text("Delete")){
+                onDelete = true
+                cartlist.remove(atOffsets: posDel)
+            
+                UserDefaults.standard.removeObject(forKey: CART)
+                UserDefaults.standard.set(cartlist.map({ c in
+                    return c.id
+                }), forKey: CART)
+            }, secondaryButton: .cancel (Text("Cancel")){
+                onDelete = false
+            })
         }
             .onAppear(){
                 print(cartViewModel.list)

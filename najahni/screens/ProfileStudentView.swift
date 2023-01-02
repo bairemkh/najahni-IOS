@@ -19,90 +19,102 @@ struct ProfileStudentView: View {
     var body: some View {
         //NavigationView{
             VStack {
-                ZStack {
-                    WebImage(url: URL(string:"\(URL_BASE_APP)\(SessionManager.currentUser?.image ?? "")"))
-                        .resizable()
-                        .clipShape(Circle())
-                        .padding()
-                        .frame(width: 150.0, height: 150.0)
-                    .aspectRatio(contentMode: .fill)
-                    VStack {
-                        Spacer()
-                            .frame(height: 90)
-                        HStack {
+                HStack{
+                    Text("Profile")
+                        .font(.system(size: 16, weight: .bold, design: .default))
+                        .padding(.horizontal)
+                        .foregroundColor(/*@START_MENU_TOKEN@*/Color("primaryColor")/*@END_MENU_TOKEN@*/)
+                    Spacer()
+                }
+                .padding([.leading, .bottom, .trailing])
+                ScrollView {
+                    ZStack {
+                        WebImage(url: URL(string:"\(URL_BASE_APP)\(SessionManager.currentUser?.image ?? "")"))
+                            .resizable()
+                            .clipShape(Circle())
+                            .padding()
+                            .frame(width: 150.0, height: 150.0)
+                        .aspectRatio(contentMode: .fill)
+                        VStack {
                             Spacer()
-                                .frame(width: 50)
-                            ZStack {
-                                Circle()
-                                    .frame(width: 35)
-                                    .foregroundColor(Color("primaryColor"))
-                                Image(systemName: "arrow.down.to.line")
-                                    .resizable()
-                                    .frame(width: 15,height: 15)
-                                    .foregroundColor(.white)
-                            }.onTapGesture{
-                                print("pick")
-                                showSheet = true
-                                
-                            }
-                            .sheet(isPresented: $showSheet,onDismiss: {
-                                viewModel.editPhoto(image: images){
-                                    
-                                        (success) in
-                                        if success {
-                                            print("jawha nice")
-                                        }else {
-                                            print("not logged in")
-                                            
-                                        }
+                                .frame(height: 90)
+                            HStack {
+                                Spacer()
+                                    .frame(width: 50)
+                                ZStack {
+                                    Circle()
+                                        .frame(width: 35)
+                                        .foregroundColor(Color("primaryColor"))
+                                    Image(systemName: "arrow.down.to.line")
+                                        .resizable()
+                                        .frame(width: 15,height: 15)
+                                        .foregroundColor(.white)
+                                }.onTapGesture{
+                                    print("pick")
+                                    showSheet = true
                                     
                                 }
-                            }) {
-                                // Pick an image from the photo library:
-                                ImagePicker(sourceType: .photoLibrary, selectedImage: $images)}
+                                .sheet(isPresented: $showSheet,onDismiss: {
+                                    viewModel.editPhoto(image: images){
+                                        
+                                            (success) in
+                                            if success {
+                                                print("jawha nice")
+                                            }else {
+                                                print("not logged in")
+                                                
+                                            }
+                                        
+                                    }
+                                }) {
+                                    // Pick an image from the photo library:
+                                    ImagePicker(sourceType: .photoLibrary, selectedImage: $images)}
+                            }
                         }
                     }
-                }
-                Spacer()
-                    .frame(height: 20)
-                Text("\(user.firstname) \(user.lastname)")
-                Spacer()
-                    .frame(height: 20)
-                Text("Email: \(user.email)")
-                Divider()
-                Group{
-                    NavigationLink(destination: EditProfileView(firstname: user.firstname, lastname: user.lastname, image: user.image),isActive: $pass) {
-                        CustomButtonView(icon: "pencil",buttonText: "Edit_profile")
-                            .onTapGesture {
-                                pass = true
-                            }
-                    }.foregroundColor(Color("primaryColor"))
-                    NavigationLink{
-                       SettingsView()
-                    } label: {
-                        CustomButtonView(icon: "gearshape.2.fill",buttonText: "Settings")
-                    }.foregroundColor(Color("primaryColor"))
-                    NavigationLink{
-                       PrivacyPolicyView()
-                    } label: {
-                        CustomButtonView(icon: "shield.lefthalf.filled",buttonText: "Privacy Policy")
-                    }.foregroundColor(Color("primaryColor"))
-                    NavigationLink{
-                       VerifyTrainerView()
-                    } label: {
-                        CustomButtonView(icon: "briefcase.fill",buttonText: "To_Trainer").foregroundColor(Color("secondaryColor"))
-                    }.foregroundColor(Color("primaryColor"))
-                    
-                    NavigationLink(destination: LoginView(), isActive: $onLogOut){
-                        CustomButtonView(icon: "rectangle.portrait.and.arrow.forward",buttonText: "Logout")
-                            .onTapGesture {
-                                print(UserDefaults.standard.object(forKey: "token")!)
-                                UserDefaults.standard.removeObject(forKey: "token");                     UserDefaults.standard.removeObject(forKey: "role")
-                                
-                                onLogOut = true
-                                print(UserDefaults.standard.object(forKey: "token"))
-                            }
-                            .foregroundColor(.red)
+                    Spacer()
+                        .frame(height: 20)
+                    Text("\(user.firstname) \(user.lastname)")
+                        .font(.system(size: 14, weight: .bold, design: .default))
+                    Spacer()
+                        .frame(height: 20)
+                    Text("Email: \(user.email)")
+                        .font(.system(size: 14, weight: .medium, design: .default))
+                    Divider()
+                    Group{
+                        NavigationLink(destination: EditProfileView(firstname: user.firstname, lastname: user.lastname, image: user.image),isActive: $pass) {
+                            CustomButtonView(icon: "pencil",buttonText: "Edit_profile")
+                                .onTapGesture {
+                                    pass = true
+                                }
+                        }.foregroundColor(Color("primaryColor"))
+                        NavigationLink{
+                           SettingsView()
+                        } label: {
+                            CustomButtonView(icon: "gearshape.2.fill",buttonText: "Settings")
+                        }.foregroundColor(Color("primaryColor"))
+                        NavigationLink{
+                           PrivacyPolicyView()
+                        } label: {
+                            CustomButtonView(icon: "shield.lefthalf.filled",buttonText: "Privacy Policy")
+                        }.foregroundColor(Color("primaryColor"))
+                        NavigationLink{
+                           VerifyTrainerView()
+                        } label: {
+                            CustomButtonView(icon: "briefcase.fill",buttonText: "To_Trainer").foregroundColor(Color("secondaryColor"))
+                        }.foregroundColor(Color("primaryColor"))
+                        
+                        NavigationLink(destination: LoginView(), isActive: $onLogOut){
+                            CustomButtonView(icon: "rectangle.portrait.and.arrow.forward",buttonText: "Logout")
+                                .onTapGesture {
+                                    print(UserDefaults.standard.object(forKey: "token")!)
+                                    UserDefaults.standard.removeObject(forKey: "token");                     UserDefaults.standard.removeObject(forKey: "role")
+                                    
+                                    onLogOut = true
+                                    print(UserDefaults.standard.object(forKey: "token"))
+                                }
+                                .foregroundColor(.red)
+                        }
                     }
                 }
             }

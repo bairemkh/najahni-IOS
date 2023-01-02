@@ -21,7 +21,7 @@ struct CustomCard2View: View {
             Text(course.title)
                 .font(.system(size: 12, weight: .bold, design: .default))
                 .padding(.horizontal)
-                .foregroundColor(.black)
+                .foregroundColor(Color("TextColor"))
             HStack{
                 Spacer()
                     .frame(width: 17.0)
@@ -35,29 +35,35 @@ struct CustomCard2View: View {
                 Text(course.idowner!.firstname + " " + course.idowner!.lastname)
                 
                     .font(.system(size: 10, weight: .bold, design: .default))
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color("TextColor"))
             }
             HStack{
-                Text("\(course.price) " + "TND")
-                    .padding([.leading, .trailing])
-                    .foregroundColor(.black)
-                Spacer().frame(width: 50)
+                Spacer().frame(width: 20)
+                HStack {
+                        Text((course.isPaid) ? "\(course.price) TND" : "Free")
+                            .font(.system(size: 12, weight: .medium, design: .default))
+                            .padding(5)
+                            .foregroundColor( Color.white)
+                }
+                          .background(Color("secondaryColor"))
+                          .cornerRadius(12)
+                Spacer().frame(width: 65)
                 HStack {
                     Image(systemName: "star.fill")
                         .resizable()
                         .frame(width: 15,height: 15)
                         .foregroundColor(.yellow)
-                    Text("\(course.rating.formatted())")
+                    Text("\(course.rating,specifier: "%.1f")")
                         .font(.system(size: 11, weight: .bold, design: .default))
                         .fontWeight(.medium)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("TextColor"))
                 }
                 
             }
             .padding([.bottom])
                }
 
-        .background(Color("BackgroundColor"))
+        .background(Color("CardColor"))
                .clipShape(RoundedRectangle(cornerRadius: 24.0))
                .shadow(color: Color(hue: 1.0, saturation: 0.0, brightness: 0.906), radius: 10)
                

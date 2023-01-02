@@ -48,7 +48,7 @@ class MyCoursesViewModel : ObservableObject {
             switch res.result {
             case .success(let data):
                 let json = JSON(data)
-                print(json)
+                print("completed : *****  \(json)")
                 var courses :[Enroll]? = []
                 for singleJsonItem in json["enrolled"]{
                     courses!.append(EnrollService.makeItem(jsonItem: singleJsonItem.1))

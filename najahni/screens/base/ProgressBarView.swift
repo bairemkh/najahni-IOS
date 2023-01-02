@@ -24,6 +24,7 @@ struct ProgressBarView: View {
                 .animation(.linear)
             Text(String(format: "%.0f %%", min(self.progress, 1.0)*100.0))
                 .font(.system(size: 16))
+                .foregroundColor(Color("primaryColor"))
                 .bold()
         }
         .padding(.all)
