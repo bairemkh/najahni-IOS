@@ -40,7 +40,7 @@ struct najahniApp: App {
     }
     var body: some Scene {
         WindowGroup {
-       /*SplashView()
+       SplashView()
                 .background(Color("BackgroundColor"))
                 .environment(\.colorScheme, isDarkMode ? .dark : .light)
 
@@ -61,9 +61,7 @@ struct najahniApp: App {
                         @unknown default:
                             print("unknown")
                         }
-                    }*/
-            
-            AddQuizView(quiz: Quiz(id: "4452", courseid: "", questions: [Question]()))
+                    }
         }
     }
 }

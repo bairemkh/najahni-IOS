@@ -25,7 +25,7 @@
 "Select" = "Sélectionner";
 "Create" = "S'inscrire";
 "Already_have_an_account_?" = "Vous avez déjà un compte ?";
-
+"Edit_Quiz"="Quiz";
 /**----------Forget password---------*/
 "Go_back" = "Retourner";
 "Forgot_your_password_??" = "Mot de passe oublié ??";

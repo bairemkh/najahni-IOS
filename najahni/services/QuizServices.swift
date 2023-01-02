@@ -46,4 +46,50 @@ class QuizServices{
                 
             }
     }
+    static func addQuiz(courseid:String,completed:@escaping(Bool,Quiz?)->Void){
+        AF.request(URL_BASE_APP + "/course/addQuiz/"+courseid, method: .post, encoding: JSONEncoding.default)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseJSON{
+                (res) in
+                switch res.result {
+                case .success(let data):
+                    let json = JSON(data)
+                    print(json)
+                    completed(true,QuizServices.makeQuiz(jsonItem: JSON(data)))
+                case .failure(_):
+                    print("request failed")
+                    print(res.error?.responseCode)
+                    completed(false,nil)
+                }
+                
+            }
+    }
+    
+    static func addQuestion(quizid:String,question:Question,completed:@escaping(Bool,Question?)->Void){
+        let body : [String : Any] = [
+            "question": question.question,
+            "correctIndex": question.indexResponse,
+            "props": question.propositions.map({ f in
+                return f
+            })
+        ]
+        AF.request(URL_BASE_APP + "/course/addQuestionToQuiz/"+quizid, method: .post,parameters: body, encoding: JSONEncoding.default)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseJSON{
+                (res) in
+                switch res.result {
+                case .success(let data):
+                    let json = JSON(data)
+                    print(json)
+                    completed(true,QuizServices.makeQuestion(jsonItem: JSON(data)))
+                case .failure(_):
+                    print("request failed")
+                    print(res.error?.responseCode)
+                    completed(false,nil)
+                }
+                
+            }
+    }
 }
