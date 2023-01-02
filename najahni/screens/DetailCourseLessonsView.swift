@@ -136,6 +136,7 @@ struct DetailCourseLessonsView: View {
                 }
 
             }
+            .background(Color("BackgroundColor"))
             .padding(.all)
             .alert("Aleardy reviewed", isPresented: $showAlert) {
                 Button("OK", role: .cancel) { showReview = false}
