@@ -98,11 +98,13 @@ struct ProfileStudentView: View {
                         } label: {
                             CustomButtonView(icon: "shield.lefthalf.filled",buttonText: "Privacy Policy")
                         }.foregroundColor(Color("primaryColor"))
-                        NavigationLink{
-                           VerifyTrainerView()
-                        } label: {
-                            CustomButtonView(icon: "briefcase.fill",buttonText: "To_Trainer").foregroundColor(Color("secondaryColor"))
+                        if SessionManager.currentUser?.role == Role.Student {
+                            NavigationLink{
+                               VerifyTrainerView()
+                            } label: {
+                                CustomButtonView(icon: "briefcase.fill",buttonText: "To_Trainer").foregroundColor(Color("secondaryColor"))
                         }.foregroundColor(Color("primaryColor"))
+                        }
                         
                         NavigationLink(destination: LoginView(), isActive: $onLogOut){
                             CustomButtonView(icon: "rectangle.portrait.and.arrow.forward",buttonText: "Logout")

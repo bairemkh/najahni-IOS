@@ -118,8 +118,6 @@ struct toProfile: View {
                         self.isActive = true
                     }
                     
-                    print("1 --------->\(SessionManager.currentUser)")
-                    print("1 --------->\(UserDefaults.standard.string(forKey: "role")!)")
                 }
                 
                 

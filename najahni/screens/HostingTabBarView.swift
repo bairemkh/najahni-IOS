@@ -83,11 +83,8 @@ struct HostingTabBarView: View {
             .navigationBarBackButtonHidden(true)
             
             .onAppear{
-                print("user =====> \(SessionManager.currentUser)")
-                print("user role =====> \(SessionManager.currentUser?.role)")
-                print("user role 2 =====> \(SessionManager.currentUser?.role)")
                 user = SessionManager.currentUser!
-                role = UserDefaults.standard.string(forKey: "role")!
+                role = SessionManager.currentUser!.role.rawValue
             }
             .onDisappear()
             .background(Color("BackgroundColor"))

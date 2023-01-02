@@ -45,7 +45,7 @@ struct ResetPasswordView: View {
                     .shadow(color: .gray, radius: 3,x: 1,y: 2)
                 Spacer()
                 
-                NavigationLink(destination: HostingTabBarView(), isActive: $next) {
+                NavigationLink(destination: LoginView(), isActive: $next) {
                     Button(action:  {
                         viewModel.resetPassword(password: viewModel.newPassword, confirmPassword: viewModel.confirmPassword){msg,canPass in
                             print("\(msg) \(canPass)")

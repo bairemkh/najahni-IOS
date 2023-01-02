@@ -25,7 +25,7 @@ struct HomeView: View {
     var body: some View {
         VStack{
             HStack{
-                WebImage(url: URL(string:"\(URL_BASE_APP)\(SessionManager.currentUser?.image ?? "")"))
+                WebImage(url:URL(string:"\(URL_BASE_APP)\(SessionManager.currentUser?.image ?? "")"))
                     .resizable()
                     .clipShape(Circle())
                     .shadow(radius: 10)

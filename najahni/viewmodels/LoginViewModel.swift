@@ -118,6 +118,7 @@ class LoginViewModel: ObservableObject {
             switch response.result {
             case .success:
                 print("upload")
+                //SessionManager.currentUser!.image = 
                 completed(true)
             case let .failure(error):
                 print(error)
