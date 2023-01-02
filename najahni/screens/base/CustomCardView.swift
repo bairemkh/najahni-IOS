@@ -57,7 +57,7 @@ struct CustomCardView: View {
                         .font(.system(size: 12, weight: .bold, design: .default))
                         .fontWeight(.medium)
                         .foregroundColor(Color("TextColor"))
-                    Text("12 Lessons")
+                    Text("\(course.lessonNumber) Lessons")
                         .font(.system(size: 12, weight: .bold, design: .default))
                         .fontWeight(.medium)
                         .foregroundColor(Color("TextColor"))
