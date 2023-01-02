@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftyJSON
+import Alamofire
 class CommentService{
     static func makeItem(jsonItem: JSON) -> Comment {
         do {
@@ -23,4 +24,30 @@ class CommentService{
          }
         
     }
+    
+    static func addComment(course: Course,content:String,completed:@escaping(Bool,Int) -> Void){
+        let token = UserDefaults.standard.string(forKey: "token")
+        let headers : HTTPHeaders = [.authorization(bearerToken: SessionManager.token!)]
+        let parmetres : [String : Any] = [
+            "content": content,
+        ]
+        AF.request(ADD_COMMENTS + course.id, method: .post, parameters: parmetres, encoding: JSONEncoding.default, headers: headers)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseJSON{
+                (res) in
+                switch res.result {
+                case .success(let data):
+                    let json = JSON(data)
+                    print(json)
+                    completed(true,200)
+                case .failure(let error):
+                    print("request failed")
+                    print(res.error?.responseCode)
+                    completed(false,res.error?.responseCode ?? 500)
+                }
+                
+            }
+    }
+    
 }
