@@ -34,6 +34,8 @@ let PAIEMENT_COURSE = URL_BASE_APP + "/course/initpayement"
 let MESSAGE_CONTACTS = URL_BASE_APP + "/message/get-Contacts"
 let ADD_REVIEW = URL_BASE_APP + "/review/add-review/"
 let PROGRESS = URL_BASE_APP + "/enroll/progress/"
+let GET_COMMENTS = URL_BASE_APP + "/comment/get-comment/"
+let ADD_COMMENTS = URL_BASE_APP + "/comment/add-comment/"
 
 
 let WISHLIST = "wishlist"
