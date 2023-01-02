@@ -10,6 +10,7 @@ import SwiftUI
 struct QuizResultView: View {
     @State var score:[Int]
     @State var finalScore = 0
+    @State var quiz :Quiz
     var body: some View {
         NavigationView{
             ScrollView {
@@ -46,7 +47,7 @@ struct QuizResultView: View {
                     }
                     Spacer()
                         .frame(height: 30)
-                    if((finalScore/score.count)*10>60){
+                    if((finalScore/score.count)*10>55){
                         VStack {
                             Image(systemName: "checkmark.circle.fill")
                                 .resizable()
@@ -57,6 +58,10 @@ struct QuizResultView: View {
                                 .font(.title2)
                                 .foregroundColor(.green)
                                 
+                        }.onAppear{
+                            QuizServices.sendCertif(courseid: quiz.courseid) { isSent, code in
+                                print("\(isSent) \(code)")
+                            }
                         }
                     }else{
                         VStack {
@@ -75,7 +80,7 @@ struct QuizResultView: View {
                     Spacer()
                         .frame(height: 100)
                     NavigationLink {
-                        HomeView()
+                        HostingTabBarView()
                     } label: {
                             Text("Go to Home")
                                 .foregroundColor(Color.white)
@@ -100,6 +105,6 @@ struct QuizResultView: View {
 
 struct QuizResultView_Previews: PreviewProvider {
     static var previews: some View {
-        QuizResultView(score: [10,0,0,0])
+        QuizResultView(score: [10,0,0,0],quiz: Quiz(courseid: "ffddgg", questions: []))
     }
 }
