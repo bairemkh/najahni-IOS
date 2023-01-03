@@ -1,5 +1,24 @@
-<h1 align="center">This is Najahni Mobile app</h1>
-<h2 align="center">Created by bairem khedhri and mohamed oueslati</h3>
+
+<div align="center">
+  <a href="https://github.com/github_username/repo_name">
+    <img src="https://res.cloudinary.com/dns52wnzn/image/upload/v1672413659/image-1_rkfgvr.png?fbclid=IwAR1mErlsMIVU6Tw0W49net-E_YijYgppbwhsKszQYp9QiaAWpivjeGrT1ss" alt="Logo" width="80">
+  </a>
+
+<h3 align="center">Najahni</h3>
+
+  <p align="center">
+    Backend Repository
+  </p>
+</div>
+
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Credits](#credits)
+* [Contact](#contact)
+
+## General info
 
 - 🔭 What is the Najahni application? **It is an online learning platform where you can share your knowledge using videos and other resources.**
 
@@ -32,21 +51,42 @@ How to ensure that the paid course will be worth the price:
 Each course or resource has a comments section that allows users to give feedback on them.
 <br>
 
-**Achievement Badge**
-<br>
-After each achievement, the student or instructor will get badges to reward them for their efforts.
-
 **Easy access to courses (filtering, recommendation, search)**
 <br>
 Access to courses will be easier thanks to a classification by categories and criteria. In addition, there will be recommendations based on the user's specificities and the best recommended trainers, not to mention the search).
 
-**Popular courses**
+**Recommended courses**
 <br>
 The application will recommend courses based on its ranking and the number of students enrolled in the course.
 
 <br>
 <h6> And Other Features ;) </h6>
 <h6> The App will be ready as soon as possible </h6>
+<br> <br>
 
-<h3 align="left">Languages and Tools:</h3>
-<a href="https://developer.apple.com/swift/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/swift-original-wordmark.svg" alt="Swift" height="200" />
+## Technologies
+<p align="left"> <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> </p>
+<br> <br>
+
+## Setup
+
+First You have to clone it
+```
+$ git clone https://github.com/bairemkh/najahna-backend.git
+```
+Then, to run this project, Type the code below to install it:
+```
+$docker compose up
+```
+
+## Credits
+<h3 align="left">This project realized by :</h3>
+<ul>
+  <li><a href="https://www.linkedin.com/in/bairem-khedhri">Bairem Khedhri</a></li>
+  <li><a href="https://www.linkedin.com/in/mohamed-oueslati-aa1a531b4/">Mohamed OUESLATI</a></li>
+</ul>
+<h3 align="left">and also supervised by Mr. Khaled Guedria</h3>
+
+## Contact
+
+Najahni - najahni.contact@gmail.com
